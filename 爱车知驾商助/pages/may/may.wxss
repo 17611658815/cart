@@ -1,0 +1,39 @@
+/* pages/may/may.wxss */
+.rightPic{
+    width: 15rpx;
+    height: 25rpx
+}
+.headerBox{
+    width: 94%;
+    padding: 20rpx 3%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.userText{
+    height: 100rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.userPic{
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    background: #999999;
+}
+.usertag text{
+    padding: 5rpx 5rpx;
+    font-size: 22rpx;
+    color: #528FC3;
+    background: #F1F9FF;
+}
+
+
+.item_icon{
+    width: 50rpx;
+    height: 50rpx;
+    background: #999999;
+    margin-right: 30rpx;
+}

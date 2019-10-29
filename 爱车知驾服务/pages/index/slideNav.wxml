@@ -1,0 +1,8 @@
+<template name="slideNav">
+    <view class='selectItems-content' catchtap='hideslideNav' catchtouchmove='ture'>
+        
+    </view>
+    <view class='{{slideNav ? "selectItems-content-show":"selectItems-content-hide"}}' catchtouchmove='ture'>
+           
+        </view>
+</template>

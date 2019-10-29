@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="headerTab">
+    <image class="user_pic" bindtap="gomaycenter" src="../../images/2.png"></image>
+        <view class="navList" id='list'>
+            <view  data-index='{{index}}' class="{{currentTab==0 ? 'color4 navActive':'color4'}}">首页</view>
+            <view bindtap="goCarservice" data-index='{{index}}' class="{{currentTab==1 ? 'color4 navActive':'color4'}}">知驾车服</view>
+    </view>
+     <image class="mag_pic" src="../../images/1.png"></image>
+</view>
+<view class="container">
+    <view class="headerBox">
+        <view class="padding30 dpfC">
+            <view class="fontSize-40 color4 fontWeight5">欢迎加入</view>
+            <view class="fontSize-26 color4">维保自由，收入稳定</view>
+        </view>
+        <view class="loginBtn">立即注册，开始接单赚钱</view>
+    </view>
+    <view style=" border-radius:20rpx;padding-bottom: 20rpx;" class="width90 bgFFFF dpfC marginTop20">
+        <view class="dpfb width90 padding30">
+            <view class="fontSize-36 color1 fontWeight6">维修故事</view>
+            <view class="fontSize-26 color3">
+                了解更多
+                <image class="icon_right" src='../../images/icon_right.png'></image>
+            </view>
+        </view>
+        <view class="thumb width90">
+            <image mode="aspectFill" src='../../images/1.jpg'></image>
+        </view>
+    </view>
+     <view style=" border-radius:20rpx;padding-bottom: 20rpx;" class="width90 bgFFFF dpfC marginTop20">
+        <view class="width90 maegin20 fontSize-32 fontWeight6">常见问题</view>
+        <view class="width90">
+            <view class="fontSize-32 color1 fontWeight6">成为知驾服务维修师需要什么条件</view>
+            <view style='line-height: 40rpx;' class="maegin20 fontSize-26 color3">A;年龄在18周岁以上，且必须有中华人民共和国劳动部和社会保障步统一印制，劳动部门或国务院有关不玩呢按规定办理和核发，至少含初级，中级，高级，技师</view>
+        </view>
+    </view>
+</view>

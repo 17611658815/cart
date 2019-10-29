@@ -1,0 +1,15 @@
+.navList{
+    padding: 0 3%;
+    background: #ffffff;
+    border-bottom: 1rpx solid #e2e2e2;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: space-around;
+}
+.navList>view{
+    padding-bottom: 15rpx;
+}
+.navActive{
+    color: #F9903F;
+    border-bottom: 5rpx solid #F9903F;
+}

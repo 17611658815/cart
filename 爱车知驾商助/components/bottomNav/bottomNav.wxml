@@ -1,0 +1,15 @@
+<view class="bottomNav">
+    <view class="navtab">
+        <navigator hover-class='none' open-type='redirect' wx:for='{{tabArr}}'data-index="{{index}}" bindtap="switchTab" wx:key="key" url="{{item.url}}">
+        <view class="dpfC" style="flex: 1;" >
+            <view>
+                <image src='{{item.slicon}}' wx:if='{{navbarData == index}}'></image>
+                <image src='{{item.icon}}' wx:else></image>
+            </view>
+            <view class="{{navbarData == index ? 'actives':''}}">{{item.text}}</view>
+        </view>
+         </navigator>
+    </view>
+   
+     <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
+</view>

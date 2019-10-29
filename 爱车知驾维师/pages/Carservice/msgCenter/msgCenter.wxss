@@ -1,0 +1,14 @@
+/* pages/Carservice/msgCenter/msgCenter.wxss */
+.rightPic{
+    width: 15rpx;
+    height: 25rpx
+}
+.item_icon{
+    width: 35rpx;
+    height: 35rpx;
+    margin: 0 20rpx;
+}
+.item_icon image{
+    width: 100%;
+    height: 100%;
+}

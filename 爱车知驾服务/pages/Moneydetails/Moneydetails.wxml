@@ -1,0 +1,35 @@
+<view class="container">
+    <view class="dpfC width90 color2">
+        <view class="marginTop10 fontSize-32">普通型</view>
+        <view class="marginTop10 fontSize-22">2018-09-01</view>
+        <view class="marginTop10 fontSize-30">维工</view>
+        <view class="width85 dpfb marginTop10 border fontSize-30">
+            <text>一口价</text>
+            <text>161.00元</text>
+        </view>
+        <view class="width85" style="padding:50rpx 0;">
+            <view class="dpfend dpf marginTop fontSize-28">
+                支付金额 <text class="fontSize-40 fontWeight5"> 161.00 </text>元
+            </view>
+            <view class="dpfend marginTop fontSize-22 color3">
+               * 车费计算四舍五入去小数点后两位
+            </view>
+           <view class="dpfend fontSize-26 marginTop">
+               查看支付方式
+            </view>
+        </view>
+        <view class="ruleBtn">
+            查看计价规则
+        </view>
+        <view class="width85 dpfC fontSize-26 padding30">
+            常见问题
+        </view>
+        <view class="width85 dpfb fontSize-26 padding30 borderBtm" wx:for='{{3}}'>
+            <view class="dpf width100 color3">
+                <text class="dian_3 marginRight"></text>
+                查看计价规则查看计价规则查看计价规则
+            </view>
+            <view class="icon_Bottom"></view>
+        </view>
+    </view>
+</view>

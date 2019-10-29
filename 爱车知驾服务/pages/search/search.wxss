@@ -1,0 +1,17 @@
+/* pages/search/search.wxss */
+page{
+    background: #f8f8f8;
+}
+.xia_icon{
+    width: 20rpx;
+    height: 20rpx;
+    margin-left: 20rpx;
+}
+.left_icon{
+    width: 100rpx;
+    height: 100rpx;
+}
+.left_icon image{
+    width: 50rpx;
+    height: 50rpx;
+}

@@ -1,0 +1,28 @@
+<view class='container'>
+    <view class="width90 padding20 color3 fontSize-28">
+        信息仅用于审核，绝不外泄
+    </view>
+    <view class="width100 bgFFFF dpfC padding30">
+        <view class="width90 dpf">北京市
+            <text class="icon_Bottom marginLeft"></text>
+        </view>
+    </view>
+    <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
+        <view class="layoutList_item width90 dpfb padding20" bindtap="chooseImageTap">
+            <view class="borderLeft">欠费账单记录</view>
+               <view class="dpf color6">
+            前往拍摄 <image class="rightPic marginLeft" src='../../images/icon/icon_right.png'></image>
+            </view>
+        </view>
+    </view>
+    <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
+        <view class="layoutList_item width90 dpfb padding20" bindtap="chooseImageTap">
+            <view class="borderLeft">店面与法人合影照</view>
+               <view class="dpf color6">
+            前往拍摄 <image class="rightPic marginLeft" src='../../images/icon/icon_right.png'></image>
+            </view>
+        </view>
+    </view>
+
+    <view class="addBtn">保存</view>
+</view>

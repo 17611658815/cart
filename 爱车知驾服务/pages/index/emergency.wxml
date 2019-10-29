@@ -1,0 +1,45 @@
+<template name="Emergency">
+    <view class='emergency-shade'  catchtap='selecEmergency' catchtouchmove='ture'>
+
+    </view>
+    <view class="{{emShow ? 'emergency-contentShow':'emergency-contentHide'}}" catchtouchmove='ture'>
+        <image class="delImg" catchtap='selecEmergency' src="../../images/icon_colse.png"></image>
+        <view class="dpfC width85">
+            <view class="width100 dpf" style="margin-top:60rpx">
+                <view class="fontSize-45 color1 fontWeight6" style="margin-right:30rpx;">急救中心</view> 
+                <view class="fontSize-28 color3">更多 
+                    <image class="icon_right_2" src='../../images/icon_right.png'></image>
+                </view> 
+            </view>
+            <view class="width100 dpf" style="padding:80rpx 0;">
+                <view class="dpfC" style="flex:1">
+                    <view class="boxShadow dpfC" style="width:150rpx;height:150rpx;background:#ffffff;border-radius:50%;">
+                        <image class="icon_Emergency" src="../../images/share_icon.png"></image>
+                    </view>
+                    <view class="marginTop fontSize-36 color1 fontWeight5">服务分享</view>
+                </view>
+                <view class="dpfC" style="flex:1">
+                     <view class="boxShadow dpfC" style="width:150rpx;height:150rpx;background:#F96B69;border-radius:50%;"><image class="icon_Emergency" src="../../images/clock_icon.png"></image>
+                    </view>
+                    <view class="marginTop fontSize-36 color1 fontWeight5">122报警</view>
+                </view>
+            </view>
+            <view class="width100 dpf" style="padding:80rpx 0;">
+                <view class="dpfb width100">
+                    <view class="dpf">
+                        <view class="iconBox">
+                        
+                        </view>
+                         <view class="fontSize-30 color3 marginLeft">紧急联系人</view>
+                    </view>
+                    <view>
+                        <image class="icon_right_2" src="../../images/icon_right.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</template>
+
+
+

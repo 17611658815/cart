@@ -1,0 +1,46 @@
+<view class="container">
+    <view class="headerTab">
+        <image class="user_pic" bindtap="gomaycenter" src="../../../images/2.png"></image>
+        <view class="navList" id='list'>
+            <view bindtap="goIndex" data-index='{{index}}' class="{{currentTab==0 ? 'color4 navActive':'color4'}}">首页</view>
+            <view data-index='{{index}}' class="{{currentTab==1 ? 'color4 navActive':'color4'}}">知驾车服</view>
+        </view>
+        <image class="mag_pic" src="../../../images/1.png"></image>
+    </view>
+    <view class="header_box">
+        <image mode="aspectFill" src="../../../images/1.jpg"></image>
+    </view>
+    <view class="bannerBox">
+        <view class="boxShadow">
+            <view>多装多转</view>
+            <view>免费加盟试驾</view>
+        </view>
+        <view class="marginLeft boxShadow">
+             <view>高价卖车</view>
+            <view>无中间商赚差价</view>
+        </view>
+    </view>
+    <view class="width90 otherentrance paddinglr dpfb bgFFFF">
+        <view class="dpf">
+             <image style='width:70rpx;height:70rpx' class="marginRight" mode="aspectFill" src="../../../images/1.jpg"></image>
+             <text>订单服务</text>
+        </view>
+          <image class="rightPic" src='../../../images/icon_right.png'></image>
+    </view>
+    <view class="fontSize-32 width90 paddinglr bgFFFF marginTop20 fontWeight6">
+        便携工具
+    </view>
+    <view class="toolbar-list">
+        <view class="toolbar-list-item" wx:for='{{8}}'>
+            <view>
+                <image src="../../../images/1.jpg"></image>
+            </view>
+            <view>维师操课</view>
+        </view>
+    </view>
+</view>
+
+
+
+<import src="../../../template/btnNab/btnNab.wxml"></import>
+<template is="btnNab" data='{{current:btnNavcurrent}}'></template>

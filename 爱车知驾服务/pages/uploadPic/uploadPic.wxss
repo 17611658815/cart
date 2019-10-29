@@ -1,0 +1,145 @@
+/* pages/uploadPic/uploadPic.wxss */
+.photoBox{
+    width: 500rpx;
+    height: 400rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(90deg);
+}
+.shootPic{
+    width: 400rpx;
+    height: 300rpx;
+    border-radius:  20rpx;
+}
+.left_1{
+     width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.left_2{
+     width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.right_1{
+     width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.right_2{
+     width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.shootBox{
+    width: 100%;
+    min-height: 100vh;
+    background: #000000;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.shootText{
+    width: 500rpx;
+    height: 300rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(90deg);
+}
+.shootbtn{
+    width: 400rpx;
+    height: 80rpx;
+    background: linear-gradient(to right,#FE5809 ,#FF8739);
+    border-radius: 10rpx;
+    text-align: center;
+    line-height: 80rpx;
+    color: #ffffff;
+}
+/* ------- */
+/* .photoBox{
+    width: 500rpx;
+    height: 400rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.shootPic{
+    width: 400rpx;
+    height: 300rpx;
+    border-radius:  20rpx;
+}
+.left_1{
+     width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.left_2{
+     width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.right_1{
+     width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.right_2{
+     width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.shootBox{
+    width: 100%;
+    min-height: 100vh;
+    background: #000000;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.shootText{
+    width: 500rpx;
+    height: 300rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 50rpx;
+}
+.shootbtn{
+    width: 400rpx;
+    height: 80rpx;
+    background: linear-gradient(to right,#FE5809 ,#FF8739);
+    border-radius: 10rpx;
+    text-align: center;
+    line-height: 80rpx;
+    color: #ffffff;
+} */

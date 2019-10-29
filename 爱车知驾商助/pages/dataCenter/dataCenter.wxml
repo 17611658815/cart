@@ -1,0 +1,67 @@
+<view class="container">
+    <!-- 头部导航 -->
+    <view class="navList width90 dpfb">
+        <view bindtap="swatchTab" data-index='{{index}}' class="{{currentTab==index ? 'color1 navActive':'color3'}}" wx:for='{{navList}}' wx:key='key'>{{item}}</view>
+    </view>
+    <!-- 店铺等级 -->
+    <view class="shopGrade">
+        <view class="shopGrade_left">
+            <view class="gradeNum fontWeight6">店铺等级:LV1
+                <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+            </view>
+            <view class="gradeDistance">
+                <view class="fontSize-26 color1">0.0/318.1</view>
+                <view class="fontSize-28 color3">距离下一级还差
+                    <text class="fontSize-30 fontWeight6 color1">318.1</text>元</view>
+            </view>
+        </view>
+        <view class="shopGrade_right">
+            <view class="shopDSR">
+                <view class="dpf fontWeight6">店铺DSR
+                    <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                </view>
+                <view class="dpf fontSize-26 color5">了解更多></view>
+            </view>
+            <view class="dsrData">
+                <view class="dpfb marginTop10">
+                    <text>描述相符:</text>
+                    <text>-超-%同行</text>
+                </view>
+                <view class="dpfb marginTop10">
+                    <text>物流服务:</text>
+                    <text>-超-%同行</text>
+                </view>
+                <view class="dpfb marginTop10">
+                    <text>服务态度:</text>
+                    <text>-超-%同行</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 交易数据 -->
+    <view class="transaction width90 paddinglr marginTop bgFFFF">
+        <view class="width100 dpfb">
+            <view class="fontSize-30">交易数据</view>
+            <view class="dpf">
+                <text class="fontSize-22 color3">2017年03月27日</text>
+                <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
+            </view>
+        </view>
+        <view class="tractionTab">
+            <view bindtap="tractionTab" data-index='{{index}}' class="{{tractionTab==index? 'acticeClass':''}}" wx:for='{{traction}}'>{{item}}</view>
+        </view>
+        <view class="tractionDataList dpfb width100 marginTop">
+            <view class="listitem" wx:for='{{8}}'>
+                <view class="dpfb">
+                    <text class="fontSize-26 color1">成交额</text>
+                    <image src="../../images/icon/icon_2.png" class="icon_2"></image>
+                </view>
+                <view class="fontSize-34 padding30 fontWeight6">￥90546.73</view>
+                <view>
+                    <text class="fontSize-22">校前一天</text>
+                    <text class="fontSize-22 fontWeight6 marginLeft">120%</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

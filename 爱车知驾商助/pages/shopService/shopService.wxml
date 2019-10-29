@@ -1,0 +1,53 @@
+<view class="container">
+    <view class="width90 paddinglr dpf">
+        <view class="title color6 fontWeight6 fontSize-30">公告</view>
+        <view class="marginLeft fontSize-28">全店满减卷功能更新，一招提升客订单</view>
+    </view>
+    <!-- 轮播图部分 -->
+    <view class='home-swiper'>
+        <swiper class="swiper" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' indicator-active-color="#ffffff" autoplay="true" circular='true' duration="1000" interval="5000">
+            <swiper-item wx:for='{{3}}' wx:key='key'>
+                <image src="../../images/Image 1.png"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="tagBox width90 paddinglr dpfb bgFFFF marginTop">
+        <navigator hover-class='none' url='/pages/promotionCenter/promotionCenter' style="padding:0 30rpx;" class="flex_1 dpfb">
+            <view class="dpf fontSize-24">
+                <view class="iconBox marginRight"></view> 新商家系列课
+            </view>
+            <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
+        </navigator>
+        <navigator hover-class='none' url='/pages/shopChunks/shopChunks' style="padding:0 30rpx;border-left:10rpx solid #f8f8f8" class="flex_1 dpfb">
+            <view class="dpf fontSize-24">
+                <view class="iconBox marginRight"></view> 日常运营3天俗称
+            </view>
+            <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
+        </navigator>
+    </view>
+    <view class="width90 paddinglr dpfb inputContainer">
+        <view class="fontSize-32 fontWeight5">帮助中心</view>
+        <view class="inputBox">
+        <image src="../../images/icon/icon_5.png"></image>
+            <input placeholder="搜索"></input>
+        </view>
+    </view>
+    <view class="question_list width90 bgFFFF paddinglr">
+        <view bindtap="swatchTab" data-index='{{index}}' class="question_list_item {{currentTab == index ? 'question_active':''}}" wx:for='{{8}}'>
+            常见问题
+        </view>
+    </view>
+    <!-- 功能列表 -->
+    <view class="typeList width100 marginTop20 dpfC bgFFFF">
+        <navigator hover-class='none' url='{{item.path}}' class="width90 dpfb bgFFFF padding30 borderBtm" wx:for='{{typeListArr}}' wx:key='key'>
+            <view class="typeList_item dpf">
+                <view>
+                    {{item.name}}
+                </view>
+            </view>
+            <view>
+                <image class="icon_right2" src='../../images/icon/icon_right.png'></image>
+            </view>
+        </navigator>
+    </view>
+</view>

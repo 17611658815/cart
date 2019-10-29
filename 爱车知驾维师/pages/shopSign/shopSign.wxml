@@ -1,0 +1,13 @@
+<view class="container bgFFFF">
+    <view class="headerPic width100">
+        <image mode="aspectFill" src="../../images/17.png"></image>
+    </view>
+    <view class="applyBtn">
+        申请成为知驾商助店铺
+    </view>
+</view>
+<view class="footerBox width100 dpfC color3">
+    <view class="fontSize-22">©2015北京爱车爸爸(北京),科技有限公司,备12043664号-4</view>
+    <view class="fontSize-26 marginTop10">客服电话:4000662788</view>
+    <view class="fontSize-26 marginTop10">点击申请成为知驾汽车维师,代表已同意,法律声明和隐私政策</view>
+</view>

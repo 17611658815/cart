@@ -1,0 +1,13 @@
+<view class="container">
+    <view class="headerPic width100">
+        <image src='../../../images/1.jpg'></image>
+    </view>
+    <view class="addinsurance dpfC">
+        <view class="fontSize-36 fontWeight5">一人生病 大家分摊</view>
+        <view  class="fontSize-36 fontWeight5">覆盖癌症和99种疾病</view>
+        <view class="marginTop20"> <text class="color8 fontSize-26">1389018</text> 
+             <text class="color3 fontSize-26">人已经加入互住计划</text>  
+        </view>
+        <view class="addbtn">0元加入</view>
+    </view>
+</view>

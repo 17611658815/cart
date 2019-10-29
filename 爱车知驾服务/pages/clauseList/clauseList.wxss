@@ -1,0 +1,70 @@
+/* pages/clauseList/clauseList.wxss */
+page{
+    background: #f8f8f8;
+}
+.tabBox {
+    width: 100%;
+    display: flex;
+    background: #ffffff;
+}
+
+.tabItem {
+    flex: 1;
+    padding: 21rpx 0;
+    text-align: center;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+
+.tabItem text {
+    padding: 20rpx 0;
+}
+
+.active {
+    color: #ea944f;
+    border-bottom: 5rpx solid #ea944f;
+}
+
+
+.videoList{
+    width: 94%;
+    padding: 0 3%;
+    margin-top: 20rpx;
+    background: #ffffff;
+}
+.videoList_box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.videoList_box_item{
+    width: 49%;
+    height: 120rpx;
+    position: relative;
+    background: #f8f8f8;
+    display: flex;
+    align-items: center;
+}
+.videoList_box_item:nth-child(n+3){
+    margin-top: 15rpx;
+}
+.videoList_box_item text{
+    font-size: 28rpx;
+    color: #000000;
+    font-weight: 500rpx;
+}
+/* .videoTitle{
+    width: 250rpx;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 22rpx;
+    color: #ffffff;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+
+} */

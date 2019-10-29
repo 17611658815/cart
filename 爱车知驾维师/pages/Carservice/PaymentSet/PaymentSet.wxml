@@ -1,0 +1,14 @@
+
+<!-- 功能列表 -->
+    <view class="typeList width100 bgFFFF dpfC {{index == 2 || index==0 ? 'marginTop20':''}}" wx:for='{{typeListArr}}' wx:key='key'>
+        <navigator hover-class='none' url='{{item.path}}' class="width90 dpfb  padding30 borderBtm }" >
+            <view class="typeList_item dpf">
+                <view>
+                    {{item.name}}
+                </view>
+            </view>
+            <view>
+                <image class="rightPic" src='../../../images/icon_right.png'></image>
+            </view>
+        </navigator>
+    </view>

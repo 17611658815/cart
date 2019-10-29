@@ -1,0 +1,47 @@
+.navList{
+    padding: 15rpx 3%;
+    background: #ffffff;
+    border-bottom: 1rpx solid #e2e2e2;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: space-around;
+}
+.navList>view{
+    padding-bottom: 15rpx;
+}
+.navActive{
+    color: #000000;
+    border-bottom: 5rpx solid #000000;
+}
+.mssageList{
+    width: 90%;
+}
+
+.mssageList_item_time{
+    width: 100rpx;
+    height: 50rpx;
+    background: #D7D7D7;
+    color: #ffffff;
+    border-radius: 10rpx;
+    text-align: center;
+    line-height: 50rpx;
+    font-size: 26rpx;
+    margin: 30rpx 0;
+}
+.mssageList_item_content{
+    width: 100%;
+    display: flex;
+    padding: 20rpx 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+}
+.mssageList_item_content>view:nth-child(3){
+    width: 100%;
+    border-top: 1rpx solid #e2e2e2;
+    text-align: right;
+    padding: 20rpx 0 0 0;
+    font-size: 26rpx;
+    color: #666666;
+}

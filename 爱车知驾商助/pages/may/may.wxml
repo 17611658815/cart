@@ -1,0 +1,27 @@
+<view class="container">
+    <!-- 头部信息 -->
+    <view class="headerBox">
+        <view class="userPic"></view>
+        <view class="userText flex_1 marginLeft">
+            <view class="fontSize-32">知驾设备汽车用品官方旗舰店</view>
+            <view class="usertag">
+                <text>店铺认证审核中</text>
+            </view>
+        </view>
+        <image class="rightPic" src='../../images/icon/icon_right.png'></image>
+    </view>
+    <!-- 功能列表 -->
+    <view class="typeList width100">
+        <navigator hover-class='none' url='{{item.path}}' class="width90 paddinglr dpfb bgFFFF {{index == 0 || index ==1 || index==2 || index == 3 || index == 6 ? 'marginTop':''}}" wx:for='{{typeListArr}}' wx:key='key'>
+            <view class="typeList_item dpf">
+                <view class="item_icon"></view>
+                <view>
+                    {{item.name}}
+                </view>
+            </view>
+            <view>
+                <image class="rightPic" src='../../images/icon/icon_right.png'></image>
+            </view>
+        </navigator>
+    </view>
+</view>

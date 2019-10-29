@@ -1,0 +1,166 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"coverView": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.8.3",
+	"appid": "wx09475e1c13deb589",
+	"projectname": "%E7%88%B1%E8%BD%A6%E7%9F%A5%E9%A9%BE%E6%9C%8D%E5%8A%A1",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 16,
+			"list": [
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/other/other",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "附近店铺",
+					"pathName": "pages/nearby/nearby",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "上传证件",
+					"pathName": "pages/uploadPic/uploadPic",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "勾选服务商品",
+					"pathName": "pages/cartList/cartList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付订单",
+					"pathName": "pages/placeOther/placeOther",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "保费明细",
+					"pathName": "pages/Moneydetails/Moneydetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的钱包",
+					"pathName": "pages/wallet/wallet",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "设置",
+					"pathName": "pages/setCenter/setCenter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "车主服务",
+					"pathName": "pages/carOwnerServer/carOwnerServer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "推荐有奖",
+					"pathName": "pages/recommend/recommend",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "店铺商品",
+					"pathName": "pages/shopDetaile/shopDetaile",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "法律条款平台规则",
+					"pathName": "pages/clauseList/clauseList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户指南",
+					"pathName": "pages/userGuide/userGuide",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "维师介绍人",
+					"pathName": "pages/invite/invite",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "知驾商助",
+					"pathName": "pages/shopLogin/shopLogin",
+					"scene": null
+				}
+			]
+		}
+	}
+}

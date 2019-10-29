@@ -1,0 +1,29 @@
+<view class="container">
+     <view class='cleaningList'>
+        <view class='cleaningList-item' 
+                bindtap='gocleaningDetails' 
+                data-id='{{item.id}}' 
+                wx:for="{{5}}" 
+                wx:key='key'>
+            <view class='cleaningList-item-photo'>
+                <image mode="aspectFill" src='../../images/1570861870.jpg'></image>
+            </view>
+            <view class='cleaningList-item-text'>
+                <view class='cleaningList-item-title fontSize-32 color1'>机油</view>
+                <view class='cleaningList-item-time color4 fontSize-32'>
+                    <text style='font-weight:500'>160元</text>
+                    <image class="shopcar" src='../../images/shopcar.png'></image>
+                </view>
+                <view class='cleaningList-item-bottom'  wx:if='{{show}}'>
+                    <view class='cleaningList-item-icon'>
+                        <image src='../../../../images/icon/icon_common2.png'></image>
+                    </view>
+                    <view class='cleaningList-item-type fontSize-22 color3 dpf'>
+                        {{item.shopname}}
+                        <image class="icon_right_m" src='../../../../images/icon/icon_right.png'></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

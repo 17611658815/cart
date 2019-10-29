@@ -1,0 +1,39 @@
+.carNoopsyche_box{
+    width: 100%;
+    background: #f8f8f8;
+}
+.addfacility{
+    width: 94%;
+    padding: 30rpx 3%;
+    background: #ffffff;
+    border: 1rpx solid #e2e2e2;
+    display: flex;
+    align-items: center;
+}
+.left_add{
+    width: 100rpx;
+    height: 100rpx;
+    background: #EDEDED;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left_add image{
+    width: 60rpx;
+    height: 60rpx;
+}
+.right_textBox{
+    flex: 1;
+    margin-left: 20rpx;
+}
+.Car_picBox{
+    width: 94%;
+    height: 200rpx;
+    background: #999999;
+}
+.NoopsycheList_item{
+    width: 100%;
+    height: 400rpx;
+    background: #999999;
+    margin-bottom: 20rpx;
+}

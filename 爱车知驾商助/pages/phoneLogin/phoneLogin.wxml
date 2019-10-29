@@ -1,0 +1,32 @@
+<view class="loginPage">
+    <view class="logoBox">
+
+    </view>
+    <view class='inputBox'>
+        <view class="input_tetx">登录</view>
+        <view class="input_val">
+            <view>+86</view>
+            <input value="{{phone}}" bindinput="savePhone"></input>
+        </view>
+        <form bindsubmit="formSubmit">
+            <view class='content'>
+                <block wx:for="{{Length}}" wx:key="item">
+                    <input class='iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password='{{ispassword}}' catchtap='Tap'></input>
+                </block>
+                 <view class="codeBtn" bindtap="getCode" wx:if='{{noSend}}'>获取验证码</view>
+                <view class="codeBtn" wx:else>{{num}}</view>
+               
+                
+            </view>
+            <input name="password" password="{{true}}" class='ipt' maxlength="{{Length}}" focus="{{isFocus}}" bindinput="Focus"></input>
+             <view class="agreement">
+            <text>登录表示同意</text>
+            <text class="color8">《用户条款与隐私协议》</text>
+        </view>
+            <view>
+                <button class="btn-area" formType="submit">登 录</button>
+            </view>
+        </form>
+       
+    </view>
+</view>

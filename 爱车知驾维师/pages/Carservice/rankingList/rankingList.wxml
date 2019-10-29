@@ -1,0 +1,28 @@
+<view class="container">
+    <view class="toptab width100 bgFFFF">
+        <view bindtap="swatchTab" data-index='0' class="{{currentTab == 0 ? 'toptab_active':''}}">挣钱最多</view>
+        <view bindtap="swatchTab" data-index='1' class="{{currentTab == 1 ? 'toptab_active':''}}">效率最高</view>
+    </view>
+    <view class="ranking_tiem">
+        昨日（07月16日）
+    </view>
+    <view class="ranking_num">
+        <view></view>
+        <view>
+            <view class="fontSize-28">我 -</view>
+            <view class="fontSize-28 color3 marginTop20">中级维修师昨日完成订单才会参与排行哦。（初级维修师暂不参与偶爱行）</view>
+        </view>
+    </view>
+   <view class="typeList width100 dpfC bgFFFF">
+        <navigator hover-class='none' url='{{item.path}}' class="width90 dpfb bgFFFF padding30" wx:for='{{typeListArr}}' wx:key='key'>
+            <view class="typeList_item dpf">
+                <view>
+                    {{item.name}}
+                </view>
+            </view>
+            <view>
+                <image class="rightPic" src='../../../images/icon_right.png'></image>
+            </view>
+        </navigator>
+    </view>
+</view>

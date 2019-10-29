@@ -1,0 +1,87 @@
+/* pages/wallet/wallet.wxss */
+page{
+    background: #f8f8f8;
+}
+.rightPic{
+    width: 15rpx;
+    height: 25rpx
+}
+.item_icon{
+    width: 50rpx;
+    height: 50rpx;
+    background: #999999;
+    margin-right: 30rpx;
+}
+.listitem{
+    padding: 30rpx  0;
+
+    border-bottom: 1rpx solid #e2e2e2;
+}
+
+/* 卡卷样式 */
+/* 这是第二个 */
+.wrapper {
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 200rpx;
+  filter: drop-shadow(4rpx 4rpx 8rpx #999);
+  margin-top: 30rpx;
+}
+.wrapper>view{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.left>view:nth-child(2){
+    margin-top: 50rpx;
+}
+.wrapper text{
+  display: inline-block;
+  position: absolute;
+  right: 30%;
+  top: 10rpx;
+  border: 2rpx solid red;
+
+}
+.ticket_icon{
+    width: 40rpx;
+    height: 40rpx;
+    background: #999999;
+    margin-right: 20rpx;
+}
+.left {
+     background: #ffffff;
+  background: radial-gradient(circle at top right, transparent 10rpx, #ffffff 0) top right, radial-gradient(circle at bottom right, transparent 5px, #ffffff 0) bottom right;
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  color: #999;
+  width: 70%;
+  border-radius: 10rpx 0 0 10rpx;
+}
+
+.right {
+    background: #ffffff;
+  background: radial-gradient(circle at top left, transparent 10rpx, #ffffff 0) top left,radial-gradient(circle at bottom left, transparent 10rpx, #ffffff 0) bottom left;
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  width: 30%;
+  color: #999;
+  border-radius: 0 10rpx 10rpx 0; 
+  display: flex;
+  position: relative;
+}
+.right>view{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+.right::after{
+  content: "";
+  position: absolute;
+  top: 10rpx;
+  height: 180rpx;
+  border-left: 2rpx dashed #e2e2e2;
+}

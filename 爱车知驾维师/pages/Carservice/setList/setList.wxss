@@ -1,0 +1,10 @@
+/* pages/Carservice/setList/setList.wxss */
+
+.logOut{
+    width: 94%;
+    padding: 30rpx 3%;
+    background: #ffffff;
+    margin-top: 30rpx;
+    text-align: center;
+    color: #FFA500;
+}

@@ -1,0 +1,6 @@
+<view class="container">
+    <view class="content" wx:for='{{arr}}'>
+        <view>{{item.title}}</view>
+        <view>{{item.num}}</view>
+    </view>
+</view>

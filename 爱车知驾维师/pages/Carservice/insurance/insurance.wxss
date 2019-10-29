@@ -1,0 +1,21 @@
+/* pages/Carservice/insurance/insurance.wxss */
+.headerPic image{
+    width: 100%;
+    height: 500rpx;
+}
+.addinsurance{
+    width: 80%;
+    background: #ffffff;
+    padding: 40rpx 0;
+    border-radius: 10rpx;
+}
+.addbtn{
+    width: 80%;
+    height: 90rpx;
+    background-image: linear-gradient(#FFB961, #FF8F61);
+    border-radius: 90rpx;
+    margin-top: 40rpx;
+    color: #ffffff;
+    text-align: center;
+    line-height: 90rpx;
+}

@@ -1,0 +1,75 @@
+.authorization-shade{
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 100;
+}
+.authorization-contentHide{
+    width: 100%;
+    height: 600rpx;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    bottom: -600rpx;
+   background: #FFFFFD;
+    z-index: 999;
+    animation: myfirsts 0.5s;
+}
+.authorization-contentShow{
+    position: fixed;
+     display: flex;
+     flex-direction: column;
+     padding: 30rpx 5%;
+    align-items: center;
+    left: 0;
+    bottom: 0;
+    width: 90%;
+    height: 600rpx;
+    background: #FFFFFD;
+    z-index: 999;
+    animation: authorization 0.5s;
+    
+}
+@keyframes authorization {
+    0% {
+        bottom: -600rpx;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+.text_1{
+    line-height: 40rpx;
+}
+.btnBox view{
+    width: 325rpx;
+    height: 80rpx;
+    text-align: center;
+    line-height: 80rpx;
+    border-radius: 6rpx;
+
+}
+.leftBtn{
+    border: 1rpx solid #535466;
+    color: #535466
+}
+.rightBtn{
+    background: #535466;
+    color: #ffffff;
+    position: relative;
+}
+.loginBtn{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: none;
+}

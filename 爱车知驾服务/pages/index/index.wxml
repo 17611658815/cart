@@ -1,0 +1,301 @@
+<view class="container">
+    <!-- 头部 -->
+    <view class="headerBox width100 dpfC padding20">
+        <view class="headerBox width90 dpfb">
+            <view class="user_nav" bindtap="onshowslideNav">
+                <image src="../../images/user_icon.png"></image>
+            </view>
+            <view class="addres">
+                <text class="fontSize-30 color2 marginRight10">北京市</text>
+            </view>
+            <view class="dpf">
+                <view class="mssage_icon_box">
+                    <image src="../../images/mssage_icon.png"></image>
+                </view>
+                <view class="scan_box">
+                    <image src="../../images/scan_icon.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 导航 'margin-top:'+height+' -->
+    <view class='scroll-x-content {{fined ? "fix-news":""}}' id="list">
+        <scroll-view scroll-x="true" class='scroll-x-box' scroll-with-animation="true" id="scroll-view" scroll-left="{{ scrollLeft }}">
+            <view class='scroll-x-content-item' bindtap='swatchTab' data-id="{{item.id}}" id="item-{{index}}" data-index="{{index}}" wx:for='{{navArr}}' wx:key='index'>
+                <view class="dpfC">
+                    <text class='{{index==currentTab? "active"+(currentTab):"defaultColor"}}'>{{item.name}}</text>
+                </view>
+            </view>
+        </scroll-view>
+        <image catchtap="allserveShow" class="icon_down" src="../../images/more_icon.png"></image>
+        <view class="list_container dpfC padding20" style="z-index:5" wx:if='{{isShadeShow}}'>
+
+            <view style="position: relative" class="width90 dpfC color2 fontSize-30">全部服务
+                <image class="icon_colse" catchtap="allserveShow" src="../../images/icon_colse.png"></image>
+            </view>
+            <view class="server_item marginTop">
+
+                <view class="server_item_item dpfC" wx:for="{{navArr}}" wx:key='key'>
+                    <navigator hover-class='none' url='{{item.path}}'>
+                        <view class="server_item_logo"></view>
+                        <view class="color3 fontSize-26 marginTop">
+                            {{item.name}}
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- map地图 -->
+    <view class="width100" wx:if='{{currentTab<=4}}'>
+
+
+        <view class="mapBox dpfC">
+            <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 100%;"></map>
+            <!-- 提示信息 -->
+            <view class="hint_msg width90 dpfb padding20 boxShadow" wx:if='{{typeNum== 0}}'>
+                <view class="hint_icon dpf">
+                    <image src="../../images/hint_icon.png"></image>
+                </view>
+                <view class="hint_text fontSize-26 color2 ">
+                    2019年知驾车服,免费六项车体检查
+                </view>
+                <view class="hint_btn">
+                    查看详情
+                </view>
+            </view>
+            <!-- 服务结束导航列表 -->
+            <view class="finishListBox padding20 boxShadow" wx:if='{{typeNum== 4}}'>
+                <view class="width90 dpf">
+                    <view class="dpfC">
+                        <view class="fontSize-22 color2">张技师</view>
+                        <view class="fontSize-26 fontWeight5 color2">161.00元</view>
+                    </view>
+                    <view class="dpfC">
+                        <image src="../../images/police_icon.png"></image>
+                        <view class="fontSize-22 color2">122报警</view>
+                    </view>
+                    <view class="dpfC" bindtap="redPacket">
+                        <image src="../../images/redpacket_icon.png"></image>
+                        <view class="fontSize-22 color2">感谢红包</view>
+                    </view>
+                    <view class="dpfC">
+                        <image src="../../images/phone_icon.png"></image>
+                        <view class="fontSize-22 color2">打电话</view>
+                    </view>
+                    <view class="dpfC">
+                        <image src="../../images/invoice_icon.png"></image>
+                        <view class="fontSize-22 color2">开发票</view>
+                    </view>
+                    <view class="dpfC">
+                        <image src="../../images/down3_icon.png"></image>
+                    </view>
+                </view>
+            </view>
+            <!-- 急叫中心 -->
+            <view class="call_Box" catchtap="selecEmergency">
+                <view class="left_icon">
+
+                </view>
+                <view class="dpf">急叫中心
+                    <image class="right_icon marginLeft10" src="../../images/right_icon.png"></image>
+                </view>
+            </view>
+        </view>
+        <!-- 选择服务 -->
+        <view class="width100 dpfC" wx:if='{{typeNum== 0}}'>
+            <view class="width90 dpfC boxShadow padding30">
+                <view class="tabNav width90">
+                    <view data-index="0" bindtap="servetab" class="{{ serveCurrent == 0 ? 'border':''}}">现在</view>
+                    <!-- <picker mode="multiSelector" data-index="1" bindtap="servetab" class="{{ serveCurrent == 1 ? 'border':''}}">预约</picker> -->
+                    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" data-index="1" bindtap="servetab" class="{{ serveCurrent == 1 ? 'border':''}}">预约</picker>
+                    <view data-index="2" bindtap="servetab" class="{{ serveCurrent == 2 ? 'border':''}}">代叫</view>
+                    <view data-index="3" bindtap="servetab" class="color7 {{ serveCurrent == 3 ? 'borderRed':''}}">急叫</view>
+                </view>
+                <view class="address dpf width90 marginTop padding20">
+                    <view class="left_Box">
+                        <text class="dian_1"></text>
+                    </view>
+                    <view class="right_text fontSize-28 color2">
+                        北京科技大学教工住宅41栋
+                    </view>
+                </view>
+                <view class="problem dpf width90">
+                    <view class="left_Box">
+                        <text class="dian_2"></text>
+                    </view>
+                    <view bindtap='onbindfocus' class="right_text fontSize-28 color2"> 您的车有什么问题
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- 预约维师 -->
+        <view class="width100 dpfC" wx:if='{{typeNum== 1}}'>
+            <view class="width90 dpfC boxShadow padding30">
+                <view class="width100 dpf borderBtm" style="margin-bottom:5rpx;">
+                    <view class="serveType {{serveType == 0 ? 'serverTypeActive':''}}" data-index='0' bindtap="serveType">
+                        <view class="color1 fontSize-32">来店</view>
+                        <view class="marginTop serveLogo"></view>
+                        <view class="marginTop fontSize-26">预估
+                            <text class="color1 fontSize-36 fontWeight6">50.7</text>元</view>
+                    </view>
+                    <view class="serveType {{serveType == 1 ? 'serverTypeActive':''}}" data-index='1' bindtap="serveType">
+                        <view class="color1 fontSize-32">取车</view>
+                        <view class="marginTop serveLogo"></view>
+                        <view class="marginTop fontSize-26">预估
+                            <text class="color1 fontSize-36 fontWeight6">50.7</text>元
+                        </view>
+                    </view>
+                </view>
+                <view class="slectTime width100 dpf padding20 fontSize-26 color1">
+                    <!-- 预约时间 -->
+                    <view>
+                        <picker mode="multiSelector" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                            <view class="picker">
+                                预约时间 > {{region[0]}}{{region[1]}}{{region[2]}}
+                            </view>
+                        </picker>
+                    </view>
+                    <!-- 预约技师 -->
+                    <view>
+                        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                            <view class="picker">
+                                选择维师 > {{region[0]}}{{region[1]}}{{region[2]}}
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+                <view class="makeBtn">
+                    预约维师
+                </view>
+            </view>
+        </view>
+        <!-- 正在为您预约维师 -->
+        <view class="width100 dpfC" wx:if='{{typeNum== 2}}'>
+            <view class="width90 dpfC boxShadow">
+                <view class="width90 dpf">
+                    <view class="technicianPic">
+
+                    </view>
+                    <view class="marginLeft">
+                        <view style="padding-top:30rpx;">正在为您预约维师...</view>
+                        <view class="padding20 fontSize-22 color3">正在为您预约维师正在为您预正正在为您预约维师正在为您预约维师正在为您预约维师在为您预约维师约维师</view>
+                    </view>
+                </view>
+                <view bindtap="recallOther" class="delOther width100 dpfC padding20">取消订单</view>
+            </view>
+        </view>
+        <!-- 维修师接单 -->
+        <view class="width100 dpfC" wx:if='{{typeNum== 3}}'>
+            <view class="width90 dpfC boxShadow">
+                <view class="width90 dpf padding20 borderBtm">
+                    <view class="leftinfo">
+                        <view class="fontSize-40 color1 fontWeight6">证书:***0689</view>
+                        <view class="fontSize-32 color1 fontWeight6 marginTop10">初级技能</view>
+                        <view class="fontSize-26 color3 marginTop10">
+                            <text class="marginRight">陈师傅</text>
+                            <text class="marginRight">5.0</text>
+                            <text class="marginRight">6519单</text>
+                        </view>
+                    </view>
+                    <view class="rightPic">
+
+                    </view>
+                </view>
+                <view class="width90 dpf padding20 sherec_ontainer">
+                    <!-- 122报警 -->
+                    <view class="dpfC shereBox fontSize-20">
+                        <image src="../../images/police_icon.png"></image>
+                        <text class="marginTop10">122报警</text>
+                    </view>
+                    <!-- 取消订单 -->
+                    <view class="dpfC shereBox fontSize-20 borderLeft" bindtap="sendDanmuOff">
+                        <image src="../../images/del2_icon.png"></image>
+                        <text class="marginTop10">取消订单</text>
+                    </view>
+                    <!-- 发消息 -->
+                    <view class="dpfC shereBox fontSize-20 borderLeft">
+                        <image src="../../images/mssage_icon.png"></image>
+                        <text class="marginTop10">发消息</text>
+                    </view>
+                    <!-- 打电话 -->
+                    <view class="dpfC shereBox fontSize-20 borderLeft">
+                        <image src="../../images/phone_icon.png"></image>
+                        <text class="marginTop10">打电话</text>
+                    </view>
+                    <!-- 洗车分享 -->
+                    <view class="dpfC shereBox fontSize-20 borderLeft borderRight">
+                        <image src="../../images/share_icon.png"></image>
+                        <text class="marginTop10">洗车分享</text>
+                    </view>
+                    <view class="dpfC addmore fontSize-20">
+                        <image src="../../images/gengduo.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!-- 维保结束 -->
+        <view class="width100 dpfC" wx:if='{{typeNum== 4}}'>
+            <view class="width90 dpfC boxShadow padding30">
+                <view class="width90 fontSize-32 fontWeight5">
+                    您的评价会让维师做的更好
+                    <text class="leaber_1">匿名</text>
+                </view>
+                <!-- 评星 -->
+                <view class='starBox' style='margin-top:30rpx;'>
+                    <view class='star_item'>
+                        <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:key="star1" bindtap='getStar' data-star='{{item}}' style='background:url({{diagnosisStar >= item ? iconArr[1] : iconArr[0]}}) no-repeat center center/6.7vw 6.7vw;'></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="width100 dpfC marginTop" wx:if='{{typeNum== 4}}'>
+            <view class="width90 dpf boxShadow padding30">
+                <view class="dpfC" style="flex:1">
+                    <view style="width:80rpx;height:80rpx; border-radius:50%; background: #999999"></view>
+                    <view class="fontSize-26 color3 marginTop10">分享领红包</view>
+                </view>
+                <view class="dpfC" style="flex:1">
+                    <view style="width:80rpx;height:80rpx; border-radius:50%; background: #999999"></view>
+                    <view class="fontSize-26 color3 marginTop10">质量体验官</view>
+                </view>
+            </view>
+        </view>
+        <view class="width100 dpfC marginTop" wx:if='{{typeNum== 4}}'>
+            <view class="width90 boxShadow dpfC" style="padding-bottom:20rpx;">
+                <view class="width90 questionList">
+                    <view class="questionitem">我丢了东西</view>
+                    <view class="questionitem">我的费用问题</view>
+                    <view class="questionitem">对维修工不满意</view>
+                    <view class="questionitem">级别或维修信息不符</view>
+                </view>
+                <view class="width90 fontSize-28 color1 padding20 more">
+                    更多问题
+                    <image class="more_right" src="../../images/icon_right.png"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 活动推荐 -->
+    <import src="recommended.wxml"></import>
+    <template is="recommended" wx:if='{{currentTab == 5}}' data=""></template>
+    <!-- 车生活 -->
+    <import src="carife.wxml"></import>
+    <template is="carife" wx:if='{{currentTab == 10}}' data=""></template>
+    <!-- 车载智能 -->
+    <import src="carNoopsyche.wxml"></import>
+    <template is="carNoopsyche" wx:if='{{currentTab == 11}}' data=""></template>
+</view>
+<!-- 侧滑个人中心 -->
+<view class='shade_1' wx:if='{{slideNav}}' catchtap='onhideslideNav' catchtouchmove='ture'></view>
+<view class='shade_2' wx:if='{{isShadeShow}}' catchtap='allserveShow' catchtouchmove='ture'></view>
+
+<slideNav id='slideNav' slideNav='{{slideNav}}' bind:showslideNav='onshowslideNav' bind:hideslideNav='onhideslideNav'></slideNav>
+
+<!-- 急救中心 滑出-->
+<import src="emergency.wxml"></import>
+<template is="Emergency" wx:if='{{emShow}}' data="{{emShow:emShow,selecEmergency:selecEmergency}}"></template>
+
+<!-- 授权滑出-->
+<import src="authorization.wxml"></import>
+<template is="authorization" wx:if='{{authorizationShow}}' data="{{authorizationShow:authorizationShow,bindgetUserInfo:bindgetUserInfo}}"></template>

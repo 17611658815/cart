@@ -1,0 +1,18 @@
+/* pages/userGuide/userGuide.wxss */
+page{
+    background: #f8f8f8;
+}
+.typeList{
+    margin-top: 30rpx;
+}
+.rightPic{
+    width: 15rpx;
+    height: 25rpx
+}
+.typeList_item{
+    width: 100%;
+    justify-content: space-between;
+}
+.typeList_item_item{
+    width: 95%;
+}

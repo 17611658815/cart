@@ -1,0 +1,69 @@
+/* pages/nearby/nearby.wxss */
+
+page {
+    background: #f8f8f8;
+}
+
+.tabBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1rpx solid #e2e2e2;
+    background: #ffffff;
+    padding-top: 20rpx;
+}
+
+.tabBox view {
+    padding-bottom: 15rpx;
+    font-size: 28rpx;
+}
+
+.active {
+    border-bottom: 5rpx solid #f27c1f;
+    color: #f27c1f;
+}
+
+.city_icon {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.listBox {
+    display: flex;
+    align-items: center;
+}
+
+.listBox_text {
+    flex: 1;
+}
+
+.listBox_text>view {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.kmLogo{
+    width: 50rpx;
+    height: 50rpx;
+    background:#999999 ;
+    border-radius: 50%;
+}
+
+/* 添加 */
+
+.addBox{
+    width: 120rpx;
+    height: 120rpx;
+    background: #f27c1f;
+    position: fixed;
+    bottom: 50rpx;
+    right: 30rpx;
+    border-radius: 50%;
+    display: flex;
+}
+.addBox image{
+    width: 80rpx;
+    height: 80rpx;
+    margin: auto;
+    
+}

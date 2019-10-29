@@ -1,0 +1,70 @@
+/* pages/Carservice/videoList/videoList.wxss */
+.swiper{
+    width: 100%;
+    height: 360rpx;
+}
+swiper-item{
+    width: 100%;
+    position: relative;
+}
+.swiper_IMG{
+    width: 100%;
+    height: 100%;
+}
+.swiper-item-title1{
+    width: 94%;
+    padding: 15rpx 3%;
+    color: #ffffff;
+    font-size: 26rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #C7984A;
+}
+.swiper-item-title2{
+    width: 94%;
+    padding: 15rpx 3%;
+    color: #ffffff;
+    font-size: 40rpx;
+    position: absolute;
+    bottom: 50rpx;
+    left: 0;
+}
+
+.videoList{
+    width: 94%;
+    padding: 0 3%;
+    background: #ffffff;
+}
+.videoList_box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.videoList_box_item{
+    width: 49%;
+    height: 180rpx;
+    position: relative;
+}
+.videoList_box_item:nth-child(n+3){
+    margin-top: 15rpx;
+}
+.videoList_box_item image{
+    width: 100%;
+    height: 180rpx;
+}
+.videoTitle{
+    width: 250rpx;
+    position: absolute;
+    left: 30rpx;
+    bottom: 30rpx;
+    font-size: 22rpx;
+    color: #ffffff;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+
+}

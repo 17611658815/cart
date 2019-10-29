@@ -1,0 +1,11 @@
+<view class="container">
+    <view class="layout_tool" wx:for='{{3}}' wx:key='key'>
+        <view class="padding30">商品</view>
+        <view class="toolList">
+            <view class="toolList_item" wx:for='{{5}}' wx:key='key'>
+                <view class="toolList_item_icon"></view>
+                <view class="marginTop10 fontSize-24 color3">车品体验</view>
+            </view>
+        </view>
+    </view>
+</view>

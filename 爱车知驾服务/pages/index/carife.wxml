@@ -1,0 +1,29 @@
+<!-- 活动推荐 -->
+<template name="carife">
+        <view class="container">
+                <view class="weather">
+                    <view class="weather_left">
+                        <image src='../../images/sun.png'></image>
+                        <view>
+                            <view>33°C 不宜洗车</view>
+                            <view>限号0/5</view>
+                        </view>
+                    </view>
+                    <view class="fontSize-28 color1">
+                        我的知驾服务
+                        <image class="icon_right" src='../../images/icon_right.png'></image>
+                    </view>
+                </view>
+                <view class="carife_list width90">
+                    <view wx:for='{{8}}'>
+                    
+                    </view>
+                </view>
+                <view class="carifePic_list width100">
+                    <view wx:for='{{5}}'></view>
+                </view>
+        </view>
+</template>
+
+
+

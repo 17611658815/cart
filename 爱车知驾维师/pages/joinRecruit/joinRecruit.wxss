@@ -1,0 +1,89 @@
+/* pages/joinRecruit/joinRecruit.wxss */
+.shade{
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 100;
+}
+.contentHide{
+    width: 80%;
+    padding: 40rpx 10%;
+    height: 350rpx;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    bottom: -350rpx;
+    background: linear-gradient(to bottom,#F9FAFE,#EFF3FF);
+    z-index: 999;
+    animation: myfirsts 0.5s;
+    border-radius: 20rpx 20rpx 0 0 ;
+}
+.contentShow{
+    position: fixed;
+     display: flex;
+    flex-direction: column;
+      justify-content: space-between;
+    left: 0;
+    bottom: 0;
+    width: 80%;
+      padding: 40rpx 10%;
+    height: 350rpx;
+    background: linear-gradient(to bottom,#F9FAFE,#EFF3FF);
+    z-index: 999;
+    animation: myfirsts 0.5s;
+    border-radius: 20rpx 20rpx 0 0 ;
+    
+}
+@keyframes myfirsts {
+    0% {
+        bottom: -350rpx;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+.delImg{
+    width: 35rpx;
+    height: 35rpx;
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}
+.icon_Emergency{
+    width: 60rpx;
+    height: 60rpx;
+}
+.iconBox{
+    width: 50rpx;
+    height: 50rpx;
+    background: #999999;
+}
+.contentBtn{
+    width: 100%;
+    display: flex;
+}
+.contentBtn>view:nth-child(1){
+    flex: 1;
+    height: 90rpx;
+    text-align: center;
+    line-height: 90rpx;
+    border-radius: 20rpx;
+    background: #525F7F;
+    color: #ffffff;
+}
+.contentBtn>view:nth-child(2){
+    flex: 1;
+    height: 90rpx;
+    text-align: center;
+    line-height: 90rpx;
+    border-radius: 20rpx;
+    background: #FD8137;
+    color: #ffffff;
+    margin-left: 10rpx;
+}

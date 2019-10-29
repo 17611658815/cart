@@ -1,0 +1,90 @@
+/* pages/message/message.wxss */
+.container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding-bottom: 30rpx;
+    border-top: 1rpx solid #e2e2e2;
+}
+.index-serch-box{
+    width: 100%;
+    padding: 15rpx 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    border-radius: 10rpx;
+}
+.index-serch-con{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30rpx;
+    color:#999999;
+    padding: 10rpx 0;
+    background: white;
+}
+.index-serch-link-icon{
+    width: 25rpx;
+    height: 25rpx;
+    margin-right: 10rpx;
+    vertical-align: middle;
+}
+.alertText{
+    width: 94%;
+    padding: 20rpx 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #7DAEFD;
+    color: #ffffff;
+    font-size: 28rpx;
+}
+.openBtn{
+    border: 1rpx solid #ffffff;
+    padding: 5rpx 15rpx;
+    border-radius: 5rpx;
+    font-size: 28rpx;
+}
+/* 通知导航 */
+.itemlogo{
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 50%;
+    background: #7DAEFD;
+}
+.msgTabList{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+}
+.shopModule{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.shopMsg{
+    width: 600rpx;
+    padding: 50rpx 0;
+    text-align: center;
+    font-size: 28rpx;
+    color: #999999;
+}
+.shopBtn{
+     width: 500rpx;
+    height: 80rpx;
+    border-radius: 50rpx;
+    text-align: center;
+    line-height: 80rpx;
+    color: #ffffff;
+    margin-top: 30rpx;
+    background-image: linear-gradient(#F9903F, #F35235);
+}

@@ -1,0 +1,36 @@
+<view class="container bgFFFF">
+    <view class="cityBox">
+        <view class="dpf">
+            北京市
+            <text class="icon_Bottom rotate"></text>
+        </view>
+    </view>
+    <view class="imgBox boxShadowBtm">
+        <image mode="aspectFill" src="../../images/1570861870.jpg"></image>
+        <view>查看详细奖励规则 ></view>
+    </view>
+    <view class="width100 dpfC fontSize-36 fontWeight6 padding30">
+        我的邀请
+    </view>
+    <view class="dpfC width90 paddinglr">
+        <view class="width100 fontSize-26 color3">
+            已邀请
+            <text class="color6">2</text>人共获得奖金
+        </view>
+        <view class="width100 dpfb">
+            <view>
+                <text class="fontSize-36 color1 fontWeight6">700</text>
+                <text class="fontSize-26 color1 fontWeight5">元</text>
+            </view>
+            <view class="dpf">
+                <text class="fontSize-26 color3 marginRight">我的账户</text>
+                <image class="icon_right" src='../../images/icon_right.png'></image>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="footBtn dpfC">
+    <view>
+        马上邀请好友加盟
+    </view>
+</view>

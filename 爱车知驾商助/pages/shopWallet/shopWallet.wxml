@@ -1,0 +1,67 @@
+<view class="container">
+    <view class="loansNum">
+        <view class="dpf color1 fontSize-32">
+            <view class="loansLogo"></view>
+            <view class="marginLeft">贷款总额</view>
+            <image class="rightPic marginLeft" src='../../images/icon/icon_right.png'></image>
+        </view>
+        <view class="marginTop">
+            <text>￥</text>
+            <text class="fontSize-45 fontWeight5">0.00</text>
+        </view>
+    </view>
+    <view class="layoutList dpfC bgFFFF width100 marginTop">
+        <view class="layoutList_item width90 dpfb  borderBtm padding20">
+            <view>贷款明细</view>
+            <image class="rightPic" src='../../images/icon/icon_right.png'></image>
+        </view>
+        <view class="layoutList_item width90 dpfb paddinglr bgFFFF">
+            <view>管理银行卡</view>
+            <image class="rightPic" src='../../images/icon/icon_right.png'></image>
+        </view>
+    </view>
+    <view class="layoutList dpfC bgFFFF width100 marginTop">
+        <view class="width90 dpfb padding20 borderBtm">
+            <view class="dpfC">
+                <view>店铺保证金</view>
+                <view class="marginTop">
+                    <text>￥</text>
+                    <text class="fontSize-40 fontWeight5">00.00</text>
+                </view>
+            </view>
+            <image class="rightPic" src='../../images/icon/icon_right.png'></image>
+        </view>
+    </view>
+    <view class="layoutList dpfC bgFFFF width100">
+        <view class="width90 dpfb padding20 borderBtm">
+            <view class="NumBox flex_1" style="border-right:1rpx solid #e2e2e2">
+                <view>店铺保证金
+                     <image class="rightPic marginLeft10" src='../../images/icon/icon_right.png'></image>
+                </view>
+                <view class="marginTop">
+                    <text>￥</text>
+                    <text class="fontSize-40 fontWeight5">00.00</text>
+                </view>
+            </view>
+            <view class="NumBox flex_1 marginLeft">
+                <view>店铺保证金
+                 <image class="rightPic marginLeft10" src='../../images/icon/icon_right.png'></image>
+                </view>
+                <view class="marginTop">
+                    <text>￥</text>
+                    <text class="fontSize-40 fontWeight5">00.00</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="layoutList dpfC bgFFFF  width100">
+        <view class="layoutList_item width90 dpfb borderBtm padding20">
+            <view>欠费账单记录</view>
+            <image class="rightPic" src='../../images/icon/icon_right.png'></image>
+        </view>
+        <view class="layoutList_item width90 dpfb paddinglr bgFFFF">
+            <view>保证金资金记录</view>
+            <image class="rightPic" src='../../images/icon/icon_right.png'></image>
+        </view>
+    </view>
+</view>

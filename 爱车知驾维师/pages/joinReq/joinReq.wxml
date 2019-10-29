@@ -1,0 +1,34 @@
+<view class="container bgFFFF">
+    <view style='margin-top:50rpx' class="fontSize-55 fontWeight5">
+        北京知驾网约维师招募
+    </view>
+    <view class="dpf fontSize-32" style="color:#4D4D4D">
+        <text>收入稳定</text>
+        <text style="padding:0 20rpx;">权益保障</text>
+        <text>初级中级选择多</text>
+    </view>
+    <view style='margin-top:50rpx' class="color6 fontWeight6">
+        新人奖来袭, 赶快来北京接单吧
+    </view>
+    <view class="picBox marginTop20">
+        <image src='../../images/1.jpg'></image>
+    </view>
+    <view class="dpfC fontSize-22 color3">
+        <view>即日起至7月31日，中级新维修师激活30天内按要求完成任务</view>
+        <view>最高可得
+            <text>400元</text>奖励 </view>
+        <view>（活动细则以服务端公告为准） </view>
+    </view>
+    <view style='margin-top:50rpx' class="fontSize-32 color6 fontWeight6">
+        网约维师招募要求
+    </view>
+    <view class="userInfoBox">
+        <view class="dpfC width100" wx:for='{{3}}'>
+            <view class="dpf width100">
+                <text class="dian"></text>
+                <text class="fontSize-30 color1 fontWeight5">年龄</text>
+            </view>
+            <view class="fontSize-24 color3 width100 padding20">男:19-60周岁:女:21-55周岁</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,55 @@
+<view class="container">
+    <view class="width90 paddinglr bgFFFF">
+        <view class="fontSize-40 color2 fontWeight5">我的资产</view>
+        <view class="typeList width100">
+            <navigator hover-class='none' url='{{item.path}}' class="listitem width100 dpfb" wx:for='{{typeListArr}}' wx:key='key'>
+                <view class="typeList_item dpf">
+                    <view class="item_icon"></view>
+                    <view class="fontSize-26 color2">
+                        {{item.name}}
+                    </view>
+                </view>
+                <view class="dpf">
+                    <text class="fontSize-26 color3">{{item.text}}</text>
+                    <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
+                </view>
+            </navigator>
+        </view>
+    </view>
+    <view class="width90 paddinglr bgFFFF marginTop">
+        <view class="fontSize-40 color2 fontWeight5">支付方式</view>
+        <view class="typeList width100">
+            <navigator hover-class='none' url='{{item.path}}' class="listitem width100 dpfb">
+                <view class="typeList_item dpf">
+                    <view class="item_icon"></view>
+                    <view class="fontSize-26 color2">
+                        微信支付
+                    </view>
+                </view>
+                <view>
+                    <image class="rightPic" src='../../images/icon_right.png'></image>
+                </view>
+            </navigator>
+        </view>
+    </view>
+    <view class="width90 paddinglr bgFFFF marginTop">
+        <view class="dpfb">
+            <view class="fontSize-40 color2 fontWeight5">卷</view>
+            <view class="fontSize-26 color2 fontWeight5 dpf">查看全部
+                <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
+            </view>
+        </view>
+        <view class="typeList width100">
+            <view class="wrapper">
+                <view class="left">
+                    <view class="marginLeft dpf">
+                        <view class="ticket_icon"></view> 车票</view>
+                    <view class="marginLeft fontSize-26 color3">去购买</view>
+                </view>
+                <view class="right">
+                    <view>去购买</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

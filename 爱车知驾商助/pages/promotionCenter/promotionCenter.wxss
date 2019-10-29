@@ -1,0 +1,145 @@
+.navList{
+    padding: 20rpx 3%  10rpx 3%;
+    background: #ffffff;
+    border-bottom: 1rpx solid #e2e2e2;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: space-around;
+}
+.navList>view{
+    padding-bottom: 10rpx;
+}
+.navActive{
+    border-bottom: 5rpx solid #333333;
+}
+.icon_3{
+    width: 150rpx;
+    height: 100rpx;
+}
+.icon_4{
+    width: 30rpx;
+    height: 30rpx;
+}
+.moneySum{
+    display: flex;
+    justify-content: space-between;
+    background: #ffffff;
+}
+.moneySum>view{
+    flex: 1;
+}
+.sumBtn{
+    display: flex;
+    justify-content: flex-end;
+}
+.sumBtn>view{
+    width: 120rpx;
+    height: 50rpx;
+    background: #D84438;
+    color: #ffffff;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 50rpx;
+    border-radius: 3rpx;
+}
+
+/* 搜索推广数据 */
+.tabListData{
+    
+}
+.dataTab{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dataTab>view{
+    border: 1rpx solid #e2e2e2;
+    padding: 10rpx 30rpx;
+    font-size: 28rpx;
+}
+.dataTab>view:nth-child(1){
+  border-radius: 44rpx 0 0 44rpx;
+}
+.dataTab>view:nth-child(2){
+  border-radius: 0 44rpx 44rpx 0;
+}
+.acticeClass{
+    border: 1rpx solid #81AAC5!important;
+    background: #F5F8FF;
+    color: #81AAC5;
+}
+.listBox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.list_item{
+    width: 44%;
+    height: 100rpx;
+    border: 1rpx solid #e2e2e2;
+    border-bottom: none;
+    padding: 20rpx;
+}
+.list_item:nth-child(2n){
+    border-left: none;
+}
+
+
+/* 推广筛选 */
+.slect_item{
+    width: 94%;
+    padding: 20rpx 3%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+.slect_item>view{
+    flex: 1;
+    text-align: center;
+}
+.slect_item image{
+    width: 30rpx;
+    height: 30rpx;
+}
+.rotateRight{
+  transform: rotate(180deg); 
+}
+/* 排序下拉 */
+.sortList{
+    width: 100%;
+    display: flex;
+    padding: 0 0 20rpx 0;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    position: absolute;
+    top: 75rpx;
+    left: 0;
+    z-index: 999;
+    animation: mysortfirst 0.3s;
+}
+@keyframes mysortfirst {
+    from {
+        height: 0rpx;
+    }
+ 
+    to {
+       height: 290rpx;
+    }
+}
+.sortList_item{
+    display: flex;
+    color: #999;
+    font-size: 28rpx;
+    position: relative
+}
+.sortList_item image{
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    right: 0;
+    top: 40%;
+}

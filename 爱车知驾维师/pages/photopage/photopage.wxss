@@ -1,0 +1,84 @@
+/* pages/photopage/photopage.wxss */
+.photoBox{
+    width: 80%;
+    padding: 30rpx 0;
+}
+.photoBox>view{
+    width: 100%;
+}
+.photoList{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.photoList>view{
+    width: 48%;
+    margin-bottom: 30rpx;
+    text-align: center;
+}
+.photoList image{
+    width: 100%;
+    height: 200rpx;
+}
+
+
+
+.vlogBox{
+    width: 80%;
+}
+
+.vlog_border{
+    width: 300rpx;
+    height: 200rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+   
+}
+.shootPic{
+    width: 400rpx;
+    height: 300rpx;
+    border-radius:  20rpx;
+}
+.left_1{
+     width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.left_2{
+     width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.right_1{
+     width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.right_2{
+     width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.cover_pic{
+    width: 180rpx;
+    height: 180rpx
+}
+.clackup{
+    position: absolute;
+    left: 50%;
+    bottom: 20%;
+    transform: translate(-50%,-50%);
+    color: #FE8E42;
+    
+}

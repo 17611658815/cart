@@ -1,0 +1,276 @@
+@import "template/btnNab/btnNab.wxss";
+page{
+    background: #f8f8f8;
+}
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding-bottom: 30rpx;
+    border-top: 1rpx solid #e2e2e2;
+}
+.width100{
+    width: 100%;
+}
+.width90{
+    width: 94%;
+}
+.width85{
+    width: 85%;
+}
+/* 弹性布局 */
+.dp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+           
+.dpfa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dpfC {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.dpf {
+    display: flex;
+    align-items: center;
+}
+.dpfb {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* 字号 */
+.fontSize-14 {
+    font-size: 14rpx;
+}
+.fontSize-16 {
+    font-size: 16rpx;
+}
+.fontSize-20 {
+    font-size: 20rpx;
+}
+.fontSize-22 {
+    font-size: 22rpx;
+}
+.fontSize-24 {
+    font-size: 24rpx;
+}
+.fontSize-26 {
+    font-size: 26rpx;
+}
+.fontSize-28 {
+    font-size: 28rpx;
+}
+.fontSize-30 {
+    font-size: 30rpx;
+}
+.fontSize-32 {
+    font-size: 32rpx;
+}
+.fontSize-34 {
+    font-size: 34rpx;
+}
+.fontSize-36 {
+    font-size: 36rpx;
+}
+.fontSize-40{
+    font-size: 40rpx;
+}
+.fontSize-45 {
+    font-size: 45rpx;
+}
+.fontSize-55 {
+    font-size: 55rpx;
+}
+
+/* 字体加粗 */
+.fontWeight5 {
+    font-weight: 500 !important;
+}
+.fontWeight6 {
+    font-weight: 600 !important;
+}
+/* 背景 */
+.bgFFFF{
+    background: #ffffff;
+}
+/* 字体颜色 */
+.color1 {
+    color: #333;
+}
+.color2 {
+    color: #666;
+}
+.color3 {
+    color: #999;
+}
+.color4{
+    color: #ffffff;
+}
+.color5 {
+    color: #81AAC5;
+}
+.color6{
+    color: #F9903F;
+}
+.color8{
+    color: #FFA500;
+}
+/* 间距 */
+.paddinglr{
+    padding: 20rpx 3%;
+}
+.maegin20{
+    margin: 20rpx 0;
+}
+.padding30{
+    padding: 30rpx 0;
+}
+.padding20{
+    padding: 20rpx 0;
+}
+.marginTop10{
+    margin-top: 10rpx;
+}
+.marginTop20{
+    margin-top: 20rpx;
+}
+.marginLeft{
+    margin-left: 20rpx;
+}
+.marginRight{
+    margin-right: 20rpx;
+}
+.marginLeft10{
+    margin-left: 10rpx;
+}
+.marginRight10{
+    margin-right: 10rpx;
+}
+.marginBtm{
+    margin-bottom: 20rpx;
+}
+.flex_1{
+    flex: 1;
+    height: 100%;
+}
+/* 溢出省略 */
+
+.white_noWrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* 文本溢出显示两行 */
+.line_clamp{
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.borderBtm{
+    border-bottom: 1rpx solid #e2e2e2;
+}
+
+.boxShadow{
+   box-shadow:-1rpx 2rpx 12rpx #CCCCCC;
+}
+.boxShadowBtm{
+    box-shadow:2rpx 3rpx 10rpx #e2e2e2
+}
+.boxShadowTop{
+    box-shadow:2rpx -5rpx 5rpx #e2e2e2
+}
+/* box-shadow:1px 3px 5px #333333 */
+.icon_right{
+    width: 10rpx;
+    height: 15rpx;
+}
+
+/* 倒三角 */
+.icon_Bottom{
+    width: 0;
+    height: 0;
+    border-right: 10rpx solid transparent;
+    border-left: 10rpx solid transparent;
+    border-top: 10rpx solid #515151;
+    
+    /* transform:rotate(90deg) */
+}
+.rotate{
+    transform: rotate(270deg);
+}
+.icon_right{
+    width: 15rpx;
+    height: 25rpx;
+}
+
+/* 头部导航 */
+.headerTab{
+    width: 94%;
+    padding: 0 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #586383;
+}
+.user_pic{
+    width: 40rpx;
+    height: 40rpx;
+}
+.mag_pic{
+    width: 40rpx;
+    height: 40rpx;
+}
+
+
+.navList {
+  font-size: 28rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navList>view {
+    width: 120rpx;
+    text-align: center;
+  padding: 20rpx 0;
+  margin-right: 20rpx;
+}
+
+.navActive {
+  border-bottom: 6rpx solid #FE8E42;
+  font-weight: 500;
+}
+
+/* 底部按钮 */
+.footBtn{
+    width: 100%;
+    height: 130rpx;
+    background: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow:2rpx -5rpx 5rpx #e2e2e2
+}
+.footBtn>view{
+    width: 90%;
+    height: 100rpx;
+    background-image: linear-gradient(#F9903F, #F35235);
+    border-radius: 20rpx;
+    text-align: center;
+    line-height: 100rpx;
+    color: #ffffff;
+}
+.rightPic{
+    width: 15rpx;
+    height: 25rpx
+}

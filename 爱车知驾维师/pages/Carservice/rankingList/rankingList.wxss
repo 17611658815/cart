@@ -1,0 +1,48 @@
+/* pages/Carservice/rankingList/rankingList.wxss */
+.toptab{
+    display: flex;
+    align-items: center;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+.toptab>view{
+    padding: 20rpx 0;
+    margin-left: 40rpx;
+    font-size: 28rpx;
+}
+.toptab_active{
+    border-bottom: 5rpx solid #FFA500;
+    color: #FFA500;
+}
+.ranking_tiem{
+    padding: 20rpx 0;
+    width: 100%;
+    font-size: 28rpx;
+    color: #999999;
+    background: #ffffff;
+    text-align: center;
+}
+.ranking_num{
+    width:94%;
+    padding: 0 3%;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+}
+.ranking_num>view:nth-child(1){
+    width: 200rpx;
+    height: 250rpx;
+    background: #FFA500;
+}
+.ranking_num>view:nth-child(2){
+    flex: 1;
+    text-align: center;
+}
+
+.typeList{
+    border-top: 20rpx solid #EDEDEB;
+    border-bottom: 20rpx solid #EDEDEB;
+}
+.rightPic{
+    width: 15rpx;
+    height: 25rpx
+}

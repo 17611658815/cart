@@ -1,0 +1,20 @@
+<template name="Emergency">
+    <view class='shade'  catchtap='selecEmergency' catchtouchmove='ture'>
+
+    </view>
+    <view class="{{isShow ? 'contentShow':'contentHide'}}" catchtouchmove='ture'>
+        <view class="fontSize-40 fontWeight5">
+            请选择您要维保的城市
+        </view>
+        <view class="fontSize-32">
+            当前定位城市为北京，确定要注册成为该城市的网约维师吗？
+        </view>
+        <view class="contentBtn">
+            <view>重新选择</view>
+            <view>确认</view>
+        </view>
+    </view>
+</template>
+
+
+

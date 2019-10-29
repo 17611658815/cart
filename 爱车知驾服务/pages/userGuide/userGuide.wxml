@@ -1,0 +1,19 @@
+<view class="container">
+    <view class="typeList width100 marginTop20 dpfC bgFFFF" >
+        <view bindtap="swatchTab" data-index='{{index}}' class="width90 dpfb bgFFFF padding30 dpfC borderBtm" wx:for='{{typeListArr}}' wx:key='key'>
+            <view class="typeList_item dpf">
+                <view class="color1 fontSize-28">
+                    {{item.name}}
+                </view>
+                <view>
+                    <image class="rightPic" src='../../images/icon_right.png'></image>
+                </view>
+            </view>
+            <view class="typeList_item_item" wx:if='{{index == currentTab}}'>
+                <view class="padding30 color1 fontSize-28 borderBtm" wx:for='{{3}}'>
+                    初级维师-小保养-服务
+                </view>
+            </view> 
+        </view>
+    </view>
+</view>

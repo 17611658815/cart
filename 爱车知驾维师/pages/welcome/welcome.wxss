@@ -1,0 +1,42 @@
+/* pages/welcome/welcome.wxss */
+.tabList image{
+    width: 140rpx;
+    height: 140rpx;
+    border-radius: 50%;
+}
+
+.tabList{
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+}
+.tabList>view{
+    flex: 1;
+    padding: 20rpx 30rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.tabList .tetx{
+    font-size: 24rpx;
+    text-align: center;
+}
+.bgF49749{
+    color: #ffffff;
+    background: #F49749
+}
+.technicalTxt{
+    width: 100%;
+}
+.technicalTxt_pic image{
+    width: 100%;
+    height: 350rpx;
+}
+.technicalTxt_text{
+    width: 94%;
+    padding: 30rpx 3%;
+}
+.technicalTxt_text view{
+    margin-bottom: 50rpx;
+}

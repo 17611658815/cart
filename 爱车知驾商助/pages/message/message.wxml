@@ -1,0 +1,32 @@
+<view class="container">
+    <!-- 搜索框 -->
+    <view class="index-serch-box">
+        <view class="index-serch-con">
+            <image class="index-serch-link-icon" src="../../images/icon/icon_serch.png"></image>
+            <text class="index-serch-link-text">搜索买家昵称</text>
+        </view>
+    </view>
+    <!-- 订单提示 -->
+    <view class="alertText">
+        <view class="dpf">
+            <image class="icon_1 marginRight" src="../../images/icon/icon_1.png"></image>
+            <text>开启消息通知，不错过一个订单</text>
+        </view>
+        <view class="openBtn"> 
+            去开启
+        </view>
+    </view>
+    <!-- 通知导航 -->
+    <view class="msgTabList paddinglr padding30">
+        <view class="msgTabList_item dpfC flex_1" wx:for='{{msgArr}}' wx:key='key'>
+            <view class="itemlogo"></view>
+            <view class="marginTop fontSize-26 color3">{{item.title}}</view>
+        </view>
+    </view>
+    <!-- 聊天功能 -->
+    <view class="shopModule">
+        <view class="shopTitle fontSize-32 fontWeight6">聊天功能未开启</view>
+        <view class="shopMsg">聊天默认关闭，当您上传得第一个商品成功审核过审核之后，聊天将自动开启</view>
+        <view class="shopBtn">创建商品</view>
+    </view>
+</view>

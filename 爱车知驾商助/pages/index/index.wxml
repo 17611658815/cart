@@ -1,0 +1,156 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="alertText">
+        <image class="icon_1 marginRight" src="../../images/icon/icon_1.png"></image>
+        <text>1分钟认证店铺，开启发商品权限</text>
+    </view>
+    <!-- 轮播图部分 -->
+    <view class='home-swiper'>
+        <swiper class="swiper" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' indicator-active-color="#ffffff" autoplay="true" circular='true' duration="1000" interval="5000">
+            <swiper-item wx:for='{{3}}' wx:key='key'>
+                <image src="../../images/Image 1.png"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+    <!-- 交以数据 -->
+    <view class="tractionData width100">
+        <view class="width90 paddinglr dpfb">
+            <view class="fontSize-26">交易数据</view>
+            <view bindtap="godataCenter">
+                <text class="fontSize-26">经营分析</text>
+                <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
+            </view>
+        </view>
+        <view class="width90 paddinglr dpfb">
+            <view class="dpfC flex_1">
+                <view class="fontSize-32 fontWeight6">￥905.73</view>
+                <view class="textTitle">成交金额</view>
+            </view>
+            <view class="dpfC flex_1">
+                <view class="fontSize-32 fontWeight6">73</view>
+                <view class="textTitle">今日附近访客</view>
+            </view>
+            <view class="dpfC flex_1">
+                <view class="fontSize-32 fontWeight6">9</view>
+                <view class="textTitle"></view>
+            </view>
+            <view class="dpfC flex_1">
+                <view class="fontSize-32 fontWeight6">9</view>
+                <view class="textTitle">成交订单</view>
+            </view>
+        </view>
+    </view>
+    <!-- 订单管理 -->
+    <view class="tractionData width100 marginTop">
+        <view class="width90 paddinglr dpfb">
+            <view class="fontSize-26">订单管理</view>
+            <view>
+                <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
+            </view>
+        </view>
+        <view class="width90 paddinglr dpfb">
+            <view class="dpfC flex_1">
+                <view class="fontSize-32 fontWeight6">1</view>
+                <view class="textTitle">待支付</view>
+            </view>
+            <view class="dpfC flex_1">
+                <view class="fontSize-32 fontWeight6">73</view>
+                <view class="textTitle">待维修</view>
+            </view>
+            <view class="dpfC flex_1">
+                <view class="fontSize-32 fontWeight6">9</view>
+                <view class="textTitle">代发货</view>
+            </view>
+            <view class="dpfC flex_1">
+                <view class="fontSize-32 fontWeight6">9</view>
+                <view class="textTitle">待退款</view>
+            </view>
+        </view>
+    </view>
+    <!-- 推广中心 -->
+    <view class="tagBox width90 dpfb bgFFFF marginTop">
+        <navigator hover-class='none' url='/pages/promotionCenter/promotionCenter' style="padding:0 30rpx;" class="flex_1 dpfb">
+            <view class="dpf">
+                <view class="iconBox marginRight"></view> 推广中心
+            </view>
+            <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
+        </navigator>
+        <navigator hover-class='none' url='/pages/shopChunks/shopChunks' style="padding:0 30rpx;border-left:10rpx solid #f8f8f8" class="flex_1 dpfb">
+            <view class="dpf">
+                <view class="iconBox marginRight"></view> 商铺进宝
+            </view>
+            <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
+        </navigator>
+    </view>
+    <!-- 商品管理 -->
+    <view class="tractionData width100 marginTop">
+        <view class="width90 paddinglr dpfb">
+            <view class="fontSize-26">商品管理</view>
+            <view>
+                <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
+            </view>
+        </view>
+        <view class="width90 paddinglr dpfb">
+            <view class="dpfC flex_1">
+                <view class="fontSize-32 fontWeight6">47</view>
+                <view class="textTitle">出售中</view>
+            </view>
+            <view class="dpfC flex_1">
+                <view class="fontSize-32 fontWeight6">73</view>
+                <view class="textTitle">已下架</view>
+            </view>
+            <view class="dpfC flex_1">
+                <view class="fontSize-32 fontWeight6">9</view>
+                <view class="textTitle">草稿中</view>
+            </view>
+            <view class="dpfC flex_1" style="background:#F5F8FF;color:#4486B7">
+                <view class="fontSize-32 fontWeight6">+</view>
+                <view style="color:#4486B7" class="textTitle">添加商品</view>
+            </view>
+        </view>
+    </view>
+    <!-- 平台考核指标 -->
+    <view class="tractionData width100 marginTop">
+        <view class="width90 paddinglr dpfb">
+            <view class="fontSize-26">平台考核指标</view>
+            <view>
+                <text class="fontSize-26">指标说明</text>
+                <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
+            </view>
+        </view>
+        <view class="width90 paddinglr dpfb">
+            <view class="dpfC flex_1">
+                <view class="fontSize-32 fontWeight6">100.00%</view>
+                <view class="textTitle">今日5分钟回复</view>
+            </view>
+            <view class="dpfC flex_1">
+                <view class="fontSize-32 fontWeight6">00.00%</view>
+                <view class="textTitle">30天物流异常</view>
+            </view>
+            <view class="dpfC flex_1">
+                <view class="fontSize-32 fontWeight6">00.00%</view>
+                <view class="textTitle">30天纠纷退款</view>
+            </view>
+            <view class="dpfC flex_1">
+                <view class="fontSize-32 fontWeight6">00.00%</view>
+                <view class="textTitle">90天描述相符</view>
+            </view>
+        </view>
+    </view>
+    <!-- 平台考核指标 -->
+    <view class="tractionData width100 marginTop">
+        <view class="width90 paddinglr dpfb">
+            <view class="fontSize-26">商家社区</view>
+            <view class="dpf">
+                <text class="fontSize-26">指标说明</text>
+                <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
+            </view>
+        </view>
+        <view class="width90 paddinglr dpfC">
+            <view class="dpf width100 padding30 borderBtm" wx:for='{{3}}' wx:key='key'>
+                <view class="iconBox marginRight"></view>
+                <text class="fontSize-28 color3">官方智囊团03期女装类目问题答疑</text>
+            </view>
+        </view>
+    </view>
+</view>

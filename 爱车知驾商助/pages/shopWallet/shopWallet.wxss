@@ -1,0 +1,28 @@
+/* pages/shopWallet/shopWallet.wxss */
+.loansNum{
+    width: 100%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50rpx 0;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+.loansLogo{
+    width: 35rpx;
+    height: 35rpx;
+    background: #999999;
+}
+.rightPic{
+    width: 15rpx;
+    height: 25rpx
+}
+.NumBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.layoutList_item{
+    
+}

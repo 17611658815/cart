@@ -1,0 +1,64 @@
+.cleaningList{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.cleaningList-item{
+    width: 48.5%;
+    background: #ffffff;
+    margin-bottom: 20rpx;
+    border-radius: 10rpx;    
+    box-shadow:2rpx 2rpx 20rpx #e2e2e2;
+}
+.cleaningList-item-time{
+    display: flex;
+    justify-content: space-between;
+}
+.cleaningList-item-photo {
+    width: 100%;
+    height: 240rpx;
+}
+.cleaningList-item-photo image{
+    width: 100%;
+    height: 100%;
+    border-radius: 10rpx 10rpx 0 0;
+}
+.cleaningList-item-text{
+    width: 92%;
+    margin: auto;
+    padding: 20rpx;
+}
+.cleaningList-item-title{
+    margin-bottom: 15rpx;
+}
+.cleaningList-item-hot{
+    padding: 12rpx 0 20rpx 0;
+}
+.cleaningList-item-hot text{
+    margin-right: 20rpx;
+}
+.cleaningList-item-type{
+    height: 33rpx;
+    display: flex;
+    align-items: center;
+}
+.cleaningList-item-bottom{
+    display: flex;
+    align-items: center;
+}
+.cleaningList-item-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10rpx;
+}
+.cleaningList-item-icon image{
+    width: 24rpx;
+    height:24rpx;
+}
+.shopcar{
+    width: 50rpx;
+    height: 50rpx;
+}

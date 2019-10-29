@@ -1,0 +1,41 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/may/may",
+        "pages/server/server",
+        "pages/welcome/welcome",
+        "pages/recruit/recruit",
+        "pages/joinRecruit/joinRecruit",
+        "pages/joinCity/joinCity",
+        "pages/joinReq/joinReq",
+        "pages/invite/invite",
+        "pages/shopSign/shopSign",
+        "pages/appl_jishi/appl_jishi",
+        "pages/upPicregister/upPicregister",
+        "pages/photopage/photopage",
+        "pages/Carservice/Carservice/Carservice",
+        "pages/Carservice/circle/circle",
+        "pages/Carservice/maycenter/maycenter",
+        "pages/Carservice/msgCenter/msgCenter",
+        "pages/Carservice/rankingList/rankingList",
+        "pages/Carservice/regulation/regulation",
+        "pages/Carservice/toolbar/toolbar",
+        "pages/Carservice/wallet/wallet",
+        "pages/Carservice/setList/setList",
+        "pages/Carservice/securityCenter/securityCenter",
+        "pages/Carservice/PaymentSet/PaymentSet",
+        "pages/Carservice/insurance/insurance",
+        "pages/Carservice/addBank/addBank",
+        "pages/Carservice/regard/regard",
+        "pages/Carservice/message/message",
+        "pages/Carservice/videoList/videoList"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json"
+}

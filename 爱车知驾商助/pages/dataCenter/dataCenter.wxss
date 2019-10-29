@@ -1,0 +1,97 @@
+.navList{
+    padding: 20rpx 3%  0 3%;
+    background: #ffffff;
+    border-bottom: 1rpx solid #e2e2e2;
+    font-size: 28rpx;
+}
+.navList>view{
+    padding-bottom: 10rpx;
+}
+.navActive{
+    border-bottom: 5rpx solid #333333;
+}
+/* 店铺等级 */
+.shopGrade{
+    width: 93%;
+    padding: 20rpx 3%;
+    background: #ffffff;
+    margin-top: 20rpx;
+    display: flex;
+}
+.shopGrade_left{
+    flex: 1;
+    padding: 0 20rpx 0 0;
+    height: 250rpx;
+    border-right: 1rpx solid #e2e2e2;
+    display: flex;
+    flex-direction: column;
+}
+.shopGrade_right{
+    flex: 1;
+    height: 250rpx;
+    padding-left: 20rpx;
+    display: flex;
+    flex-direction: column;
+}
+.gradeNum{
+    display: flex;
+    align-items: center;
+    padding-bottom: 20rpx;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+.gradeDistance{
+    flex: 1;
+    padding: 20rpx 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.shopDSR{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.dsrData{
+    font-size: 26rpx;
+    color: #999999;
+    margin-top: 30rpx;
+}
+/* 交易数据 */
+.tractionTab{
+    height: 60rpx;
+    display: flex;
+    margin-top: 20rpx;
+}
+.tractionTab>view{
+    flex: 1;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 60rpx;
+    border: 1rpx solid #e2e2e2;
+}
+.tractionTab>view:nth-child(2){
+    border-left: none;
+}
+.tractionTab>view:nth-child(3){
+    border-left: none;
+     border-right: none;
+}
+.acticeClass{
+    border: 1rpx solid #81AAC5!important;
+    background: #F5F8FF;
+    color: #81AAC5;
+}
+.tractionDataList{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+.listitem{
+    width: 43%;
+    padding: 20rpx 20rpx 20rpx 20rpx;
+    border: 1rpx solid #e2e2e2;
+}
+.listitem{
+    border-bottom: none;
+}

@@ -1,0 +1,10 @@
+/* pages/joinTreasure/joinTreasure.wxss */
+.content{
+    width: 80%;
+    padding: 30rpx 10%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10rpx;
+    justify-content: space-between;
+}

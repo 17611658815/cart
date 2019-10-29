@@ -1,0 +1,41 @@
+<view class='container'>
+    <view class="width90 padding20 color3 fontSize-28">
+        信息仅用于审核，绝不外泄
+    </view>
+    <view class="width100 bgFFFF dpfC padding30">
+        <view class="width90 dpf">北京市
+            <text class="icon_Bottom marginLeft"></text>
+        </view>
+    </view>
+    <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
+        <view class="layoutList_item width90 dpfb padding20" bindtap="chooseImageTap">
+            <view class="borderLeft">身份证</view>
+               <view class="dpf color6">
+            前往拍摄 <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
+            </view>
+        </view>
+    </view>
+    <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
+        <view class="layoutList_item width90 dpfb padding20" bindtap="chooseImageTap">
+            <view class="borderLeft">维修职业资格证</view>
+               <view class="dpf color6">
+            前往拍摄 <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
+            </view>
+        </view>
+    </view>
+
+    <view class="addBtn">保存</view>
+</view>
+
+<view class="shadeBox" wx:if='{{isshade}}'>
+        <view class="shadeBox_pic"></view>
+        <view class="fontSize-36 fontWeight6">请提前准备好一下材料</view>
+        <view class="fontSize-36 fontWeight6">一次性完成资料上传</view>
+        <view style="margin-top:50rpx;" class="fontSize-32 color3 dpf">
+            <text class="marginRight">1.身份证</text>
+            <text>2.维修职业资格证</text>
+        </view>
+        <view class="shade_btn" bindtap="hideshade">
+            我准备好了
+        </view>
+</view>

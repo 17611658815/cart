@@ -1,0 +1,613 @@
+/**index.wxss**/
+
+.headerBox {
+    position: relative;
+    background: #fff;
+    z-index: 10;
+}
+
+.user_nav image {
+    width: 30rpx;
+    height: 35rpx;
+}
+
+.mssage_icon_box {
+    margin-right: 30rpx;
+}
+
+.mssage_icon_box image {
+    width: 35rpx;
+    height: 35rpx;
+}
+
+.donw_icon {
+    width: 15rpx;
+    height: 15rpx;
+}
+
+.scan_box image {
+    width: 35rpx;
+    height: 35rpx;
+}
+
+.addres {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 滑动导航 */
+
+.scroll-x-box {
+    width: 85%;
+    height: 80rpx;
+    display: flex;
+}
+
+.scroll-x-content {
+    width: 100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    left: 0;
+    z-index: 9;
+    position: relative;
+    
+}
+
+.scroll-x-content-item {
+    display: inline-block;
+    padding: 20rpx 0;
+    margin-right: 50rpx;
+    font-size: 30rpx;
+    color: #2d2d2d;
+    position: relative;
+}
+
+.active0 {
+    font-size: 30rpx;
+    color: #57be80;
+    font-weight: 500;
+}
+.active1 {
+    font-size: 30rpx;
+    color: #250F98;
+    font-weight: 500;
+}
+.active2 {
+    font-size: 30rpx;
+    color: #8D0387;
+    font-weight: 500;
+}
+.active3 {
+    font-size: 30rpx;
+    color: #5C3E42;
+    font-weight: 500
+}
+
+.defaultColor {
+    font-size: 30rpx;
+    color: #999;
+}
+
+.soloder {
+    width: 40rpx;
+    height: 6rpx;
+    background: #000;
+    margin-top: 10rpx;
+    border-radius: 22rpx 22rpx 0 0;
+}
+
+.icon_down {
+    width: 40rpx;
+    height: 40rpx;
+    margin-left: 20rpx;
+}
+
+/* 地图样式 */
+
+.mapBox {
+    width: 100%;
+    height: 800rpx;
+    position: relative;
+}
+
+.hint_msg {
+    width: 90%;
+    background: #fff;
+    position: absolute;
+    bottom: -6%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 6rpx;
+    padding: 20rpx 20rpx;
+}
+
+.hint_icon {
+    width: 60rpx;
+    height: 60rpx;
+    background: #f5f6f8;
+    border-radius: 50%;
+    justify-content: center;
+}
+
+.hint_text {
+    padding: 0 20rpx;
+}
+
+.hint_text {
+    flex: 1;
+}
+
+.hint_icon image {
+    width: 35rpx;
+    height: 35rpx;
+}
+
+.hint_btn {
+    width: 150rpx;
+    height: 60rpx;
+    font-size: 26rpx;
+    text-align: center;
+    line-height: 60rpx;
+    color: #999;
+    border: 3rpx solid #c8c8c8;
+}
+
+/* 急叫中心 */
+
+.call_Box {
+    width: 230rpx;
+    padding-right: 30rpx;
+    height: 80rpx;
+    position: absolute;
+    background: #fff;
+    bottom: 140rpx;
+    left: 30rpx;
+    text-align: right;
+    font-size: 26rpx;
+    color: #333;
+    line-height: 80rpx;
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 44rpx;
+}
+
+.left_icon {
+    width: 100rpx;
+    height: 100rpx;
+    background: #03a1ea;
+    border-radius: 50%;
+    position: absolute;
+    left: 15%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.right_icon {
+    width: 15rpx;
+    height: 15rpx;
+}
+
+/* 预约 */
+
+.tabNav {
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 28rpx;
+}
+
+.tabNav view {
+    width: 100rpx;
+    height: 50rpx;
+    text-align: center;
+    line-height: 50rpx;
+    border-radius: 44rpx;
+    color: #999;
+    font-size: 28rpx;
+}
+.tabNav picker {
+    width: 100rpx;
+    height: 50rpx;
+    text-align: center;
+    line-height: 50rpx;
+    border-radius: 44rpx;
+    color: #999;
+    font-size: 28rpx;
+}
+
+.border {
+    border: 1rpx solid #c8c8c8;
+    color: #000 !important;
+}
+.borderRed {
+    border: 1rpx solid red;
+    color: red !important;
+}
+
+.left_Box {
+    width: 50rpx;
+    height: 50rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right_text {
+    flex: 1;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+
+/* 遮罩层 */
+
+.shade_1 {
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.shade_2 {
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* z-index: 9 */
+}
+
+/* 全部服务 */
+
+.list_container {
+    width: 100%;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.icon_colse {
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    top: 50%;
+    left: 94%;
+    transform: translate(-50%, -50%);
+}
+
+/* 服务列表 */
+
+.server_item {
+    width: 94%;
+    border: 1rpx solid #e2e2e2;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.server_item_item {
+    width: 33%;
+    height: 200rpx;
+    border-bottom: 1rpx solid #e2e2e2;
+    border-right: 1rpx solid #e2e2e2;
+}
+
+.server_item_item .server_item_logo {
+    width: 100rpx;
+    height: 60rpx;
+    background: papayawhip;
+}
+
+.server_item_item:nth-child(3n) {
+    border-right: none !important;
+}
+
+.server_item_item:nth-child(n+13) {
+    border-bottom: none !important;
+}
+
+/* 来店 取车 */
+
+.serveType {
+    flex: 1;
+    height: 260rpx;
+    /* background: yellow; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.serveLogo {
+    width: 130rpx;
+    height: 60rpx;
+    background: #999;
+}
+
+.serverTypeActive {
+    border-bottom: 5rpx solid #f27c1f;
+    box-shadow: -1rpx 2rpx 12rpx #ccc;
+}
+
+.slectTime {
+    background: #f8f8f8;
+}
+
+.slectTime view {
+    width: 100%;
+    flex: 1;
+    text-align: center;
+}
+
+.makeBtn {
+    width: 100%;
+    height: 80rpx;
+    text-align: center;
+    line-height: 80rpx;
+    background: #525463;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* 寻找预约技师 */
+
+.technicianPic {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 50%;
+    background: #999;
+}
+
+.marginLeft {
+    flex: 1;
+}
+
+.delOther {
+    font-size: 28rpx;
+    border-top: 1rpx solid #e2e2e2;
+}
+
+/* 技师接单 */
+
+.leftinfo {
+    flex: 1;
+}
+
+.rightPic {
+    width: 200rpx;
+    height: 150rpx;
+    background: #999;
+}
+
+.sherec_ontainer image {
+    width: 35rpx;
+    height: 35rpx;
+}
+
+.sherec_ontainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.shereBox {
+    flex: 1;
+}
+
+.borderLeft {
+    border-left: 1rpx solid #e2e2e2;
+}
+
+.borderRight {
+    border-right: 1rpx solid #e2e2e2;
+}
+
+.addmore {
+    width: 50rpx;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20rpx;
+}
+
+.addmore image {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.leaber_1 {
+    padding: 6rpx;
+    border: 1rpx solid #e2e2e2;
+    font-size: 22rpx;
+    color: #999;
+}
+
+/* 评星 */
+
+.starBox {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.rui-star {
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.rui-star:nth-child(n+1) {
+    margin-left: 30rpx;
+}
+
+.finishListBox {
+    width: 94%;
+    background: #fff;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -6%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100rpx;
+}
+
+.finishListBox>view {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+}
+
+.finishListBox image {
+    width: 35rpx;
+    height: 35rpx;
+}
+
+.questionList {
+    width: 94%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.questionitem {
+    width: 45%;
+    height: 60rpx;
+    font-size: 28rpx;
+    border-radius: 30rpx;
+    margin-right: 25rpx;
+    margin-top: 25rpx;
+    text-align: center;
+    line-height: 60rpx;
+    border: 1rpx solid #CACACA;
+}
+.more{
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+}
+.more_right{
+     width:15rpx;
+    height:25rpx;
+    margin-left:30rpx;
+}
+
+/* 活动推荐 */
+.picBox{
+    width: 100%;
+    height: 400rpx;
+    background: #999999;
+}
+.serveList{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.serveList_item{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30rpx 0;
+}
+.serveList_item>view:nth-child(1){
+    width: 40rpx;
+    height: 40rpx;
+    background: #999999;
+}
+.serveList_item>view{
+    width: 150rpx;
+    text-align: center;
+}
+.recommended_title{
+    display: flex;
+    align-items: center;
+}
+.wire{
+    width: 150rpx;
+    height: 1rpx;
+    background: #999999;
+}
+.recommended_title>view:nth-child(2){
+    font-size: 22rpx;
+    color: #999999;
+    padding: 0 20rpx;
+}
+.partsList{
+    width: 94%;
+    padding: 30rpx 3%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.partsList_item{
+    width: 23%;
+    height: 180rpx;
+    background: #DEDFE0;
+    border-radius: 10rpx;
+    padding: 30rpx;
+}
+.partsList_item>view{
+    width: 100%;
+   
+}
+/* 车生活 */
+.weather{
+    width: 94%;
+    padding: 20rpx 3%;
+    display: flex;
+    align-content: center;
+    justify-content: space-between
+}
+.weather_left{
+    display: flex;
+    align-items: center;
+    font-size: 22rpx;
+    color: #000000;
+}
+.weather_left image{
+    width: 40rpx;
+    height: 40rpx;
+}
+.carife_list{
+    width: 94%;
+    padding: 0 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.carife_list>view{
+    width: 24%;
+    height: 150rpx;
+    background: yellow;
+    margin-bottom: 20rpx;
+}
+.carifePic_list{
+    margin-top: 20rpx;
+
+}
+.carifePic_list>view{
+width: 100%;
+height: 150rpx;
+background: #999999;
+margin-bottom: 20rpx;
+}
+
+
+.fix-news{
+  position: fixed; 
+  top: 0; 
+  z-index: 999999
+  }

@@ -1,0 +1,9 @@
+<view class="container">
+    <view class="dpf">
+        <view class="checkedBox" bindtap="chenkedChange">
+            <image wx:if='{{flage}}' src="../../images/icon/icon_mark.png"></image>
+        </view>
+        <view>开通即代表你同意 <text class="color7">《知驾进宝使用协议》</text> </view>
+    </view>
+    <view class="addBtn">开通全店推广</view>
+</view>

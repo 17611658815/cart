@@ -1,0 +1,40 @@
+<view class="container">
+    <view class="headerpic width100">
+        <image mode="aspectFill" src="../../images/17.png"></image>
+        <view class="title">
+           <view>加 入 知 驾 网 约 维 师</view> 
+           <view>
+            <text>自由</text>
+            <text style="padding:0 40rpx">稳定</text>
+            <text>收入高</text>
+           </view> 
+        </view>
+    </view>
+    <view class="selectCity boxShadowBtm">
+        北京市 <text class="icon_Bottom rotate"></text>
+    </view>
+    <view class="layout_box dpfC boxShadowBtm">
+        <view class="layout_box_1">
+            <view class="layout_box_1_solid"></view>
+            <view class="layout_box_1_title">三大理由做知驾维师</view>
+            <view class="layout_box_1_solid"></view>
+        </view>
+        <view class="layout_box_2 padding30 width100 dpf">
+            <view class="dpfC flex_1" wx:for='{{3}}'>
+                <view class="layout_box_2_icon"></view>
+                <view class="marginTop20">独立完成</view>
+            </view>
+        </view>
+        <view class="layout_box_1">
+            <view class="layout_box_1_solid"></view>
+            <view class="layout_box_1_title">加入知驾网约维师条件</view>
+            <view class="layout_box_1_solid"></view>
+        </view>
+    </view>
+</view>
+
+<view class="footBtn dpfC">
+    <view>
+        加入北京市
+    </view>
+</view>

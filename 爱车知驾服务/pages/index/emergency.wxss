@@ -1,0 +1,62 @@
+.emergency-shade{
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 100;
+}
+.emergency-contentHide{
+    width: 100%;
+    height: 1030rpx;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    bottom: -1030rpx;
+    background: linear-gradient(to bottom,#F9FAFE,#EFF3FF);
+    z-index: 999;
+    animation: myfirsts 0.5s;
+}
+.emergency-contentShow{
+    position: fixed;
+     display: flex;
+    align-items: center;
+    flex-direction: column;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1030rpx;
+    background: linear-gradient(to bottom,#F9FAFE,#EFF3FF);
+    z-index: 999;
+    animation: myfirsts 0.5s;
+    
+}
+@keyframes myfirsts {
+    0% {
+        bottom: -1030rpx;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+.delImg{
+    width: 35rpx;
+    height: 35rpx;
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
+}
+.icon_Emergency{
+    width: 60rpx;
+    height: 60rpx;
+}
+.iconBox{
+    width: 50rpx;
+    height: 50rpx;
+    background: #999999;
+}

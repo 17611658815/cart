@@ -1,0 +1,67 @@
+/* pages/joinCity/joinCity.wxss */
+page{
+    padding-bottom: 130rpx;
+}
+.headerpic{
+    height: 400rpx;
+    position: relative
+}
+.headerpic image{
+    width: 100%;
+    height: 400rpx;
+}
+.headerpic .title{
+    width: 100%;
+    position: absolute;
+    top: 16%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+}
+.title>view:nth-child(1){
+    text-align: center;
+    font-size: 55rpx;
+    color: #000000;
+    font-weight: 600;
+}
+.title>view:nth-child(2){
+    text-align: center;
+    font-size: 32rpx;
+    color: #FE8547;
+    font-weight: 600;
+}
+.selectCity{
+    width: 100%;
+    padding: 20rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+}
+.layout_box{
+    width: 94%;
+    padding: 30rpx 3%;
+    background: #ffffff;
+    margin-top: 20rpx;
+}
+.layout_box_1{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.layout_box_1_solid{
+    width: 100rpx;
+    height: 2rpx;
+    background: #E3E3E1;
+}
+.layout_box_1_title{
+    font-size: 36rpx;
+    font-weight: 500;
+    /* padding: 0 20rpx; */
+}
+.layout_box_2_icon{
+    width: 60rpx;
+    height: 60rpx;
+    background: #093;
+}

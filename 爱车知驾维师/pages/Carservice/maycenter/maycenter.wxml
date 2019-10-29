@@ -1,0 +1,32 @@
+<view class="container">
+    <view class="headerBox">
+        <view class="dpfb">
+            <view class="userPic">
+                <image src='../../../images/1.jpg'></image>
+            </view>
+            <view class="headerRight">
+                <view class="headerRight_item" wx:for='{{dataList}}'>
+                    <view class="fontSize-36 fontWeight6">0</view>
+                    <view class="headerRight_item_text fontSize-26 color3">{{item}}</view>
+                </view>
+            </view>
+         </view>
+        <view class="headerRight_title">知驾 X级技师</view>
+    </view>
+    <!-- 功能列表 -->
+    <view class="typeList width100 marginTop20 dpfC bgFFFF">
+        <navigator hover-class='none' url='{{item.path}}' class="width90 dpfb bgFFFF padding30 borderBtm" wx:for='{{typeListArr}}' wx:key='key'>
+            <view class="typeList_item dpf">
+                <view class="item_icon">
+                    <image src="{{item.icon}}"></image>
+                </view>
+                <view>
+                    {{item.name}}
+                </view>
+            </view>
+            <view>
+                <image class="rightPic" src='../../../images/icon_right.png'></image>
+            </view>
+        </navigator>
+    </view>
+</view>

@@ -1,0 +1,249 @@
+/* 技师列表 */
+/* @import "pages/index/slideNav.wxss"; */
+ @import "pages/index/emergency.wxss"; 
+ @import "pages/index/authorization.wxss"; 
+ @import "pages/index/carNoopsyche.wxss"; 
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+.width100{
+    width: 100%;
+}
+.width90{
+    width: 94%;
+}
+.width85{
+    width: 85%;
+}
+/* 弹性布局 */
+.dp{
+    display: flex;
+}
+           
+.dpfa{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.dpfC {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.dpf {
+    display: flex;
+    align-items: center;
+}
+.dpfb {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* 字号 */
+.fontSize-20 {
+    font-size: 20rpx;
+}
+.fontSize-22 {
+    font-size: 22rpx;
+}
+.fontSize-24 {
+    font-size: 24rpx;
+}
+.fontSize-26 {
+    font-size: 26rpx;
+}
+.fontSize-28 {
+    font-size: 28rpx;
+}
+.fontSize-30 {
+    font-size: 30rpx;
+}
+.fontSize-32 {
+    font-size: 32rpx;
+}
+.fontSize-34 {
+    font-size: 34rpx;
+}
+.fontSize-36 {
+    font-size: 36rpx;
+}
+.fontSize-40{
+    font-size: 40rpx;
+}
+.fontSize-45 {
+    font-size: 45rpx;
+}
+
+/* 字体加粗 */
+.fontWeight5 {
+    font-weight: 500 !important;
+}
+.fontWeight6 {
+    font-weight: 600 !important;
+}
+/* 背景 */
+.bgFFFF{
+    background: #ffffff;
+}
+/* 字体颜色 */
+.color1 {
+    color: #333;
+}
+.color2 {
+    color: #666;
+}
+.color3 {
+    color: #999;
+}
+.color4 {
+    color: #fa5454;
+}
+.color5 {
+    color: #5994f7;
+}
+.color6{
+    color: #ff4a26;
+}
+.color7{
+    color: red!important;
+}
+.color8{
+    color: #D48E59;
+}
+.color9{
+    color: #ffffff;
+}
+/* 间距 */
+.paddinglr{
+    padding: 20rpx 3%;
+}
+.maegin20{
+    margin: 20rpx 0;
+}
+.padding30{
+    padding: 30rpx 0;
+}
+.padding20{
+    padding: 20rpx 0;
+}
+.marginTop10{
+    margin-top: 10rpx;
+}
+.marginTop{
+    margin-top: 20rpx;
+}
+.marginLeft{
+    margin-left: 20rpx;
+}
+.marginRight{
+    margin-right: 20rpx;
+}
+.marginLeft10{
+    margin-left: 10rpx;
+}
+.marginRight10{
+    margin-right: 10rpx;
+}
+.marginBtm{
+    margin-bottom: 20rpx;
+}
+.flex_1{
+    flex: 1
+}
+/* 溢出省略 */
+
+.white_noWrap {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* 文本溢出显示两行 */
+.line_clamp{
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.borderBtm{
+    border-bottom: 1rpx solid #e2e2e2;
+}
+
+.userPic{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+}
+.boxShadow{
+   box-shadow:-1rpx 2rpx 12rpx #CCCCCC;
+
+}
+
+.dian_1{
+    display: block;
+    width: 10rpx;
+    height: 10rpx;
+    background: #57BE80;
+    border-radius: 50%;
+}
+.dian_2{
+    display: block;
+    width: 10rpx;
+    height: 10rpx;
+    background: #F69760;
+    border-radius: 50%;
+}
+.dian_3{
+    display: block;
+    width: 10rpx;
+    height: 10rpx;
+    background: #9B9C9E;
+    border-radius: 50%;
+}
+.dian_4{
+    display: block;
+    width: 10rpx;
+    height: 10rpx;
+    background: #ffffff;
+    border-radius: 50%;
+}
+
+.tagBox{
+    padding: 5rpx 6rpx;
+    border: 1rpx solid #e2e2e2;
+    margin-left: 10rpx;
+    font-size: 22rpx;
+    border-radius: 5rpx;
+}
+.icon_right{
+    width:10rpx;
+    height:20rpx;
+    margin-left:10rpx;
+}
+.icon_right_2{
+    width:15rpx;
+    height:25rpx;
+    margin-left:15rpx;
+}
+.icon_Bottom{
+    width: 0;
+    height: 0;
+    border-right: 10rpx solid transparent;
+    border-left: 10rpx solid transparent;
+    border-top: 10rpx solid #515151;
+}
+.GPS_icon{
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.isIphoneXBox {
+    width: 100%;
+    height: 50rpx;
+    background: #fff;
+}

@@ -1,0 +1,34 @@
+<view class='dpfC {{slideNav ? "selectItems-content-show":"selectItems-content-hide"}}' catchtouchmove='ture'>
+    <view class="userInfo" wx:if='{{slideNav}}'>
+        <view class="userPic marginTop">
+            <!-- <image src='../../images/user_icon.png'></image> -->
+        </view>
+        <view class="marginTop">185*****112</view>
+        <view class="marginTop fontSize-26">白金会员</view>
+        <navigator hover-class='none' wx:for='{{list}}' wx:key='key' url='{{item.path}}'>
+            <view class="mayCenterList dpf padding20 {{index == 0 ? 'marginTop':''}}">
+                <image class="listicon marginRight" src='{{item.icon}}'></image>
+                <view>{{item.name}}</view>
+            </view>
+        </navigator>
+    </view>
+    <view wx:if='{{slideNav}}' class="bottomContent dpfC">
+        <view class="recommend dpf">
+            <view class="dpfC">
+               <image src='../../images/user_icon.png'></image>
+                推荐有奖
+            </view>
+           <view class="dpfC">
+               <image src='../../images/user_icon.png'></image>
+                推荐有奖
+            </view>
+         <view class="dpfC">
+               <image src='../../images/user_icon.png'></image>
+                推荐有奖
+            </view>
+        </view>
+        <view class="clause">
+            法律条款与平台规则 <image src="../../images/right2_icon.png"></image>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,75 @@
+<view class="container">
+    <view class="headerTab">
+        <image class="user_pic" bindtap="gomaycenter" src="../../../images/2.png"></image>
+        <view class="navList" id='list'>
+            <view bindtap="goIndex" data-index='{{index}}' class="{{currentTab==0 ? 'color4 navActive':'color4'}}">首页</view>
+            <view data-index='{{index}}' class="{{currentTab==1 ? 'color4 navActive':'color4'}}">知驾车服</view>
+        </view>
+        <image class="mag_pic" src="../../../images/1.png"></image>
+    </view>
+   <!-- 轮播图部分 -->
+        <view class='width90 padding30'>
+            <swiper class="swiper width100" 
+                    indicator-dots='true' 
+                    indicator-color='rgba(255,255, 255, .3)' 
+                    indicator-active-color="#ffffff" 
+                    autoplay="true" 
+                    circular='true' 
+                    duration="1000" 
+                    interval="5000">
+                <swiper-item wx:for='{{3}}'>
+                    <image class="swiper_IMG" mode="aspectFill" src="../../../images/1.jpg"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+       <view class='home-navList'>
+            <navigator hover-class='none' wx:for='{{10}}' wx:key='key' url='../../../classnav/pages/cleaningList/cleaningList?id={{item.id}}&name={{item.name}}'>
+                <view class='home-navList-item {{index>=5 ? "marginTop":""}}'>
+                    <view class='home-navList-item-icon'>
+                        <image src='../../../images/1.jpg'></image>
+                    </view>
+                    <view class='home-navList-item-text'>
+                        知驾车服
+                    </view>
+                </view>
+            </navigator>
+        </view>
+        <view class="newsList width90 padding30">
+            <view class="width100 newsList_title">
+                <text class="fontSize-40 fontWeight6">知驾维师</text>
+                <text class="fontSize-26 color8">专业</text>
+                <text class="fontSize-26 color8">精心</text>
+                <text class="fontSize-26 color8">细致入微</text>
+            </view>
+        </view>
+        <view class="width90 dpf">
+            <view class="left_logo">
+            
+            </view>
+            <view class="right_nav">
+                <view class="right_nav_item" wx:for='{{4}}'>
+                    <view class="right_nav_item_icon">
+                    
+                    </view>
+                    <view class="right_nav_item_button">
+                        <view class="fontSize-20">报名条配查询</view>
+                        <view class="right_nav_item_button_tag dpf">
+                            <view>学习技术</view>
+                            <view>多久考一次</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="newlist width90">
+            <view class="newlist_item" wx:for='{{4}}'>
+                <image src='../../../images/1.jpg'></image>
+                <view class="fontSize-16 color8">￥120</view>
+                <view class="fontSize-20 color5 line-clamp">测试测试测试测试测试测试测试测试测试测试</view>
+                <view class="fontSize-20 color3">北京北京北京北京</view>
+            </view>
+        </view>
+</view>
+
+<import src="../../../template/btnNab/btnNab.wxml"></import>
+<template is="btnNab" data='{{current:btnNavcurrent}}'></template>

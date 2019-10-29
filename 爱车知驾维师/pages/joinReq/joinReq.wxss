@@ -1,0 +1,14 @@
+/* pages/joinReq/joinReq.wxss */
+.dian{
+    display: block;
+    width: 10rpx;
+    height: 10rpx;
+    border-radius: 50%;
+    background: #000000;
+    margin-right: 20rpx;
+}
+.userInfoBox{
+    width: 90%;
+    padding: 0 5%;
+    background: #ffffff;
+}

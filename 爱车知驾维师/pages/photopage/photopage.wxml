@@ -1,0 +1,31 @@
+<view class="container">
+    <view class="photoBox dpfC">
+        <view class="fontSize-45 fontWeight6">注册需要材料</view>
+        <view class="fontSize-26 color3 padding20">请确保身边已准备好一下材料,您的信息将严格保密</view>
+    </view>
+    <view class="photoList">
+        <view wx:for='{{3}}' class="dpfC" style=' position: relative'>
+            <image src='../../images/1.jpg'></image>
+            <view class="marginTop10 fontSize-26 fontWeight6">身份证</view>
+            <view class="clackup">点击上传</view>
+        </view>
+        
+    </view>
+    <view class="vlogBox dpf" >
+        <view class="vlog_border">
+              <image class="cover_pic" src='../../images/1.jpg'></image>
+            <image class="left_1" src="../../images/left_1.png"></image>
+            <image class="left_2" src="../../images/left_2.png"></image>
+            <image class="right_1" src="../../images/right_1.png"></image>
+            <image class="right_2" src="../../images/right_2.png"></image>
+        </view>
+        <view class="marginLeft fontSize-26 fontWeight6">
+            个人头像实时拍摄
+        </view>
+    </view>
+    <view class="footBtn dpfC">
+        <view>
+            完成
+        </view>
+    </view>
+</view>

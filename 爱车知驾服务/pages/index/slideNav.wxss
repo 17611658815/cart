@@ -1,0 +1,48 @@
+
+/* 遮罩层 */
+.selectItems-content{
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 100;
+}
+.selectItems-content-hide{
+    width: 500rpx;
+    height: 100vh;
+    background: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: -500rpx;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: myfirst 0.5s;
+}
+.selectItems-content-show{
+    width: 500rpx;
+    height: 100vh;
+    background: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: myfirst 0.5s;
+}
+@keyframes myfirst {
+    0% {
+        background: #ffffff;
+        left: -500rpx;
+    }
+
+    100% {
+         background: #ffffff;
+        left: 0;
+    }
+}

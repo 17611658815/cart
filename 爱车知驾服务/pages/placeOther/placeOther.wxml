@@ -1,0 +1,36 @@
+<!--page/order/pages/placeorder/placeorder.wxml-->
+<view class='container' style="padding-bottom:100rpx">
+    <!-- 商品数量 -->
+    <view class='numBox width100 bgFFFF width_padding dpfC'>
+        <view style='padding:40rpx 0;' class='dpf' wx:for='{{3}}' wx:for-item="k">
+            <view class='service_pic'>
+                <image src='../../images/1570861870.jpg'></image>
+            </view>
+            <view class='service_right'>
+                <view class='fontSize-32 color1 fontWeight5'>壳牌机油</view>
+                <view class='dpfb'>
+                    <view>
+                        <text class='fontSize-32 color4 fontWeight5'>70元</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view style='margin:20rpx 0' class='width_padding width100 bgFFFF dpfC marginTop padding30'>
+        <view class='dpfb width90'>
+            <text class='fontSize-32 color1'>服务金额</text>
+            <text class='fontSize-30 color4'>1950元</text>
+        </view>
+    </view>
+    <!-- 立即购买 -->
+    <view class='purchase'>
+        <view style='width:100%;' class='dpf'>
+            <view class='purchase_price'>
+                <text class='fontSize-30 color1'>实付款:</text>
+                <text class='fontSize-30 color4 fontWeight5'>1950元</text>
+            </view>
+            <view class='purchase_btn' catchtap='goMoneydetails'>立即购买</view>
+        </view>
+        <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
+    </view>
+</view>

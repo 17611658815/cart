@@ -1,0 +1,70 @@
+/* page/order/pages/bayCartOther/bayCartOther.wxss *//* page/order/pages/placeorder/placeorder.wxss */
+page{
+    background: #f8f8f8;
+}
+.address_info{
+    margin-top: 18rpx;
+    /* padding-left: 68rpx; */
+}
+.address_info text{
+    margin-right: 20rpx;
+}
+.numBox > view{
+    width: 92%;
+}
+.service_pic image{
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 10rpx;
+}
+.service_right{
+    flex: 1;
+    height: 130rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20rpx;
+   
+}
+.phcolor{
+    font-size: 28rpx;
+    color: #999999;
+}
+textarea{
+    width: 100%;
+    height: 150rpx;
+    font-size: 28rpx;
+    color: #333333;
+}
+/* 立即购买 */
+.purchase{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    z-index: 99;
+    
+}
+.purchase_price{
+    flex: 1;
+}
+.purchase_price text{
+    margin-left: 20rpx;
+}
+.purchase_btn{
+    width: 220rpx;
+    height: 98rpx;
+    text-align: center;
+    line-height: 98rpx;
+    color: #ffffff;
+    font-size: 32rpx;
+    background: #5994f7;
+}
+.icno_wxplay{
+    width:38rpx;
+    height:38rpx;
+    margin:0 20rpx; 
+    display: block
+}
+

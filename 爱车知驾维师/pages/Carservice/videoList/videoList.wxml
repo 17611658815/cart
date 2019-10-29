@@ -1,0 +1,41 @@
+<view class="container">
+  <!-- 轮播图部分 -->
+    <view class='width100'>
+        <swiper class="swiper width100" 
+                indicator-dots='true' 
+                indicator-color='rgba(255,255, 255, .3)' 
+                indicator-active-color="#ffffff" 
+                autoplay="true" 
+                circular='true' 
+                duration="1000" 
+                interval="5000">
+            <swiper-item wx:for='{{3}}'>
+                <image class="swiper_IMG" mode="aspectFill" src="../../../images/1.jpg"></image>
+                <view class="swiper-item-title1">
+                    知驾车服《知驾车服》第八期[本期策划：共享出行 她力量]
+                </view>
+                <view class="swiper-item-title2">
+                    服务分扣分原则解密（一）
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view class="videoList" wx:for='{{5}}'>
+        <view class="dpfb padding30">
+            <view class="fontSize-26 color1">
+               封面策划 
+            </view>
+            <view class="fontSize-26 color8">
+               更多 
+            </view>
+        </view>
+        <view class="videoList_box">
+            <view class="videoList_box_item" wx:for='{{4}}'>
+                <image mode="aspectFill" src="../../../images/1.jpg"></image>
+                <view class="videoTitle">
+                知驾车服《知驾车服》第八期[本期策划：共享出行 她力量]
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

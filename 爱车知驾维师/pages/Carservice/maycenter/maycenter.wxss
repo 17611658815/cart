@@ -1,0 +1,62 @@
+/* pages/Carservice/maycenter/maycenter.wxss */
+.headerBox{
+    width: 90%;
+    padding: 30rpx 5%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column
+}
+.userText{
+    height: 100rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.userPic{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.userPic image{
+    width: 120rpx;
+    height: 120rpx;border-radius: 50%;
+}
+.usertag text{
+    padding: 5rpx 5rpx;
+    font-size: 22rpx;
+    color: #528FC3;
+    background: #F1F9FF;
+}
+.headerRight{
+    display: flex;
+    align-items:center;
+}
+.headerRight_item{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.headerRight_item_text{
+    text-align: center;
+    width: 110rpx;
+}
+.headerRight_title{
+    padding-top: 30rpx;
+    font-size: 30rpx;
+    font-weight: 500;
+}
+.rightPic{
+    width: 15rpx;
+    height: 25rpx
+}
+.item_icon{
+    width: 35rpx;
+    height: 35rpx;
+    margin: 0 20rpx;
+}
+.item_icon image{
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,140 @@
+
+
+.selectItems-content-hide{
+    width: 500rpx;
+    height: 100vh;
+    background: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: -500rpx;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: myfirst2 0.5s;
+}
+.selectItems-content-show{
+    width: 500rpx;
+    height: 100vh;
+    background: #ffffff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: myfirst 0.5s;
+}
+@keyframes myfirst {
+    0% {
+        background: #ffffff;
+        left: -500rpx;
+    }
+
+    100% {
+         background: #ffffff;
+        left: 0;
+    }
+}
+@keyframes myfirst2 {
+    0% {
+        background: #ffffff;
+        left: 0;
+    }
+
+    100% {
+         background: #ffffff;
+        left: -500rpx;
+    }
+}
+.userPic{
+    width: 120rpx;
+    height: 120rpx;
+    background: #999990;
+    border-radius: 50%;
+    margin: auto;
+}
+.userPic image{
+    width: 100rpx;
+    height: 100rpx;
+}
+.userInfo{
+    text-align: center;
+}
+
+.dpf {
+    display: flex;
+    align-items: center;
+}
+.dpfC {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.marginTop{
+    margin-top: 20rpx;
+}
+.marginRight{
+    margin-right: 20rpx;
+}
+.padding20{
+    padding: 20rpx 0;
+}
+.op{
+    opacity:0
+}
+.op1{
+    opacity:1
+}
+.fontSize-26 {
+    font-size: 26rpx;
+}
+.listicon{
+    width: 45rpx;
+    height: 45rpx;
+}
+.mayCenterList{
+    width: 400rpx;
+    display: flex;
+    align-items: center;
+    font-size: 28rpx;
+}
+.bottomContent{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300rpx;
+}
+.recommend{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 28rpx;
+    color: #333333;
+}
+.recommend image{
+    width: 35rpx;
+    height: 35rpx;
+    margin-bottom: 30rpx;
+}
+.clause{
+    width: 90%;
+    border-top: 1rpx solid #e2e2e2;
+    border-bottom: 1rpx solid #e2e2e2;
+    font-size: 26rpx;
+    color: #999990;
+    padding: 30rpx 0rpx;
+    margin-top: 20rpx;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.clause image{
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 10rpx;
+}

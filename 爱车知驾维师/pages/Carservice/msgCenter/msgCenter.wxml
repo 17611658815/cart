@@ -1,0 +1,17 @@
+<view class="container">
+    <view class="typeList width100 marginTop20 dpfC bgFFFF">
+        <navigator hover-class='none' url='{{item.path}}' class="width90 dpfb bgFFFF padding30 borderBtm" wx:for='{{typeListArr}}' wx:key='key'>
+            <view class="typeList_item dpf">
+                <view class="item_icon">
+                    <image src="{{item.icon}}"></image>
+                </view>
+                <view>
+                    {{item.name}}
+                </view>
+            </view>
+            <view>
+                <image class="rightPic" src='../../../images/icon_right.png'></image>
+            </view>
+        </navigator>
+    </view>
+</view>

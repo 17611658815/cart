@@ -1,0 +1,11 @@
+/* pages/recruit/recruit.wxss */
+.headerpic image{
+    width: 100%;
+    height: 200rpx;
+}
+.serverList{
+    width: 87%;
+    border-radius: 10rpx;
+    margin-top: 20rpx;
+    padding: 30rpx 4%;
+}

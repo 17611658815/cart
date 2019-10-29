@@ -1,0 +1,52 @@
+<view class="container">
+    <view class="tabBox">
+        <view class="tabItem" bindtap="swatchTab" data-index="0">
+            <text class="{{currentTab == 0 ? 'active':''}}">推荐车主</text>
+        </view>
+        <view class="tabItem" bindtap="swatchTab" data-index="1">
+            <text class="{{currentTab == 1 ? 'active':''}}">推荐维师</text>
+        </view>
+    </view>
+    <!-- 滚动文字 -->
+    <view class="bgBox">
+        <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="3000">
+            <block wx:for="{{msgList}}">
+                <navigator url="/pages/index/index?title={{item.url}}" open-type="navigate">
+                    <swiper-item>
+                        <view class="swiper_item">
+                            <view class="userPic"></view>
+                            <view class="userText">{{item.title}}</view>
+                        </view>
+                    </swiper-item>
+                </navigator>
+            </block>
+        </swiper>
+        <view class="shareBox dpfC boxShadow">
+            <view class="width90 dpfb">
+                <view class="solid"></view>
+                <view>分享到一下平台</view>
+                <view class="solid"></view>
+            </view>
+            <view class="width90 shareList">
+                <view class="shareItem">
+                    <view></view>
+                    <view>微信好友</view>
+                </view>
+                <view class="shareItem">
+                    <view></view>
+                    <view>微信好友</view>
+                </view>
+                <view class="shareItem">
+                    <view></view>
+                    <view>微信好友</view>
+                </view>
+            </view>
+            <view class="fontSize-22 color3 padding20">
+                赚钱攻略
+            </view>
+        </view>
+        <view class="shareBox boxShadow">
+
+        </view>
+    </view>
+</view>

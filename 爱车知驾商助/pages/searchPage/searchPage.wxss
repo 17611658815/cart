@@ -1,0 +1,89 @@
+/* pages/searchPage/searchPage.wxss */
+.searchBox{
+    width: 94%;
+    padding: 15rpx 3%;
+    background: #F2F2F2;
+    font-size: 26rpx;
+    color: #999999;
+}
+.searchBox image{
+    width: 45rpx;
+    height: 45rpx;
+}
+.searchBox>view{
+    width: 100%;
+    height: 60rpx;
+    background: #ffffff;
+    border-radius: 10rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* 推广筛选 */
+.slect_item{
+    width: 94%;
+    padding: 20rpx 3%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+.slect_item>view{
+    flex: 1;
+    text-align: center;
+}
+.slect_item image{
+    width: 30rpx;
+    height: 30rpx;
+}
+.rotateRight{
+  transform: rotate(180deg); 
+}
+/* 排序下拉 */
+.sortList{
+    width: 100%;
+    display: flex;
+    padding: 0 0 20rpx 0;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    position: absolute;
+    top: 75rpx;
+    left: 0;
+    z-index: 999;
+    animation: mysortfirst 0.3s;
+}
+@keyframes mysortfirst {
+    from {
+        height: 0rpx;
+    }
+ 
+    to {
+       height: 290rpx;
+    }
+}
+.sortList_item{
+    display: flex;
+    color: #999;
+    font-size: 28rpx;
+    position: relative
+}
+.sortList_item image{
+    width: 40rpx;
+    height: 40rpx;
+    position: absolute;
+    right: 0;
+    top: 40%;
+}
+.hotList{
+    width:94%;
+    padding:  0 3%;
+    background: #ffffff;
+}
+.hotList>view{
+    border-bottom: 1rpx solid #e2e2e2;
+    padding: 30rpx 0;
+}

@@ -1,0 +1,216 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"coverView": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.8.3",
+	"appid": "wx09475e1c13deb589",
+	"projectname": "%E7%9F%A5%E9%A9%BE%E7%BB%B4%E5%B8%88",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 23,
+			"list": [
+				{
+					"id": -1,
+					"name": "欢迎加入知驾车服",
+					"pathName": "pages/welcome/welcome",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "维师招募",
+					"pathName": "pages/recruit/recruit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "加入网约维师",
+					"pathName": "pages/joinRecruit/joinRecruit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "加入知驾网约维修师",
+					"pathName": "pages/joinCity/joinCity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "维师加入条件",
+					"pathName": "pages/joinReq/joinReq",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "维师介绍人",
+					"pathName": "pages/invite/invite",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "店铺注册",
+					"pathName": "pages/shopSign/shopSign",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "技务人员招募",
+					"pathName": "pages/appl_jishi/appl_jishi",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "维师注册",
+					"pathName": "pages/upPicregister/upPicregister",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "注册需要材料",
+					"pathName": "pages/photopage/photopage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "维师圈",
+					"pathName": "pages/Carservice/circle/circle",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/Carservice/maycenter/maycenter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心-评论-赞",
+					"pathName": "pages/Carservice/msgCenter/msgCenter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "同城排行",
+					"pathName": "pages/Carservice/rankingList/rankingList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "同城排行规则",
+					"pathName": "pages/Carservice/regulation/regulation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "私人工具",
+					"pathName": "pages/Carservice/toolbar/toolbar",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "钱包",
+					"pathName": "pages/Carservice/wallet/wallet",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "设置",
+					"pathName": "pages/Carservice/setList/setList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付设置",
+					"pathName": "pages/Carservice/PaymentSet/PaymentSet",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "接驾互助",
+					"pathName": "pages/Carservice/insurance/insurance",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "添加银行卡",
+					"pathName": "pages/Carservice/addBank/addBank",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "关于",
+					"pathName": "pages/Carservice/regard/regard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "消息",
+					"pathName": "pages/Carservice/message/message",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "平凡之路",
+					"pathName": "pages/Carservice/videoList/videoList",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,138 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"coverView": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.8.3",
+	"appid": "wx09475e1c13deb589",
+	"projectname": "%E7%88%B1%E8%BD%A6%E7%9F%A5%E9%A9%BE%E5%95%86%E5%8A%A9",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 12,
+			"list": [
+				{
+					"id": -1,
+					"name": "数据中心",
+					"pathName": "pages/dataCenter/dataCenter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "推广中心",
+					"pathName": "pages/promotionCenter/promotionCenter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "店铺进宝",
+					"pathName": "pages/shopChunks/shopChunks",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "消息",
+					"pathName": "pages/message/message",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/may/may",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "账户资金",
+					"pathName": "pages/shopWallet/shopWallet",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商户注册",
+					"pathName": "pages/register/register",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "工具",
+					"pathName": "pages/tool/tool",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家客服",
+					"pathName": "pages/shopService/shopService",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "手机登录",
+					"pathName": "pages/phoneLogin/phoneLogin",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "店铺进宝",
+					"pathName": "pages/joinTreasure/joinTreasure",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "系统通知",
+					"pathName": "pages/messageList/messageList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "车品热搜词",
+					"pathName": "pages/searchPage/searchPage",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,56 @@
+/*自定义tabbar样式*/
+
+.tabbar {
+    position: fixed;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    bottom: 0;
+    left: 0;
+    right: 0rpx;
+    background-color: #fff;
+    height: 96rpx;
+    width: 100%;
+    border-top: 2rpx solid #ededed;
+}
+
+.barBtn {
+    flex: 1;
+}
+
+.btnIcon {
+    width: 46rpx;
+    height: 46rpx;
+    margin: 8rpx auto;
+}
+
+.btnName {
+    font-size: 20rpx;
+    color: #929294;
+    text-align: center;
+}
+
+.active {
+    color: #000000;
+}
+
+.fastTitleBox {
+    width: 660rpx;
+    height: 88rpx;
+    padding: 0 53rpx;
+    line-height: 88rpx;
+    background: #f8f8f8f8;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.db {
+    display: block;
+}

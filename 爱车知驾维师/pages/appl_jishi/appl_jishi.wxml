@@ -1,0 +1,13 @@
+<view class="container">
+    <view class="picBox">
+    
+    </view>
+    <view class="dpfC width100">
+        <view class='title'>
+            什么是技师维师服务?
+        </view>
+        <view class="addbtn">
+            我要申请成为技师服务人员
+        </view>
+    </view>
+</view>

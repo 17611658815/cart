@@ -1,0 +1,56 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/message/message",
+        "pages/tool/tool",
+        "pages/may/may",
+        "pages/promotionCenter/promotionCenter",
+        "pages/dataCenter/dataCenter",
+        "pages/shopChunks/shopChunks",
+        "pages/shopWallet/shopWallet",
+        "pages/register/register",
+        "pages/shopService/shopService",
+        "pages/phoneLogin/phoneLogin",
+        "pages/wxLogin/wxLogin",
+        "pages/joinTreasure/joinTreasure",
+        "pages/messageList/messageList",
+        "pages/searchPage/searchPage"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#818181",
+        "selectedColor": "#818181",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "主页",
+                "iconPath": "images/tabber/home_select_2.png",
+                "selectedIconPath": "images/tabber/home_select_1.png"
+            },
+            {
+                "pagePath": "pages/message/message",
+                "text": "消息",
+                "iconPath": "images/tabber/msg_select_2.png",
+                "selectedIconPath": "images/tabber/msg_select_1.png"
+            },
+            {
+                "pagePath": "pages/tool/tool",
+                "text": "工具",
+                "iconPath": "images/tabber/type_select_2.png",
+                "selectedIconPath": "images/tabber/type_select_1.png"
+            },
+            {
+                "pagePath": "pages/may/may",
+                "text": "我的",
+                "iconPath": "images/tabber/may_select_2.png",
+                "selectedIconPath": "images/tabber/may_select_1.png"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,23 @@
+/* pages/register/register.wxss */
+.rightPic{
+    width: 15rpx;
+    height: 25rpx
+}
+.borderLeft{
+    display: flex;
+    align-items: center;
+    height: 25rpx;
+    border-left: 6rpx solid #999999;
+    padding-left: 20rpx;
+}
+.addBtn{
+    width: 700rpx;
+    height: 90rpx;
+    margin-top: 100rpx;
+    color: #ffffff;
+    text-align: center;
+    line-height: 90rpx;
+    border-radius: 20rpx;
+    background-image: linear-gradient(#F9903F, #F35235);
+
+}

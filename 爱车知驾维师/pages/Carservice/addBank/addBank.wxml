@@ -1,0 +1,9 @@
+<view class="container">
+    <view class="addbankBtn">
+        添加银行卡
+    </view>
+</view>
+
+<view class="problemBtn">
+   <image src="../../../images/3.png"></image>  常见问题
+</view>

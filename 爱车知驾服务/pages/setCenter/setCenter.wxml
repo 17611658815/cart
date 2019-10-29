@@ -1,0 +1,84 @@
+<view class="container">
+    <view class="width90 paddinglr bgFFFF">
+        <view class="typeList width100">
+            <view hover-class='none' url='{{item.path}}' class="listitem width100 dpfb">
+                <view class="typeList_item dpf">
+                    <view class="item_icon"></view>
+                    <view class="fontSize-26 color2">
+                        账号安全
+                    </view>
+                </view>
+                <view class="dpf">
+                    <text class="fontSize-26 color3">{{item.text}}</text>
+                    <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
+                </view>
+            </view>
+            <view hover-class='none' url='{{item.path}}' class="listitem width100 dpfb">
+                <view class="typeList_item dpf">
+                    <view class="item_icon"></view>
+                    <view class="fontSize-26 color2">
+                        生物识别
+                    </view>
+                </view>
+                <view class="dpf">
+                    <text class="fontSize-26 color3">人脸，指纹，声纹</text>
+                    <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="width90 paddinglr bgFFFF marginTop">
+        <view class="typeList width100">
+            <view hover-class='none' url='{{item.path}}' class="listitem width100 dpfb">
+                <view class="typeList_item dpf">
+                    <view class="item_icon"></view>
+                    <view class="fontSize-26 color2">
+                        隐私
+                    </view>
+                </view>
+                <view class="dpf">
+                    <text class="fontSize-26 color3">{{item.text}}</text>
+                    <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
+                </view>
+            </view>
+            <view hover-class='none' url='{{item.path}}' class="listitem width100 dpfb">
+                <view class="typeList_item dpf">
+                    <view class="item_icon"></view>
+                    <view class="fontSize-26 color2">
+                        求助反馈
+                    </view>
+                </view>
+                <view class="dpf">
+                    <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="width90 paddinglr bgFFFF marginTop">
+        <view class="typeList width100">
+            <view hover-class='none' url='{{item.path}}' class="listitem width100 dpfb">
+                <view class="typeList_item dpf">
+                    <view class="item_icon"></view>
+                    <view class="fontSize-26 color2">
+                        版本更新
+                    </view>
+                </view>
+                <view class="dpf">
+                    <text class="fontSize-26 color3">{{item.text}}</text>
+                    <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
+                </view>
+            </view>
+            <view hover-class='none' url='{{item.path}}' class="listitem width100 dpfb">
+                <view class="typeList_item dpf">
+                    <view class="item_icon"></view>
+                    <view class="fontSize-26 color2">
+                        法律条款与平台规则
+                    </view>
+                </view>
+                <view class="dpf">
+                    <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

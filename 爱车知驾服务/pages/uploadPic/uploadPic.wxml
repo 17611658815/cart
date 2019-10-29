@@ -1,0 +1,24 @@
+<view class="container">
+    <view class="shootBox" wx:if='{{flage}}'>
+        <view class="photoBox" wx:if='{{shootPic == ""}}'>
+            <image class="left_1" src="../../images/left_1.png"></image>
+            <image class="left_2" src="../../images/left_2.png"></image>
+            <image class="right_1" src="../../images/right_1.png"></image>
+            <image class="right_2" src="../../images/right_2.png"></image>
+            <image class="shootPic" src="../../images/Image 1.png"></image>
+        </view>
+        <view class="photoBox" wx:else>
+            <image style="width:100%;height:100%" src="{{shootPic}}"></image>
+        </view>
+        <view class="shootText">
+            <view class="fontSize-45">行驶证正面</view>
+            <view class="fontSize-28">
+                <view>要求</view>
+                <view class="dpf marginTop10">
+                    <text class="dian_4 marginRight10"></text> 请将行驶证正面置于拍摄框内</view>
+            </view>
+            <view class="shootbtn" bindtap="chooseImageTap" wx:if='{{shootPic == ""}}'>开始拍摄</view>
+            <view class="shootbtn" bindtap="" wx:else>开始上传</view>
+        </view>
+    </view>
+</view>
