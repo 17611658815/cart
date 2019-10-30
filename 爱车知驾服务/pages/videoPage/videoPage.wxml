@@ -1,0 +1,10 @@
+<view class="container">
+    <!-- 头部导航 -->
+    <view class="navList width90">
+        <view bindtap="swatchTab" data-index='{{index}}' class="{{currentTab==index ? 'color1 navActive':'color3'}}" wx:for='{{navList}}' wx:key='key'>{{item}}</view>
+    </view>
+    <view class="videoList">
+        
+    </view>
+</view>
+

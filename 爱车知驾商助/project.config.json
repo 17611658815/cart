@@ -39,6 +39,10 @@
 			"currentL": -1,
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 12,
 			"list": [
@@ -130,6 +134,13 @@
 					"id": -1,
 					"name": "车品热搜词",
 					"pathName": "pages/searchPage/searchPage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商家社区",
+					"pathName": "pages/community/community",
 					"scene": null
 				}
 			]

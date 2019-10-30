@@ -1,5 +1,5 @@
 <view class="container">
-     <view class='cleaningList'>
+     <view class='cleaningList marginTop'>
         <view class='cleaningList-item' 
                 bindtap='gocleaningDetails' 
                 data-id='{{item.id}}' 

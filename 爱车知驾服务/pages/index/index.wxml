@@ -18,10 +18,21 @@
             </view>
         </view>
     </view>
-    <!-- 导航 'margin-top:'+height+' -->
+    <!-- 导航-->
     <view class='scroll-x-content {{fined ? "fix-news":""}}' id="list">
-        <scroll-view scroll-x="true" class='scroll-x-box' scroll-with-animation="true" id="scroll-view" scroll-left="{{ scrollLeft }}">
-            <view class='scroll-x-content-item' bindtap='swatchTab' data-id="{{item.id}}" id="item-{{index}}" data-index="{{index}}" wx:for='{{navArr}}' wx:key='index'>
+        <scroll-view 
+                scroll-x="true" 
+                class='scroll-x-box' 
+                scroll-with-animation="true" 
+                id="scroll-view" 
+                scroll-left="{{ scrollLeft }}">
+                <view class='scroll-x-content-item' 
+                    bindtap='swatchTab' 
+                    data-id="{{item.id}}" 
+                    id="item-{{index}}" 
+                    data-index="{{index}}"
+                    wx:for='{{navArr}}' 
+                    wx:key='index'>
                 <view class="dpfC">
                     <text class='{{index==currentTab? "active"+(currentTab):"defaultColor"}}'>{{item.name}}</text>
                 </view>
@@ -29,12 +40,10 @@
         </scroll-view>
         <image catchtap="allserveShow" class="icon_down" src="../../images/more_icon.png"></image>
         <view class="list_container dpfC padding20" style="z-index:5" wx:if='{{isShadeShow}}'>
-
             <view style="position: relative" class="width90 dpfC color2 fontSize-30">全部服务
                 <image class="icon_colse" catchtap="allserveShow" src="../../images/icon_colse.png"></image>
             </view>
             <view class="server_item marginTop">
-
                 <view class="server_item_item dpfC" wx:for="{{navArr}}" wx:key='key'>
                     <navigator hover-class='none' url='{{item.path}}'>
                         <view class="server_item_logo"></view>
@@ -48,10 +57,18 @@
     </view>
     <!-- map地图 -->
     <view class="width100" wx:if='{{currentTab<=4}}'>
-
-
         <view class="mapBox dpfC">
-            <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 100%;"></map>
+            <map id="map" 
+            longitude="{{longitude}}" 
+            latitude="{{latitude}}" 
+            scale="14" 
+            controls="{{controls}}" 
+            bindcontroltap="controltap" 
+            markers="{{markers}}" 
+            bindmarkertap="markertap" 
+            polyline="{{polyline}}" 
+            bindregionchange="regionchange" 
+            show-location style="width: 100%; height: 100%;"></map>
             <!-- 提示信息 -->
             <view class="hint_msg width90 dpfb padding20 boxShadow" wx:if='{{typeNum== 0}}'>
                 <view class="hint_icon dpf">
@@ -94,9 +111,7 @@
             </view>
             <!-- 急叫中心 -->
             <view class="call_Box" catchtap="selecEmergency">
-                <view class="left_icon">
-
-                </view>
+                <view class="left_icon"></view>
                 <view class="dpf">急叫中心
                     <image class="right_icon marginLeft10" src="../../images/right_icon.png"></image>
                 </view>
@@ -108,7 +123,15 @@
                 <view class="tabNav width90">
                     <view data-index="0" bindtap="servetab" class="{{ serveCurrent == 0 ? 'border':''}}">现在</view>
                     <!-- <picker mode="multiSelector" data-index="1" bindtap="servetab" class="{{ serveCurrent == 1 ? 'border':''}}">预约</picker> -->
-                    <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" data-index="1" bindtap="servetab" class="{{ serveCurrent == 1 ? 'border':''}}">预约</picker>
+                    <picker 
+                        mode="multiSelector" 
+                        bindchange="bindMultiPickerChange" 
+                        bindcolumnchange="bindMultiPickerColumnChange" 
+                        value="{{multiIndex}}" 
+                        range="{{multiArray}}" 
+                        data-index="1" 
+                        bindtap="servetab" 
+                        class="{{ serveCurrent == 1 ? 'border':''}}">预约</picker>
                     <view data-index="2" bindtap="servetab" class="{{ serveCurrent == 2 ? 'border':''}}">代叫</view>
                     <view data-index="3" bindtap="servetab" class="color7 {{ serveCurrent == 3 ? 'borderRed':''}}">急叫</view>
                 </view>
@@ -150,7 +173,12 @@
                 <view class="slectTime width100 dpf padding20 fontSize-26 color1">
                     <!-- 预约时间 -->
                     <view>
-                        <picker mode="multiSelector" mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+                        <picker 
+                            mode="multiSelector" 
+                            bindchange="bindMultiPickerChange" 
+                            bindcolumnchange="bindMultiPickerColumnChange" 
+                            value="{{multiIndex}}" 
+                            range="{{multiArray}}">
                             <view class="picker">
                                 预约时间 > {{region[0]}}{{region[1]}}{{region[2]}}
                             </view>
@@ -244,7 +272,12 @@
                 <!-- 评星 -->
                 <view class='starBox' style='margin-top:30rpx;'>
                     <view class='star_item'>
-                        <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:key="star1" bindtap='getStar' data-star='{{item}}' style='background:url({{diagnosisStar >= item ? iconArr[1] : iconArr[0]}}) no-repeat center center/6.7vw 6.7vw;'></view>
+                        <view class='rui-star' 
+                            wx:for="{{[1,2,3,4,5]}}" 
+                            wx:key="star1" 
+                            bindtap='getStar' 
+                            data-star='{{item}}' 
+                            style='background:url({{diagnosisStar >= item ? iconArr[1] : iconArr[0]}}) no-repeat center center/6.7vw 6.7vw;'></view>
                     </view>
                 </view>
             </view>

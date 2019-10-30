@@ -4,16 +4,24 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"autoAudits": false,
-		"coverView": true
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.8.3",
+	"libVersion": "2.9.1",
 	"appid": "wx09475e1c13deb589",
 	"projectname": "%E7%88%B1%E8%BD%A6%E7%9F%A5%E9%A9%BE%E6%9C%8D%E5%8A%A1",
 	"debugOptions": {
@@ -37,6 +45,10 @@
 		},
 		"game": {
 			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
@@ -158,6 +170,27 @@
 					"id": -1,
 					"name": "知驾商助",
 					"pathName": "pages/shopLogin/shopLogin",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的客服",
+					"pathName": "pages/mayService/mayService",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "会员页面",
+					"pathName": "pages/vipPage/vipPage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "知驾服务",
+					"pathName": "pages/videoPage/videoPage",
 					"scene": null
 				}
 			]

@@ -19,7 +19,10 @@
         "pages/userGuide/userGuide",
         "pages/invite/invite",
         "pages/shopLogin/shopLogin",
-        "pages/carNoopsyche/carNoopsyche"
+        "pages/carNoopsyche/carNoopsyche",
+        "pages/mayService/mayService",
+        "pages/vipPage/vipPage",
+        "pages/videoPage/videoPage"
     ],
     "window": {
         "backgroundTextStyle": "light",

@@ -17,6 +17,7 @@ App({
         })
     },
     globalData: {
-        userInfo: null
+        userInfo: null,
+        ak: "jTvAgQfAwt9QHpu2DocWiOg7mR1UQI8A", //填写申请到的ak  
     }
 })

@@ -1,30 +1,27 @@
 <!-- 活动推荐 -->
 <template name="recommended">
-        <view class="container">
-                <view class="picBox"></view>
-                <view class="serveList">
-                    <view class="serveList_item" wx:for='{{4}}'>
-                        <view></view>
-                        <view class="fontSize-32 fontWeight6">领红包</view>
-                        <view class="fontSize-22 color3">服劲店主正在发红包(别错过)</view>
-                    </view>
-                </view>
-                <view class="recommended_title">
-                    <view class="wire"></view>
-                    <view>您得车辆符合如下用品</view>
-                    <view class="wire"></view>
-                </view>
-                <view class="partsList">
-                        <view class="partsList_item" wx:for='{{3}}'>
-                                <view style=" text-align: left" class="color8 fontSize-22">轮胎</view>
-                                <view style=" text-align:center"  class="color3 fontSize-22">规格，花纹，MT品牌</view>
-                                <view style=" text-align:right"  class="color1 fontSize-22">米其林</view>
-                                <view style=" text-align:right"  class="color1 fontSize-22">马牌</view>
-                                <view style=" text-align:right"  class="color1 fontSize-22">倍耐力</view>
-                        </view>
-                </view>
+    <view class="container">
+        <view class="picBox"></view>
+        <view class="serveList">
+            <view class="serveList_item" wx:for='{{4}}'>
+                <view></view>
+                <view class="fontSize-32 fontWeight6">领红包</view>
+                <view class="fontSize-22 color3">服劲店主正在发红包(别错过)</view>
+            </view>
         </view>
+        <view class="recommended_title">
+            <view class="wire"></view>
+            <view>您得车辆符合如下用品</view>
+            <view class="wire"></view>
+        </view>
+        <view class="partsList">
+            <view class="partsList_item" wx:for='{{3}}'>
+                <view style=" text-align: left" class="color8 fontSize-22">轮胎</view>
+                <view style=" text-align:center" class="color3 fontSize-22">规格，花纹，MT品牌</view>
+                <view style=" text-align:right" class="color1 fontSize-22">米其林</view>
+                <view style=" text-align:right" class="color1 fontSize-22">马牌</view>
+                <view style=" text-align:right" class="color1 fontSize-22">倍耐力</view>
+            </view>
+        </view>
+    </view>
 </template>
-
-
-

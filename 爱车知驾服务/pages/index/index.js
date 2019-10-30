@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const bmap = require('../../utils/bmap-wx.min.js');
 const beas64 = require('beas64.js');
 Page({
     data: {
@@ -153,7 +154,22 @@ Page({
         colorStyle:'#4EB113',
         fixTop:500,
         fined:false,
-        scrollTop:0
+        scrollTop:0,
+         markers : [{
+            iconPath: "../../images/automobile_icon.png",
+            id: 0,
+            latitude: 39.9223,
+            longitude: 116.45363,
+            width: 20,
+            height: 20
+        }, {
+            iconPath: "../../images/automobile_icon.png",
+            id: 0,
+            latitude: 39.9243,
+            longitude: 116.45223,
+            width: 20,
+            height: 20
+        }]
     },
     //顶部吸附效果
     onShow: function () {
@@ -225,45 +241,41 @@ Page({
     },
     onLoad: function() {
         let that = this;
+        var BMap = new bmap.BMapWX({
+            ak: app.globalData.ak
+        });
         wx.getLocation({
             type: 'gcj02',
             altitude: true, //高精度定位
             //定位成功，更新定位结果
             success: function(res) {
                 console.log(res)
-                var markers = [{
-                    iconPath: "../../images/automobile_icon.png",
-                    id: 0,
-                    latitude: res.latitude,
-                    longitude: res.longitude,
-                    width: 20,
-                    height: 20
-                }, {
-                        iconPath: "../../images/automobile_icon.png",
-                        id: 0,
-                        latitude: 39.9223,
-                        longitude: 116.45363,
-                        width: 20,
-                        height: 20
-                    },{
-                        iconPath: "../../images/automobile_icon.png",
-                        id: 0,
-                        latitude: 39.9243,
-                        longitude: 116.45223,
-                        width: 20,
-                        height: 20
-                    }];
+                // BMap.regeocoding({
+                //     location: res.latitude + ',' + res.longitude,
+                //     success: function (res) {
+                //         console.log(res)
+                //         wxMarkerData = res.wxMarkerData;
+                //         app.globalData.loactioninfo = res
+                //         app.globalData.LocateName = res.originalData.result.sematic_description
+                       
+                //     },
+                //     fail: function () {
+                //         wx.showToast({
+                //             title: '请检查位置服务是否开启',
+                //         })
+                //     },
+                // });
+               
                 var latitude = res.latitude
                 var longitude = res.longitude
                 var speed = res.speed
                 var accuracy = res.accuracy
                 that.setData({
-                    longitude: longitude,
-                    latitude: latitude,
-                    speed: speed,
-                    accuracy: accuracy,
+                    longitude: res.longitude,
+                    latitude: res.latitude,
+                    speed: res.speed,
+                    accuracy: res.accuracy,
                     iconArr: beas64, //星星beas64地址
-                     markers: markers,
                 })
             }
         });

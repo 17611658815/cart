@@ -1,0 +1,70 @@
+/* pages/mayService/mayService.wxss */
+page{
+    background: #f8f8f8;
+}
+.latelyOther{
+    width: 90%;
+    padding: 30rpx 5%;
+    background: #525464
+}
+.time_icon{
+    width: 15rpx;
+    height: 15rpx;
+}
+.left_Box{
+    margin-right: 15rpx;
+    
+}
+.hotissue{
+    width: 100%;
+    background: #ffffff;
+}
+.hotissue .blacklist{
+    width: 94%;
+    padding: 30rpx 3%;
+}
+.question_box{
+    display: flex;
+}
+.question_box_left{
+    width: 150rpx;
+    display: flex;
+    flex-direction: column;
+    border-right: 1rpx solid #e2e2e2;
+
+}
+.question_box_left>view{
+    flex: 1;
+    border-bottom: 1rpx solid #e2e2e2;
+    font-size: 22rpx;
+    color: #999999;
+}
+.question_box_right{
+    flex: 1;
+}
+.question_box_right view{
+    padding: 15rpx;
+    border-bottom: 1rpx solid #e2e2e2;
+    font-size: 26rpx;
+    color: #666666;
+      padding-left: 10rpx;
+}
+.question_box_left image{
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.recommend{
+    width: 100%;
+    margin-top: 20rpx;
+    background: #ffffff;
+}
+.recommend>view{
+    width: 94%;
+    padding: 20rpx 3%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 28rpx;
+    color: #666666;
+    border-bottom: 1rpx solid #e2e2e2;
+}

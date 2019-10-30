@@ -14,7 +14,8 @@
         "pages/wxLogin/wxLogin",
         "pages/joinTreasure/joinTreasure",
         "pages/messageList/messageList",
-        "pages/searchPage/searchPage"
+        "pages/searchPage/searchPage",
+        "pages/community/community"
     ],
     "window": {
         "backgroundTextStyle": "light",
