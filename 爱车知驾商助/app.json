@@ -15,7 +15,9 @@
         "pages/joinTreasure/joinTreasure",
         "pages/messageList/messageList",
         "pages/searchPage/searchPage",
-        "pages/community/community"
+        "pages/community/community",
+        "pages/addshop/addshop",
+        "pages/otherType/otherType"
     ],
     "window": {
         "backgroundTextStyle": "light",

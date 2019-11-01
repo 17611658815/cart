@@ -152,24 +152,48 @@ Page({
         }],
         authorizationShow:false,//展示授权框
         colorStyle:'#4EB113',
-        fixTop:500,
-        fined:false,
+        fixTop:500,//据顶部距离
+        fined:false,//定位
         scrollTop:0,
-         markers : [{
-            iconPath: "../../images/automobile_icon.png",
-            id: 0,
-            latitude: 39.9223,
-            longitude: 116.45363,
-            width: 20,
-            height: 20
-        }, {
-            iconPath: "../../images/automobile_icon.png",
-            id: 0,
-            latitude: 39.9243,
-            longitude: 116.45223,
-            width: 20,
-            height: 20
-        }]
+        // 标记点对象
+        markers : [{ 
+            iconPath: "http://img.dkjis.com/uploads/picthumb/picthumb20190902180119.jpg",
+        id: 0,
+        latitude: 39.9223,
+        longitude: 116.45363,
+        width: 20,
+        height: 20,
+            title: "【软银科技】\n网络营销领导者，让公司业绩倍增\n倍增热线：15136135201",
+            callout: {
+                content: "【软银科技】\n网络营销领导者，让公司业绩倍增\n倍增热线：15136135201",
+                color: "#2c8df6",
+                fontSize: 10,
+                borderRadius: 10,
+                bgColor: "#fff",
+                display: "ALWAYS",
+                boxShadow: "2rpx 2rpx 10rpx #aaa",
+                display:'BYCLICK',
+            },
+            label: {
+                color: "#000",
+                fontSize: 12,
+                content: "为标记点旁边增加标签",
+                x: 34.780439,
+                y: 113.699774
+            }
+        }],
+        iszoom: false,//false是否支持缩放
+        isscroll: false//是否支持拖动
+
+    },
+    callouttap(e){
+        console.log(e,1)
+    },
+    markertap(e){
+        console.log(e,2)
+    },
+    labeltap(e){
+        console.log(e,3)
     },
     //顶部吸附效果
     onShow: function () {
@@ -241,9 +265,9 @@ Page({
     },
     onLoad: function() {
         let that = this;
-        var BMap = new bmap.BMapWX({
-            ak: app.globalData.ak
-        });
+        // var BMap = new bmap.BMapWX({
+        //     ak: app.globalData.ak
+        // });
         wx.getLocation({
             type: 'gcj02',
             altitude: true, //高精度定位

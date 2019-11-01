@@ -1,4 +1,5 @@
 //app.js
+const Api = require('API/API.js');
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -33,6 +34,10 @@ App({
       }
     })
   },
+//挂载网络请求api
+net: {
+    $Api: Api.api,
+},
   globalData: {
     userInfo: null
   }

@@ -1,3 +1,35 @@
 <view class="container">
-    
+    <view class="haeaderBox">
+        <view class="fontSize-40 fontWeight5 padding30">黄金会员</view>
+        <view class="width90 shareList">
+            <view class="shareItem" wx:for='{{5}}'>
+                <view></view>
+                <view class="fontSize-22 color2">微信好友</view>
+            </view>
+        </view>
+        <view class="more_btn">
+            查看更多福利
+        </view>
+    </view>
+    <scroll-view scroll-x class="scroll-header">
+        <view wx:for='{{8}}' id="blue" class="scroll-view-item boxShadow">
+
+        </view>
+    </scroll-view>
+    <view class="list_item width90 boxShadow">
+        <view class="list_item_1">
+           <view class="list_item_1_left">
+                <view class="fontSize-22 color3">立即邀请同学认证</view>
+                <view class="fontSize-40 color2 fontWeight5 marginTop">邀请同学认证</view>
+                <view class="fontSize-40 color2 fontWeight5">领五元立减卷</view>
+           </view>
+           <view class="list_item_1_right">
+                <image src="../../images/1570861870.jpg"></image>
+           </view>
+        </view>
+        <view class="list_item_2 width90 paddinglr fontSize-22 color2">
+            立即邀请
+        </view>
+    </view>
+
 </view>

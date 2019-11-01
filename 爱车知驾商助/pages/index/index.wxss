@@ -46,6 +46,10 @@ swiper-item {
     height: 50rpx;
     background: #999999;
 }
+.iconBox image{
+    width: 100%;
+    height: 100%;
+}
 .tagBox>view{
     height: 100%;
 }

@@ -65,16 +65,20 @@
             controls="{{controls}}" 
             bindcontroltap="controltap" 
             markers="{{markers}}" 
-            bindmarkertap="markertap" 
+            bindmarkertap="markertap"
+            bindlabeltap='labeltap' 
+            bindcallouttap='callouttap'
             polyline="{{polyline}}" 
-            bindregionchange="regionchange" 
+            bindregionchange="regionchange"
+            enable-zoom='{{iszoom}}'
+            enable-scroll='{{isscroll}}' 
             show-location style="width: 100%; height: 100%;"></map>
             <!-- 提示信息 -->
             <view class="hint_msg width90 dpfb padding20 boxShadow" wx:if='{{typeNum== 0}}'>
                 <view class="hint_icon dpf">
                     <image src="../../images/hint_icon.png"></image>
                 </view>
-                <view class="hint_text fontSize-26 color2 ">
+                <view class="hint_text fontSize-26 color2">
                     2019年知驾车服,免费六项车体检查
                 </view>
                 <view class="hint_btn">

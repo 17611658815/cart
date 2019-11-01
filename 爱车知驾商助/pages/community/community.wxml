@@ -22,7 +22,9 @@
              </view>
               <view style="margin-top:30rpx" class="fontSize-34 width100 fontWeight5">汽车点如何提升客户满意度</view>
              <view class="conten_txtBox" style="margin-top:20rpx">
-                    <view class="conten_text">现在汽车维修店开的很多，关的也很多，看那些好的每天都很热闹，闲着的也很多，每天不知道该怎么办，焦虑，就如同</view>
+                    <view class="conten_text">现在汽车维修店开的很多，关的也很多，
+                    看那些好的每天都很热闹，闲着的也很多，每天不知道该怎么办，焦虑，就如同
+                    </view>
                 <view class="conten_img">
                     <image src="../../images/1.png"></image>
                 </view>
@@ -30,8 +32,8 @@
               <view class="dpfb width100" style="margin-top:20rpx">
                 <view class="fontSize-26 color dpf">
                     <image class="marginLeft10" style="width:40rpx;height:40rpx" src="../../images/1.png"></image>
-                        <text class="color2 marginLeft10">酒市</text>
-                        <text class="color233 marginLeft10">1天前</text>
+                    <text class="color2 marginLeft10">酒市</text>
+                    <text class="color233 marginLeft10">1天前</text>
                 </view>
                 <view class="fontSize-26 color3">浏览量:3.6万</view>
              </view>

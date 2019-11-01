@@ -1,0 +1,42 @@
+<view class="container">
+    <view class="dpfC width100 marginTop" id='list'>
+        <view class="navList width100">
+            <view bindtap="swatchTab" 
+                data-index='{{index}}' 
+                class="{{currentTab==index ? 'color1 navActive':'color1'}}" 
+                wx:for='{{navList}}'>{{item}}</view>
+        </view>
+        <view class="width100" wx:if='{{dataList.length>0}}'>
+            <view class="otherlistBox" wx:for="{{dataList}}" catchTap="goorderdetails2">
+                <view class="list_item width100">
+                    <view class="list_item_title dpfb">
+                        <text>2019-10-18 18:30:03</text>
+                        <text class="fontSize28">待支付</text>
+                    </view>
+                </view>
+                <view class="otherMsg">
+                    <view class="otherPic">
+                        <image mode="scaleToFill" src="../../images/1.png" />
+                    </view>
+                    <view class="otherinfo">
+                        <view class="fontSize-30 color1">锤子移动电源手电筒</view>
+                        <view class="fontSize-26 color3">橙色</view>
+                        <view class="fontSize-30 color1">租金：￥1/天</view>
+                    </view>
+                </view>
+                <view class="width90 btnList">
+                    <view catchTap="gologistics">查看物流</view>
+                    <view catchTap="gobuy">买断</view>
+                    <view catchTap="gobill">查看账单</view>
+                    <view>联系客服</view>
+                </view>
+            </view>
+        </view>
+        <view class="width100 dpfC" wx:else>
+            <view class="noList dpfC">
+                <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+                <view class="fontSize-28 color1 marginTop">暂无相关订单</view>
+            </view>
+        </view>
+    </view>
+</view>

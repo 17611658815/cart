@@ -1,7 +1,11 @@
 <view class="container">
     <!-- 头部导航 -->
     <view class="navList width90 dpfb">
-        <view bindtap="swatchTab" data-index='{{index}}' class="{{currentTab==index ? 'color1 navActive':'color3'}}" wx:for='{{navList}}' wx:key='key'>{{item}}</view>
+        <view bindtap="swatchTab" 
+            data-index='{{index}}' 
+            class="{{currentTab==index ? 'color1 navActive':'color3'}}" 
+            wx:for='{{navList}}' 
+            wx:key='key'>{{item}}</view>
     </view>
     <!-- 店铺等级 -->
     <view class="shopGrade">
@@ -48,7 +52,10 @@
             </view>
         </view>
         <view class="tractionTab">
-            <view bindtap="tractionTab" data-index='{{index}}' class="{{tractionTab==index? 'acticeClass':''}}" wx:for='{{traction}}'>{{item}}</view>
+            <view bindtap="tractionTab" 
+                data-index='{{index}}' 
+                class="{{tractionTab==index? 'acticeClass':''}}" 
+                wx:for='{{traction}}'>{{item}}</view>
         </view>
         <view class="tractionDataList dpfb width100 marginTop">
             <view class="listitem" wx:for='{{8}}'>

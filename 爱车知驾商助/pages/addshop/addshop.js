@@ -1,14 +1,11 @@
-// pages/joinTreasure/joinTreasure.js
+// pages/addshop/addshop.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        arr: [{ title: '已关注过本店车辆', num: '8辆' },
-        { title: '已场地共享维修技师', num: '1人' },
-        { title: '已发起线上活动', num: '50次' },
-        { title: '已发起线下体验活动', num: '20次' }]
+
     },
 
     /**

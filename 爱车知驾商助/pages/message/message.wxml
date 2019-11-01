@@ -19,7 +19,9 @@
     <!-- 通知导航 -->
     <view class="msgTabList paddinglr padding30">
         <view class="msgTabList_item dpfC flex_1" wx:for='{{msgArr}}' wx:key='key'>
-            <view class="itemlogo"></view>
+            <view class="itemlogo">
+            <image src="../../images/Image 1.png"></image>
+            </view>
             <view class="marginTop fontSize-26 color3">{{item.title}}</view>
         </view>
     </view>

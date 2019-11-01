@@ -1,0 +1,106 @@
+/* 导航 */
+.container{
+  background: #ffffff;
+}
+.navList{
+    padding: 0 3% 0 3%;
+    background: #ffffff;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+.navList>view{
+  text-align: center;
+    padding-bottom: 20rpx;
+    flex: 1;
+}
+.navActive{
+    border-bottom: 5rpx solid #7DAEFD;
+    font-weight: 500;
+}
+.otherlistBox{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 20rpx solid #f8f8f8;
+}
+.otherlistBox:nth-child(1){
+    margin-top: 50rpx;
+}
+.list_item_title{
+  width: 94%;
+  padding: 30rpx 3%;
+  border-bottom: 2rpx solid #e2e2e2;
+  font-size: 28rpx;
+}
+.otherMsg{
+  width: 94%;
+  padding: 20rpx 0;
+  display: flex;
+  align-items: center;
+}
+.otherPic image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.otherinfo{
+    flex: 1;
+    height: 180rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20rpx;
+}
+.layoutBtn{
+  width: 200rpx;
+  height: 30rpx;
+  font-size: 22rpx;
+  color: #8FD7CC;
+  text-align: center;
+  line-height: 30rpx;
+  border: 2rpx solid #8FD7CC;
+}
+.btnList{
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 30rpx;
+}
+.btnList view{
+  width: 150rpx;
+  height: 50rpx;
+  border-radius: 90rpx;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 50rpx;
+  margin-left: 20rpx;
+}
+.btnList view:nth-child(1){
+  background: #7DAEFD;
+  color: #ffffff;
+
+}
+.btnList view:nth-child(2){
+  background: #7DAEFD;
+  color: #ffffff;
+
+}
+.btnList view:nth-child(3){
+  background: #f6f6f6;
+  border: 2rpx solid #e2e2e2;
+
+}
+.noList{
+  width: 100%;
+  padding-top: 50rpx;
+  background: #f8f8f8;
+}
+.noList image{
+  width: 200rpx;
+  height: 200rpx;
+}

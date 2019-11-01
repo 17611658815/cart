@@ -57,6 +57,10 @@
     border-radius: 50%;
     background: #7DAEFD;
 }
+.itemlogo image{
+    width: 100%;
+    height: 100%;
+}
 .msgTabList{
     width: 100%;
     display: flex;

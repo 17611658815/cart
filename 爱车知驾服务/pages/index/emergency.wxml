@@ -1,7 +1,5 @@
 <template name="Emergency">
-    <view class='emergency-shade'  catchtap='selecEmergency' catchtouchmove='ture'>
-
-    </view>
+    <view class='emergency-shade'  catchtap='selecEmergency' catchtouchmove='ture'></view>
     <view class="{{emShow ? 'emergency-contentShow':'emergency-contentHide'}}" catchtouchmove='ture'>
         <image class="delImg" catchtap='selecEmergency' src="../../images/icon_colse.png"></image>
         <view class="dpfC width85">

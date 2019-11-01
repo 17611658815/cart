@@ -1,1 +1,80 @@
 /* pages/vipPage/vipPage.wxss */
+.haeaderBox{
+    width: 94%;
+    background: #E8E8E8;
+    border-radius: 6rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.haeaderBox>view{
+    width: 90%;
+}
+.shareList{
+    width: 100%;
+    display: flex;
+    padding: 50rpx 0 30rpx 0;
+
+}
+.shareList>view{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.shareItem>view:nth-child(1){
+    width: 60rpx;
+    height: 60rpx;
+    background: #999999;
+    margin-bottom: 10rpx;
+}
+
+.more_btn{
+    flex: 1;
+    padding: 25rpx 5%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 26rpx;
+    color: #333333;
+    background: #D9D9D9;
+}
+
+
+.scroll-header{
+display: block;
+white-space: nowrap;  
+margin-top: 20rpx;
+}
+
+.scroll-view-item{
+    display: inline-block; 
+    width: 600rpx;
+    height: 400rpx;
+    margin-left: 20rpx;
+    margin-top: 10rpx;
+}
+.list_item image{
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 50%;
+}
+.list_item_1{
+    width: 94%;
+    padding: 30rpx 3%;
+    display: flex;
+}
+.list_item_1_left{
+    flex: 1;
+}
+.list_item_1_right{
+    width: 180rpx;
+    height: 180rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.list_item_2{
+    display: flex;
+    justify-content: flex-end;
+}

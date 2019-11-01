@@ -20,5 +20,9 @@
     width: 100rpx;
     height: 100rpx;
     background: #999999;
-    border-radius: 20rpx;
+    border-radius: 10rpx;
+}
+.toolList_item_icon image{
+    width: 100%;
+    height: 100%;
 }

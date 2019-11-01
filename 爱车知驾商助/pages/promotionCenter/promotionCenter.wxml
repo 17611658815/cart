@@ -1,7 +1,11 @@
 <view class="container">
     <!-- 头部导航 -->
     <view class="navList width90">
-        <view bindtap="swatchTab" data-index='{{index}}' class="{{currentTab==index ? 'color1 navActive':'color3'}}" wx:for='{{navList}}' wx:key='key'>{{item}}</view>
+        <view bindtap="swatchTab" 
+            data-index='{{index}}' 
+            class="{{currentTab==index ? 'color1 navActive':'color3'}}" 
+            wx:for='{{navList}}' 
+            wx:key='key'>{{item}}</view>
     </view>
     <view wx:if='{{currentTab==0}}'>
         <view class="moneySum width90 paddinglr">
@@ -21,7 +25,11 @@
         </view>
         <view class="tabListData width90 paddinglr bgFFFF marginTop">
             <view class="dataTab">
-                <view class="{{index==dataTab?'acticeClass':''}}" data-index='{{index}}' wx:for='{{tabArr}}' wx:key='key' bindtap="dataSwatchTab">{{item}}</view>
+                <view class="{{index==dataTab?'acticeClass':''}}" 
+                    data-index='{{index}}' 
+                    wx:for='{{tabArr}}' 
+                    wx:key='key' 
+                    bindtap="dataSwatchTab">{{item}}</view>
             </view>
             <view class="listBox marginTop">
                 <view class="list_item" wx:for='{{6}}' wx:key='key'>
@@ -56,7 +64,6 @@
                 <image wx:if='{{selectIndex1==index}}' src="../../images/icon/icon_mark.png"></image></view>
             </view>
         </view>
-
     </view>
     <view class="width100" wx:if='{{currentTab==2}}'>
        <view class="slect_item">
@@ -68,11 +75,11 @@
             </view>
             <!-- 排序下拉 -->
             <view class='sortList' wx:if='{{slect_item3}}'>
-                <view data-index="{{index}}" bindtap="changeIndex_2" class="sortList_item width90 borderBtm padding30" wx:key='key' wx:for='{{selctList}}'>{{item}}
+                <view data-index="{{index}}" bindtap="changeIndex_2" class="sortList_item width90 borderBtm padding30"  wx:for='{{selctList}}' wx:key='key'>{{item}}
                 <image wx:if='{{selectIndex2==index}}' src="../../images/icon/icon_mark.png"></image></view>
             </view>
             <view class='sortList' wx:if='{{slect_item4}}'>
-                 <view data-index="{{index}}" bindtap="changeIndex_2" class="sortList_item width90 borderBtm padding30" wx:key='key' wx:for='{{selctList}}'>{{item}}
+                 <view data-index="{{index}}" bindtap="changeIndex_2" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList}}' wx:key='key'>{{item}}
                 <image wx:if='{{selectIndex2==index}}' src="../../images/icon/icon_mark.png"></image></view>
             </view>
         </view>
