@@ -4,6 +4,9 @@ Component({
      * 组件的属性列表
      */
     properties: {
+        userinfo:{
+            type: Object,
+        },
         slideNav: { //导航 
             type: Boolean,
         },

@@ -49,7 +49,7 @@ Page({
                         that.setData({
                             shootPic: 'data:image/png;base64,'+data.data,
                         })
-                        console.log(data)
+                        console.log(that.data.shootPic)
                     }
                 })
             }

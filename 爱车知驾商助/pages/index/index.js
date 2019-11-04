@@ -4,10 +4,49 @@ const app = getApp()
 
 Page({
     data: {
+        id:0,
+        goods:'',//商品
+        order:'',//订单
+        trade:'',//交易
+        list:'',//帖子
 
     },
     onLoad: function() {
-
+        let userInfo = wx.getStorageSync('userinfo') || '';
+        this.setData({
+            id: userInfo.id
+        })
+        this.getShopHomeData()
+        this.getPostingsList()
+    },
+    getShopHomeData(){
+        let that = this,
+            params = {
+                appid: app.globalData.appid,
+                member_id:that.data.id
+            }
+        app.net.$Api.getShopHomeData(params).then((res) => {
+          console.log(res)
+          that.setData({
+              goods: res.data.data.goods,
+              order: res.data.data.order,
+              trade: res.data.data.trade
+          })
+        })
+    },
+    // 社区帖子
+    getPostingsList(){
+        let that = this,
+            params = {
+                appid: app.globalData.appid,
+                // member_id:that.data.id
+            }
+        app.net.$Api.getPostingsList(params).then((res) => {
+            console.log(res.data)
+          that.setData({
+              list: res.data.data,
+          })
+        })
     },
     godataCenter() {
         wx.navigateTo({
@@ -18,6 +57,12 @@ Page({
     gootherType() {
         wx.navigateTo({
             url: '/pages/otherType/otherType',
+        })
+    },
+    // 订单管理
+    goaddgoods() {
+        wx.navigateTo({
+            url: '/pages/addgoods/addgoods',
         })
     },
     // 商家社区

@@ -1,40 +1,49 @@
-<view class="container">
+<view class="container" wx:if='{{searchDatalength >0}}'>
     <view class="tabBox width100">
         <view style="margin-right:40rpx;" data-index='0' class="{{currentTab == 0 ? 'active':''}}" bindtap="switchTab">精品</view>
         <view data-index='1' class="{{currentTab == 1 ? 'active':''}}" bindtap="switchTab">最新</view>
     </view>
     <view class="width90 dpfC" style="background:#ffffff">
-        <view class="width90 dpfb padding20">  
+        <view class="width90 dpfb padding20">
             <view class="dpf">
                 <image class="city_icon" src="../../images/city_icon.png"></image>
-                <view class="fontSize-36 fontWeight5 marginLeft">北京市</view>
+                <view class="fontSize-36 fontWeight5 marginLeft">{{city}}</view>
                 <view class="fontSize-26 color3 marginLeft">结果</view>
             </view>
-            <view class="fontSize-26 color3">
+            <!-- <view class="fontSize-26 color3">
                 更多
-            </view>
+            </view> -->
         </view>
         <view class="width100 dpfC">
-            <view class="listBox width100 padding20 boxShadow" wx:for='{{searchData}}' bindtap="goShopDetaile">
+            <view class="listBox width100 padding20 boxShadow" wx:for='{{searchData}}' data-id='{{item.id}}' bindtap="goShopDetaile">
                 <view class="marginLeft10">
-                     <image class="GPS_icon" src="../../images/GPS_icon.png"></image>
+                    <image class="GPS_icon" src="../../images/GPS_icon.png"></image>
                 </view>
                 <view class="listBox_text white_noWrap marginLeft">
                     <view class="fontSize-28">
-                      <searchHighlightTextView class="result-item" datas='{{searchData[index]}}' bindtap="chooseSearchResultAction" data-id="{{item.id}}" data-val='{{item.title}}' />
+                        {{item.real_name}}
                     </view>
-                    <view class="fontSize-26 color3 marginTop10">汽车服务店（华创生活广场店）汽车服务店（华创生活广场店）</view>
-                    <view class="fontSize-26 color3 marginTop10">86人访问过</view>
+                    <view class="fontSize-26 color3 marginTop10">{{item.visit_random}}人访问过</view>
                 </view>
                 <view class="dpfC marginRight10">
-                    <view class="kmLogo"></view>
-                    <view class="fontSize-22 color3 marginTop10">10.1km</view>
+                    <view class="kmLogo">
+                        <image src="../../images/icon_fork.png"></image>
+                    </view>
+                    <view class="fontSize-22 color3 marginTop10">{{item.distance}}km</view>
                 </view>
             </view>
         </view>
     </view>
+         <view class="addBox" wx:if='{{top<60}}'>
+        <image src="../../images/icon_Stick.png"> </image>
+    </view>
 </view>
+ 
 
-<view class="addBox">
-    <image src="../../images/add_icon.png"> </image>
-</view>
+ <view class="width100 dpfC" wx:else>
+        <view class="noList dpfC">
+            <image mode="scaleToFill" src="../../images/1.jpg"/>
+            <view class="fontSize-28 color1 marginTop">暂无相关店铺</view>
+        </view>
+  
+    </view>

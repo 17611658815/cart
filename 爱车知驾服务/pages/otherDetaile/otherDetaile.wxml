@@ -1,0 +1,82 @@
+<view class="{{isIphoneX ? 'paddingBtm180':'paddingBtm90'}}">
+    <view class="container bgF">
+        <view class="otherstatus">
+            <view class="dpf color9 fontSize-40 fontWeight5">
+                <!-- <view class="statusIcon"></view> -->
+                待支付</view>
+            <view class="color9 fontSize-28">{{otherObj.created}}</view>
+        </view>
+        <view class="otheraddresBox">
+            <view class="otheraddresBox_1">
+                <text>{{otherObj.receiver}}</text>
+                <text>{{otherObj.mobile}}</text>
+            </view>
+            <view class="otheraddresBox_2 dpf">
+               {{otherObj.address}}
+            </view>
+        </view>
+        <view class="otherlistBox" wx:for='{{otherObj.goods}}'>
+            <view class="otherMsg">
+                <view class="otherPic">
+                    <image mode="scaleToFill" src="{{item.thumb}}" />
+                </view>
+                <view class="otherinfo">
+                    <view class="fontSize-30 color1">{{item.name}}</view>
+                    <view class="fontSize-30 color1">￥{{item.price}}元</view>
+                    <view class="fontSize-26 color3">数量:{{item.num}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="container bgF marginTop borderBtm">
+        <!-- <view class="width90 padStl">
+            <view class="width100 dpfb">
+                <text class="color3 fontSize-28">每日租金</text>
+                <text class="color3 fontSize-28">￥50</text>
+            </view>
+            <view class="width100 dpfb padding30">
+                <text class="color3 fontSize-28">租期</text>
+                <text class="color3 fontSize-28">￥28</text>
+            </view>
+            <view class="width100 dpfb">
+                <text class="color1 fontSize-28">结算方式</text>
+                <text class="color1 fontSize-28">按月支付</text>
+            </view>
+            <view class="width100 dpfb padding30">
+                <text class="color1 fontSize-28">手机意外败仗服务费298元</text>
+                <text class="color1 fontSize-28">￥298.00</text>
+            </view>
+        </view> -->
+        <view class="buy_txt">
+            {{item.remark}}
+        </view>
+    </view>
+    <view class="container bgF">
+        <view class="width90 padStl padding30 ">
+            <view class="width100 dpfb">
+                <text class="color1 fontSize-28">合计</text>
+                <text class="color1 fontSize-28">￥{{otherObj.price}}</text>
+            </view>
+            <!-- <view class="width100 dpfb marginTop">
+                <text class="color1 fontSize-28">芝麻信用免押金</text>
+                <text class="color1 fontSize-28">￥5065515</text>
+            </view> -->
+        </view>
+    </view>
+    <view class="container bgF marginTop">
+        <view class="width90 padStl padding30 ">
+            <view class="width100 dpfb">
+                <text class="color3 fontSize-28">订单编号</text>
+                <text class="color3 fontSize-28">{{otherObj.order_sn}}</text>
+            </view>
+            <view class="width100 dpfb marginTop">
+                <text class="color3 fontSize-28">下单日期</text>
+                <text class="color3 fontSize-28">{{otherObj.created}}</text>
+            </view>
+            <view class="width100 marginTop dpf">
+               <view catchtap='recallOther' class='btn_1'>取消订单</view>
+               <view catchtap='delOther' class='btn_2'>删除订单</view>
+            </view>
+        </view>
+    </view>
+</view>

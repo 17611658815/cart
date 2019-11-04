@@ -23,6 +23,5 @@
             </view>
         </view>
     </view>
-
     <view class="addBtn">保存</view>
 </view>

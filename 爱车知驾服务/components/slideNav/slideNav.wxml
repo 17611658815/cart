@@ -1,9 +1,9 @@
 <view class='dpfC {{slideNav ? "selectItems-content-show":"selectItems-content-hide"}}' catchtouchmove='ture'>
     <view class="userInfo" wx:if='{{slideNav}}'>
         <view class="userPic marginTop">
-            <!-- <image src='../../images/user_icon.png'></image> -->
+            <image src='{{userinfo.wx_avatar}}'></image>
         </view>
-        <view class="marginTop">185*****112</view>
+        <view class="marginTop">{{userinfo.wx_nick}}</view>
         <view class="marginTop fontSize-26">白金会员</view>
         <navigator hover-class='none' wx:for='{{list}}' wx:key='key' url='{{item.path}}'>
             <view class="mayCenterList dpf padding20 {{index == 0 ? 'marginTop':''}}">

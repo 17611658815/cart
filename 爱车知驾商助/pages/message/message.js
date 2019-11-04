@@ -10,18 +10,18 @@ Page({
             icon:'',
             path:''
         }, {
-                title: '订单通知',
-                icon: '',
-                path: ''
-            }, {
-                title: '店铺通知',
-                icon: '',
-                path: ''
-            }, {
-                title: '其他通知',
-                icon: '',
-                path: ''
-            }]
+            title: '订单通知',
+            icon: '',
+            path: ''
+        }, {
+            title: '店铺通知',
+            icon: '',
+            path: ''
+        }, {
+            title: '其他通知',
+            icon: '',
+            path: ''
+        }]
     },
 
     /**

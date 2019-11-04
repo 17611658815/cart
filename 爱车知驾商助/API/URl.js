@@ -1,26 +1,26 @@
 export default class Url {
-    static PATH = "https://api.dodo.wiki/appInterface"
-    // https://api.dodo.wiki/appInterface/shop/getShopHomeData?appid=10
+    static USER = "https://api.dodo.wiki/appInterface/user"
+    static PATH = "https://api.dodo.wiki/appInterface/shop"
 
     // 获取openid
     static getOpenIdUrl() {
-        return 'https://api.weixin.qq.com/sns/jscode2session';
+        return Url.USER + '/getOpenid';
     };
     // wxLogin
     static wxLoginUrl() {
-        return Url.PATH + '/api/login';
+        return Url.USER + '/wxLogin';
     };
     // 首页数据接口
-    static getindexImgUrl() {
-        return Url.PATH + '/api/index';
+    static getShopHomeDataUrl() {
+        return Url.PATH + '/getShopHomeData';
     };
-    // 分类标题
-    static getClassTitleUrl() {
-        return Url.PATH + '/api/type';
+    // 获取社区帖子列表
+    static getPostingsListUrl() {
+        return Url.PATH + '/getPostingsList';
     };
-    // 项目列表
-    static getTypeListUrl() {
-        return Url.PATH + '/api/type/list';
+    // 商品分类列表
+    static getGoodsTypeUrl() {
+        return Url.PATH + '/getGoodsType';
     };
     // 项目详情
     static getShopdetailsUrl() {

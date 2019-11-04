@@ -19,16 +19,16 @@ export const api = {
         return Promise.post(Url.default.wxLoginUrl(), paramObj);
     },
     // 首页图片
-    getindexImg: function (paramObj) {
-        return Promise.post(Url.default.getindexImgUrl(), paramObj);
+    getShopHomeData: function (paramObj) {
+        return Promise.post(Url.default.getShopHomeDataUrl(), paramObj);
     },
-    // 分类页标题
-    getClassTitle: function (paramObj) {
-        return Promise.post(Url.default.getClassTitleUrl(), paramObj);
+    // 获取社区帖子列表
+    getPostingsList: function (paramObj) {
+        return Promise.post(Url.default.getPostingsListUrl(), paramObj);
     },
-    // 项目列表
-    getTypeList: function (paramObj) {
-        return Promise.post(Url.default.getTypeListUrl(), paramObj);
+    // 商品分类列表
+    getGoodsType: function (paramObj) {
+        return Promise.post(Url.default.getGoodsTypeUrl(), paramObj);
     },
     // 项目详情
     getShopdetails: function (paramObj) {

@@ -12,7 +12,7 @@
             <image class="icon_1 marginRight" src="../../images/icon/icon_1.png"></image>
             <text>开启消息通知，不错过一个订单</text>
         </view>
-        <view class="openBtn"> 
+        <view class="openBtn">
             去开启
         </view>
     </view>

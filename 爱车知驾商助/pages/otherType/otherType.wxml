@@ -25,10 +25,7 @@
                     </view>
                 </view>
                 <view class="width90 btnList">
-                    <view catchTap="gologistics">查看物流</view>
-                    <view catchTap="gobuy">买断</view>
                     <view catchTap="gobill">查看账单</view>
-                    <view>联系客服</view>
                 </view>
             </view>
         </view>

@@ -5,6 +5,9 @@ const bmap = require('../../utils/bmap-wx.min.js');
 const beas64 = require('beas64.js');
 Page({
     data: {
+        userInfo:{},
+        city:'',//当前城市
+        address:'',//当前位置
         emShow:false,//急救中心模块
         isShadeShow: false, //遮罩1
         slideNav: false, //遮罩2
@@ -25,10 +28,6 @@ Page({
             },
             {
                 name: "技师维师",
-                path: ""
-            },
-            {
-                name: "高级技师",
                 path: ""
             },
             {
@@ -115,75 +114,22 @@ Page({
             ]
         ],
         multiIndex: [0, 0, 0],
-
         array: [1, 2, 3, 4, 5, 6, 7],
         iconArr: [], //评星
         diagnosisStar: 1,//默认一星
         evaluateCurrent: 0,//评价当前选中
-        // 标记点
-        markers: [{
-            id: 1,
-            latitude: 34.7681097764,
-            longitude: 113.7693285942,
-
-            //气泡label (可与callout 2选1)
-            label: {
-                content: '金水区绿地原盛国际1号楼A座9楼',  //文本
-                color: '#FF0202',  //文本颜色
-                borderRadius: 3,  //边框圆角
-                borderWidth: 1,  //边框宽度
-                borderColor: '#FF0202',  //边框颜色
-                bgColor: '#000000',  //背景色
-                padding: 5,  //文本边缘留白
-                textAlign: 'center'  //文本对齐方式。有效值: left, right, center
-            },
-
-            //气泡callout
-            callout: {
-                content: '金水区绿地原盛国际1号楼A座9楼',  //文本
-                color: '#FF0202',  //文本颜色
-                borderRadius: 3,  //边框圆角
-                borderWidth: 1,  //边框宽度
-                borderColor: '#FF0202',  //边框颜色
-                bgColor: '#000000',  //背景色
-                padding: 5,  //文本边缘留白
-                textAlign: 'center'  //文本对齐方式。有效值: left, right, center
-            }
-        }],
         authorizationShow:false,//展示授权框
         colorStyle:'#4EB113',
         fixTop:500,//据顶部距离
         fined:false,//定位
         scrollTop:0,
         // 标记点对象
-        markers : [{ 
-            iconPath: "http://img.dkjis.com/uploads/picthumb/picthumb20190902180119.jpg",
-        id: 0,
-        latitude: 39.9223,
-        longitude: 116.45363,
-        width: 20,
-        height: 20,
-            title: "【软银科技】\n网络营销领导者，让公司业绩倍增\n倍增热线：15136135201",
-            callout: {
-                content: "【软银科技】\n网络营销领导者，让公司业绩倍增\n倍增热线：15136135201",
-                color: "#2c8df6",
-                fontSize: 10,
-                borderRadius: 10,
-                bgColor: "#fff",
-                display: "ALWAYS",
-                boxShadow: "2rpx 2rpx 10rpx #aaa",
-                display:'BYCLICK',
-            },
-            label: {
-                color: "#000",
-                fontSize: 12,
-                content: "为标记点旁边增加标签",
-                x: 34.780439,
-                y: 113.699774
-            }
-        }],
-        iszoom: false,//false是否支持缩放
-        isscroll: false//是否支持拖动
+        markers : [],
+        imgArr: ['https://img.dodo.wiki/app/js1.png', 'https://img.dodo.wiki/app/js2.png', 'https://img.dodo.wiki/app/js3.png','https://img.dodo.wiki/app/js4.png'],
+        iszoom: true,//false是否支持缩放
+        isscroll: true,//是否支持拖动
+         longitude:'',
+        latitude: '',
 
     },
     callouttap(e){
@@ -195,11 +141,49 @@ Page({
     labeltap(e){
         console.log(e,3)
     },
+    // http://img.dodo.wiki/js1.png
+    onLoad: function () {
+        let that = this;
+        that.getLocationMsg()
+    },
+    // 获取附近店铺
+    getMarkersList(){
+        let that = this;
+        let markers = that.data.markers;
+        let params = {
+            appid: app.globalData.appid,
+            // lat: that.data.latitude,
+            // lng: that.data.longitude,
+            lat: '39.905277252197266',
+            lng: '116.51362609863281',
+            level: that.data.currentTab+1
+        }
+        app.net.$Api.getShopListByLocation(params).then((res) => {
+            res.data.forEach((item) => {
+                console.log(item)
+                markers.push({
+                    iconPath: that.data.imgArr[that.data.currentTab],
+                    id: item.id,
+                    latitude: item.lat,
+                    longitude: item.lng,
+                    width: 60,
+                    height: 60,
+                })
+            })
+            that.setData({
+                markers: markers
+            })
+        })
+    },
     //顶部吸附效果
     onShow: function () {
-        let self = this;
+        let that = this;
+        let userinfo = wx.getStorageSync('userinfo') || '';
+        that.setData({
+            userinfo: userinfo
+        })
         wx.createSelectorQuery().select('#list').boundingClientRect(function (rect) {
-            self.setData({
+            that.setData({
                 fixTop: rect.top
             })
             console.log(rect.top)
@@ -225,7 +209,6 @@ Page({
         var that = this;
         wx.vibrateShort()
         wx.showNavigationBarLoading() //在标题栏中显示加载
-
         setTimeout(function () {
             wx.hideNavigationBarLoading() //完成停止加载
             wx.stopPullDownRefresh() //停止下拉刷新
@@ -233,7 +216,6 @@ Page({
              
             })
             that.onLoad()
-
         }, 1500);
     },
     // 获取点击的星位
@@ -257,49 +239,35 @@ Page({
                 that.data.diagnosistext = '优秀'
                 break;
         }
-        console.log(star)
         this.setData({
             diagnosisStar: star,
             diagnosistext: that.data.diagnosistext
         });
     },
-    onLoad: function() {
+  
+    //获取当前位置
+    getLocationMsg(){
         let that = this;
-        // var BMap = new bmap.BMapWX({
-        //     ak: app.globalData.ak
-        // });
         wx.getLocation({
             type: 'gcj02',
             altitude: true, //高精度定位
-            //定位成功，更新定位结果
-            success: function(res) {
+            success: function (res) {
                 console.log(res)
-                // BMap.regeocoding({
-                //     location: res.latitude + ',' + res.longitude,
-                //     success: function (res) {
-                //         console.log(res)
-                //         wxMarkerData = res.wxMarkerData;
-                //         app.globalData.loactioninfo = res
-                //         app.globalData.LocateName = res.originalData.result.sematic_description
-                       
-                //     },
-                //     fail: function () {
-                //         wx.showToast({
-                //             title: '请检查位置服务是否开启',
-                //         })
-                //     },
-                // });
-               
-                var latitude = res.latitude
-                var longitude = res.longitude
-                var speed = res.speed
-                var accuracy = res.accuracy
-                that.setData({
-                    longitude: res.longitude,
-                    latitude: res.latitude,
-                    speed: res.speed,
-                    accuracy: res.accuracy,
-                    iconArr: beas64, //星星beas64地址
+                wx.request({
+                    url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + res.latitude + ',' + res.longitude+'&key=UYFBZ-ANUWW-Y7GRO-OURNR-G5L7O-PHFMD',
+                    success:function(e) {
+                        console.log(res)
+                        app.globalData.longitude = res.longitude;
+                        app.globalData.latitude = res.latitude;
+                        app.globalData.city = e.data.result.address_component.city
+                        that.setData({
+                            city: e.data.result.address_component.city,//当前城市
+                            address: e.data.result.address,//当前位置
+                            longitude: res.longitude,
+                            latitude: res.latitude,
+                        })
+                        that.getMarkersList()
+                    }
                 })
             }
         });
@@ -344,9 +312,12 @@ Page({
             case '3':
                 break;
         } 
-        this.setData({
+        that.setData({
+            markers:[],
+            isShadeShow:false,
             currentTab: index
         })
+        that.getMarkersList()
     },
     // 服务切换
     servetab(e) {

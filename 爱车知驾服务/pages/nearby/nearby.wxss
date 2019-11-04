@@ -47,6 +47,13 @@ page {
     height: 50rpx;
     background:#999999 ;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.kmLogo image{
+    width: 30rpx;
+    height: 30rpx;
 }
 
 /* 添加 */

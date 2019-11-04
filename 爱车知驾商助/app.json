@@ -17,7 +17,8 @@
         "pages/searchPage/searchPage",
         "pages/community/community",
         "pages/addshop/addshop",
-        "pages/otherType/otherType"
+        "pages/otherType/otherType",
+        "pages/addgoods/addgoods"
     ],
     "window": {
         "backgroundTextStyle": "light",

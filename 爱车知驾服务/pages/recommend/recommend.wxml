@@ -45,8 +45,6 @@
                 赚钱攻略
             </view>
         </view>
-        <view class="shareBox boxShadow">
-            
-        </view>
+        <view class="shareBox boxShadow"></view>
     </view>
 </view>

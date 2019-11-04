@@ -1,7 +1,5 @@
 <view class="loginPage">
-    <view class="logoBox">
-
-    </view>
+    <view class="logoBox"></view>
     <view class='inputBox'>
         <view class="input_tetx">登录</view>
         <view class="input_val">
@@ -35,6 +33,5 @@
                 <button class="btn-area" formType="submit">登 录</button>
             </view>
         </form>
-       
     </view>
 </view>

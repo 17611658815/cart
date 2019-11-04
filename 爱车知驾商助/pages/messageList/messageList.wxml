@@ -1,5 +1,5 @@
 <view class="container">
-<!-- 头部导航 -->
+    <!-- 头部导航 -->
     <view class="navList width90">
         <view bindtap="swatchTab" 
             data-index='{{index}}' 
@@ -16,7 +16,8 @@
                         知驾新手商家成长路线
                     </view>
                     <view class="fontSize-28 color2 padding30 width90">
-                        知驾新手商家成长路线知驾新手商家成长路线知驾新手商家成长路线
+                        知驾新手商家成长路线知驾新手商
+                        家成长路线知驾新手商家成长路线
                     </view>
                     <view class="width90">
                         <text class="marginRight">查看详情 ></text> 

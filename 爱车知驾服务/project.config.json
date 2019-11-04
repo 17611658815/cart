@@ -22,7 +22,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.1",
-	"appid": "wx09475e1c13deb589",
+	"appid": "wx9a340b49c24a080a",
 	"projectname": "%E7%88%B1%E8%BD%A6%E7%9F%A5%E9%A9%BE%E6%9C%8D%E5%8A%A1",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -191,6 +191,35 @@
 					"id": -1,
 					"name": "知驾服务",
 					"pathName": "pages/videoPage/videoPage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 20,
+					"name": "pages/shopDetaile/shopDetaile",
+					"pathName": "pages/shopDetaile/shopDetaile",
+					"query": "id=14",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "结算购物车",
+					"pathName": "pages/goodsList/goodsList",
+					"query": "id=14",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的地址",
+					"pathName": "pages/address/address",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/otherDetaile/otherDetaile",
+					"pathName": "pages/otherDetaile/otherDetaile",
+					"query": "id=20",
 					"scene": null
 				}
 			]

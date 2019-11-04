@@ -1,0 +1,47 @@
+<!--page/order/pages/newAddress/newAddress.wxml-->
+<view class='container'>
+    <view class='width100 dpfC marginTop'>
+        <view class='width90'>
+            <view class='itembox dpf'>
+                <input placeholder='联系人' value="{{username}}" bindinput="usernameInpt" type='tetx'></input>
+            </view>
+            <view class='itembox dpf'>
+                <input placeholder='手机号码' value="{{mobile}}" bindinput="mobileInpt" type='number'></input>
+            </view>
+            <!-- <view class='itembox dpf'>
+                <view class='leaberleft fontSize-30 color2'>
+                
+                <text class='fontSize-30 color1' wx:if='{{pickerFlag}}'> {{multiArray[0][multiIndex[0]].name}}-{{multiArray[1][multiIndex[1]].name}}</text>
+                <text wx:else>所在地区</text>
+                </view>
+                <picker mode="multiSelector" 
+                        bindchange="bindMultiPickerChange" 
+                        bindcolumnchange="bindMultiPickerColumnChange" 
+                        value="{{multiIndex}}" 
+                        range="{{multiArray}}" 
+                        range-key="name">
+                    <view class="picker">
+                       
+                        <image class='icon_right' src='../../../../images/icon/icon_right.png'></image>
+                    </view>
+                </picker>
+            </view> -->
+            <view class='itembox' style='border:none;padding-bottom:0'>
+                <view class='fontSize-30 color2'>
+                    <textarea 
+                        value='{{addresMsg}}' 
+                        bindinput='ontextareaChange' 
+                        placeholder-class='textAreaCtyle' 
+                        placeholder='详细地址:如街道、楼牌号等' 
+                        placeholder-style>
+                    </textarea>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='btnBox'>
+        <button class='btnStyle' bindtap="changeAddres" wx:if='{{changeBtn}}'>确认修改</button>
+        <button class='btnStyle' bindtap="saveAddres" wx:else>保存</button>
+    </view>
+
+</view>

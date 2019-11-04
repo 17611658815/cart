@@ -1,7 +1,5 @@
 <view class='container'>
-    <view class="header">
-
-    </view>
+    <view class="header"></view>
     <view class='goods_content width100 padding30 bgFFFF'>
         <view class="width90 dpfb">
             <view class="marginTop dpf">

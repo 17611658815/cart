@@ -1,0 +1,41 @@
+<!--page/order/pages/newAddress/newAddress.wxml-->
+<view class='container bgFFFF'>
+    <view class='width100 dpfC marginTop'>
+        <view class='width90'>
+            <view class='itembox dpf'>
+                <view class='leaberleft fontSize-30 color2'>
+                    <text>选择商品</text>
+                </view>
+                <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}" range-key="name">
+                    <view class="picker">
+<text class='fontSize-30 color1' wx:if='{{typeName!=""}}'> {{multiArray[0][multiIndex[0]].name}}-{{multiArray[1][multiIndex[1]].name}}</text>
+                        <image class='icon_right' src='../../images/icon/icon_right.png'></image>
+                    </view>
+                </picker>
+            </view>
+            <view class="otherMsg">
+                <view class="otherPic">
+                    <image mode="scaleToFill" src="../../images/1.png" />
+                </view>
+                <view class="otherinfo">
+                    <view class="fontSize-30 color1">锤子移动电源手电筒</view>
+                    <view class="fontSize-26 color3">橙色</view>
+                    <view class="fontSize-30 color1">租金：￥1/天</view>
+                </view>
+            </view>
+            <view class='itembox dpf'>
+                <input placeholder='商品名称' value="{{goodsName}}" bindinput="goodsNameInpt" type='tetx'></input>
+            </view>
+            <view class='itembox dpf'>
+                <input placeholder='商品价格' value="{{goodsPrice}}" bindinput="goodsPriceInpt" type='number'></input>
+            </view>
+            <view class='itembox dpf'>
+                <input placeholder='商品数量' value="{{goodsPrice}}" bindinput="goodsPriceInpt" type='number'></input>
+            </view>
+        </view>
+    </view>
+    <view class='btnBox'>
+         <view class="addBtn">确认添加</view>
+    </view>
+
+</view>
