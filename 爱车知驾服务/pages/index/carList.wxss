@@ -1,0 +1,101 @@
+.carList-shade{
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    z-index: 100;
+}
+.cacarList-contentHide{
+    width: 100%;
+    height: 800rpx;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    bottom: -800rpx;
+   background: #FFFFFD;
+    z-index: 999;
+    animation: myfirsts 0.5s;
+    overflow: auto;
+    padding-top: 50rpx;
+}
+.carList-contentShow{
+    position: fixed;
+     display: flex;
+     flex-direction: column;
+     padding: 30rpx 3%;
+    align-items: center;
+    left: 0;
+    bottom: 0;
+    width: 94%;
+    height: 800rpx;
+    background: #FFFFFD;
+    z-index: 999;
+    animation: carList 0.2s;
+     overflow: auto;
+    
+}
+@keyframes carList {
+    0% {
+        bottom: -800rpx;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+.text_1{
+    line-height: 40rpx;
+}
+.btnBox view{
+    width: 325rpx;
+    height: 80rpx;
+    text-align: center;
+    line-height: 80rpx;
+    border-radius: 6rpx;
+
+}
+.leftBtn{
+    border: 1rpx solid #535466;
+    color: #535466
+}
+.rightBtn{
+    background: #535466;
+    color: #ffffff;
+    position: relative;
+}
+.loginBtn{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: none;
+}
+.carBtnBox{
+    width: 94%;
+    position: absolute;
+    bottom: 30rpx;
+    right: 30rpx;
+}
+.carBtn{
+    width: 90%;
+    height: 100rpx;
+    font-size: 34rpx;
+    line-height: 100rpx;
+    background: #6ea8f7;
+    color: #ffffff;
+    border-radius: 50rpx;
+    border: none;
+    text-align: center;
+    margin: auto;
+}
+.listBox{
+    width: 100%;
+    height: 700rpx;
+     overflow: auto;
+}

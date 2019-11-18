@@ -6,6 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        status:'',
         id:'',
         otherObj:{},
         num:0
@@ -16,7 +17,8 @@ Page({
      */
     onLoad: function (options) {
         this.setData({
-            id: options.id
+            id: options.id,
+            status:options.status
         })
         this.getorderDetail()
     },
@@ -29,13 +31,7 @@ Page({
         }
         app.loading('加载中')
         app.net.$Api.orderDetail(params).then((res) => {
-            res.data.goods.forEach((item)=>{
-                num += item.price * item.num/1
-            })
-            that.setData({
-                otherObj:res.data,
-                num: num
-            })
+            console.log(res)
             wx.hideLoading()
         })
     },

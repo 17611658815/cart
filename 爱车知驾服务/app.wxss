@@ -3,6 +3,7 @@
  @import "pages/index/emergency.wxss"; 
  @import "pages/index/authorization.wxss"; 
  @import "pages/index/carNoopsyche.wxss"; 
+ @import "pages/index/carList.wxss"; 
 .container {
     width: 100%;
     height: 100%;

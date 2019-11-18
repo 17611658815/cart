@@ -35,11 +35,11 @@
             </view>
             <view class="dpfC flex_1">
                 <view class="fontSize-32 fontWeight6">{{trade.visitor}}</view>
-                <view class="textTitle">今日附近访客</view>
+                <view class="textTitle">今日访客</view>
             </view>
             <view class="dpfC flex_1">
                 <view class="fontSize-32 fontWeight6">{{trade.order}}</view>
-                 <view class="textTitle">成交订单</view>
+                <view class="textTitle">成交订单</view>
             </view>
             <view class="dpfC flex_1">
                 <view class="fontSize-32 fontWeight6">{{trade.consult}}</view>
@@ -49,26 +49,26 @@
     </view>
     <!-- 订单管理 -->
     <view class="tractionData width100 marginTop">
-        <view class="width90 paddinglr dpfb" bindtap="gootherType">
+        <view class="width90 paddinglr dpfb" data-status="1" data-currentTab="0" bindtap="gootherType">
             <view class="fontSize-26">订单管理</view>
             <view>
                 <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
             </view>
         </view>
         <view class="width90 paddinglr dpfb">
-            <view class="dpfC flex_1">
+            <view class="dpfC flex_1" data-status="1" data-currentTab="0" bindtap="gootherType">
                 <view class="fontSize-32 fontWeight6">{{order.no_pay}}</view>
                 <view class="textTitle">待支付</view>
             </view>
-            <view class="dpfC flex_1">
+            <view class="dpfC flex_1" data-status="3" data-currentTab="1" bindtap="gootherType">
                 <view class="fontSize-32 fontWeight6">{{order.no_repair}}</view>
                 <view class="textTitle">待维修</view>
             </view>
-            <view class="dpfC flex_1">
+            <view class="dpfC flex_1" data-status="9" data-currentTab="2" bindtap="gootherType">
                 <view class="fontSize-32 fontWeight6">{{order.no_refund}}</view>
-                <view class="textTitle">代发货</view>
+                <view class="textTitle">待发货</view>
             </view>
-            <view class="dpfC flex_1">
+            <view class="dpfC flex_1" data-status="5" data-currentTab="3" bindtap="gootherType">
                 <view class="fontSize-32 fontWeight6">{{order.no_send_goods}}</view>
                 <view class="textTitle">待退款</view>
             </view>
@@ -147,7 +147,7 @@
             <view class="dpfC flex_1">
                 <view class="fontSize-32 fontWeight6">失信店铺</view>
                 <view class="textTitle">
-                     <text>降级</text>
+                    <text>降级</text>
                     <text>限制</text>
                     <text>黑名单</text>
                 </view>

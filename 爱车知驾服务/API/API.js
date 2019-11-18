@@ -38,5 +38,41 @@ export const api = {
     orderDetail: function (paramObj) {
         return Promise.post(Url.default.orderDetailUrl(), paramObj);
     },
+    // 存车辆信息
+    saveCar: function (paramObj) {
+        return Promise.post(Url.default.saveCarUrl(), paramObj);
+    },
+    // 我的车辆信息
+    carList: function (paramObj) {
+        return Promise.post(Url.default.carListUrl(), paramObj);
+    },
+    // 删除车辆信息
+    carDel: function (paramObj) {
+        return Promise.post(Url.default.carDelUrl(), paramObj);
+    },
+    // 搜索服务
+    serviceList: function (paramObj) {
+        return Promise.post(Url.default.serviceListUrl(), paramObj);
+    },
+    // 选择服务
+    showService: function (paramObj) {
+        return Promise.post(Url.default.showServiceUrl(), paramObj);
+    },
+    // 判断是否有车
+    isHaveCar: function (paramObj) {
+        return Promise.post(Url.default.isHaveCarUrl(), paramObj);
+    },
+    // 服务详情
+    showServiceDetail: function (paramObj) {
+        return Promise.post(Url.default.showServiceDetailUrl(), paramObj);
+    },
+    // 获取区域id
+    getAreaId: function (paramObj) {
+        return Promise.post(Url.default.getAreaIdUrl(), paramObj);
+    },
+    // 生成订单支付
+    createServiceOrder: function (paramObj) {
+        return Promise.post(Url.default.createServiceOrderUrl(), paramObj);
+    },
     
 }

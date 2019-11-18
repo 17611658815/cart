@@ -1,7 +1,4 @@
 /* 导航 */
-.container{
-  background: #ffffff;
-}
 .navList{
     padding: 0 3% 0 3%;
     background: #ffffff;

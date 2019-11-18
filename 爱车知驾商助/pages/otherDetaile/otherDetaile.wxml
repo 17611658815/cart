@@ -1,0 +1,91 @@
+<view class="{{isIphoneX ? 'paddingBtm180':'paddingBtm90'}}" wx:if='{{!refuse}}'>
+    <view class="container">
+        <view class="otherstatus">
+            <view class="dpf color1 fontSize-40 fontWeight5">
+                <text wx:if='{{status == 1}}'>待支付</text> </view>
+            <view class="color1 fontSize-28">{{otherObj.created}}</view>
+        </view>
+        <view class="otheraddresBox">
+            <view class="otheraddresBox_1">
+                <text>{{otherObj.receiver}}</text>
+                <text>{{otherObj.mobile}}</text>
+            </view>
+            <view class="otheraddresBox_2 dpf">
+                {{otherObj.address}}
+            </view>
+        </view>
+        <view class="otherlistBox bgFFFF" wx:for='{{otherObj.goods}}' wx:key='key'>
+            <view class="otherMsg">
+                <view class="otherPic">
+                    <image mode="scaleToFill" src="{{item.thumb}}" />
+                </view>
+                <view class="otherinfo">
+                    <view class="fontSize-30 color1">{{item.name}}</view>
+                    <view class="fontSize-30 color3">数量:{{item.num}}</view>
+                    <view class="fontSize-30 color9">￥{{item.price}}元</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="container bgFFFF marginTop borderBtm" wx:if='{{otherObj.remark!=""}}'>
+        <!-- <view class="width90 padStl">
+            <view class="width100 dpfb">
+                <text class="color3 fontSize-28">每日租金</text>
+                <text class="color3 fontSize-28">￥50</text>
+            </view>
+            <view class="width100 dpfb padding30">
+                <text class="color3 fontSize-28">租期</text>
+                <text class="color3 fontSize-28">￥28</text>
+            </view>
+            <view class="width100 dpfb">
+                <text class="color1 fontSize-28">结算方式</text>
+                <text class="color1 fontSize-28">按月支付</text>
+            </view>
+            <view class="width100 dpfb padding30">
+                <text class="color1 fontSize-28">手机意外败仗服务费298元</text>
+                <text class="color1 fontSize-28">￥298.00</text>
+            </view>
+        </view> -->
+        <view class="buy_txt">
+            {{otherObj.remark}}
+        </view>
+    </view>
+    <view class="container bgFFFF">
+        <view class="width90 padStl padding30">
+            <view class="width100 dpfb">
+                <text class="color1 fontSize-32 fontWeight5">合计</text>
+                <text class="color9 fontSize-32 fontWeight5">￥{{otherObj.price}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="container bgFFFF">
+        <view class="width90 padStl padding30 ">
+            <view class="width100 dpfb">
+                <text class="color3 fontSize-28">订单编号</text>
+                <text class="color3 fontSize-28">{{otherObj.order_sn}}</text>
+            </view>
+            <view class="width100 dpfb marginTop">
+                <text class="color3 fontSize-28">下单日期</text>
+                <text class="color3 fontSize-28">{{otherObj.created}}</text>
+            </view>
+            <view class="width100 dpf" style='margin-top:50rpx;'>
+                <!-- <view catchtap='recallOther' class='btn_1'>取消订单</view> -->
+                <view catchtap='setOrderSend' class='btn_2' wx:if="{{otherObj.status == 9}}">发货</view>
+                <view catchtap='setOrderRefund' class='btn_2' wx:if="{{otherObj.status == 5}}">退款</view>
+                <view catchtap='refuseRefund' class='btn_1' wx:if="{{otherObj.status == 5}}">拒绝退款</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!--pages/feedback/feedback.wxml-->
+<view class="container bgFFFF minheight" wx:if='{{refuse}}'>
+  <view class="areaBox">
+    <view class="inputBox">
+      <textarea class="input db" placeholder="请输入拒绝退款的理由~" value="{{message}}" placeholder-class="phcolor" bindinput="savemessage"></textarea>
+    </view>
+  </view>
+  <view class="submit" bindtap="setOrderNoRefund">
+    提交
+  </view>
+</view>

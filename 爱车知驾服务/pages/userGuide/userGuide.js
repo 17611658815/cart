@@ -11,46 +11,24 @@ Page({
                 id: 'view',
                 name: '初级维师',
                 open: false,
-                pages: ['view', 'scroll-view', 'swiper', 'movable-view', 'cover-view']
+                pages: ['初级维师1', '初级维师2', '初级维师3', '初级维师4', '初级维师5']
             }, {
                 id: 'content',
                 name: '中级维师',
                 open: false,
-                pages: ['text', 'icon', 'progress', 'rich-text']
+                pages: ['中级维1', '中级维2', '中级维3', '中级维4']
             }, {
                 id: 'form',
                 name: '高级维师',
                 open: false,
-                pages: ['button', 'checkbox', 'form', 'input', 'label', 'picker', 'picker-view', 'radio', 'slider', 'switch', 'textarea', 'editor']
+                pages: ['高级维1', '高级维2']
             }, {
                 id: 'nav',
                 name: '高级技师维师',
                 open: false,
-                pages: ['navigator']
+                pages: ['高级技师维师1']
             }
         ],
-        // typeListArr: [{
-        //     name: '初级维师',
-        //     path: '',
-        //     icon: '../../../images/mayList_1_1.png'
-        // },
-        // {
-        //     name: '中级维师',
-        //     path: '',
-        //     icon: '../../../images/mayList_1_2.png'
-        // }, {
-        //     name: '高级维师',
-        //     path: '/pages/Carservice/msgCenter/msgCenter',
-        //     icon: '../../../images/mayList_1_3.png'
-        // }, {
-        //     name: '技师维师',
-        //     path: '/pages/Carservice/msgCenter/msgCenter',
-        //     icon: '../../../images/mayList_1_4.png'
-        //     }, {
-        //         name: '高级技师维师',
-        //         path: '/pages/Carservice/msgCenter/msgCenter',
-        //         icon: '../../../images/mayList_1_4.png'
-        //     }]
     },
     kindToggle(e) {
         const id = e.currentTarget.id

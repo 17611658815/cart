@@ -9,6 +9,7 @@ page{
   text-align: center;
 }
 .index-bd {
+    width: 100%;
   padding: 0 30rpx 40rpx;
 }
 .index-ft {

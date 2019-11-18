@@ -43,5 +43,4 @@
         <button class='btnStyle' bindtap="changeAddres" wx:if='{{changeBtn}}'>确认修改</button>
         <button class='btnStyle' bindtap="saveAddres" wx:else>保存</button>
     </view>
-
 </view>

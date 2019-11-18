@@ -1,4 +1,3 @@
-// pages/other/other.js
 const app = getApp()
 Page({
 
@@ -9,10 +8,9 @@ Page({
         page:1,
         member_id:'',
         otherList:[],
+        otherListLength:1,
         on_off:false
     },
-    // https://api.dodo.wiki/appInterface/consumer/orderList?member_id=11&appid=8&page=2
-
     /**
      * 生命周期函数--监听页面加载
      */
@@ -26,7 +24,6 @@ Page({
     // 购买
     getOrderList() {
         let that = this;
-        // let address = wx.getStorageSync('userinfo') || '';
         let params = {
             appid: app.globalData.appid,
             member_id: that.data.member_id,
@@ -34,13 +31,17 @@ Page({
         }
         app.loading('加载中')
         app.net.$Api.orderList(params).then((res) => {
-            console.log(res)
+            if(that.data.page == 1){
+                that.setData({
+                    otherListLength: res.data.length,
+                })
+            }
             if(res.data.length>0){
-                this.setData({
-                    otherList: that.data.otherList.concat(res.data)
+                that.setData({
+                    otherList: that.data.otherList.concat(res.data),
                 })
             }else{
-                this.setData({
+                that.setData({
                     on_off:true
                 })
             }
@@ -49,10 +50,18 @@ Page({
     },
     goDetaile(e){
         let id = e.currentTarget.dataset.id;
-        wx.navigateTo({
-            url: '/pages/otherDetaile/otherDetaile?id='+id,
-        })
-
+        let status = e.currentTarget.dataset.status;
+        let type = e.currentTarget.dataset.type;
+        if(type == 1){
+            wx.navigateTo({
+                url: '/pages/serviceOtherDetaile/serviceOtherDetaile?id=' + id + '&status=' + status,
+            })
+        }else{
+            wx.navigateTo({
+                url: '/pages/otherDetaile/otherDetaile?id=' + id + '&status=' + status,
+            })
+        }
+      
     },
     /**
      * 页面上拉触底事件的处理函数
@@ -97,8 +106,6 @@ Page({
     onPullDownRefresh: function () {
 
     },
-
-    
 
     /**
      * 用户点击右上角分享

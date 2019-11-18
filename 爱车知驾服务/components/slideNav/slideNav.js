@@ -4,7 +4,7 @@ Component({
      * 组件的属性列表
      */
     properties: {
-        userinfo:{
+        userinfo: {
             type: Object,
         },
         slideNav: { //导航 
@@ -28,19 +28,23 @@ Component({
         }, {
             path: "/pages/wallet/wallet",
             name: "钱包",
-                icon: "../../images/wallet_icon.png"
+            icon: "../../images/wallet_icon.png"
         }, {
             path: "",
             name: "我的客服",
-                icon: "../../images/kefu_icon.png"
+            icon: "../../images/kefu_icon.png"
         }, {
-                path: "/pages/setCenter/setCenter",
+            path: "/pages/mayCarList/mayCarList",
+            name: "我的爱车",
+            icon: "../../images/kefu_icon.png"
+        }, {
+            path: "/pages/setCenter/setCenter",
             name: "设置",
-                icon: "../../images/shezhi_icon.png"
+            icon: "../../images/shezhi_icon.png"
         }, {
-                path: "/pages/carOwnerServer/carOwnerServer",
+            path: "/pages/carOwnerServer/carOwnerServer",
             name: "车主服务",
-                icon: "../../images/chezhu_icon.png"
+            icon: "../../images/chezhu_icon.png"
         }]
     },
 

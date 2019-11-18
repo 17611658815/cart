@@ -1,5 +1,4 @@
 <!-- 车载智能 -->
-
 <template name="carNoopsyche">
     <view class="carNoopsyche_box dpfC">
         <view class="width90 paddinglr dpfb">

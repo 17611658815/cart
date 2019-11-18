@@ -8,7 +8,6 @@ page{
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
-    padding-bottom: 30rpx;
     border-top: 1rpx solid #e2e2e2;
 }
 .width100{
@@ -117,6 +116,9 @@ page{
 }
 .color8{
     color: #FFA500;
+}
+.color9{
+    color: red!important;
 }
 /* 间距 */
 .paddinglr{

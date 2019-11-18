@@ -6,10 +6,10 @@ Page({
      * 页面的初始数据
      */
     data: {
-        userId:0,
-        shopId:0,
-        total:0,
-        CarList:{},
+        userId:0,//用户id
+        shopId:0,//店铺id
+        total:0,//总计
+        CarList:{},//购物车列表
         flage:true,
         address:'',//详细地址
         receiver:'',//收货人
@@ -19,7 +19,6 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    // { "name": "张三", "mobile": "1888888888", "addresMsg": "北京朝阳区" }
     onShow(){
         let address = wx.getStorageSync('address')
         this.setData({
@@ -106,10 +105,31 @@ Page({
         }
         app.loading('加载中')
         app.net.$Api.createOrder(params).then((res) => {
-
            wx.hideLoading()
         })
     },
+    // requestMsg() {
+    //     wx.requestSubscribeMessage({
+    //         tmplIds: ['h63kyZQSQoQqosVVfkTdD1kvA9x5tMAUwhzoGTrCpS4', 'T1ZvDJPVwlt4FXBMdcIslUF6AzZ_pMhQUwM-r_IYW_k', 'S5tuM0uifn67CiLRqReVZk97GETAzHGoGlQhzGlNF_o', 'F8TezMCsMq0qdlv-Wm9hGkDGRNyZPKu1PaYo7h8tOvY'],
+    //         success: (res) => {
+    //             // if (res['h63kyZQSQoQqosVVfkTdD1kvA9x5tMAUwhzoGTrCpS4'] === 'accept') {
+    //             //     wx.showToast({
+    //             //         title: '订阅OK！',
+    //             //         duration: 1000,
+    //             //         success(data) {
+    //             //             //成功
+    //             //             resolve()
+    //             //         }
+    //             //     })
+    //             // }
+    //             console.log(res)
+    //         },
+    //         fail(err) {
+    //             //失败
+    //             console.error(err);
+    //         }
+    //     })
+    // },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

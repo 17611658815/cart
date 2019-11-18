@@ -9,10 +9,10 @@ Page({
         order:'',//订单
         trade:'',//交易
         list:'',//帖子
-
     },
     onLoad: function() {
         let userInfo = wx.getStorageSync('userinfo') || '';
+        app.globalData.userInfo = userInfo
         this.setData({
             id: userInfo.id
         })
@@ -39,13 +39,12 @@ Page({
         let that = this,
             params = {
                 appid: app.globalData.appid,
-                // member_id:that.data.id
             }
         app.net.$Api.getPostingsList(params).then((res) => {
             console.log(res.data)
-          that.setData({
-              list: res.data.data,
-          })
+            that.setData({
+                list: res.data.data,
+            })
         })
     },
     godataCenter() {
@@ -54,9 +53,12 @@ Page({
         })
     },
     // 订单管理
-    gootherType() {
+    gootherType(e) {
+        let status = e.currentTarget.dataset.status;
+        let currenttab = e.currentTarget.dataset.currenttab;
+        console.log(e)
         wx.navigateTo({
-            url: '/pages/otherType/otherType',
+            url: '/pages/otherType/otherType?status=' + status + '&currentTab=' + currenttab,
         })
     },
     // 订单管理

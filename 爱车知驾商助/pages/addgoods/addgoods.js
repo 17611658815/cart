@@ -11,7 +11,6 @@ Page({
         city: [],
         multiArray: [],
         multiIndex: [0, 0], //地址索引
-
         mobile: '', //收货人手机号
         province: '', //收货人所在省份
         city: '', //收货人城市
@@ -94,15 +93,6 @@ Page({
         })
         console.log(this.data.multiId)
     },
-
-    //点击默认地址
-    selectAcquiescent() {
-        this.setData({
-            defaultFlag: !this.data.defaultFlag
-        })
-    },
-
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

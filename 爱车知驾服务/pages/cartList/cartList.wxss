@@ -8,10 +8,13 @@ page {
     height: 300rpx;
     background: #999;
 }
-
+.header image{
+    width: 100%;
+    height: 100%;
+}
 .goods_content {
     width: 94%;
-    padding: 30rpx 3%;
+    padding: 0 3% 30rpx 3%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,15 +24,18 @@ page {
 .radioBox {
     width: 30rpx;
     height: 30rpx;
-    border: 2rpx solid #e2e2e2;
-    position: relative;
-    /* margin-right: 20rpx; */
+    border: 2rpx solid #999;
+    border-radius: 50%;
+    position: absolute;
+    top: 5rpx;
+    left: 20rpx;
 }
 
 .radioBox image {
     width: 100%;
     height: 100%;
     position: absolute;
+    border-radius: 50%;
     top: 0;
     left: 0;
 }
@@ -125,16 +131,24 @@ page {
 }
 
 .scroll-x-box {
-    width: 85%;
+    width: 90%;
+    /* padding: 0 5%; */
     white-space: nowrap;
     display: flex;
     padding-bottom: 30rpx;
+    position: relative;
 }
 
 .goods_content_item {
     width: 165rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 50rpx;
+}
+.scroll-x-item{
     display: inline-block;
-    margin-right: 50rpx;
+    position: relative;
 }
 .partsNum{
 }
@@ -146,4 +160,17 @@ page {
 .partsNum_item_left{
     width: 50rpx;
     height: 50rpx;
+}
+.checkedBox{
+    width: 40rpx;
+    height: 40rpx;
+    border: 1rpx solid #999;
+    border-radius: 50%;
+}
+.checkedBox image{
+    width: 100%;
+    height: 100%;
+}
+.serveactive{
+    border-bottom: 5rpx solid #fa5454
 }

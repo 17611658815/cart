@@ -208,7 +208,7 @@ swiper-item {
 }
 
 .navActive {
-  border-bottom: 5rpx solid #EFD86F;
+  border-bottom: 5rpx solid #F27C1F;
   font-weight: 500;
 }
 
@@ -430,7 +430,6 @@ button::after {
 }
 
 .tabs-bar-tab {
-  bottom: 0;
   flex: 1;
   display: flex;
   justify-content: center;
@@ -451,6 +450,7 @@ button::after {
   border-bottom: 3px solid transparent;
   box-sizing: border-box;
 }
+
 /* 切换样式 */
 
 .list {

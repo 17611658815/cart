@@ -1,8 +1,8 @@
-<view class="container">
+<view class="container" wx:if='{{otherListLength>0}}'>
     <view class="width90 padding30 color3 fontSize-28">
         已完成订单
     </view>
-    <view class="width90 bgFFFF boxShadow dpfC padding30 marginBtm" data-id='{{item.id}}' bindtap="goDetaile" wx:for='{{otherList}}'>
+    <view class="width90 bgFFFF boxShadow dpfC padding30 marginBtm" data-id='{{item.id}}' data-type='{{item.type}}' data-status="{{item.status}}" bindtap="goDetaile" wx:for='{{otherList}}' wx:key='key'>
         <view class="otheritem width90 dpfb fontSize-28">
            <view class="dpf">
                 <text>单车</text> 
@@ -10,7 +10,8 @@
                 <text class="tagBox">代叫</text> 
            </view>
            <view class="color3">
-                已完成 <image class="icon_right" src='../../images/icon_right.png'></image>
+                <text wx:if='{{item.status == 0}}'>未支付</text>
+               <text wx:if='{{item.status == 1}}'>已完成</text>  <image class="icon_right" src='../../images/icon_right.png'></image>
            </view>
         </view>
         <view class="width90 fontSize-28 marginTop">
@@ -35,10 +36,16 @@
                     <text class="dian_2"></text>
                 </view>
                <view class="fontSize-28 color3">
-                    {{item.price}}
+                    ￥{{item.price}}
                 </view>
            </view>
         </view>
+    </view>
+</view>
+<view class="width100 dpfC" wx:else>
+    <view class="noList dpfC">
+        <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+        <view class="fontSize-28 color1 marginTop">暂无相关订单</view>
     </view>
 </view>
 

@@ -29,7 +29,40 @@ export default class Url {
     static orderDetailUrl() {
         return Url.PATH + '/orderDetail';
     };
-    
-   
-
+    // 存车辆信息
+    static saveCarUrl() {
+        return Url.PATH + '/saveCar';
+    };
+    // 车辆列表
+    static carListUrl() {
+        return Url.PATH + '/carList';
+    };
+    // 删除车辆信息
+    static carDelUrl() {
+        return Url.PATH + '/carDel';
+    };
+    // 搜索服务
+    static serviceListUrl() {
+        return Url.PATH + '/serviceList';
+    };
+    // 搜索服务
+    static showServiceUrl() {
+        return Url.PATH + '/showService';
+    };
+    // 搜索服务
+    static isHaveCarUrl() {
+        return Url.PATH + '/isHaveCar';
+    };
+    // 服务详情
+    static showServiceDetailUrl() {
+        return Url.PATH + '/showServiceDetail';
+    };
+    // 区域id
+    static getAreaIdUrl() {
+        return Url.PATH + '/getAreaId';
+    };
+    // 
+    static createServiceOrderUrl() {
+        return Url.PATH + '/createServiceOrder';
+    };
 }

@@ -156,6 +156,14 @@
 					"id": -1,
 					"name": "添加商品",
 					"pathName": "pages/addgoods/addgoods",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 15,
+					"name": "订单详情",
+					"pathName": "pages/otherDetaile/otherDetaile",
+					"query": "id=23",
 					"scene": null
 				}
 			]

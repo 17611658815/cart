@@ -14,9 +14,12 @@
             <text>获得你的公开信息(昵称，头像等)</text>
         </view>
         <view class="loginbtnBox">
-        <button type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getUserInfo">
-        同意
-    </button>
+            <button type='primary' 
+                    open-type="getUserInfo" 
+                    lang="zh_CN" 
+                    bindgetuserinfo="getUserInfo">
+                同意
+            </button>
             <button>拒绝</button>
         </view>
     </view>

@@ -4,7 +4,7 @@
             <image src='{{userinfo.wx_avatar}}'></image>
         </view>
         <view class="marginTop">{{userinfo.wx_nick}}</view>
-        <view class="marginTop fontSize-26">白金会员</view>
+        <view class="marginTop fontSize-26">{{userinfo.name}}</view>
         <navigator hover-class='none' wx:for='{{list}}' wx:key='key' url='{{item.path}}'>
             <view class="mayCenterList dpf padding20 {{index == 0 ? 'marginTop':''}}">
                 <image class="listicon marginRight" src='{{item.icon}}'></image>

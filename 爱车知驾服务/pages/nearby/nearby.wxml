@@ -1,6 +1,9 @@
 <view class="container" wx:if='{{searchDatalength >0}}'>
     <view class="tabBox width100">
-        <view style="margin-right:40rpx;" data-index='0' class="{{currentTab == 0 ? 'active':''}}" bindtap="switchTab">精品</view>
+        <view style="margin-right:40rpx;" 
+            data-index='0' 
+            class="{{currentTab == 0 ? 'active':''}}"
+            bindtap="switchTab">精品</view>
         <view data-index='1' class="{{currentTab == 1 ? 'active':''}}" bindtap="switchTab">最新</view>
     </view>
     <view class="width90 dpfC" style="background:#ffffff">
@@ -15,7 +18,7 @@
             </view> -->
         </view>
         <view class="width100 dpfC">
-            <view class="listBox width100 padding20 boxShadow" wx:for='{{searchData}}' data-id='{{item.id}}' bindtap="goShopDetaile">
+            <view class="listBox width100 padding20 boxShadow" wx:for='{{searchData}}' data-id='{{item.id}}' bindtap="goShopDetaile" wx:key='key'>
                 <view class="marginLeft10">
                     <image class="GPS_icon" src="../../images/GPS_icon.png"></image>
                 </view>
@@ -34,16 +37,15 @@
             </view>
         </view>
     </view>
-         <view class="addBox" wx:if='{{top<60}}'>
+    <view class="addBox" wx:if='{{top<60}}'>
         <image src="../../images/icon_Stick.png"> </image>
     </view>
 </view>
- 
 
- <view class="width100 dpfC" wx:else>
-        <view class="noList dpfC">
-            <image mode="scaleToFill" src="../../images/1.jpg"/>
-            <view class="fontSize-28 color1 marginTop">暂无相关店铺</view>
-        </view>
-  
+
+<view class="width100 dpfC" wx:else>
+    <view class="noList dpfC">
+        <image mode="scaleToFill" src="../../images/1.jpg" />
+        <view class="fontSize-28 color1 marginTop">暂无相关店铺</view>
     </view>
+</view>

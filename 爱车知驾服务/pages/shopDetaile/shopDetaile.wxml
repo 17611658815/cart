@@ -2,7 +2,7 @@
     <view class="container">
         <view class='cleaningDetails-header'>
             <swiper class="swiper" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' indicator-active-color="#62DAD1" circular='true' duration="1000" interval="5000">
-                <swiper-item wx:for='{{shopObj.banner}}'>
+                <swiper-item wx:for='{{shopObj.banner}}' wx:key='key'>
                     <image mode="scaleToFill" src='{{item}}'></image>
                 </swiper-item>
             </swiper>
@@ -25,7 +25,7 @@
             </view> -->
         </view>
     </view>
-    <view class="tabs borderBtm {{shadow ? 'shadow' : ''}}" style="top: {{top}}px">
+    <!-- <view class="tabs borderBtm {{shadow ? 'shadow' : ''}}" style="top: {{top}}px">
         <view class="tabs-bar">
             <block wx:for="{{shopObj.goods}}">
                 <view class="tabs-bar-tab" data-index="{{index}}" bindtap="swatchTab">
@@ -33,13 +33,19 @@
                 </view>
             </block>
         </view>
-    </view>
+    </view> -->
+    <view class="navList width100">
+            <view bindtap="swatchTab" 
+                data-index='{{index}}' 
+                class="{{currentTab==index ? 'color1 navActive':'color1'}}" 
+                wx:for='{{shopObj.goods}}' wx:key='key'>{{item.name}}</view>
+        </view>
 
     <view class="width100 dpfC list_itemBox">
         <view class='dpfC width90 padStl bgF'>
             <view class="phoneList">
                 <view class="listBox">
-                    <view class="listBox_item boxShadow" wx:for='{{shopObj.goods[currentTab].items}}' bindtap="goGoodsDetails">
+                    <view class="listBox_item boxShadow" wx:for='{{shopObj.goods[currentTab].items}}' bindtap="goGoodsDetails" wx:key='key'>
                         <view class="listBox_item_img dpfC">
                             <image mode="scaleToFill" src="{{item.thumb}}" />
                         </view>
@@ -50,9 +56,6 @@
                             <text class="fontSize-22 color3">元</text>
                         </view>
                         <image class="addCar" data-item='{{item}}' catchtap="addCar" src="../../images/addCar.png"></image>
-                        <!-- <view class="tagBox">
-                            新品特惠
-                        </view> -->
                     </view>
                 </view>
             </view>

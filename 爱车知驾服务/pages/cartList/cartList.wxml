@@ -1,105 +1,72 @@
 <view class='container'>
-    <view class="header"></view>
+    <view class="header">
+        <image mode="scaleToFill" src='https://img.dodo.wiki/app/banner1.jpg'></image>
+    </view>
     <view class='goods_content width100 padding30 bgFFFF'>
         <view class="width90 dpfb">
-            <view class="marginTop dpf">
-                <image style="width:40rpx;height:40rpx;" src='../../images/checked.png'></image> 小保养服务</view>
-            <view class="marginTop">
-                优惠卷
+            <view class="marginTop dpfb width100">
+                <view class="fontSize-34 color1 fontWeight5">
+                    {{serviceData.service.name}}
+                </view>
+                <view>优惠卷</view>
             </view>
         </view>
-        <view class="width85">1，更换润滑油规格，5w-30sn（4L）</view>
-        <scroll-view scroll-x="true" class='scroll-x-box'>
-            <view class='goods_content_item' wx:for='{{CartData1}}' wx:key='key'>
-                <view class='dpf'>
-                    <view class='dpf'>
-                        <image style='width:24rpx;height:24rpx' src='../../../../images/icon/icon_common2.png'></image>
+        <view class="width100" wx:for='{{serviceData.types}}' wx:for-index='index' data-index="{{index}}" bindtap="selService" wx:key='index'>
+            <view class="width90 dpf padding30">
+                <view>{{index+1}}，{{item.name}}</view>
+            </view>
+            <scroll-view scroll-x="true" class='scroll-x-box'>
+                <view class="scroll-x-item" wx:for='{{item.data}}' wx:for-item='itemData' wx:for-index='key' wx:key='key'>
+                    <view class='radioBox' data-index='{{index}}' data-id="{{key}}" data-key="{{key}}" bindtap='SingChecked'>
+                        <image wx:if='{{itemData.checked}}' src='../../images/inon_checked.png'></image>
                     </view>
-                </view>
-                <view class='itemright'>
-                    <view class='radioBox' data-index='{{index}}' bindtap='firstChecked'>
-                        <image wx:if='{{item.checked}}' src='../../images/inon_checked.png'></image>
-                    </view>
-                    <view class='dpfC'>
-                        <view class='leftImg'>
-                            <image src='{{item.project_thumb}}'></image>
-                        </view>
-                        <view class='goodsContent'>
-                            <view>
-                                <view class='fontSize-32 color1 fontWeight5'>{{item.project_name}}</view>
-                                <view class='fontSize-32 color1'>
-                                    <text class='fontWeight5 color7'>{{item.price}}</text>
+                    <view class='goods_content_item' wx:for='{{itemData.product}}' wx:for-item='product' wx:key='key'>
+
+                        <view class='itemright'>
+                            <view class='dpfC'>
+                                <view class='leftImg'>
+                                    <image src='../../images/1570861870.jpg'></image>
+                                </view>
+                                <view class='goodsContent'>
+                                    <view>
+                                        <view class='fontSize-32 color1 fontWeight5'>{{product.name}}</view>
+                                        <view class='fontSize-32 color1'>
+                                            <text class='fontWeight5 color7'>{{product.price}}</text>
+                                            <text class='fontWeight5 color1'>元</text>
+                                        </view>
+                                    </view>
                                 </view>
                             </view>
                         </view>
                     </view>
                 </view>
-            </view>
-        </scroll-view>
-        <view class="width85">2，更换机油卢新规格：CX02-03</view>
-        <scroll-view scroll-x="true" class='scroll-x-box'>
-            <view class='goods_content_item' wx:for='{{CartData2}}' wx:key='key'>
-                <view class='dpf'>
-                    <view class='dpf'>
-                        <image style='width:24rpx;height:24rpx' src='../../../../images/icon/icon_common2.png'></image>
-                    </view>
-                </view>
-                <view class='itemright'>
-                    <view class='radioBox' data-index='{{index}}' bindtap='secondChecked'>
-                        <image wx:if='{{item.checked}}' src='../../images/inon_checked.png'></image>
-                    </view>
-                    <view class='dpfC'>
-                        <view class='leftImg'>
-                            <image src='{{item.project_thumb}}'></image>
-                        </view>
-                        <view class='goodsContent'>
-                            <view>
-                                <view class='fontSize-32 color1 fontWeight5'>{{item.project_name}}</view>
-                                <view class='fontSize-32 color1'>
-                                    <text class='fontWeight5 color7'>{{item.price}}</text>
-                                </view>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </scroll-view>
-        <view class="width85">3，更换时间服务费</view>
+            </scroll-view>
+        </view>
+        <view class="width90">3，更换工时服务费</view>
         <view style="width:70%" class="dpfb marginTop">
-            <view>上门:
-                <text class="color7">￥150</text> </view>
-            <view>来店:
-                <text class="color7">￥150</text> </view>
+            <view style="padding-bottom:20rpx;" data-index='1' bindtap="changeServce" class="{{servetab==1 ? 'serveactive':''}}">来店:
+                <text class="color7">￥{{transfer_price[1]}}</text> 
+            </view>
+            <view style="padding-bottom:20rpx;" data-index='2' bindtap="changeServce" class="{{servetab==2 ? 'serveactive':''}}">取车:
+                <text class="color7">￥{{transfer_price[2]}}</text>
+            </view>
         </view>
     </view>
-    <view class="partsNum width90 marginTop dpfC bgFFFF" wx:for='{{3}}'>
+     <view class="partsNum width90 marginTop dpfC bgFFFF" wx:for='{{serviceData.sub_service}}' wx:key='key'>
         <view class="partsNum_item padding30">
-            <view class="partsNum_item_left">
+            <!-- <view class="partsNum_item_left">
                 <image style="width:40rpx;height:40rpx;" src='../../images/no_checked.png'></image>
-            </view>
+            </view> -->
             <view class="partsNum_item_right flex_1">
                 <view class="marginLeft10 dpfb">
-                    <text>发动机清洗</text> 
-                    <text>￥68</text> 
+                    <text>{{item.name}}</text>
+                    <text>￥{{item.price}}</text>
                 </view>
-                <view class="marginLeft10">50000km或6个月/次</view>
+                <!-- <view class="marginLeft10">50000km或6个月/次</view> -->
             </view>
         </view>
     </view>
 </view>
-
-<!-- <view class='container' wx:else>
-    <view class='empty_box'>
-        <view class='empty_image'>
-            <image src="../../../../images/icon/icon_noMsg_cart.png"></image>
-        </view>
-        <view class='fontSize-28 color2' style='margin-top:60rpx;'>购物车空空如也，去逛逛吧~</view>
-        <view class='fontSize-22 color3' style='margin-top:22rpx;'>优质服务，还是买买买更爽快~</view>
-        <navigator open-type='switchTab' hover-class='none' url='/page/tabber/index/index'>
-            <view class='emptyBtn' style='margin-top:52rpx;'>去逛逛</view>
-        </navigator>
-    </view>
-</view> -->
 
 <view class='purchase dpfC'>
     <view style='width:95%;' class='dpf'>
@@ -108,15 +75,13 @@
                 <image style="width:45rpx;height:45rpx" src="../../images/kefu_icon.png"></image>
                 <view class='fontSize-22 color2'>在线客服</view>
             </view>
-            <view class="flex_1 dpfC">
-                <view class="purchase_text">本次保养最多仅需：
-                    <text class="color7 fontWeight6 fontSize-45">￥6666</text> </view>
+            <view class="dpfC">
+                <view class="purchase_text">本次保养最多仅需:
+                    <text class="color7 fontWeight5 fontSize-40">￥{{total}}</text> </view>
                 <view>节省：633元</view>
             </view>
-            <!-- <view class='fontSize-30 color1'>合计：</view>
-            <view class='fontSize-30 color4 fontWeight5'>{{total}}元</view> -->
         </view>
-        <view class='purchase_btn' catchtap='placeOther'>去结算</view>
+        <view class='purchase_btn' catchtap='createServiceOrder'>去结算</view>
     </view>
     <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
 </view>

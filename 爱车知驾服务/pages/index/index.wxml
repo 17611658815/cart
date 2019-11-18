@@ -1,4 +1,5 @@
 <view class="container">
+<button bindtap="requestMsg">触发</button>
     <!-- 头部 -->
     <view class="headerBox width100 dpfC padding20">
         <view class="headerBox width90 dpfb">
@@ -45,19 +46,18 @@
             </view>
             <view class="server_item marginTop">
                 <view class="server_item_item dpfC" bindtap='swatchTab' data-id="0" id="item-0" data-index="0">
-                   
                     <view hover-class='none'>
                         <view class="server_item_logo"></view>
                         <view class="color3 fontSize-26 marginTop">
-                        初级技师
+                            初级技师
                         </view>
                     </view>
                 </view>
-              <view class="server_item_item dpfC" bindtap='swatchTab' data-id="1" id="item-1" data-index="1">
+                <view class="server_item_item dpfC" bindtap='swatchTab' data-id="1" id="item-1" data-index="1">
                     <view hover-class='none'>
                         <view class="server_item_logo"></view>
                         <view class="color3 fontSize-26 marginTop">
-                        中级技师
+                            中级技师
                         </view>
                     </view>
                 </view>
@@ -243,45 +243,44 @@
         <!-- 预约维师 -->
         <view class="width100 dpfC" wx:if='{{typeNum== 1}}'>
             <view class="width90 dpfC boxShadow padding30">
-                <view class="width100 dpf borderBtm" style="margin-bottom:5rpx;">
+                <view class="width100 dpf borderBtm type1" style="margin-bottom:5rpx;}">
                     <view class="serveType {{serveType == 0 ? 'serverTypeActive':''}}" data-index='0' bindtap="serveType">
                         <view class="color1 fontSize-32">来店</view>
                         <view class="marginTop serveLogo"></view>
                         <view class="marginTop fontSize-26">预估
-                            <text class="color1 fontSize-36 fontWeight6">50.7</text>元</view>
+                            <text class="color1 fontSize-36 fontWeight6">{{num1}}</text>元</view>
                     </view>
                     <view class="serveType {{serveType == 1 ? 'serverTypeActive':''}}" data-index='1' bindtap="serveType">
                         <view class="color1 fontSize-32">取车</view>
                         <view class="marginTop serveLogo"></view>
                         <view class="marginTop fontSize-26">预估
-                            <text class="color1 fontSize-36 fontWeight6">50.7</text>元
+                            <text class="color1 fontSize-36 fontWeight6">{{num2}}</text>元
                         </view>
                     </view>
+                    <image class="delBox" catchtap="delmodel" src="../../images/icon_colse.png"></image>
                 </view>
                 <view class="slectTime width100 dpf padding20 fontSize-26 color1">
                     <!-- 预约时间 -->
                     <view>
-                        <picker 
-                            mode="multiSelector" 
-                            bindchange="bindMultiPickerChange" 
-                            bindcolumnchange="bindMultiPickerColumnChange" 
-                            value="{{multiIndex}}" 
-                            range="{{multiArray}}">
-                            <view class="picker">
-                                预约时间 > {{region[0]}}{{region[1]}}{{region[2]}}
+                        <view>
+                            <view bindtap="showSleTime" class="picker" wx:if='{{dateTime == ""}}'>
+                                预约时间 > 
                             </view>
-                        </picker>
+                            <view bindtap="showSleTime" class="picker" wx:else>
+                                {{dateTime}} > 
+                            </view>
+                        </view>
                     </view>
                     <!-- 预约技师 -->
                     <view>
-                        <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                        <picker bindchange="bindPickerChange" value="{{technicianinde}}" range="{{technician}}">
                             <view class="picker">
-                                选择维师 > {{region[0]}}{{region[1]}}{{region[2]}}
+                                {{technicianName}} > 
                             </view>
                         </picker>
                     </view>
                 </view>
-                <view class="makeBtn">
+                <view class="makeBtn" bindtap="gocartList">
                     预约维师
                 </view>
             </view>
@@ -358,16 +357,16 @@
                     <text class="leaber_1">匿名</text>
                 </view>
                 <!-- 评星 -->
-                <view class='starBox' style='margin-top:30rpx;'>
-                    <view class='star_item'>
-                        <view class='rui-star' 
-                            wx:for="{{[1,2,3,4,5]}}" 
-                            wx:key="star1" 
-                            bindtap='getStar' 
-                            data-star='{{item}}' 
-                            style='background:url({{diagnosisStar >= item ? iconArr[1] : iconArr[0]}}) no-repeat center center/6.7vw 6.7vw;'></view>
-                    </view>
-                </view>
+        <view class='starBox' style='margin-top:30rpx;'>
+            <view class='star_item'>
+                <view class='rui-star' 
+                    wx:for="{{[1,2,3,4,5]}}" 
+                    wx:key="star1" 
+                    bindtap='getStar' 
+                    data-star='{{item}}' 
+                    style='background:url({{diagnosisStar >= item ? iconArr[1] : iconArr[0]}}) no-repeat center center/6.7vw 6.7vw;'></view>
+            </view>
+        </view>
             </view>
         </view>
         <view class="width100 dpfC marginTop" wx:if='{{typeNum== 4}}'>
@@ -416,7 +415,32 @@
 <!-- 急救中心 滑出-->
 <import src="emergency.wxml"></import>
 <template is="Emergency" wx:if='{{emShow}}' data="{{emShow:emShow,selecEmergency:selecEmergency}}"></template>
+<!-- 选择爱车 滑出-->
+<import src="carList.wxml"></import>
+<template is="carList" wx:if='{{carListShow}}' data="{{carListShow:carListShow,carList:carList,carindex:carindex,selectCar:selectCar,onhidesCarlist:onhidesCarlist,confirmCar:confirmCar}}"></template>
 
 <!-- 授权滑出-->
 <import src="authorization.wxml"></import>
 <template is="authorization" wx:if='{{authorizationShow}}' data="{{authorizationShow:authorizationShow,bindgetUserInfo:bindgetUserInfo}}"></template>
+
+
+<!-- 选择预约时间 -->
+<view class="selectTime" wx:if='{{isselectTime && goodsId!=""}}'>
+    <view class="section">
+        <view class="section__title">选择日期</view>
+        <picker mode="date" value="{{date}}" start="{{day}}" end="{{endDay}}" bindchange="bindDateChange">
+            <view class="picker color2">
+            当前选择: {{date}}
+            </view>
+        </picker>
+    </view>
+    <view class="section">
+  <view class="section__title">时间选择器</view>
+  <picker mode="time" value="{{time}}" start="09:01" end="21:01" bindchange="bindTimeChange">
+    <view class="picker color2">
+      当前选择: {{time}}
+    </view>
+  </picker>
+</view>
+    <view class="submit" bindtap="showSleTime">确定</view>
+</view>

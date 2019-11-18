@@ -67,54 +67,6 @@ Page({
         scrollLeft: 0,
         typeNum: 0, //显示不同的状态 0 选择服务 1点击预约选择时间 2等在师傅接单
         question: '',
-        multiArray: [
-            ['无脊柱动物', '脊柱动物'],
-            ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'],
-            ['猪肉绦虫', '吸血虫']
-        ],
-        objectMultiArray: [
-            [{
-                    id: 0,
-                    name: '无脊柱动物'
-                },
-                {
-                    id: 1,
-                    name: '脊柱动物'
-                }
-            ],
-            [{
-                    id: 0,
-                    name: '扁性动物'
-                },
-                {
-                    id: 1,
-                    name: '线形动物'
-                },
-                {
-                    id: 2,
-                    name: '环节动物'
-                },
-                {
-                    id: 3,
-                    name: '软体动物'
-                },
-                {
-                    id: 3,
-                    name: '节肢动物'
-                }
-            ],
-            [{
-                    id: 0,
-                    name: '猪肉绦虫'
-                },
-                {
-                    id: 1,
-                    name: '吸血虫'
-                }
-            ]
-        ],
-        multiIndex: [0, 0, 0],
-        array: [1, 2, 3, 4, 5, 6, 7],
         iconArr: [], //评星
         diagnosisStar: 1,//默认一星
         evaluateCurrent: 0,//评价当前选中
@@ -125,26 +77,137 @@ Page({
         scrollTop:0,
         // 标记点对象
         markers : [],
-        imgArr: ['https://img.dodo.wiki/app/js1.png', 'https://img.dodo.wiki/app/js2.png', 'https://img.dodo.wiki/app/js3.png','https://img.dodo.wiki/app/js4.png'],
+        imgArr: ['https://img.dodo.wiki/app/js1.png', 
+        'https://img.dodo.wiki/app/js2.png', 
+        'https://img.dodo.wiki/app/js3.png',
+        'https://img.dodo.wiki/app/js4.png'],
         iszoom: true,//false是否支持缩放
         isscroll: true,//是否支持拖动
-         longitude:'',
+        longitude:'',
         latitude: '',
-
+        goodsId:'',
+        member_id:0,
+        isHaveCar:0,
+        service:{},//来店 取车 计算
+        num1:0,//来店
+        num2:0,//取车
+        technician:['初级技师','中级技师','高级技师','技师维师'],
+        technicianName:'选择维师',
+        technicianinde:0,//级别id
+        isselectTime:false,//选择时间
+        date:'',//预约如期
+        time:'',//预约时间
+        dateTime:'',
+        day:'', //pick时间限制
+        endDay:'',//pack时间限制
+        serviceId:0,
+        car_id:0,
+        carListShow:false,
+        carList:[],
+        carindex:0,
+        area_id:0
     },
-    callouttap(e){
-        console.log(e,1)
+    requestMsg(){
+        wx.requestSubscribeMessage({
+            tmplIds: ['F8TezMCsMq0qdlv-Wm9hGkDGRNyZPKu1PaYo7h8tOvY'],
+            success(res) { }
+        })
     },
-    markertap(e){
-        console.log(e,2)
+    formatTime(date,type) {
+        var year = date.getFullYear();
+        if (type==1){
+            var year = date.getFullYear()+1;
+        }else{
+            var year = date.getFullYear();
+        }
+        var month = (date.getMonth() + 1) < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);
+        var day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+        var hour = date.getHours();
+        var minute = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes();
+        var second = date.getSeconds();
+        return [year + "-" + month + "-" + day, hour + 1 + ":" + minute].map(this.formatNumber);
     },
-    labeltap(e){
-        console.log(e,3)
+    formatNumber(n) {
+        n = n.toString()
+        return n[1] ? n : '0' + n
     },
-    // http://img.dodo.wiki/js1.png
-    onLoad: function () {
+    onLoad: function (options) {
         let that = this;
-        that.getLocationMsg()
+        let startTime = that.formatTime(new Date(),2)
+        let endTime = that.formatTime(new Date(),1)
+        let userinfo = wx.getStorageSync('userinfo') || '';
+        app.globalData.userinfo = wx.getStorageSync('userinfo') || '';
+        that.setData({
+            iconArr:beas64,
+            member_id: userinfo.id,
+            goodsId: options.id || '',
+            day: startTime[0],
+            endDay: endTime[0],
+            date: startTime[0],
+            time: startTime[1],
+            userinfo: userinfo
+        })
+
+        if (options.id){
+            that.showService()
+        }
+        that.getLocationMsg();
+        that.getAreaId()
+        console.log(userinfo)
+    },
+    // 
+    showService(){
+        let that = this;
+        let serveType = that.data.serveType;
+        let currentTab = that.data.currentTab;
+        let params = {
+            appid: app.globalData.appid,
+            id: that.data.goodsId
+        }
+        app.net.$Api.showService(params).then((res) => {
+            let service = res.data;
+            let num1 = service.price[currentTab + 1][0] / 1 + service.service.price / 1
+            let num2 = service.price[currentTab + 1][1] / 1 + service.service.price / 1
+            that.setData({
+                typeNum: 1,
+                service: service,
+                num1: num1,
+                num2: num2,
+                serviceId: service.service.id
+            })
+            console.log(that.data.service)
+        })
+    },
+    // 判断是否有车
+    isHaveCar(){
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            member_id: that.data.member_id
+        }
+        app.net.$Api.isHaveCar(params).then((res) => {
+            that.setData({
+                isHaveCar: res.data.num,
+                car_id: res.data.list[0].id,
+                carList: res.data.list
+            })
+            console.log(res)
+        })
+    },
+    // 获取区域id
+    getAreaId(){
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            name: that.data.city
+        }
+        app.net.$Api.getAreaId(params).then((res) => {
+            app.globalData.area = res.data.id;
+            that.setData({
+                area_id: res.data.id
+            })
+            console.log(res,199)
+        })
     },
     // 获取附近店铺
     getMarkersList(){
@@ -160,7 +223,6 @@ Page({
         }
         app.net.$Api.getShopListByLocation(params).then((res) => {
             res.data.forEach((item) => {
-                console.log(item)
                 markers.push({
                     iconPath: that.data.imgArr[that.data.currentTab],
                     id: item.id,
@@ -180,13 +242,15 @@ Page({
         let that = this;
         let userinfo = wx.getStorageSync('userinfo') || '';
         that.setData({
-            userinfo: userinfo
+            userinfo: userinfo,
+            member_id: userinfo.id,
         })
+        console.log()
+        that.isHaveCar(userinfo);
         wx.createSelectorQuery().select('#list').boundingClientRect(function (rect) {
             that.setData({
                 fixTop: rect.top
             })
-            console.log(rect.top)
         }).exec()
     },
     onPageScroll: function (e) {
@@ -207,15 +271,15 @@ Page({
     // 下拉刷新
     onPullDownRefresh: function () {
         var that = this;
-        wx.vibrateShort()
-        wx.showNavigationBarLoading() //在标题栏中显示加载
+        wx.vibrateShort();
+        wx.showNavigationBarLoading(); //在标题栏中显示加载
         setTimeout(function () {
-            wx.hideNavigationBarLoading() //完成停止加载
-            wx.stopPullDownRefresh() //停止下拉刷新
+            wx.hideNavigationBarLoading(); //完成停止加载
+            wx.stopPullDownRefresh(); //停止下拉刷新
             that.setData({
              
-            })
-            that.onLoad()
+            });
+            that.onLoad();
         }, 1500);
     },
     // 获取点击的星位
@@ -239,7 +303,7 @@ Page({
                 that.data.diagnosistext = '优秀'
                 break;
         }
-        this.setData({
+        that.setData({
             diagnosisStar: star,
             diagnosistext: that.data.diagnosistext
         });
@@ -284,17 +348,15 @@ Page({
     // 获取元素位置
     handleScroll(selectedId) {
         var that = this;
-        var query = wx.createSelectorQuery(); //创建节点查询器
-        query.select('#item-' + selectedId).boundingClientRect(); //选择id='#item-' + selectedId的节点，获取节点位置信息的查询请求
-        query.select('#scroll-view').boundingClientRect(); //获取滑块的位置信息
+        var query = wx.createSelectorQuery();
+        query.select('#item-' + selectedId).boundingClientRect(); 
+        query.select('#scroll-view').boundingClientRect(); 
         //获取滚动位置
-        query.select('#scroll-view').scrollOffset(); //获取页面滑动位置的查询请求
+        query.select('#scroll-view').scrollOffset();
         query.exec(function(res) {
-            console.log("res:", res)
             that.setData({
                 scrollLeft: res[2].scrollLeft + res[0].left + res[0].width / 2 - res[1].width / 2
             });
-            console.log(that.data.scrollLeft)
         });
     },
     // 导航tab切换
@@ -302,28 +364,62 @@ Page({
         let that = this;
         let index = e.currentTarget.dataset.index;
         this.handleScroll(index);
-        switch (index) {
-            case '0':
-                break;
-            case '1':
-                break;
-            case '2':
-                break;
-            case '3':
-                break;
-        } 
         that.setData({
             markers:[],
             isShadeShow:false,
             currentTab: index
         })
-        that.getMarkersList()
+        if (that.data.currentTab<4){
+            that.getMarkersList()
+        }
     },
     // 服务切换
     servetab(e) {
         let index = e.currentTarget.dataset.index;
         this.setData({
             serveCurrent: index
+        })
+    },
+    // 选择维师
+    bindPickerChange(e){
+        let that = this;
+        let serveType = that.data.serveType;
+        let service = that.data.service;
+        let index = e.detail.value;
+        let num1 = service.price[index/1 + 1][0] / 1 + service.service.price / 1
+        let num2 = service.price[index/1 + 1][1] / 1 + service.service.price / 1
+        this.setData({
+            technicianName: that.data.technician[index],//技师名字
+            technicianinde: index/1+1,
+            currentTab: index,
+            num1: num1,
+            num2: num2
+        })
+    },
+    // 选择时间
+    showSleTime(){
+        this.setData({
+            isselectTime: !this.data.isselectTime,
+            dateTime: this.data.date + '-' + this.data.time
+        })
+    },
+    // 选择日期
+    bindDateChange(e){
+        console.log(e)
+        this.setData({
+            date: e.detail.value
+        })
+    },
+    // 选择时间
+    bindTimeChange(e){
+        this.setData({
+            time: e.detail.value
+        })
+    },
+    // 预约维师
+    gocartList(){
+        wx.navigateTo({
+            url: '/pages/cartList/cartList?serviceId=' + this.data.serviceId + '&area_id=2' + '&serveType=' + this.data.serveType + "&level=" + this.data.currentTab + '&time=' + this.data.dateTime,
         })
     },
     onshowslideNav() {
@@ -337,6 +433,29 @@ Page({
             isShadeShow: false
         })
     },
+    // 关闭爱车列表
+    onhidesCarlist() {
+        this.setData({
+            carListShow: false
+        })
+    },
+    // 选择
+    selectCar(e) {
+        let index = e.currentTarget.dataset.index;
+        this.setData({
+            carindex: index
+        })
+    },
+    // 确定选中爱车
+    confirmCar(e) {
+        let that = this;
+        let id = that.data.carList[that.data.carindex].id
+        app.globalData.area_id = that.data.area_id
+        app.globalData.Carid = id
+        wx.navigateTo({
+            url: '/pages/search/search?currentTab=' + (that.data.currentTab + 1) + "&Carid=" + id + "&area_id=" +that.data.area_id,
+        })
+    },
     //全部服务
     allserveShow() {
         this.setData({
@@ -345,14 +464,34 @@ Page({
     },
     // 切换服务类型 到店-取车
     serveType(e) {
+        let that = this;
+        let serveType = e.currentTarget.dataset.index;
         this.setData({
-            serveType: e.currentTarget.dataset.index
+            serveType: serveType
+        })
+    },
+    delmodel(){
+        this.setData({
+            typeNum:0
         })
     },
     onbindfocus() {
-        wx.navigateTo({
-            url: '/pages/search/search',
-        })
+        let that = this;
+        if (that.data.isHaveCar==0){
+            wx.navigateTo({
+                url: '/pages/uploadPic/uploadPic',
+            })
+        } else if (that.data.isHaveCar == 1){
+            app.globalData.area_id = that.data.area_id
+            app.globalData.Carid = that.data.car_id
+            wx.navigateTo({
+                url: '/pages/search/search?currentTab=' + that.data.currentTab + 1 +"&Carid=" + id + "&area_id=" + that.data.area_id,
+            })
+        } else if (that.data.isHaveCar > 1){
+            this.setData({
+                carListShow: true
+            })
+        }
     },
     // 取消订单
     recallOther(e) {
@@ -388,6 +527,7 @@ Page({
             }
         })
     },
+   
     // 急救中心
     selecEmergency(){
         this.setData({

@@ -53,6 +53,7 @@ Page({
             currentTab: index
         })
     },
+    // 添加购物车
     addCar(e){
         let item = e.currentTarget.dataset.item;
             item.num = 1;
@@ -133,9 +134,15 @@ Page({
     },
     // 去结算
     goGoodsList(){
-        wx.navigateTo({
-            url: '/pages/goodsList/goodsList?id='+this.data.id
-        })
+        console.log(this.data.CarList)
+        if (JSON.stringify(this.data.CarList) == "{}") {
+            app.alert("请选择购买的商品")
+        }else{
+            wx.navigateTo({
+                url: '/pages/goodsList/goodsList?id='+this.data.id
+            })
+        }
+       
     },
     //  查看更多
     gohelpCenter() {

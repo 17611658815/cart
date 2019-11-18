@@ -6,26 +6,28 @@
         </view>
     </view>
     <view class="slect_item">
-            <view class="dp fontSize-28 color1" bindtap="slect_1itemShow">推广类型
-                <image class="marginLeft {{slect_item1 ? 'rotateRight':''}}" src="../../images/icon/icon_4.png"></image>
-            </view>
-            <view class="dp fontSize-28 color1" bindtap="slect_2itemShow">状态
-                <image class="marginLeft {{slect_item2 ? 'rotateRight':''}}" src="../../images/icon/icon_4.png"></image>
-            </view>
-            <!-- 排序下拉 -->
-            <view class='sortList' wx:if='{{slect_item1}}'>
-                <view data-index="{{index}}" bindtap="changeIndex_1" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList}}'>{{item}}
-                <image wx:if='{{selectIndex1==index}}' src="../../images/icon/icon_mark.png"></image></view>
-            </view>
-            <view class='sortList' wx:if='{{slect_item2}}'>
-                 <view data-index="{{index}}" bindtap="changeIndex_1" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList}}'>{{item}}
-                <image wx:if='{{selectIndex1==index}}' src="../../images/icon/icon_mark.png"></image></view>
+        <view class="dp fontSize-28 color1" bindtap="slect_1itemShow">推广类型
+            <image class="marginLeft {{slect_item1 ? 'rotateRight':''}}" src="../../images/icon/icon_4.png"></image>
+        </view>
+        <view class="dp fontSize-28 color1" bindtap="slect_2itemShow">状态
+            <image class="marginLeft {{slect_item2 ? 'rotateRight':''}}" src="../../images/icon/icon_4.png"></image>
+        </view>
+        <!-- 排序下拉 -->
+        <view class='sortList' wx:if='{{slect_item1}}'>
+            <view data-index="{{index}}" bindtap="changeIndex_1" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList}}'>{{item}}
+                <image wx:if='{{selectIndex1==index}}' src="../../images/icon/icon_mark.png"></image>
             </view>
         </view>
-        <view class="hotList">
-            <view class="dpfb" wx:for='{{10}}'>
-                <view class="fontSize-28 color1 fontWeight5">{{index+1}}.长城润滑油</view>
-                <view class="fontSize-22 color3 fontWeight5">人气:50845</view>
+        <view class='sortList' wx:if='{{slect_item2}}'>
+            <view data-index="{{index}}" bindtap="changeIndex_1" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList}}'>{{item}}
+                <image wx:if='{{selectIndex1==index}}' src="../../images/icon/icon_mark.png"></image>
             </view>
         </view>
+    </view>
+    <view class="hotList">
+        <view class="dpfb" wx:for='{{10}}'>
+            <view class="fontSize-28 color1 fontWeight5">{{index+1}}.长城润滑油</view>
+            <view class="fontSize-22 color3 fontWeight5">人气:50845</view>
+        </view>
+    </view>
 </view>

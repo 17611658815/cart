@@ -25,7 +25,10 @@
         "pages/videoPage/videoPage",
         "pages/goodsList/goodsList",
         "pages/address/address",
-        "pages/otherDetaile/otherDetaile"
+        "pages/otherDetaile/otherDetaile",
+        "pages/addCarCode/addCarCode",
+        "pages/mayCarList/mayCarList",
+        "pages/serviceOtherDetaile/serviceOtherDetaile"
     ],
     "window": {
         "backgroundTextStyle": "light",
