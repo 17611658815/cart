@@ -231,7 +231,7 @@
 }
 
 .border {
-    border: 1rpx solid #c8c8c8;
+    border: 2rpx solid #c8c8c8;
     color: #000 !important;
 }
 .borderRed {

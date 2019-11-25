@@ -1,0 +1,65 @@
+<view class="{{isIphoneX ? 'paddingBtm180':'paddingBtm90'}}">
+    <view class="bgF orderContent dpfC" wx:for='{{otherObj}}' wx:key='key'>
+        <view class="dpfb orderTitle">
+            <text>{{item.title}}</text>
+            <image class="icon_right" src='../../images/icon_right.png'></image>
+        </view>
+        <view class="container">
+            <view class="otherlistBox">
+                <view class="otherMsg" wx:for='{{item.goods}}' wx:for-item="items">
+                    <view class="otherPic">
+                        <image mode="scaleToFill" src="{{item.thumb}}" />
+                    </view>
+                    <view class="otherinfo">
+                        <view class="fontSize-30 color1">{{items.name}}</view>
+                        <view class="fontSize-30 color3">数量:{{items.num}}</view>
+                        <view class="fontSize-30 color7">￥{{items.price}}元</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="width90">维修进度</view>
+        <view class="width90 marginTop20" wx:for='{{item.content}}' wx:for-item='itemData'>
+            <scroll-view scroll-x="true" class='vip_welfare'>
+                <view class='vip_welfare_content'>
+                    <!-- <view wx:for='{{itemData.video}}'>
+                        <image class="play" src="../../images/play.png"></image>
+                    </view> -->
+                    <view wx:for='{{itemData.img}}' data-type='1' data-src="{{item}}" data-item='{{itemData}}' bindtap="play" wx:for-item='itemData_2'>
+                        <image class="imgPic" src="{{itemData_2}}"></image>
+                    </view>
+                    <view wx:for='{{itemData.video}}' data-type='2' data-index='{{itemData_1_index}}' data-src="{{item}}" data-item='{{itemData}}' bindtap="play" wx:for-item='itemData_1' wx:for-index='itemData_1_index'>
+                        <image class="imgPic" src="../../images/play_bg.png"></image>
+                    </view>
+                </view>
+            </scroll-view>
+
+          
+                <swiper wx:if="{{videoPlay}}" current="{{idex}}" current="{{video}}" style="width:100%;height:{{autoHeight}}px;" bindchange="bindChange">
+                    <swiper-item wx:for="{{itemData.video}}" wx:if='{{videoInde==idex}}' wx:for-index='idex'>
+                        <video id='video' bindended="bindended" bindplay='bindplay' autoplay="{{isplay}}" src="{{item}}" style="width:100%;height:{{autoHeight}}px;">
+                        </video>
+                    </swiper-item>
+                </swiper>
+          
+        </view>
+        <view class="container bgF marginTop">
+            <view class="width90 padStl padding30">
+                <view class="width100 dpfb borderBtm padding20">
+                    <text class="color3 fontSize-28">订单编号</text>
+                    <text class="color3 fontSize-28">{{item.order_sn}}</text>
+                </view>
+                <view class="width100 dpfb padding20 borderBtm">
+                    <text class="color3 fontSize-28">下单日期</text>
+                    <text class="color3 fontSize-28">{{item.created}}</text>
+                </view>
+                <view class="width100 marginTop dpf marginTop20">
+                    <!-- <view catchtap='recallOther' class='btn_1'>取消订单</view> -->
+                    <view catchtap='gotechnicianService' class='btn_2'>生成新订单</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+  <view class='videoBox' wx:if='{{videoPlay}}' catchtap="closeVideo">
+    </view>

@@ -1,7 +1,7 @@
 <template name="carList">
     <view class='carList-shade' catchtouchmove='ture' catchtap="onhidesCarlist"></view>
-    <view class="{{carListShow ? 'carList-contentShow':'cacarList-contentHide'}}" catchtouchmove='ture'>
-        <view class="listBox">
+    <view class="{{carListShow ? 'carList-contentShow':'cacarList-contentHide'}}">
+        <view class="carlistBox">
         <view class='doctorList {{carindex == index ? "carActive":""}}' data-index='{{index}}' data-id='{{item.id}}' bindtap="selectCar" wx:for="{{carList}}" wx:key='key'>
             <view class="info_item">
                 <text>品牌型号：</text>
@@ -21,5 +21,4 @@
             <view class="carBtn">确定</view> 
          </view>
     </view>
-   
 </template>

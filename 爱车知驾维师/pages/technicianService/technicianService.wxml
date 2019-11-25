@@ -1,0 +1,95 @@
+<view class="{{isIphoneX ? 'paddingBtm180':'paddingBtm90'}}">
+    <view class="searchBox" wx:if='{{currentTab==0}}'>
+        <view class="search clearfix">
+            <input class="searchInput fl" bindinput='searchMsgs1' bindconfirm='searchIllness' value='{{searchMsg1}}' placeholder-class="phcolor" placeholder="请输入疾病或问题关键词1"></input>
+            <text class="lineShu db fl"></text>
+            <image class="searchIcon fr" bindtap='searchIllness' src="../../images/search.png"></image>
+        </view>
+    </view>
+    <view class="searchBox" wx:if='{{currentTab==1}}'>
+        <view class="search clearfix">
+            <input class="searchInput fl" bindinput='searchMsgs2' bindconfirm='searchIllness' value='{{searchMsg2}}' placeholder-class="phcolor" placeholder="请输入疾病或问题关键词2"></input>
+            <text class="lineShu db fl"></text>
+            <image class="searchIcon fr" bindtap='searchIllness' src="../../images/search.png"></image>
+        </view>
+    </view>
+    <view class="tabBox width100">
+        <view style="margin-right:40rpx;" data-index='0' class="{{currentTab == 0 ? 'active':''}}" bindtap="switchTab">商品</view>
+        <view data-index='1' class="{{currentTab == 1 ? 'active':''}}" bindtap="switchTab">服务</view>
+    </view>
+    <!-- <view class="width100 dpfC list_itemBox">
+        <view class='dpfC width90 padStl bgF'>
+            <view class="phoneList">
+                <view class="listBox">
+                    <view class="listBox_item boxShadow" wx:for='{{8}}' bindtap="goGoodsDetails" wx:key='key'>
+                        <view class="listBox_item_img dpfC">
+                            <image mode="aspectFill" src="{{item.thumb}}" />
+                        </view>
+                        <view class="phoneName white_noWrap">6666</view>
+                        <view class="phonePriceNum marginTop5">
+                            <text class="fontSize-20 color7">￥</text>
+                            <text class="fontSize-32 color7 fontWeight5">6666</text>
+                            <text class="fontSize-22 color3">元</text>
+                        </view>
+                        <image class="addCar" data-item='{{item}}' catchtap="addCar" src="../../images/addCar.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view> -->
+         <view class="width100 dpfC list_itemBox" wx:if='{{currentTab == 0}}'>
+        <view class='dpfC width90 padStl bgF'>
+            <view class="phoneList">
+                <view class="listBox">
+                    <view class="listBox_item boxShadow" wx:for='{{goodsData}}' bindtap="goGoodsDetails" wx:key='key'>
+                        <view class="listBox_item_img dpfC">
+                            <image mode="aspectFill" src="{{item.thumb}}" />
+                        </view>
+                        <view class="phoneName white_noWrap">{{item.name}}</view>
+                        <view class="phonePriceNum marginTop5">
+                            <text class="fontSize-20 color7">￥</text>
+                            <text class="fontSize-32 color7 fontWeight5">{{item.price}}</text>
+                            <text class="fontSize-22 color3">元</text>
+                        </view>
+                        <image class="addCar" data-item='{{item}}' catchtap="addCar" src="../../images/addCar.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="width100 dpfC" wx:if='{{currentTab == 1}}'>
+        <view class="listBoxs width100 padding20 boxShadow" wx:for='{{serviceData}}' data-id='{{item.id}}' bindtap="goShopDetaile" wx:key='key'>
+            <view class="marginLeft10">
+                <!-- <image class="GPS_icon" src="../../images/GPS_icon.png"></image> -->
+            </view>
+            <view class="listBox_text white_noWrap marginLeft">
+                <view class="fontSize-28">
+                    {{item.name}}
+                </view>
+                <view class="fontSize-26 color3 marginTop10">{{item.price}}元</view>
+            </view>
+            <view class="dpfC marginRight10">
+                <view class="kmLogo">
+                  <image data-item='{{item}}' catchtap="addCar" src="../../images/addCar.png"></image>
+                </view>
+                <!-- <view class="fontSize-22 color3 marginTop10">{{item.distance}}km</view> -->
+            </view>
+        </view>
+    </view>
+    <!-- 添加购物车 -->
+    <view class='addCartBox'>
+        <view class="addCartBox-box">
+            <view class='addCartBox-box-left'>
+                <view class="total fontSize-36">
+                    合计:
+                    <text class="color7 fontWeight5">{{total}}</text> 元
+                </view>
+            </view>
+            <view class='addCartBox-box-right'>
+                <view bindtap='goGoodsList' style="background: #F27C1F;color:#ffffff">推送订单</view>
+            </view>
+        </view>
+        <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
+    </view>
+
+</view>

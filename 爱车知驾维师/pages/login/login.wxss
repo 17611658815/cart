@@ -1,0 +1,57 @@
+/* pages/login/login.wxss */
+.loginContent{
+    width: 90%;
+    min-height: 100vh;
+}
+.appName>view:nth-child(1){
+    width: 80rpx;height: 80rpx;
+    margin-right: 10rpx;
+}
+.appName>view:nth-child(1) image{
+    width: 100%;
+    height: 100%;
+}
+.login_hint{
+    width: 100%;
+    font-weight: 700;
+    font-size: 40rpx;
+    padding: 30rpx 0;
+}
+.content {
+    margin-bottom: 90rpx;
+}
+.content view:nth-child(1){
+  font-size: 35rpx;
+  color: #333333
+}
+.content text {
+    display: block;
+    margin-top: 30rpx;
+    font-size: 30rpx;
+    color: #666666
+}
+.loginbtnBox{
+    margin-top: 300rpx;
+}
+button::after{
+    border: none
+}
+.loginbtnBox>button:nth-child(1){
+    text-align: center;
+    line-height: 70rpx;
+    width: 350rpx;
+    height: 70rpx;
+    color: #ffffff;
+    background: #07C160;
+    font-size: 28rpx;
+}
+.loginbtnBox>button:nth-child(2){
+    text-align: center;
+    line-height: 70rpx;
+    width: 350rpx;
+    height: 70rpx;
+    color: #07C160;
+    background: #EDEDED;
+    font-size: 28rpx;
+    margin-top: 20rpx;
+}

@@ -1,0 +1,17 @@
+/* pages/other/other.wxss */
+page{
+    background: #f8f8f8;
+}
+.bgW{
+    margin-top: 30rpx;
+}
+.left_Box{
+    width: 30rpx;
+    height: 40rpx;
+    display: flex;
+    align-items: center;
+}
+.time_icon{
+    width: 15rpx;
+    height: 15rpx;
+}

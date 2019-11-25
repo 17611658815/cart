@@ -1,7 +1,7 @@
 <view class="container">
     <view class="headerBox">
         <view class="dpfb">
-            <view class="userPic">
+            <view class="userPic" bindtap="goupPicregister">
                 <image src='../../../images/1.jpg'></image>
             </view>
             <view class="headerRight">

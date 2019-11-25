@@ -1,0 +1,46 @@
+<view class="{{isIphoneX ? 'paddingBtm180':'paddingBtm90'}}">
+    <view class='goods_content dpfC width100 padding30 bgFFFF borderBtm' wx:for='{{CarList}}' wx:key='key'>
+        <view class='goods_content_item width90'>
+            <view class='itemright dpf'>
+                <view style='flex:1' class='dpf'>
+                    <view class='leftImg marginRight'>
+                        <image mode="aspectFill" src='{{item.thumb}}'></image>
+                    </view>
+                    <view class='goodsContent'>
+                        <view>
+                            <view class='fontSize-32 color1 fontWeight5'>{{item.name}}</view>
+                            <view class='fontSize-32 color1'>
+                                <text class='fontWeight5'>{{item.price}}</text>元</view>
+                        </view>
+                        <view class='dpfb width100'>
+                            <view class='fontSize-32 color1'>
+                                <text class='fontWeight5'>数量</text>
+                            </view>
+                            <view class='dpf'>
+                                <text class='add' data-type='sub' data-id='{{index}}' catchtap='can'>-</text>
+                                <text class='num'>{{item.num}}</text>
+                                <text class='sub' data-type='add' data-id='{{index}}' catchtap='add'>+</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+  <view class='itembox' style='border:none;padding-bottom:0'>
+            <view class='fontSize-30 color2'>
+                <textarea value='{{orderMsg}}' bindinput='ontextareaChange' placeholder-class='textAreaCtyle' placeholder='订单备注:' placeholder-style>
+                </textarea>
+            </view>
+        </view>
+</view>
+<view class='purchase'>
+    <view style='width:100%;' class='dpf'>
+        <view class='purchase_price dpf'>
+            <view class='fontSize-36 color1'>合计：</view>
+            <view class='fontSize-36 color1 fontWeight5'>{{total}}元</view>
+        </view>
+        <view class='purchase_btn' bindtap='creatSubOrder'>立即生成订单</view>
+    </view>
+    <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
+</view>

@@ -4,13 +4,67 @@ const app = getApp()
 
 Page({
   data: {
+      userid:0,
     navList: ['首页', '知驾服务'],
     currentTab:0,
-    motto: 'Hello World',
     userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+      hasInfo:0,
+      city: "",//当前城市
+      address: "",//当前位置
+      longitude: 0,
+      latitude: 0,
+
   },
+    onLoad: function () {
+        let userInfo = wx.getStorageSync('userinfo');
+        this.setData({
+            userid: userInfo.id,
+            userInfo: userInfo
+        })
+        this.getUserInfo()
+        this.getLocationMsg()
+    },
+    //获取当前位置
+    getLocationMsg() {
+        let that = this;
+        wx.getLocation({
+            type: 'gcj02',
+            altitude: true, //高精度定位
+            success: function (res) {
+                console.log(res)
+                wx.request({
+                    url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + res.latitude + ',' + res.longitude + '&key=UYFBZ-ANUWW-Y7GRO-OURNR-G5L7O-PHFMD',
+                    success: function (e) {
+                        console.log(res)
+                        app.globalData.longitude = res.longitude;
+                        app.globalData.latitude = res.latitude;
+                        app.globalData.city = e.data.result.address_component.city
+                        that.setData({
+                            city: e.data.result.address_component.city,//当前城市
+                            address: e.data.result.address,//当前位置
+                            longitude: res.longitude,
+                            latitude: res.latitude,
+                        })
+                    }
+                })
+            }
+        });
+    },
+    getUserInfo() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            userid: that.data.userid,
+        }
+        app.net.$Api.getUserInfo(params).then((res) => {
+            console.log(res, 38)
+            app.globalData.hasInfo = res.data.user;
+            app.globalData.num = res.data.hasInfo
+            that.setData({
+                hasInfo: res.data.hasInfo
+            })
+        })
+    },
     goCarservice(){
         wx.reLaunch({
             url: '/pages/Carservice/Carservice/Carservice',
@@ -28,46 +82,18 @@ Page({
             url: '/pages/Carservice/maycenter/maycenter',
         })
     },
+    // 立即注册
+    gosign(){
+        wx.navigateTo({
+            url: '/pages/photopage/photopage',
+        })
+    },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  }
+  
+ 
 })

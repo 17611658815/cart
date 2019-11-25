@@ -10,7 +10,6 @@ page{
     align-items: center;
     box-sizing: border-box;
     padding-bottom: 30rpx;
-    border-top: 1rpx solid #e2e2e2;
 }
 .width100{
     width: 100%;
@@ -273,4 +272,35 @@ page{
 .rightPic{
     width: 15rpx;
     height: 25rpx
+}
+.db {
+    display: block;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+.paddingBtm180{
+    padding-bottom: 180rpx;
+}
+.paddingBtm90{
+    padding-bottom: 90rpx;
 }

@@ -21,7 +21,7 @@ Page({
         })
     },
    
-    chooseImageTap: function (e) {
+    chooseImageTap: function (e) { 
         let that = this;
         let type = e.currentTarget.dataset.type;
         wx.showActionSheet({
@@ -72,7 +72,6 @@ Page({
                                 flage: false
                             })
                         }
-                        console.log(res)
                         if (data.code == 300) {
                             wx.showModal({
                                 title: '温馨提示',
@@ -172,7 +171,6 @@ Page({
             },
             success: function (res) {
                 wx.hideLoading()
-                
                 let data = JSON.parse(res.data)
                 if (data.code == 200){
                     that.setData({

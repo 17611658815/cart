@@ -1,0 +1,660 @@
+.cleaningDetails-header {
+  width: 100%;
+  height: 400rpx;
+  /* padding: 80rpx 0; */
+  background: white;
+  position: relative;
+}
+
+.cleaningDetails-header image {
+  width: 400rpx;
+  height: 400rpx;
+}
+
+.swiper {
+  height: 400rpx!important;
+}
+
+swiper-item {
+  width: 100%;
+  height: 400rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.swiper image{
+    width: 100%;
+    height: 100%;
+}
+.layoutBox {
+  padding: 10rpx 20rpx;
+  background: #F6F6F6;
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+  border-radius: 90rpx;
+}
+
+.layoutBox image {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 0 20rpx 0 0;
+}
+
+.layoutBox view {
+  border-left: 1rpx solid #e2e2e2;
+  padding-left: 20rpx;
+}
+
+.creditBox {
+  padding: 20rpx 0;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  background-image: linear-gradient(to right, #56CFCA, #E3F4F5);
+}
+
+.creditBox image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.iconBox {
+  width: 50rpx;
+  height: 50rpx;
+  border: 3rpx solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 20rpx;
+}
+
+.safeguard_img {
+  width: 100%;
+  height: 300rpx;
+}
+
+.leftBtn {
+  padding: 10rpx 20rpx;
+  border-radius: 90rpx;
+  border: 1rpx solid #e2e2e2;
+}
+
+.rightBtn {
+  padding: 10rpx 20rpx;
+  border-radius: 90rpx;
+  background: #F8DB41;
+}
+
+.nav {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #f7f7f7;
+  white-space: nowrap;
+  display: flex;
+  background: #ffffff;
+}
+
+.nav::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-item {
+  flex-shrink: 0;
+  -webkit-box-flex: 0;
+  flex-grow: 0;
+  text-align: center;
+  position: relative;
+  font-size: 26rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 30rpx;
+}
+
+.nav-item.active {
+  color: cornflowerblue;
+  border-bottom: 2px solid cornflowerblue;
+}
+
+.tab-box {
+  height: 480px !important;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.tab-content {
+  overflow-y: auto;
+}
+
+/* 手机列表 */
+.phoneList{
+  width: 100%;
+  padding-bottom: 30rpx;
+}
+.listBox{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.listBox_item{
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 35rpx;
+   position: relative;
+
+}
+.listBox_item_img{
+  width: 100%;
+}
+.listBox_item_img image{
+  width:100%;
+  height: 300rpx;
+}
+.phone_img image{
+  width: 100%;
+  height: 300rpx;
+}
+.phoneName{
+  flex: 1;
+  font-size: 32rpx;
+  color: #333333;
+  background: #ffffff;
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+}
+.phonePriceNum{
+    padding-bottom: 20rpx;
+    padding-left: 20rpx;
+    background: #fff;
+    
+}
+.tagBox{
+  padding: 5rpx 15rpx 5rpx 10rpx;
+  background: #FD3F3F;
+  color: #ffffff;
+  position: absolute;
+  top: 20rpx;
+  left: 0;
+  font-size: 22rpx;
+  border-radius: 0 90rpx 90rpx 0;
+}
+      .fix-news{
+  position: fixed; 
+  top: 0; 
+  z-index: 999999
+  }
+
+/* 导航 */
+
+.navList {
+  background: #ffffff;
+  border-bottom: 1rpx solid #e2e2e2;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: space-around;
+}
+
+.navList>view {
+  padding: 20rpx 0;
+}
+
+.navActive {
+  border-bottom: 5rpx solid #F27C1F;
+  font-weight: 500;
+}
+
+.tab1>image {
+  width: 100%;
+}
+
+.textBox {
+  padding: 20rpx;
+  background: #F6F6F6;
+  font-size: 22rpx;
+  color: #333333;
+  line-height: 30rpx;
+  margin-bottom: 20rpx;
+  position: relative
+}
+
+.rotateRight {
+  transform: rotate(270deg)
+}
+
+.problem {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+
+.loadmore {
+  width: 100%;
+  font-size: 26rpx;
+  color: #5383CB;
+  padding: 20rpx 0;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+/* 购物车按钮 */
+
+.addCartBox {
+  width: 100%;
+  min-height: 98rpx;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  background: #ffffff;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  border-bottom: 2rpx solid #e2e2e2;
+}
+
+.addCartBox-box {
+  width: 100%;
+  min-height: 98rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button::after {
+  border: none;
+  border-radius: 0;
+}
+
+.addCartBox-box-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+}
+
+.addCartBox-left {
+  color: #666666;
+}
+
+.addCartBox-box-left-item {
+  width: 100rpx;
+  height: 98rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 22rpx;
+  color: #666666;
+  position: relative;
+}
+
+.addCartBox-box-left-item image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-bottom: 10rpx;
+}
+
+.addCartBox-box-right {
+  display: flex;
+}
+
+.addCartBox-box-right view {
+  width: 230rpx;
+  text-align: center;
+  line-height: 98rpx;
+  font-size: 28rpx;
+  color: #000000;
+}
+
+/* .addCartBox-box-right view:nth-child(1){
+    background: #FF9743;
+}
+.addCartBox-box-right view:nth-child(2){
+    background: #6297F3;
+} */
+.shadow {
+  box-shadow: rgba(153, 153, 153, 0.24) 0 2px 7px;
+}
+.color2 {
+  color: #666666;
+  white-space: nowrap;
+}
+
+.isIphoneXBox {
+  width: 100%;
+  height: 50rpx;
+  background: #ffffff;
+}
+
+.contactBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: none;
+}
+
+.msgIcon {
+  position: absolute;
+  top: 10rpx;
+  right: 30rpx;
+  background: #ff4747;
+  color: #ffffff;
+  width: 20rpx;
+  height: 20rpx;
+  text-align: center;
+  line-height: 20rpx;
+  font-size: 16rpx;
+  border-radius: 50%;
+}
+
+/* 卡卷样式 */
+
+.bound {
+  width: 250rpx;
+  height: 40rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  border: 2rpx solid #FD3F3F;
+  text-align: center;
+  line-height: 40rpx;
+  color: #FD3F3F;
+  font-weight: 500;
+  font-size: 26rpx;
+}
+
+.bound::before {
+  content: "";
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  display: block;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: -20rpx;
+  transform: translateY(-50%);
+  border-right: 2rpx solid #FD3F3F;
+}
+
+.bound::after {
+  content: "";
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  display: block;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  right: -20rpx;
+  transform: translateY(-50%);
+  border-left: 2rpx solid #FD3F3F;
+}
+
+.fix-news {
+  position: fixed;
+  top: 0;
+  z-index: 999999
+}
+
+
+
+.tabs {
+  height: 92rpx;
+  position: sticky;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.tabs.shadow {
+  box-shadow: rgba(153, 153, 153, 0.24) 0 2px 7px;
+}
+
+.tabs-bar {
+  padding: 0 30rpx;
+  display: flex;
+  height: 100%;
+}
+
+.tabs-bar-tab {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.tabs-bar-tab {
+  font-size: 32rpx;
+}
+.tabs-bar-tab-title.active {
+  border-bottom: 3px solid #F27C1F;
+}
+
+.tabs-bar-tab-title {
+  color: #000000;
+  padding: 16rpx 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid transparent;
+  box-sizing: border-box;
+}
+
+/* 切换样式 */
+
+.list {
+  padding: 32rpx;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 100%;
+}
+.list image{
+  width: 100%;
+}
+.list-item {
+  margin-bottom: 35rpx;
+}
+
+.list-wrap {
+  overflow: hidden;
+}
+
+.list-container {
+  display: flex;
+  width: 100%;
+  transition-duration: 500ms;
+}
+
+
+/* 小三角样式 */
+.span{
+position:absolute;
+left:30rpx;
+top:-30rpx;
+border-width:20rpx;
+border-style:solid dashed dashed; 
+border-color:#F6F6F6 transparent transparent;
+font-size:0; 
+line-height:0;
+ transform: rotate(180deg)
+}
+
+.addCar{
+    width: 50rpx;
+    height: 50rpx;
+    position: absolute;
+    bottom: 10rpx;
+    right: 15rpx;
+}
+.total{
+    flex: 1;
+    margin-left: 20rpx;
+}
+
+
+
+
+/* pages/nearby/nearby.wxss */
+
+page {
+    background: #f8f8f8;
+}
+
+.tabBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1rpx solid #e2e2e2;
+    background: #ffffff;
+    padding-top: 20rpx;
+}
+
+.tabBox view {
+    padding-bottom: 15rpx;
+    font-size: 28rpx;
+}
+
+.active {
+    border-bottom: 5rpx solid #f27c1f;
+    color: #f27c1f;
+}
+
+.city_icon {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.listBoxs {
+    display: flex;
+    align-items: center;
+}
+
+.listBox_text {
+    flex: 1;
+}
+
+.listBox_text>view {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.kmLogo{
+    width: 50rpx;
+    height: 50rpx;
+    background:#ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 添加 */
+
+.addBox{
+    width: 120rpx;
+    height: 120rpx;
+    background: #f27c1f;
+    position: fixed;
+    bottom: 50rpx;
+    right: 30rpx;
+    border-radius: 50%;
+    display: flex;
+}
+.addBox image{
+    width: 80rpx;
+    height: 80rpx;
+    margin: auto;
+    
+}
+/* 搜索框 */
+.search {
+    width: 690rpx;
+    margin: 0 auto;
+    height: 50rpx;
+    border-radius: 30rpx;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.searchInput {
+    width: 550rpx;
+    height: 50rpx;
+    color: #fefefe;
+    padding: 0;
+    font-size: 30rpx;
+    line-height: 50rpx;
+    margin-left: 50rpx;
+    border: none;
+}
+
+.lineShu {
+    height: 30rpx;
+    width: 2rpx;
+    background: #fefefe;
+    margin-top: 10rpx;
+}
+
+.searchIcon {
+    width: 32rpx;
+    height: 33rpx;
+    margin-top: 9rpx;
+    margin-right: 28rpx;
+}
+
+.searchBox {
+    width: 100%;
+    padding-top: 30rpx;
+    padding-bottom: 20rpx;
+    background: #ffffff;
+}
+
+.search {
+    width: 690rpx;
+    margin: 0 auto;
+    height: 60rpx;
+    border-radius: 30rpx;
+    background: #f7f7f7;
+}
+
+.searchInput {
+    width: 550rpx;
+    height: 60rpx;
+    color: #999;
+    padding: 0;
+    font-size: 30rpx;
+    line-height: 60rpx;
+    margin-left: 35rpx;
+    border: none;
+}
+
+.phcolor {
+    color: #999;
+}
+
+.lineShu {
+    height: 30rpx;
+    width: 2rpx;
+    background: #999;
+    margin-top: 16rpx;
+}
+
+.searchIcon {
+    width: 32rpx;
+    height: 33rpx;
+    margin-top: 14rpx;
+    margin-right: 40rpx;
+}
+.kmLogo image{
+    width: 100%;
+    height: 100%;
+}

@@ -52,3 +52,14 @@
     margin: 200rpx 0 100rpx 0;
     
 }
+button::after{
+    border: none;
+}
+.itemPic{
+    width: 95%;
+    height: 500rpx;
+}
+.input{
+    flex: 1;
+    text-align: right;
+}

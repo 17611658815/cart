@@ -1,0 +1,126 @@
+/* page/order/pages/shopCart/shopCart.wxss */
+page{
+    background: #f8f8f8;
+}
+.radioBox{
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 50%;
+    border: 1.5rpx solid #999999;
+    position: relative;
+}
+.radioBox image{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.leftImg{
+    width: 152rpx;
+    height: 149rpx;
+    border-radius: 6rpx;   
+}
+.leftImg image{
+    width: 152rpx;
+    height: 149rpx;
+    border-radius: 6rpx;   
+}
+.itemright{
+    margin-top: 34rpx;
+}
+.goodsContent{
+    flex: 1;
+    height: 149rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.purchase{
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+.purchase_price{
+    flex: 1;
+    height: 98rpx;
+    background: #ffffff;
+    padding-left: 10rpx;
+}
+.purchase_btn{
+    width: 220rpx;
+    height: 98rpx;
+    text-align: center;
+    line-height: 98rpx;
+    color: #ffffff;
+    font-size: 28rpx;
+    background: #F27C1F;
+}
+.empty_box{
+    margin-top: 248rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.empty_image{
+    width: 246rpx;
+    height: 210rpx;
+}
+.empty_image image{
+    width: 100%;
+    height: 100%;
+}
+.emptyBtn{
+    width: 274rpx;
+    height: 80rpx;
+    font-size: 32rpx;
+    text-align: center;
+    line-height: 80rpx;
+    color: #5994f7;
+    border: 1rpx solid #5994f7;
+    border-radius: 6rpx;
+}
+
+/* 加减按钮 */
+
+.add, .sub {
+     display: inline-block;
+    width: 47rpx;
+    height: 47rpx;
+    text-align: center;
+    line-height: 43rpx;
+    background: #f6f6f6;
+    font-size: 50rpx;
+    color: #999;
+}
+
+.num {
+    display: inline-block;
+    width: 78rpx;
+    height: 47rpx;
+    color: #333;
+    text-align: center;
+    line-height: 47rpx;
+    font-size: 30rpx;
+}
+.isIphoneXBox {
+  width: 100%;
+  height: 50rpx;
+  background: #ffffff;
+}
+.itembox{
+    padding: 34rpx 0;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+.textAreaCtyle{
+    text-align: left;
+}
+textarea{
+    width: 100%;
+    padding: 30rpx;
+    height: 100rpx;
+    color: #333333;
+    background: #ffffff;
+}

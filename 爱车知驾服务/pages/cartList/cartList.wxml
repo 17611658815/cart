@@ -21,7 +21,6 @@
                         <image wx:if='{{itemData.checked}}' src='../../images/inon_checked.png'></image>
                     </view>
                     <view class='goods_content_item' wx:for='{{itemData.product}}' wx:for-item='product' wx:key='key'>
-
                         <view class='itemright'>
                             <view class='dpfC'>
                                 <view class='leftImg'>

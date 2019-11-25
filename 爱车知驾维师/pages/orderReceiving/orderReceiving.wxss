@@ -1,0 +1,209 @@
+@import "./carList.wxss"; 
+.otherstatus{
+  width: 94%;
+  padding:0 3%;
+  background: #f8f8f8;
+  /* background: #5994f7; */
+}
+.statusIcon{
+  width: 50rpx;
+  height:50rpx;
+  background: #ffffff;
+  margin-right: 10rpx;
+}
+.otherstatus>view:nth-child(2){
+  padding: 40rpx 0;
+}
+.otheraddresBox{
+  width: 94%;
+  padding: 30rpx 3%;
+  background: #ffffff;
+  /* border-bottom: 20rpx solid #5994f7; */
+
+}
+.otheraddresBox_1{
+  font-size: 32rpx;
+  color: #000000;
+}
+.otheraddresBox_1 text{
+  margin-right: 20rpx;
+}
+.otheraddresBox_2{
+  padding: 20rpx 0;
+}
+.otheraddresBox_2 text{
+  margin-right: 15rpx;
+  color: #999999;
+  font-size: 28rpx;
+}
+.otheraddresBox_2 image{
+  width: 30rpx;
+  height: 30rpx;
+   margin-right: 15rpx;
+}
+.otheraddresBox_3{
+  font-size: 22rpx;
+  color: #999999;
+}
+.buy_txt{
+  width: 90%;
+  background: #F6F6F6;
+  padding: 15rpx 0  15rpx 15rpx;
+  font-size: 24rpx;
+  color: #999999;
+  margin-bottom: 30rpx;
+  
+
+}
+.isIphoneXBox {
+  width: 100%;
+  height: 50rpx;
+  background: #ffffff;
+}
+
+/*  */
+.otherlistBox{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.list_item_title{
+  width: 94%;
+  padding: 30rpx 3%;
+  border-bottom: 2rpx solid #e2e2e2
+}
+.otherMsg{
+  width: 94%;
+  padding: 20rpx 0;
+   display: flex;
+  align-items: center;
+}
+.otherPic image{
+  width: 200rpx;
+  height: 200rpx;
+}
+.otherinfo{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 20rpx;
+}
+.layoutBtn{
+  width: 200rpx;
+  height: 30rpx;
+  font-size: 22rpx;
+  color: #8FD7CC;
+  text-align: center;
+  line-height: 30rpx;
+  border: 2rpx solid #8FD7CC;
+}
+.textarBox{
+  width: 94%;
+  height: 500rpx;
+  background: #F7F7F7;
+  padding: 30rpx 3%;
+  font-size: 26rpx;
+  color: #999999;
+}
+.read{
+  width: 94%;
+  height: 200rpx;
+  background: #F7F7F7;
+  padding: 30rpx 3%;
+  font-size: 26rpx;
+  color: #999999;
+}
+
+
+.tagBox_List{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 30rpx;
+}
+.tagBox_Sele{
+  padding: 10rpx 30rpx;
+  border: 1rpx solid #e2e2e2;
+  border-radius: 90rpx;
+  color: #000000;
+  margin-right: 20rpx;
+  font-size: 26rpx;
+}
+
+.checkedActice{
+  background: #F8DA48
+}
+.checkBox{
+  width: 30rpx;
+  height: 30rpx;
+  border: 2rpx solid #e2e2e2;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+.checkBox image{
+  width: 100%;
+  height: 100%;
+}
+.confirmBtn{
+  width: 100;
+  height: 80rpx;
+  border-radius: 90rpx;
+  background: #F8DA48;
+  color: #000000;
+  font-size: 30rpx;
+  text-align: center;
+  line-height: 80rpx;
+  margin-top: 30rpx;
+}
+.footbox{
+  width: 94%;
+  padding: 20rpx 3% 0 3%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.footbox_box{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.servicebtn{
+  padding: 10rpx 20rpx;
+  border: 2rpx solid #e2e2e2;
+  border-radius: 90rpx;
+}
+
+.btn_1{
+    width: 156rpx;
+    height: 60rpx;
+    text-align: center;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    color: #333333;
+    border: 2rpx solid #8f8f8f;
+    border-radius: 6rpx;
+}
+.btn_2{
+     width: 156rpx;
+    height: 60rpx;
+    text-align: center;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    color: #5994f7;
+    border: 2rpx solid #5994f7;
+    border-radius: 6rpx;
+    position: relative;
+    margin-left: 20rpx;
+}
+.carActive{
+    border: 2rpx solid #6E9FF7;
+}

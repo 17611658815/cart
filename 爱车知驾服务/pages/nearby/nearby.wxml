@@ -18,7 +18,7 @@
             </view> -->
         </view>
         <view class="width100 dpfC">
-            <view class="listBox width100 padding20 boxShadow" wx:for='{{searchData}}' data-id='{{item.id}}' bindtap="goShopDetaile" wx:key='key'>
+            <view class="listBoxs width100 padding20 boxShadow" wx:for='{{searchData}}' data-id='{{item.id}}' bindtap="goShopDetaile" wx:key='key'>
                 <view class="marginLeft10">
                     <image class="GPS_icon" src="../../images/GPS_icon.png"></image>
                 </view>

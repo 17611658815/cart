@@ -20,7 +20,7 @@
             <view>无中间商赚差价</view>
         </view>
     </view>
-    <view class="width90 otherentrance paddinglr dpfb bgFFFF">
+    <view class="width90 otherentrance paddinglr dpfb bgFFFF" bindtap="goOtherList">
         <view class="dpf">
              <image style='width:70rpx;height:70rpx' class="marginRight" mode="aspectFill" src="../../../images/1.jpg"></image>
              <text>订单服务</text>

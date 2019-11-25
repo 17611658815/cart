@@ -79,17 +79,41 @@ Page({
             car_id: that.data.Carid,
             goods: that.data.goodsid
         }
+        if (that.data.goodsid.length<4){
+            app.alert('请选择服务~')
+            return
+        }
         app.net.$Api.createServiceOrder(params).then((res) => {
-            // wx.requestPayment({
-            //     timeStamp: '',
-            //     nonceStr: '',
-            //     package: '',
-            //     signType: 'MD5',
-            //     paySign: '',
-            //     success(res) { },
-            //     fail(res) { }
-            // })
-          
+            wx.requestPayment({
+                timeStamp: res.data.timeStamp,
+                nonceStr: res.data.nonceStr,
+                package: res.data.package,
+                signType: res.data.signType,
+                paySign: res.data.paySign,
+                success(res) {
+                    console.log(res)
+                    wx.requestSubscribeMessage({
+                        tmplIds: ['F8TezMCsMq0qdlv-Wm9hGkDGRNyZPKu1PaYo7h8tOvY'],
+                        success(r) {
+                         console.log(r)
+                            // wx.reLaunch({
+                            //     url: '/pages/index/index?typeNum=2',
+                            // })
+                        },
+                        fail(){
+                            // wx.reLaunch({
+                            //     url: '/pages/index/index?typeNum=2',
+                            // })
+                        },
+                        complete(){
+                            wx.reLaunch({
+                                url: '/pages/index/index?typeNum=2',
+                            })
+                        }
+                    })
+                 },
+                fail(res) { }
+            })
             console.log(res)
         })
     },
@@ -119,7 +143,6 @@ Page({
                         })
                     }
                     console.log(goodsid)
-                  
                 }
             }
         }
@@ -133,7 +156,7 @@ Page({
         })
         console.log(this.data.serviceData)
     },
-    // 第一列单选
+   /*  // 第一列单选
     firstChecked: function (e) {
         let CartData = this.data.CartData1;
         let index = e.currentTarget.dataset.index;
@@ -200,7 +223,7 @@ Page({
             data: CartData,
         })
         console.log('购物车id=>', cartStr)
-    },
+    }, */
     // 去下单
     placeOther(){
         wx.navigateTo({

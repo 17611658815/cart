@@ -3,31 +3,40 @@
         信息仅用于审核，绝不外泄
     </view>
     <view class="width100 bgFFFF dpfC padding30">
-        <view class="width90 dpf">北京市
+        <view class="width90 dpf">{{city}}
             <text class="icon_Bottom marginLeft"></text>
         </view>
     </view>
+    
     <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
-        <view class="layoutList_item width90 dpfb padding20" bindtap="chooseImageTap">
+        <view class="layoutList_item width90 dpfb padding20">
+            <view class="borderLeft">姓名</view>
+            <input class="input" value="{{name}}" bindinput="getName" placeholder="请输入您的姓名~"></input>
+        </view> 
+    </view>
+    <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
+        <view class="layoutList_item width90 dpfb padding20" data-type="1" bindtap="chooseImageTap">
             <view class="borderLeft">身份证</view>
                <view class="dpf color6">
             前往拍摄 <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
             </view>
         </view>
+        <image class="itemPic" data-src="{{oldidCard}}" bindtap="previewImage" wx:if='{{oldidCard!=""}}' mode="aspectFit" src="{{oldidCard}}"></image>
     </view>
     <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
-        <view class="layoutList_item width90 dpfb padding20" bindtap="chooseImageTap">
+        <view class="layoutList_item width90 dpfb padding20" data-type="2" bindtap="chooseImageTap">
             <view class="borderLeft">维修职业资格证</view>
                <view class="dpf color6">
             前往拍摄 <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
             </view>
         </view>
+        <image class="itemPic" data-src="{{oldcertification}}" bindtap="previewImage" wx:if='{{oldcertification !=""}}' mode="aspectFit" src="{{oldcertification}}"></image>
     </view>
 
-    <view class="addBtn">保存</view>
+    <button class="addBtn" open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber'>保存</button>
 </view>
 
-<view class="shadeBox" wx:if='{{isshade}}'>
+<view class="shadeBox" wx:if='{{isshade && num == 0}}'>
         <view class="shadeBox_pic"></view>
         <view class="fontSize-36 fontWeight6">请提前准备好一下材料</view>
         <view class="fontSize-36 fontWeight6">一次性完成资料上传</view>

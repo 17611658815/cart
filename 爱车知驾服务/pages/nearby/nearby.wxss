@@ -28,7 +28,7 @@ page {
     height: 40rpx;
 }
 
-.listBox {
+.listBoxs {
     display: flex;
     align-items: center;
 }

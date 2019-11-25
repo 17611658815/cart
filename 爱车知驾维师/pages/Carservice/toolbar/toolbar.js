@@ -31,7 +31,12 @@ Page({
     onLoad: function (options) {
 
     },
-
+    goOtherList(){
+        console.log('1111')
+        wx.navigateTo({
+            url: '/pages/otherList/otherList',
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

@@ -47,7 +47,7 @@
                 <view class="listBox">
                     <view class="listBox_item boxShadow" wx:for='{{shopObj.goods[currentTab].items}}' bindtap="goGoodsDetails" wx:key='key'>
                         <view class="listBox_item_img dpfC">
-                            <image mode="scaleToFill" src="{{item.thumb}}" />
+                            <image mode="aspectFill" src="{{item.thumb}}" />
                         </view>
                         <view class="phoneName white_noWrap">{{item.name}}</view>
                         <view class="phonePriceNum marginTop5">

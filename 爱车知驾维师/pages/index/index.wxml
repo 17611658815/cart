@@ -13,7 +13,7 @@
             <view class="fontSize-40 color4 fontWeight5">欢迎加入</view>
             <view class="fontSize-26 color4">维保自由，收入稳定</view>
         </view>
-        <view class="loginBtn">立即注册，开始接单赚钱</view>
+        <view class="loginBtn" bindtap="gosign" wx:if='{{hasInfo==0}}'>立即注册，开始接单赚钱</view>
     </view>
     <view style=" border-radius:20rpx;padding-bottom: 20rpx;" class="width90 bgFFFF dpfC marginTop20">
         <view class="dpfb width90 padding30">

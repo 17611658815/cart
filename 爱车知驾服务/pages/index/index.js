@@ -147,7 +147,12 @@ Page({
             time: startTime[1],
             userinfo: userinfo
         })
-
+        // 
+        if (options.typeNum){
+            that.setData({
+                typeNum: options.typeNum
+            })
+        }
         if (options.id){
             that.showService()
         }
@@ -246,7 +251,9 @@ Page({
             member_id: userinfo.id,
         })
         console.log()
-        that.isHaveCar(userinfo);
+        if (userinfo!=""){
+            that.isHaveCar(userinfo);
+        }
         wx.createSelectorQuery().select('#list').boundingClientRect(function (rect) {
             that.setData({
                 fixTop: rect.top
@@ -485,7 +492,7 @@ Page({
             app.globalData.area_id = that.data.area_id
             app.globalData.Carid = that.data.car_id
             wx.navigateTo({
-                url: '/pages/search/search?currentTab=' + that.data.currentTab + 1 +"&Carid=" + id + "&area_id=" + that.data.area_id,
+                url: '/pages/search/search?currentTab=' + that.data.currentTab + 1 + "&area_id=" + that.data.area_id,
             })
         } else if (that.data.isHaveCar > 1){
             this.setData({
