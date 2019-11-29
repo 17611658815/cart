@@ -19,29 +19,23 @@
             </view>
         </view>
         <view class="width90">维修进度</view>
-        <view class="width90 marginTop20" wx:for='{{item.content}}' wx:for-item='itemData'>
+        <view class="width90 marginTop20 borderBtm" wx:for='{{item.content}}' wx:for-item='itemData'>
+         <view class="maegin20">
+            {{itemData.created}}
+            </view>
+            <view class="maegin20">
+            {{itemData.content}}
+            </view>
             <scroll-view scroll-x="true" class='vip_welfare'>
                 <view class='vip_welfare_content'>
-                    <!-- <view wx:for='{{itemData.video}}'>
-                        <image class="play" src="../../images/play.png"></image>
-                    </view> -->
                     <view wx:for='{{itemData.img}}' data-type='1' data-src="{{item}}" data-item='{{itemData}}' bindtap="play" wx:for-item='itemData_2'>
                         <image class="imgPic" src="{{itemData_2}}"></image>
                     </view>
-                    <view wx:for='{{itemData.video}}' data-type='2' data-index='{{itemData_1_index}}' data-src="{{item}}" data-item='{{itemData}}' bindtap="play" wx:for-item='itemData_1' wx:for-index='itemData_1_index'>
+                    <view wx:for='{{itemData.video}}' data-type='2' data-index='{{itemData_1_index}}' data-src="{{itemData_1}}" data-item='{{itemData}}' bindtap="play" wx:for-item='itemData_1' wx:for-index='itemData_1_index'>
                         <image class="imgPic" src="../../images/play_bg.png"></image>
                     </view>
                 </view>
             </scroll-view>
-
-          
-                <swiper wx:if="{{videoPlay}}" current="{{idex}}" current="{{video}}" style="width:100%;height:{{autoHeight}}px;" bindchange="bindChange">
-                    <swiper-item wx:for="{{itemData.video}}" wx:if='{{videoInde==idex}}' wx:for-index='idex'>
-                        <video id='video' bindended="bindended" bindplay='bindplay' autoplay="{{isplay}}" src="{{item}}" style="width:100%;height:{{autoHeight}}px;">
-                        </video>
-                    </swiper-item>
-                </swiper>
-          
         </view>
         <view class="container bgF marginTop">
             <view class="width90 padStl padding30">
@@ -53,13 +47,17 @@
                     <text class="color3 fontSize-28">下单日期</text>
                     <text class="color3 fontSize-28">{{item.created}}</text>
                 </view>
-                <view class="width100 marginTop dpf marginTop20">
-                    <!-- <view catchtap='recallOther' class='btn_1'>取消订单</view> -->
-                    <view catchtap='gotechnicianService' class='btn_2'>生成新订单</view>
-                </view>
+              
             </view>
         </view>
+      
+    </view>
+    <view class="width90 paddinglr marginTop dpf marginTop20">
+        <view catchtap='gotechnicianService' class='btn_2' >生成新订单</view>
+        <view catchtap='goUpImg' class='btn_1 marginLeft' wx:if='{{otherObj[0].status == 3}}'>上传素材</view>
     </view>
 </view>
+ <video id='video' wx:if="{{videoPlay}}" bindended="bindended" bindplay='bindplay' autoplay="{{isplay}}" src="{{videoPath}}" style="width:100%;height:{{autoHeight}}px;">
+                    </video>
   <view class='videoBox' wx:if='{{videoPlay}}' catchtap="closeVideo">
     </view>

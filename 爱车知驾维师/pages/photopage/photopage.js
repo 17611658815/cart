@@ -200,7 +200,6 @@ Page({
             },
             formData: {
                 appid: app.globalData.appid,
-
             },
             success: function (res) {
                 var data = JSON.parse(res.data)

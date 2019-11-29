@@ -57,6 +57,10 @@ export const api = {
     // 生成订单
     creatSubOrder: function (paramObj){
         return Promise.post(Url.default.creatSubOrderUrl(), paramObj);
+    },
+    // 提交内容
+    addOrderContent: function (paramObj){
+        return Promise.post(Url.default.addOrderContentUrl(), paramObj);
     }
     
 }

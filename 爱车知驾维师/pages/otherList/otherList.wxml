@@ -32,7 +32,6 @@
                 </view>
            </view>
         </view>
-        
     </view>
 </view>
 <view class="width100 dpfC" wx:else>

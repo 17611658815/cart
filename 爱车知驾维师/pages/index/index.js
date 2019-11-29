@@ -3,18 +3,18 @@
 const app = getApp()
 
 Page({
-  data: {
-      userid:0,
-    navList: ['首页', '知驾服务'],
-    currentTab:0,
-    userInfo: {},
-      hasInfo:0,
-      city: "",//当前城市
-      address: "",//当前位置
-      longitude: 0,
-      latitude: 0,
+    data: {
+        userid:0,
+        navList: ['首页', '知驾服务'],
+        currentTab:0,
+        userInfo: {},
+        hasInfo:0,
+        city: "",//当前城市
+        address: "",//当前位置
+        longitude: 0,
+        latitude: 0,
 
-  },
+    },
     onLoad: function () {
         let userInfo = wx.getStorageSync('userinfo');
         this.setData({

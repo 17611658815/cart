@@ -35,7 +35,9 @@
         "pages/otherDetaile/otherDetaile",
         "pages/orderReceiving/orderReceiving",
         "pages/technicianService/technicianService",
-        "pages/goodsList/goodsList"
+        "pages/goodsList/goodsList",
+        "pages/progressPic/progressPic",
+        "pages/Carservice/shopList/shopList"
     ],
     "window": {
         "backgroundTextStyle": "light",

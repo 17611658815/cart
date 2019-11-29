@@ -132,6 +132,13 @@ Page({
                     success:function(){
                         wx.navigateTo({
                             url: '/pages/otherList/otherList',
+                        },()=>{
+                            wx.removeStorage({
+                                key: 'CarList',
+                                success: function(res) {
+                                    
+                                },
+                            })
                         })
                     }
                 })

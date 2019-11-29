@@ -16,6 +16,8 @@ Page({
         autoHeight:0,
         isplay:false,
         videoInde:0,
+        order_id:0,
+        videoPath:''
       
     },
 
@@ -49,7 +51,8 @@ Page({
         app.net.$Api.getOrderInfo(params).then((res) => {
             console.log(res)
             that.setData({
-                otherObj:res.data.data
+                otherObj:res.data.data,
+                order_id: res.data.data[0].id
             })
             wx.hideLoading()
         })
@@ -60,7 +63,8 @@ Page({
         prevV.play()
         that.setData({
             videoPlay: true,
-            isplay: true
+            isplay: true,
+           
         })
     },
     play(e){
@@ -69,6 +73,7 @@ Page({
         let type = e.currentTarget.dataset.type;
         let src = e.currentTarget.dataset.src;
         let item = e.currentTarget.dataset.item;
+        console.log(src)
         if (type == 1){
             wx.previewImage({
                 current: src,
@@ -80,7 +85,8 @@ Page({
         }else{
             that.setData({
                 videoUrl: item.video[index],
-                videoInde: index
+                videoInde: index,
+                videoPath: src
             })
             that.videoPlay()
         }
@@ -105,6 +111,11 @@ Page({
     gotechnicianService(){
         wx.navigateTo({
             url: '/pages/technicianService/technicianService',
+        })
+    },
+    goUpImg(){
+        wx.navigateTo({
+            url: '/pages/progressPic/progressPic?id='+this.data.order_id,
         })
     },
     /**

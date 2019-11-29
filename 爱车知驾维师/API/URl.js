@@ -50,5 +50,9 @@ export default class Url {
     static creatSubOrderUrl() {
         return Url.ART + '/creatSubOrder';
     };
+    // 进度-照片-视频提交
+    static addOrderContentUrl() {
+        return Url.ART + '/addOrderContent';
+    };
    
 }

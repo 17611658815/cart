@@ -8,3 +8,6 @@
     text-align: center;
     color: #FFA500;
 }
+.borderBtom20{
+    border-bottom: 20rpx solid #f8f8f8;
+}
