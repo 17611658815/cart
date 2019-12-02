@@ -1,50 +1,38 @@
-// pages/Carservice/maycenter/maycenter.js
-const app = getApp()
+// pages/join/join.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        dataList:['累计登录','发帖','评论','获赞'],
-        typeListArr: [{
-            name: '历史动态',
-            path: '',
-            icon: '../../../images/mayList_1.png'
-        },
-        {
-            name: '同城排行',
-            path: '/pages/Carservice/rankingList/rankingList',
-            icon: '../../../images/mayList_2.png'
-        }, {
-            name: '消息中心',
-            path: '/pages/Carservice/msgCenter/msgCenter',
-            icon: '../../../images/mayList_3.png'
-        }],
-        avatar:''
+
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        this.setData({
-            avatar: app.globalData.hasInfo.avatar || "",
+
+    },
+    goStechnician(e) {
+        wx.navigateToMiniProgram({
+            appId: 'wx327c82df09c578a7',
+            path: 'pages/index/index',
+            extraData: {},
+            envVersion: 'release',
+            success(res) {
+                // 打开成功
+                console.log('打开了')
+            }
         })
     },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
 
     },
-    goupPicregister(){
-        wx.navigateTo({
-            url: '/pages/photopage/photopage',
-        })
-    },
-   
+
     /**
      * 生命周期函数--监听页面显示
      */

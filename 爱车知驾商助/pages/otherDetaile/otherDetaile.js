@@ -1,4 +1,3 @@
-// pages/otherDetaile/otherDetaile.js
 const app = getApp()
 Page({
 
@@ -9,8 +8,9 @@ Page({
         status: '',//订单状态
         id: '',//订单id
         otherObj: {},//订单详情
-        refuse:false,
-        message:'',//拒退理由
+        refuse: false,
+        message: '',//拒退理由
+        logistics:''
     },
 
     /**
@@ -57,7 +57,7 @@ Page({
                         setTimeout(function () {
                             // that.NeworderList()
                             wx.navigateBack({
-                                delta:1
+                                delta: 1
                             })
                         }, 2000)
                     }
@@ -78,13 +78,13 @@ Page({
         })
     },
     // 拒绝退款
-    refuseRefund(){
+    refuseRefund() {
         this.setData({
-            refuse:true
+            refuse: true
         })
     },
     // 确认拒绝退款
-    setOrderNoRefund(){
+    setOrderNoRefund() {
         let that = this;
         let params = {
             appid: app.globalData.appid,
@@ -94,29 +94,51 @@ Page({
         }
         if (that.data.message == "") {
             app.alert('请输入拒绝理由')
-        }else{
+        } else {
             app.loading('加载中')
             app.net.$Api.setOrderNoRefund(params).then((res) => {
                 console.log(res)
                 wx.hideLoading()
             })
         }
-       
+
     },
     // 确认发货
-    setOrderSend(){
+    setOrderSend() {
         let that = this;
-        let params = {
-            appid: app.globalData.appid,
-            order_id: that.data.id,
-            member_id: app.globalData.userInfo.id,
+        if (that.data.logistics == ""){
+            wx.navigateTo({
+                url: '/pages/logistics/logistics',
+            })
+        }else{
+            let params = {
+                appid: app.globalData.appid,
+                order_id: that.data.id,
+                member_id: app.globalData.userInfo.id,
+                logistics: that.data.logistics[0],
+                logistics_num: that.data.logistics[1],
+            }
+            app.loading('加载中')
+            app.net.$Api.setOrderSend(params).then((res) => {
+                wx.hideLoading()
+                if(res.data.code == 200){
+                    wx.showToast({
+                        title: '发货成功',
+                        icon: 'success',
+                        duration: 2000,
+                        success: function () {
+                            setTimeout(function () {
+                               wx.navigateBack({
+                                   delta:1
+                               })
+                            }, 2000)
+                        }
+                    })
+                }
+               
+            })
         }
-        app.loading('加载中')
-        app.net.$Api.setOrderSend(params).then((res) => {
-            console.log(res)
-            wx.hideLoading()
-        })
-       
+
     }
 
     /*
@@ -138,7 +160,6 @@ Page({
                     duration: 2000,
                 })
             }
-
      wx.showModal({
             title: '温馨提示',
             content: '确定取消订单吗？',
@@ -152,7 +173,7 @@ Page({
             }
         })
     
-    */ 
+    */
     /**
      * 生命周期函数--监听页面初次渲染完成
      */,
@@ -164,7 +185,10 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.setData({
+            logistics: app.globalData.logistics.split(',')
+        })
+        console.log(this.data.logistics)
     },
 
     /**

@@ -541,6 +541,20 @@ Page({
             emShow: !this.data.emShow
         })
     },
+
+    goShopApp(e) {
+        wx.navigateToMiniProgram({
+            appId: 'wxd74f8d61561db250',
+            path: 'pages/index/index',
+            extraData: {},
+            envVersion: 'release',
+            success(res) {
+                // 打开成功
+                console.log('打开了')
+            }
+        })
+    },
+   
     // 授权
     bindgetUserInfo(res) {
         let that = this,

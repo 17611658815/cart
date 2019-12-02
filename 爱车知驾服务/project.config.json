@@ -235,6 +235,54 @@
 					"pathName": "pages/serviceOtherDetaile/serviceOtherDetaile",
 					"query": "id=41&status=0",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/carOwnerServer/carOwnerServer",
+					"pathName": "pages/carOwnerServer/carOwnerServer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/carOwnerServer/carOwnerServer",
+					"pathName": "pages/clauseList/clauseList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/shopLogin/shopLogin",
+					"pathName": "pages/shopLogin/shopLogin",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/shopLogin/shopLogin",
+					"pathName": "pages/userGuide/userGuide",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/carOwnerServer/carOwnerServer",
+					"pathName": "pages/carOwnerServer/carOwnerServer",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/recommend/carOwnerServer",
+					"pathName": "pages/recommend/recommend",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "维修师傅招募",
+					"pathName": "pages/join/join",
+					"scene": null
 				}
 			]
 		}

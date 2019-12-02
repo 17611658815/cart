@@ -2,7 +2,7 @@
     <view class="headerBox">
         <view class="dpfb">
             <view class="userPic" bindtap="goupPicregister">
-                <image src='../../../images/1.jpg'></image>
+                <image src='{{avatar}}'></image>
             </view>
             <view class="headerRight">
                 <view class="headerRight_item" wx:for='{{dataList}}'>

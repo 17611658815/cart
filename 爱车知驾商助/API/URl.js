@@ -10,6 +10,10 @@ export default class Url {
     static wxLoginUrl() {
         return Url.USER + '/wxLogin';
     };
+    // 获取手机号
+    static analysisUserPhoneUrl() {
+        return Url.USER + '/analysisUserPhone';
+    };
     // 首页数据接口
     static getShopHomeDataUrl() {
         return Url.PATH + '/getShopHomeData';
@@ -37,6 +41,34 @@ export default class Url {
     // 订单发货
     static setOrderSendUrl() {
         return Url.PATH + '/setOrderSend';
+    }
+    // 选择添加商品
+    static getGoodsTypeUrl() {
+        return Url.PATH + '/getGoodsType';
+    }
+    // 分类列表
+    static getTypeGoodsUrl() {
+        return Url.PATH + '/getTypeGoods';
+    }
+    // 添加商品
+    static addShopGoodsUrl() {
+        return Url.PATH + '/addShopGoods';
+    }
+    // 获取订单列表
+    static getOrderListUrl() {
+        return Url.PATH + '/getOrderList';
+    }
+    // 存储注册信息
+    static saveShopInfoUrl() {
+        return Url.PATH + '/saveShopInfo';
+    }
+    // 设置消息模板权限
+    static setSubscribeMessageUrl() {
+        return Url.USER + '/setSubscribeMessage';
+    }
+    // 获取商铺信息
+    static getShopInfoUrl() {
+        return Url.PATH + '/getShopInfo';
     }
    
 

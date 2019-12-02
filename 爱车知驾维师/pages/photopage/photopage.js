@@ -25,6 +25,8 @@ Page({
         camera: false,
         ctx: {},
         type: "takePhoto",
+        text1:'',
+        text2:'',
     },
     /**
     * 生命周期函数--监听页面加载
@@ -38,16 +40,113 @@ Page({
             oldidCard: app.globalData.hasInfo.card_photos || "",
             oldcertification: app.globalData.hasInfo.aptitude_photos || "",
             olddriving: app.globalData.hasInfo.healthy_photos || "",
+            avatar: app.globalData.hasInfo.avatar || "",
+            tempImagePath: app.globalData.hasInfo.avatar || "",
+            certification: app.globalData.hasInfo.aptitude_photos || "",
+            driving: app.globalData.hasInfo.healthy_photos || "",
             city: app.globalData.city,
             num: app.globalData.num
         })
+        console.log(app.globalData.hasInfo.avata)
         this.setData({
             ctx: wx.createCameraContext()
         })
-
+        this.getUserInfo()
         console.log(this.data.oldcertification)
     },
+    getUserInfo() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            userid: that.data.userid,
+        }
+        app.net.$Api.getUserInfo(params).then((res) => {
+            that.setData({
+                certification: res.data.user.aptitude_photos,
+                driving: res.data.user.healthy_photos,
+                idCard: res.data.user.card_photos, //身份证
+                certification: res.data.user.aptitude_photos,
+                oldidCard: res.data.user.card_photos,
+                oldcertification: res.data.user.aptitude_photos,
+                olddriving: res.data.user.healthy_photos,
+                avatar: res.data.user.avatar,
+            })
+        })
+    },
+    requestMsg1() {
+        console.log('11111')
+        let that = this;
+        wx.requestSubscribeMessage({
+            tmplIds: ['8T_Xni23AoLeZwG3r3T-iXIw3eTus12_FzLSV-EQPJQ'],
+            success(res) {
+                console.log(res)
+                if (res['8T_Xni23AoLeZwG3r3T-iXIw3eTus12_FzLSV-EQPJQ'] === 'accept') {
+                    delete res.errMsg
+                    that.setSubscribeMessage(res)
+                    that.setData({
+                        text1: '已授权'
+                    })
+                } else {
+                    app.alert('拒绝授权')
+                }
+                console.log(res)
+            },fail(res) {
+                console.log('fail  失败')
+                console.log(res)
+            },
+            complete(res) {
+            console.log('complete  调用完成')
+            }
+        })
+    },
+    requestMsg2() {
+        let that = this;
+        wx.requestSubscribeMessage({
+            tmplIds: ['8T_Xni23AoLeZwG3r3T-iXIw3eTus12_FzLSV-EQPJQ'],
+            success(res) {
+                if (res['8T_Xni23AoLeZwG3r3T-iXIw3eTus12_FzLSV-EQPJQ'] === 'accept') {
+                    delete res.errMsg
+                    that.setSubscribeMessage(res)
+                    that.setData({
+                        text2: '已授权'
+                    })
+                } else {
+                    app.alert('拒绝授权')
+                }
+                console.log(res)
+            }
+        })
+    },
+    setSubscribeMessage(power) {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            member_id: that.data.userid,
+            power: power
+        }
+        app.net.$Api.setSubscribeMessage(params).then((res) => {
+            console.log(res)
+            if (res.data.code == 200) {
+                wx.showToast({
+                    title: '授权成功',
+                    icon: 'success',
+                    duration: 2000,
+                    success: function () {
+                        // setTimeout(function () {
+                        //     that.NeworderList()
+                        // }, 2000)
+                    }
+                })
+            } else {
+                wx.showToast({
+                    title: res.data.msg,
+                    icon: 'success',
+                    duration: 2000,
+                })
+            }
+        })
 
+    },
     getName(e) {
         console.log(e)
         this.setData({

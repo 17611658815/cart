@@ -3,25 +3,59 @@
         信息仅用于审核，绝不外泄
     </view>
     <view class="width100 bgFFFF dpfC padding30">
-        <view class="width90 dpf">北京市
-            <text class="icon_Bottom marginLeft"></text>
+        <view class="width90 dpf">{{city}}
+            <!-- <text class="icon_Bottom marginLeft"></text> -->
+        </view>
+    </view>
+    <view class='width90 paddinglr bgFFFF'>
+        <view class='dpf'>
+            <input placeholder='店铺名称' value="{{goodsName}}" bindinput="goodsNameInpt" type='text'></input>
         </view>
     </view>
     <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
-        <view class="layoutList_item width90 dpfb padding20" bindtap="chooseImageTap">
-            <view class="borderLeft">欠费账单记录</view>
+        <view class="layoutList_item width90 dpfb padding20" data-type="1">
+            <view class="borderLeft">授权订单提示</view>
+               <view class="dpf color6">
+            <text>{{text1}}</text> <image class="rightPic marginLeft" src='../../images/icon/icon_right.png'></image>
+            </view>
+            <button class="requestBtn" bindtap="requestMsg1"></button>
+        </view>
+    </view>
+    <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
+        <view class="layoutList_item width90 dpfb padding20" data-type="1">
+            <view class="borderLeft">授权支付提示</view>
+               <view class="dpf color6">
+            <text>{{text2}}</text> <image class="rightPic marginLeft" src='../../images/icon/icon_right.png'></image>
+            </view>
+            <button class="requestBtn" bindtap="requestMsg2"></button>
+        </view>
+    </view>
+    <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
+        <view class="layoutList_item width90 dpfb padding20" data-type="1" bindtap="chooseImageTap">
+            <view class="borderLeft">营业执照</view>
                <view class="dpf color6">
             前往拍摄 <image class="rightPic marginLeft" src='../../images/icon/icon_right.png'></image>
             </view>
         </view>
+         <image class="itemPic" data-src="{{imgs1}}" bindtap="previewImage" wx:if='{{imgs1!=""}}' mode="aspectFit" src="{{imgs1}}"></image>
     </view>
     <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
-        <view class="layoutList_item width90 dpfb padding20" bindtap="chooseImageTap">
+        <view class="layoutList_item width90 dpfb padding20" data-type="2" bindtap="chooseImageTap">
             <view class="borderLeft">店面与法人合影照</view>
                <view class="dpf color6">
             前往拍摄 <image class="rightPic marginLeft" src='../../images/icon/icon_right.png'></image>
             </view>
         </view>
+         <image class="itemPic" data-src="{{imgs2}}" bindtap="previewImage" wx:if='{{imgs2!=""}}' mode="aspectFit" src="{{imgs2}}"></image>
     </view>
-    <view class="addBtn">保存</view>
+    <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
+        <view class="layoutList_item width90 dpfb padding20" data-type="3" bindtap="chooseImageTap">
+            <view class="borderLeft">店铺头像</view>
+               <view class="dpf color6">
+            前往拍摄 <image class="rightPic marginLeft" src='../../images/icon/icon_right.png'></image>
+            </view>
+        </view>
+         <image class="itemPic" data-src="{{imgs3}}" bindtap="previewImage" wx:if='{{imgs3!=""}}' mode="aspectFit" src="{{imgs3}}"></image>
+    </view>
+    <button class="addBtn" open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber'>保存</button>
 </view>

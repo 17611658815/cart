@@ -30,6 +30,14 @@
     right: 20rpx;
     z-index: 9999;
 }
+.delBox2{
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    top: 10rpx;
+    right: 30rpx;
+    z-index: 9999;
+}
 .donw_icon {
     width: 15rpx;
     height: 15rpx;
@@ -121,7 +129,7 @@
 
 .mapBox {
     width: 100%;
-    height: 800rpx;
+    height: 1000rpx;
     position: relative;
 }
 
@@ -129,7 +137,7 @@
     width: 90%;
     background: #fff;
     position: absolute;
-    bottom: -6%;
+    bottom: -15%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 6rpx;
@@ -175,7 +183,7 @@
     height: 80rpx;
     position: absolute;
     background: #fff;
-    bottom: 140rpx;
+    bottom: 200rpx;
     left: 30rpx;
     text-align: right;
     font-size: 26rpx;
@@ -700,4 +708,10 @@ margin-bottom: 20rpx;
 }
 .carActive{
     border: 2rpx solid #6E9FF7;
+}
+.moduleBox{
+    position: fixed;
+    bottom: 20rpx;
+    left: 0;
+    background: #ffffff;
 }

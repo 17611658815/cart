@@ -1,0 +1,28 @@
+<!--page/order/pages/newAddress/newAddress.wxml-->
+<view class='container'>
+    <view class='width100 dpfC marginTop'>
+        <view class='width90'>
+            <view class='itembox dpf'>
+                <input placeholder='物流名称' value="{{logisticsName}}" bindinput="usernameInpt" type='tetx'></input>
+            </view>
+            <view class='itembox dpf'>
+                <input placeholder='订单号' value="{{logisticsNum}}" bindinput="mobileInpt" type='number'></input>
+            </view>
+            <!-- <view class='itembox' style='border:none;padding-bottom:0'>
+                <view class='fontSize-30 color2'>
+                    <textarea 
+                        value='{{addresMsg}}' 
+                        bindinput='ontextareaChange' 
+                        placeholder-class='textAreaCtyle' 
+                        placeholder='详细地址:如街道、楼牌号等' 
+                        placeholder-style>
+                    </textarea>
+                </view>
+            </view> -->
+        </view>
+    </view>
+    <view class='btnBox'>
+        <button class='btnStyle' bindtap="changeAddres" wx:if='{{changeBtn}}'>确认修改</button>
+        <button class='btnStyle' bindtap="saveAddres" wx:else>保存</button>
+    </view>
+</view>

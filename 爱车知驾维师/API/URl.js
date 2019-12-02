@@ -54,5 +54,8 @@ export default class Url {
     static addOrderContentUrl() {
         return Url.ART + '/addOrderContent';
     };
+    static setSubscribeMessageUrl() {
+        return Url.USER + '/setSubscribeMessage';
+    }
    
 }

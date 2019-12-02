@@ -1,13 +1,15 @@
 <view class="container">
     <!-- 头部信息 -->
-    <view class="headerBox">
+    <view class="headerBox" bindtap="goregister">
         <view class="userPic">
-               <open-data class="avatar-img" type="userAvatarUrl" lang="zh_CN"></open-data>
+               <!-- <open-data class="avatar-img" type="userAvatarUrl" lang="zh_CN"></open-data> -->
+               <image mode="aspectFit" src="{{avatar}}"></image>
         </view>
         <view class="userText flex_1 marginLeft">
-            <view class="fontSize-32">知驾设备汽车用品官方旗舰店</view>
+            <view class="fontSize-32">{{name == "" ? "店铺未认证":name}}</view>
             <view class="usertag">
-                <text>店铺认证审核中</text> 
+            <!-- 0未审核，1已审核，2已下架，3暂停接单 -->
+                <text>{{statusOb[status]}}</text> 
             </view>
         </view>
         <image class="rightPic" src='../../images/icon/icon_right.png'></image>

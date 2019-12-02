@@ -28,7 +28,8 @@
         "pages/otherDetaile/otherDetaile",
         "pages/addCarCode/addCarCode",
         "pages/mayCarList/mayCarList",
-        "pages/serviceOtherDetaile/serviceOtherDetaile"
+        "pages/serviceOtherDetaile/serviceOtherDetaile",
+        "pages/join/join"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -36,6 +37,10 @@
         "navigationBarTitleText": "WeChat",
         "navigationBarTextStyle": "black"
     },
+    "navigateToMiniProgramAppIdList": [
+        "wxd74f8d61561db250",
+        "wx327c82df09c578a7"
+    ],
     "sitemapLocation": "sitemap.json",
     "permission": {
         "scope.userLocation": {

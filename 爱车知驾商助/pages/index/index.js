@@ -18,6 +18,33 @@ Page({
         })
         this.getShopHomeData()
         this.getPostingsList()
+        this.getLocationMsg()
+    },
+    //获取当前位置
+    getLocationMsg() {
+        let that = this;
+        wx.getLocation({
+            type: 'gcj02',
+            altitude: true, //高精度定位
+            success: function (res) {
+                console.log(res)
+                wx.request({
+                    url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + res.latitude + ',' + res.longitude + '&key=UYFBZ-ANUWW-Y7GRO-OURNR-G5L7O-PHFMD',
+                    success: function (e) {
+                        console.log(res)
+                        app.globalData.longitude = res.longitude;
+                        app.globalData.latitude = res.latitude;
+                        app.globalData.city = e.data.result.address_component.city
+                        that.setData({
+                            city: e.data.result.address_component.city,//当前城市
+                            address: e.data.result.address,//当前位置
+                            longitude: res.longitude,
+                            latitude: res.latitude,
+                        })
+                    }
+                })
+            }
+        });
     },
     getShopHomeData(){
         let that = this,
@@ -71,6 +98,11 @@ Page({
     gocommunity() {
         wx.navigateTo({
             url: '/pages/community/community',
+        })
+    },
+    goOrderList(){
+        wx.navigateTo({
+            url: '/pages/orderList/orderList',
         })
     },
     // 获取首页图片

@@ -61,6 +61,10 @@ export const api = {
     // 提交内容
     addOrderContent: function (paramObj){
         return Promise.post(Url.default.addOrderContentUrl(), paramObj);
+    },
+    // 提交内容
+    setSubscribeMessage: function (paramObj){
+        return Promise.post(Url.default.setSubscribeMessageUrl(), paramObj);
     }
     
 }

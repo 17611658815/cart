@@ -6,11 +6,16 @@ Page({
      * 页面的初始数据
      */
     data: {
+        member_id:0,
         index: 0,
-        addressid: '', //地址id
-        city: [],
-        multiArray: [],
-        multiIndex: [0, 0], //地址索引
+        typeid: '', //分类id
+        obj_id:'',//商品id
+        typeName:'',
+        goodsName:'',
+        goodsPrice:'',
+        goodsList:[],
+        newGoodsList:[],
+        array: [],
         mobile: '', //收货人手机号
         province: '', //收货人所在省份
         city: '', //收货人城市
@@ -24,74 +29,128 @@ Page({
     onLoad: function (options) {
         let that = this;
         let userInfo = wx.getStorageSync('userinfo');
+        that.setData({
+            member_id:userInfo.id
+        })
         that.getGoodsType()
     },
-    // 联系人姓名
-    mobileInpt(e) {
+    //商品名称
+    goodsNameInpt(e) {
         this.setData({
-            mobile: e.detail.value
+            goodsName: e.detail.value
         })
     },
     // 联系人姓名
-    usernameInpt(e) {
+    goodsPriceInpt(e) {
         this.setData({
-            username: e.detail.value
-        })
-    },
-    // 文本域val-change事件
-    ontextareaChange(e) {
-        this.setData({
-            addresMsg: e.detail.value
+            goodsPrice: e.detail.value
         })
     },
     // 获取地区数据
     getGoodsType() {
         let that = this;
-        let index = that.data.multiIndex,
-            params = {
+        let params = {
                 appid: app.globalData.appid,
             };
         app.net.$Api.getGoodsType(params).then((res) => {
-            console.log(res)
-            that.data.city = res.data.data;
-            that.data.multiArray = [
-                [...that.data.city],
-                [...that.data.city[index[0]].sonareaData]
-            ];
+            for(var i = 0; i< res.data.data.length;i++){
+                that.data.array.push(res.data.data[i].name)
+            }
             that.setData({
-                multiArray: that.data.multiArray,
+                list: res.data.data,
+                array: that.data.array
             })
-            console.log(that.data.multiArray)
+            console.log(res)
+          
         })
+       
     },
-    // picker-Change事件
-    bindMultiPickerColumnChange: function (e) {
-        let city = this.data.city
-        var data = {
-            multiArray: this.data.multiArray,
-            multiIndex: this.data.multiIndex
+    getTypeGoods(id){
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            typeid: id
         };
-        data.multiIndex[e.detail.column] = e.detail.value;
-        switch (e.detail.column) {
-            case 0:
-                data.multiArray[1] = city[e.detail.value].sonareaData;
-                break;
-        }
-        this.setData({
-            multiArray: this.data.multiArray,
-            multiIndex: this.data.multiIndex
+        app.net.$Api.getTypeGoods(params).then((res) => {
+            that.setData({
+                goodsList:res.data.data,
+                newGoodsList: res.data.data
+            })
         })
     },
     // picker-确定事件
     bindMultiPickerChange: function (e) {
-        this.multiIndex = e.detail.value;
+        console.log(e)
+        let index = e.detail.value;
+        let list = this.data.list;
         this.setData({
-            typeName: this.data.multiArray[1][e.detail.value[1]].name,
-            multiIndex: e.detail.value,
-            "multiId[0]": this.data.multiArray[0][e.detail.value[0]].id,
-            "multiId[1]": this.data.multiArray[1][e.detail.value[1]].id,
+            typeName: list[index].name,
+            typeid: list[index].id
         })
-        console.log(this.data.multiId)
+        this.getTypeGoods(this.data.typeid)
+    },
+    goodsNameInpt(e){
+        console.log(e)
+        let value = e.detail.value;
+        let newGoodsList = []
+        this.data.goodsList.forEach((item)=>{
+            console.log(item)
+            if (item.name.indexOf(value) != -1){
+                newGoodsList.push(item)
+            }
+        })
+        this.setData({
+            newGoodsList: newGoodsList
+        })
+        console.log(this.data.newGoodsList)
+
+    },
+    checkdItem(e){
+        let item = e.currentTarget.dataset.item;
+        this.setData({
+            newGoodsList: [item],
+            obj_id: item.id,
+            goodsName: item.name,
+        })
+    },
+    addGoodsItem(){
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            typeid: that.data.typeid,
+            obj_id: that.data.obj_id,
+            member_id: that.data.member_id,
+            name: that.data.goodsName,
+            price: that.data.goodsPrice,
+        };
+        if (that.data.goodsName == ""){
+            app.alert("请输入商品名称~！")
+            return
+        }
+        if (that.data.goodsPrice == ""){
+            app.alert("请输入商品价格~！")
+            return
+        }
+        app.net.$Api.addShopGoods(params).then((res) => {
+            if (res.data.code == 200){
+                wx.showToast({
+                    title: '添加成功',
+                    icon: 'success',
+                    duration: 2000,
+                    success: function () {
+                        setTimeout(function () {
+                            that.setData({
+                                typeName:'',
+                                goodsName:'',
+                                goodsPrice:'',
+                                goodsList: [],
+                                newGoodsList: [],
+                            })
+                        }, 2000)
+                    }
+                })
+            }
+        })
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

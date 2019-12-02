@@ -38,7 +38,11 @@ Page({
                 code: loginCode.code
             }
         app.net.$Api.getOpenId(params).then((res) => {
-            console.log(res)
+            wx.setStorage({
+                key: 'session_key',
+                data: res.data.session_key,
+            })
+            app.globalData.session_key = res.data.session_key
             that.saveUserInfo(res.data.openid)
         })
     },

@@ -18,6 +18,10 @@ export const api = {
     wxLogin: function (paramObj) {
         return Promise.post(Url.default.wxLoginUrl(), paramObj);
     },
+    // 获取手机号
+    analysisUserPhone: function (paramObj) {
+        return Promise.post(Url.default.analysisUserPhoneUrl(), paramObj);
+    },
     // 首页图片
     getShopHomeData: function (paramObj) {
         return Promise.post(Url.default.getShopHomeDataUrl(), paramObj);
@@ -45,6 +49,34 @@ export const api = {
     // 订单发货
     setOrderSend: function (paramObj) {
         return Promise.post(Url.default.setOrderSendUrl(), paramObj);
+    },
+    // 添加分类商品
+    getGoodsType: function (paramObj) {
+        return Promise.post(Url.default.getGoodsTypeUrl(), paramObj);
+    },
+    // 获取分类列表
+    getTypeGoods: function (paramObj) {
+        return Promise.post(Url.default.getTypeGoodsUrl(), paramObj);
+    },
+    // 添加商品
+    addShopGoods: function (paramObj) {
+        return Promise.post(Url.default.addShopGoodsUrl(), paramObj);
+    },
+    // 获取订单列表
+    getOrderList: function (paramObj) {
+        return Promise.post(Url.default.getOrderListUrl(), paramObj);
+    },
+    // 保存注册信息
+    saveShopInfo: function (paramObj) {
+        return Promise.post(Url.default.saveShopInfoUrl(), paramObj);
+    },
+    // 设置消息模板权限
+    setSubscribeMessage: function (paramObj) {
+        return Promise.post(Url.default.setSubscribeMessageUrl(), paramObj);
+    },
+    // 设置消息模板权限
+    getShopInfo: function (paramObj) {
+        return Promise.post(Url.default.getShopInfoUrl(), paramObj);
     },
    
 }

@@ -18,7 +18,7 @@
     text-align: center;
     line-height: 90rpx;
     border-radius: 20rpx;
-    background-image: linear-gradient(#F9903F, #F35235);
+    background-image: linear-gradient(#F9903F, #Ff35235);
 }
 .shadeBox{
     width: 100%;

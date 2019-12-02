@@ -27,7 +27,8 @@ App({
     globalData: {
         userInfo: null,
         isIphoneX: false,
-        appid: '10'
+        appid: '10',
+        logistics:''
     },
     loading: function (content) {
         wx.showLoading({

@@ -19,7 +19,6 @@
             <view class="marginTop10 fontSize-26 fontWeight6">维修技能证书</view>
             <view class="clackup">点击上传</view>
         </view>
-        
     </view>
     <view class="vlogBox dpf" >
         <view class="vlog_border" bindtap="selfie">
@@ -31,6 +30,25 @@
         </view>
         <view class="marginLeft fontSize-26 fontWeight6">
             个人头像实时拍摄
+        </view>
+    </view>
+        
+ <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
+        <view class="layoutList_item width90 dpfb padding20" data-type="1">
+            <view class="borderLeft">授权订单提示</view>
+               <view class="dpf color6">
+            <text>{{text1}}</text> <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
+            </view>
+            <button class="requestBtn" bindtap="requestMsg1"></button>
+        </view>
+    </view>
+    <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
+        <view class="layoutList_item width90 dpfb padding20" data-type="1">
+            <view class="borderLeft">授权支付提示</view>
+               <view class="dpf color6">
+            <text>{{text2}}</text> <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
+            </view>
+            <button class="requestBtn" bindtap="requestMsg2"></button>
         </view>
     </view>
         <button class="addBtn" open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber'>保存</button>

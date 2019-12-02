@@ -4,6 +4,9 @@
         <image class="icon_1 marginRight" src="../../images/icon/icon_1.png"></image>
         <text>1分钟认证店铺，开启发商品权限</text>
     </view>
+    <!-- <navigator url="/pages/register/register">
+        去注册
+    </navigator> -->
     <!-- 轮播图部分 -->
     <view class='home-swiper'>
         <swiper class="swiper" 
@@ -28,7 +31,7 @@
                 <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
             </view>
         </view>
-        <view class="width90 paddinglr dpfb">
+        <view class="width90 paddinglr dpfb" bindtap="goOrderList">
             <view class="dpfC flex_1">
                 <view class="fontSize-32 fontWeight6">￥{{trade.money}}</view>
                 <view class="textTitle">成交金额</view>

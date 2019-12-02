@@ -1,0 +1,14 @@
+<view class="container">
+    <!-- 维师招募 -->
+    <view class="headers">
+    
+    </view>
+    <view class="list_item boxShadow" bindtap="goStechnician">
+        <view class="fontSize-36">成为网约技师</view>
+        <view class="fontSize-26">有技术，独立解决车问题，时间灵活，订单有保障</view>
+    </view>
+    <view class="list_item boxShadow">
+        <view class="fontSize-36">无店入住</view>
+        <view class="fontSize-26">有技术，独立解决车问题，时间灵活，订单有保障</view>
+    </view>
+</view>
