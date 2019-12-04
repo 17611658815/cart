@@ -1,0 +1,42 @@
+<view class="container">
+    <!-- 名片 -->
+    <navigator class='technician_info' hover-class='none' url="" wx:for='{{jiShiList}}'>
+        <view class='technician_info_content width90'>
+            <view class='technician_pic'>
+                <image src='{{item.avatar}}'></image>
+            </view>
+            <view class='technician_card'>
+                <view class='technician_name'>
+                    <text  class='fontSize-36 color1 fontWeight5'>{{item.real_name}}</text>
+                    <text>{{item.level}}</text>
+                </view>
+                <view class='technician_title fontSize28 color1'>
+                    <view>场地费:{{item.money}}元</view> 
+                    
+                </view>
+                <view class='technician_num fontSize-28 color2'>
+                    <text style='margin-right:20rpx;'>{{statusArr[item.status]}}</text><text wx:if='{{item.status ==2 }}'>{{item.msg}}</text>
+                </view>
+                <view class="technician_btn" wx:if='{{item.status == 0}}'>
+                    <view catchtap="confirm" data-item='{{item}}' data-status='1' class="btn_1">确认</view>
+                    <view catchtap="refuse" data-item='{{item}}' data-status='2' class="btn_2">拒绝</view>
+                </view> 
+            </view>
+        </view>
+    </navigator>
+</view>
+
+<view class="inputBox" wx:if='{{isfocus}}' style="bottom:{{bottom}}px">
+        <input class="input"
+        value="{{message}}" 
+        adjust-position="{{false}}" 
+        cursor-spacing="90" type='text'
+        bindfocus='onbindfocus' 
+        bindconfirm='onbindconfirm' 
+        bindblur="onbindblur" 
+        placeholder="评论" 
+        focus="{{isfocus}}"  
+        bindinput="oncommentMsg" 
+        placeholder="拒绝原因..." 
+        placeholder-style='color:#9a9a9a;'/>
+</view>

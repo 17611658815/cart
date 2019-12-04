@@ -70,6 +70,14 @@ export default class Url {
     static getShopInfoUrl() {
         return Url.PATH + '/getShopInfo';
     }
+    // 获取技师列表
+    static getShopJishiUrl() {
+        return Url.PATH + '/getShopJishi';
+    }
+    // 同意-拒绝技师
+    static setShopJishiUrl() {
+        return Url.PATH + '/setShopJishi';
+    }
    
 
 }

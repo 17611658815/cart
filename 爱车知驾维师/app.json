@@ -37,7 +37,9 @@
         "pages/technicianService/technicianService",
         "pages/goodsList/goodsList",
         "pages/progressPic/progressPic",
-        "pages/Carservice/shopList/shopList"
+        "pages/Carservice/shopList/shopList",
+        "pages/shopList/shopList",
+        "pages/addShop/addShop"
     ],
     "window": {
         "backgroundTextStyle": "light",

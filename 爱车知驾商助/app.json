@@ -21,7 +21,9 @@
         "pages/addgoods/addgoods",
         "pages/otherDetaile/otherDetaile",
         "pages/orderList/orderList",
-        "pages/logistics/logistics"
+        "pages/logistics/logistics",
+        "pages/technicianList/technicianList",
+        "pages/jiShiDetaile/jiShiDetaile"
     ],
     "window": {
         "backgroundTextStyle": "light",

@@ -257,6 +257,19 @@
 					"pathName": "pages/Carservice/shopList/shopList",
 					"query": "id=39&status=3",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "门店列表",
+					"pathName": "pages/shopList/shopList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "添加店铺",
+					"pathName": "pages/addShop/addShop",
+					"scene": null
 				}
 			]
 		}

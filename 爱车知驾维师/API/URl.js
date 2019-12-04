@@ -54,8 +54,25 @@ export default class Url {
     static addOrderContentUrl() {
         return Url.ART + '/addOrderContent';
     };
+    // 保存订阅消息状态
     static setSubscribeMessageUrl() {
         return Url.USER + '/setSubscribeMessage';
+    }
+    // 店铺列表
+    static getJishiShopUrl() {
+        return Url.ART + '/getJishiShop';
+    }
+    // 添加店铺搜索
+    static searchShopUrl() {
+        return Url.ART + '/searchShop';
+    }
+    // 保存店铺
+    static saveJishiShopUrl() {
+        return Url.ART + '/saveJishiShop';
+    }
+    // 回显店铺信息
+    static getJishiShopInfoUrl() {
+        return Url.ART + '/getJishiShopInfo';
     }
    
 }

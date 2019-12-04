@@ -1,0 +1,50 @@
+.technician_info{
+    width: 100%;
+    display: flex;
+    background: #ffffff;
+    padding: 40rpx 0;
+    align-items: center;
+    justify-content: center;
+}
+.technician_info_content{
+    display: flex;
+}
+.technician_pic{
+    width: 180rpx;
+    height: 212rpx;
+}
+.technician_pic image{
+    width: 180rpx;
+    height: 212rpx;
+}
+.technician_card{
+    flex: 1;
+    height: 212rpx;
+    background: white;
+    margin-left: 68rpx;
+}
+.technician_name text:nth-child(2){
+    padding: 7rpx 10rpx;
+    background: #5994F7;
+    color: #ffffff;
+    font-size: 24rpx;
+    border-radius: 30rpx;
+    margin-left: 36rpx;
+}
+.technician_distance{
+    padding: 28rpx 0;
+}
+.technician_distance_left{
+    width: 100%;
+}
+.technician_title{
+    padding: 17rpx 0 23rpx 0;
+}
+.icon_common2{
+    width: 24rpx;
+    height: 24rpx;
+}
+.icon_right{
+    width: 15rpx;
+    height: 25rpx;    
+}

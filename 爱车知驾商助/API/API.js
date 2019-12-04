@@ -74,9 +74,18 @@ export const api = {
     setSubscribeMessage: function (paramObj) {
         return Promise.post(Url.default.setSubscribeMessageUrl(), paramObj);
     },
-    // 设置消息模板权限
+    // 获取店铺信息
     getShopInfo: function (paramObj) {
         return Promise.post(Url.default.getShopInfoUrl(), paramObj);
     },
+    // 获取技师列表
+    getShopJishi: function (paramObj) {
+        return Promise.post(Url.default.getShopJishiUrl(), paramObj);
+    },
+    // 同意-拒绝 技师
+    setShopJishi: function (paramObj) {
+        return Promise.post(Url.default.setShopJishiUrl(), paramObj);
+    },
+
    
 }

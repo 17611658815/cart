@@ -54,6 +54,26 @@ Page({
         this.getUserInfo()
         console.log(this.data.oldcertification)
     },
+    getShopInfo() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            member_id: that.data.member_id,
+        }
+        app.net.$Api.getShopInfo(params).then((res) => {
+            this.setData({
+                imgs1: res.data.data.aptitude_photos,
+                imgs2: res.data.data.work_photos,
+                imgs3: res.data.data.avatar,
+                new_img1: res.data.data.aptitude_photos,
+                new_img2: res.data.data.work_photos,
+                new_img3: res.data.data.avatar,
+                goodsName: res.data.data.real_name,
+              
+            })
+        })
+
+    },
     getUserInfo() {
         let that = this;
         let params = {
@@ -61,6 +81,7 @@ Page({
             userid: that.data.userid,
         }
         app.net.$Api.getUserInfo(params).then((res) => {
+            console.log(res)
             that.setData({
                 certification: res.data.user.aptitude_photos,
                 driving: res.data.user.healthy_photos,
@@ -70,6 +91,8 @@ Page({
                 oldcertification: res.data.user.aptitude_photos,
                 olddriving: res.data.user.healthy_photos,
                 avatar: res.data.user.avatar,
+                text1: (res.data.user.subscribe_message['8T_Xni23AoLeZwG3r3T-iXIw3eTus12_FzLSV-EQPJQ'] != undefined && res.data.user.subscribe_message['8T_Xni23AoLeZwG3r3T-iXIw3eTus12_FzLSV-EQPJQ'] == 'accept') ? '已授权' : '未授权',
+                text2: (res.data.user.subscribe_message['IajJtRQNTx_f695jvXlM1Fa2qBAcW6nCA3Rny0KLZIg'] != undefined && res.data.user.subscribe_message['IajJtRQNTx_f695jvXlM1Fa2qBAcW6nCA3Rny0KLZIg'] == 'accept') ? '已授权' : '未授权',
             })
         })
     },
@@ -102,9 +125,9 @@ Page({
     requestMsg2() {
         let that = this;
         wx.requestSubscribeMessage({
-            tmplIds: ['8T_Xni23AoLeZwG3r3T-iXIw3eTus12_FzLSV-EQPJQ'],
+            tmplIds: ['IajJtRQNTx_f695jvXlM1Fa2qBAcW6nCA3Rny0KLZIg'],
             success(res) {
-                if (res['8T_Xni23AoLeZwG3r3T-iXIw3eTus12_FzLSV-EQPJQ'] === 'accept') {
+                if (res['IajJtRQNTx_f695jvXlM1Fa2qBAcW6nCA3Rny0KLZIg'] === 'accept') {
                     delete res.errMsg
                     that.setSubscribeMessage(res)
                     that.setData({

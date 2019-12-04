@@ -1,0 +1,29 @@
+<view class="container">
+     <!-- 名片 -->
+    <view class='technician_info'>
+        <view class='technician_info_content width90'>
+            <view class='technician_pic'>
+                <image src='http://i2.chuimg.com/f30f7ea4346c11e7947d0242ac110002_3264w_2448h.jpg?imageView2/2/w/620/interlace/1/q/90'></image>
+            </view>
+            <view class='technician_card'>
+                <view class='technician_name'>
+                    <text  class='fontSize-36 color1 fontWeight5'>无邪</text>
+                    <text>在线咨询</text>
+                </view>
+                <view class='technician_title fontSize28 color1'>
+                    家修工程师
+                </view>
+                <view class='technician_num fontSize-24 color2'>
+                    <text style='margin-right:20rpx;'>已接单2341</text><text>好评97%</text>
+                </view>
+                <view class='technician_distance dpf'>
+                     <view class='technician_distance_left dpf'>
+                        <image class='icon_common2' src='../../../../images/icon/icon_common2.png'></image>
+                        <text  class='fontSize-22 color3'>大众工匠</text>
+                        <image class="icon_right_m" src='../../../../images/icon/icon_right.png'></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

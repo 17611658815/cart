@@ -78,7 +78,7 @@
                         </view>
                     </view>
                 </view>
-                 <view class="server_item_item dpfC">
+                <view class="server_item_item dpfC">
                     <view hover-class='none' url='{{item.path}}'>
                         <view class="server_item_logo"></view>
                         <view class="color3 fontSize-26 marginTop">
@@ -227,7 +227,8 @@
                     <view class="left_Box">
                         <text class="dian_2"></text>
                     </view>
-                    <view bindtap='onbindfocus' class="right_text fontSize-28 color2"> 您的车有什么问题
+                    <view bindtap='onbindfocus' 
+                        class="right_text fontSize-28 color2"> 您的车有什么问题
                     </view>
                 </view>
             </view>

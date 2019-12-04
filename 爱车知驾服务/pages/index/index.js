@@ -191,11 +191,14 @@ Page({
             member_id: that.data.member_id
         }
         app.net.$Api.isHaveCar(params).then((res) => {
-            that.setData({
-                isHaveCar: res.data.num,
-                car_id: res.data.list[0].id,
-                carList: res.data.list
-            })
+            if (res.data.num){
+                that.setData({
+                    isHaveCar: res.data.num,
+                    car_id: res.data.list[0].id,
+                    carList: res.data.list
+                })
+            }
+          
             console.log(res)
         })
     },

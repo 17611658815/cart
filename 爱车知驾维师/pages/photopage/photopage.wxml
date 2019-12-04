@@ -33,18 +33,18 @@
         </view>
     </view>
         
- <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
+ <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop20">
         <view class="layoutList_item width90 dpfb padding20" data-type="1">
-            <view class="borderLeft">授权订单提示</view>
+            <view class="borderLeft">订单更新提示</view>
                <view class="dpf color6">
             <text>{{text1}}</text> <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
             </view>
             <button class="requestBtn" bindtap="requestMsg1"></button>
         </view>
     </view>
-    <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">
+    <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop20">
         <view class="layoutList_item width90 dpfb padding20" data-type="1">
-            <view class="borderLeft">授权支付提示</view>
+            <view class="borderLeft">新订单提示</view>
                <view class="dpf color6">
             <text>{{text2}}</text> <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
             </view>

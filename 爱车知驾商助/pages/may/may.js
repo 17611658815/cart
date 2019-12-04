@@ -22,7 +22,7 @@ Page({
                 icon: ''
             }, {
                 name: '维修技师',
-                path: '',
+                path: '/pages/technicianList/technicianList',
                 icon: ''
             }, {
                 name: '商家服务',

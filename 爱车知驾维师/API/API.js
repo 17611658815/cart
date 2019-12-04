@@ -62,9 +62,29 @@ export const api = {
     addOrderContent: function (paramObj){
         return Promise.post(Url.default.addOrderContentUrl(), paramObj);
     },
-    // 提交内容
+    // 提交授权状态
     setSubscribeMessage: function (paramObj){
         return Promise.post(Url.default.setSubscribeMessageUrl(), paramObj);
+    },
+    // 店铺列表
+    getJishiShop: function (paramObj){
+        return Promise.post(Url.default.getJishiShopUrl(), paramObj);
+    },
+    // 店铺列表
+    getJishiShop: function (paramObj){
+        return Promise.post(Url.default.getJishiShopUrl(), paramObj);
+    },
+    // 店铺搜索
+    searchShop: function (paramObj){
+        return Promise.post(Url.default.searchShopUrl(), paramObj);
+    },
+    // 保存店铺
+    saveJishiShop: function (paramObj){
+        return Promise.post(Url.default.saveJishiShopUrl(), paramObj);
+    },
+    // 回显店铺信息
+    getJishiShopInfo: function (paramObj){
+        return Promise.post(Url.default.getJishiShopInfoUrl(), paramObj);
     }
     
 }

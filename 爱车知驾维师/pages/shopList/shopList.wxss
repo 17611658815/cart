@@ -1,0 +1,130 @@
+/* 名片 */
+.technician_info{
+    width: 100%;
+    display: flex;
+    background: #ffffff;
+    padding: 30rpx 0;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20rpx;
+}
+.technician_info_content{
+    display: flex;
+}
+.technician_pic{
+    width: 180rpx;
+}
+.technician_pic image{
+    width: 180rpx;
+    height: 180rpx;
+}
+.technician_card{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: white;
+    margin-left: 50rpx;
+}
+.technician_name text:nth-child(2){
+    padding: 7rpx 10rpx;
+    background: #5994F7;
+    color: #ffffff;
+    font-size: 24rpx;
+    border-radius: 30rpx;
+    margin-left: 36rpx;
+}
+.technician_distance{
+    padding: 28rpx 0;
+}
+.technician_distance_left{
+    width: 100%;
+}
+.technician_title{
+}
+.icon_common2{
+    width: 24rpx;
+    height: 24rpx;
+}
+.icon_right{
+    width: 15rpx;
+    height: 25rpx;    
+}
+
+.technician_btn{
+    display: flex;
+    justify-content: flex-end;
+}
+.technician_btn .btn_1{
+    width: 100rpx;
+    height: 50rpx;
+    background: #5994F7;
+    color: #ffffff;
+    font-size: 23rpx;
+    border-radius: 90rpx;
+    text-align: center;
+    line-height: 50rpx;
+}
+.technician_btn .btn_2{
+     width: 100rpx;
+    height: 50rpx;
+    background: #f8f8f8;
+    color: #333333;
+    font-size: 23rpx;
+    border-radius: 90rpx;
+    text-align: center;
+    line-height: 50rpx;
+    border:1rpx solid #eeeeee;
+    margin-left: 20rpx;
+}
+
+.inputBox {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 94%;
+    padding: 15rpx 3%;
+    background: #fff;
+    z-index: 9999;
+}
+
+/*  */
+.fastTitleBoxs{
+    width: 94%;
+    padding: 0 3%;
+    height: 88rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8f8f8f8;
+}
+.fastTitle {
+    font-size: 27rpx;
+    color: #ff7f29;
+}
+.defeated .fastTitle{
+    width: 500rpx;
+}
+.defeated .fastBtn{
+     width: 136rpx;
+    height: 60rpx;
+    background: #6e9ff7;
+    color: #fff;
+    font-size: 28rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border-radius: 75rpx;
+}
+.defeated text{
+    display: block;
+}
+.fastBtn {
+    width: 136rpx;
+    height: 60rpx;
+    background: #6e9ff7;
+    color: #fff;
+    font-size: 28rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border-radius: 75rpx;
+}

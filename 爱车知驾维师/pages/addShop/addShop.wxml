@@ -1,0 +1,42 @@
+<!--page/order/pages/newAddress/newAddress.wxml-->
+<view class='container bgFFFF'>
+    <view class='width100 dpfC marginTop'>
+        <view class='width90'>
+              <view class='itembox dpf'>
+                <input placeholder='商品名称' value="{{shopName}}" bindinput="shopNameInpt" type='tetx'></input>
+            </view>
+            <view class="goodsBox" wx:if='{{searchData.length>0}}'>
+            
+             <view class="otherMsg" wx:for='{{searchData}}' data-item='{{item}}' bindtap="checkdItem">
+                <!-- <view class="otherPic">
+                    <image mode="scaleToFill" src="{{item.thumb}}" />
+                </view> -->
+                <view class="otherinfo">
+                    <view class="fontSize-30 color1" data-item='{{item}}' bindtap="selectShop">{{item.real_name}}</view>
+                    <view class="fontSize-26 color3">{{item.status == 1 ? "已关联":"未关联"}}</view>
+                </view>
+            </view>
+            </view>
+           
+          
+            <view class='itembox dpf'>
+                <input placeholder='场地费' value="{{shopPrice}}" bindinput="shopPriceInpt" type='number'></input>
+            </view>
+            <view class='itembox' style='border:none;padding-bottom:0'>
+                <view class='fontSize-30 color2'>
+                    <textarea 
+                        value='{{message}}' 
+                        bindinput='ontextareaChange' 
+                        placeholder-class='textAreaCtyle' 
+                        placeholder='备注信息：' 
+                        placeholder-style>
+                    </textarea>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='btnBox'>
+         <view class="addBtn" bindtap="addShops">确认添加</view>
+    </view>
+
+</view>

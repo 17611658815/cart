@@ -11,17 +11,17 @@
                 </view>
             </view>
          </view>
-        <view class="headerRight_title">知驾 X级技师</view>
+        <view class="headerRight_title">{{real_name}}-{{level}}</view>
     </view>
     <!-- 功能列表 -->
-    <view class="typeList width100 marginTop20 dpfC bgFFFF">
-        <navigator hover-class='none' url='{{item.path}}' class="width90 dpfb bgFFFF padding30 borderBtm" wx:for='{{typeListArr}}' wx:key='key'>
+    <view class="typeList width100 marginTop20 dpfC bgFFFF {{index == 3 ?'marginBtm':''}}" wx:for='{{typeListArr}}' wx:key='key'>
+        <navigator hover-class='none' url='{{item.path}}' class="width90 dpfb bgFFFF padding30 borderBtm " >
             <view class="typeList_item dpf">
                 <view class="item_icon">
                     <image src="{{item.icon}}"></image>
                 </view>
                 <view>
-                    {{item.name}}
+                    {{item.name}}{{index}}
                 </view>
             </view>
             <view>

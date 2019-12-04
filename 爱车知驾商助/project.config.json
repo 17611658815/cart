@@ -170,6 +170,13 @@
 					"id": -1,
 					"name": "订单列表",
 					"pathName": "pages/orderList/orderList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "技师列表",
+					"pathName": "pages/technicianList/technicianList",
 					"scene": null
 				}
 			]
