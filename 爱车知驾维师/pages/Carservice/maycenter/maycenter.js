@@ -17,7 +17,7 @@ Page({
                 icon: '../../../images/mayList_1.png'
             }
             , {
-                name: '门店列表',
+                name: '历史动态',
                 path: '/pages/shopList/shopList',
                 icon: '../../../images/mayList_1.png'
             }, {
