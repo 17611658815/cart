@@ -41,7 +41,7 @@ Page({
             oldcertification: app.globalData.hasInfo.aptitude_photos || "",
             olddriving: app.globalData.hasInfo.healthy_photos || "",
             avatar: app.globalData.hasInfo.avatar || "",
-            tempImagePath: app.globalData.hasInfo.avatar || "",
+            tempImagePath: app.globalData.hasInfo.avatar || this.data.tempImagePath,
             certification: app.globalData.hasInfo.aptitude_photos || "",
             driving: app.globalData.hasInfo.healthy_photos || "",
             city: app.globalData.city,

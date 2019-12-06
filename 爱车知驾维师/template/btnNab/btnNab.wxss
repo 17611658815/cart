@@ -15,6 +15,7 @@
     height: 96rpx;
     width: 100%;
     border-top: 2rpx solid #ededed;
+    padding-bottom: env(safe-area-inset-bottom);  
 }
 
 .barBtn {

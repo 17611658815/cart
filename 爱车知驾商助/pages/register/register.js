@@ -46,8 +46,10 @@ Page({
                 new_img2: res.data.data.work_photos,
                 new_img3: res.data.data.avatar,
                 goodsName: res.data.data.real_name,
-                text1:(res.data.data.subscribe_message['5Bk34iK5EBCkW1-rDRwepXPdTfL3TgtipfMubCGvv40'] != undefined && res.data.data.subscribe_message['5Bk34iK5EBCkW1-rDRwepXPdTfL3TgtipfMubCGvv40'] == 'accept') ? '已授权':'未授权',
-                text2:(res.data.data.subscribe_message['Fy899cypwva2oUVilULgO7BJp3z7IY4qI8Tkicnus2k'] != undefined && res.data.data.subscribe_message['5Bk34iK5EBCkW1-rDRwepXPdTfL3TgtipfMubCGvv40'] == 'accept') ? '已授权':'未授权',
+                text1:(res.data.data.subscribe_message['5Bk34iK5EBCkW1-rDRwepXPdTfL3TgtipfMubCGvv40'] 
+                != undefined && res.data.data.subscribe_message['5Bk34iK5EBCkW1-rDRwepXPdTfL3TgtipfMubCGvv40'] == 'accept') ? '已授权':'未授权',
+                text2:(res.data.data.subscribe_message['Fy899cypwva2oUVilULgO7BJp3z7IY4qI8Tkicnus2k'] 
+                != undefined && res.data.data.subscribe_message['5Bk34iK5EBCkW1-rDRwepXPdTfL3TgtipfMubCGvv40'] == 'accept') ? '已授权':'未授权',
             })
         })
 
