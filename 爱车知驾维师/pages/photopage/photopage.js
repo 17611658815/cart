@@ -41,7 +41,7 @@ Page({
             oldcertification: app.globalData.hasInfo.aptitude_photos || "",
             olddriving: app.globalData.hasInfo.healthy_photos || "",
             avatar: app.globalData.hasInfo.avatar || "",
-            tempImagePath: app.globalData.hasInfo.avatar || this.data.tempImagePath,
+            tempImagePath: app.globalData.hasInfo.avatar || "",
             certification: app.globalData.hasInfo.aptitude_photos || "",
             driving: app.globalData.hasInfo.healthy_photos || "",
             city: app.globalData.city,
@@ -357,14 +357,13 @@ Page({
     },
     
     camera() {
-        let { ctx, type, startRecord } = this.data;
-        // 拍照
-            console.log("拍照");
-            ctx.takePhoto({
+        let that = this;
+        that.data.cameraContext = wx.createCameraContext()
+        that.data.cameraContext.takePhoto({
                 quality: "normal",
                 success: (res) => {
                     // console.log(res);
-                    this.setData({
+                    that.setData({
                         tempImagePath: res.tempImagePath,
                         camera: false,
                     });

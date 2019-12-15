@@ -20,7 +20,7 @@
             <view class="clackup">点击上传</view>
         </view>
     </view>
-    <view class="vlogBox dpf" >
+    <view class="vlogBox dpf">
         <view class="vlog_border" bindtap="selfie">
               <image class="cover_pic" src='{{tempImagePath}}'></image>
             <image class="left_1" src="../../images/left_1.png"></image>

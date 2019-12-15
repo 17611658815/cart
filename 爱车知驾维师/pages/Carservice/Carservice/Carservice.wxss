@@ -1,6 +1,9 @@
+page{
+    background: #ffffff;
+}
 .swiper{
     width: 100%;
-    height: 200rpx;
+    height: 240rpx;
 }
 swiper-item{
     width: 100%;
@@ -17,6 +20,7 @@ swiper-item{
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    background: #FFF;
 }
 
 .home-navList-item-icon {
@@ -44,15 +48,18 @@ swiper-item{
 }
 
 .home-navList-item-text {
-    margin-top: 20rpx;
 }
 .newsList_title text{
     margin-right: 20rpx;
 }
 .left_logo{
-    width: 280rpx;
+    width: 210rpx;
     height: 130rpx;
     background: #999999;
+}
+.left_logo image{
+    width: 100%;
+    height: 100%;
 }
 .right_nav{
     flex: 1;
@@ -69,10 +76,12 @@ swiper-item{
 .right_nav_item_icon{
     width: 40rpx;
     height:40rpx;
-    background: #999999;
     margin-right: 10rpx;
 }
-
+.right_nav_item_icon image{
+    width: 100%;
+    height: 100%;
+}
 .right_nav_item_button_tag > view{
     border-radius: 90rpx;
     padding: 3rpx 5rpx;
@@ -87,8 +96,8 @@ swiper-item{
 .newlist{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     margin-top: 20rpx;
+    justify-content: space-between;
 }
 .newlist_item{
     width: 24%;

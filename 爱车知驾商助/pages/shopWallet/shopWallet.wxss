@@ -12,7 +12,10 @@
 .loansLogo{
     width: 35rpx;
     height: 35rpx;
-    background: #999999;
+}
+.loansLogo image{
+    width: 100%;
+    height: 100%;
 }
 .rightPic{
     width: 15rpx;

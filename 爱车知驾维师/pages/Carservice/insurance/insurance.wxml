@@ -1,6 +1,6 @@
 <view class="container">
     <view class="headerPic width100">
-        <image src='../../../images/1.jpg'></image>
+        <image src='https://img.dodo.wiki/app/img1.jpg'></image>
     </view>
     <view class="addinsurance dpfC">
         <view class="fontSize-36 fontWeight5">一人生病 大家分摊</view>

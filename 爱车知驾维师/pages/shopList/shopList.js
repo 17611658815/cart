@@ -10,16 +10,21 @@ Page({
         shopList:[],
         status: ['门店待确认','门店已确认','门店已拒绝']
     },
-
     /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
+        * 生命周期函数--监听页面显示
+        */
+    onShow: function () {
         let userInfo = wx.getStorageSync('userinfo');
         this.setData({
             user_id: userInfo.id,
         })
         this.getJishiShop()
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+       
     },
     getJishiShop() {
         let that = this;
@@ -31,7 +36,7 @@ Page({
             console.log(res)
             if(res.data.data.length>0) {
                 that.setData({
-                    shopList: that.data.shopList.concat(res.data.data)
+                    shopList: res.data.data
                 })
             }
         })
@@ -55,12 +60,7 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
+   
 
     /**
      * 生命周期函数--监听页面隐藏

@@ -8,7 +8,6 @@ Page({
         navList: ['首页', '知驾服务'],
         currentTab:1,
         btnNavcurrent:0,
-
     },
 
     /**
@@ -16,6 +15,11 @@ Page({
      */
     onLoad: function (options) {
 
+    },
+    gomessageList() {
+        wx.navigateTo({
+            url: '/pages/messageList/messageList',
+        })
     },
     // 导航tab切换
     goIndex(e) {
@@ -31,6 +35,11 @@ Page({
     gomaycenter() {
         wx.navigateTo({
             url: '/pages/Carservice/maycenter/maycenter',
+        })
+    },
+    goallservice(){
+        wx.navigateTo({
+            url: '/pages/allservice/allservice',
         })
     },
     /**

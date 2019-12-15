@@ -1,5 +1,6 @@
 page{
     background: #f8f8f8;
+    padding-bottom: 100rpx;
 }
 .container {
     width: 100%;

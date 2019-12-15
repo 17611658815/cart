@@ -46,7 +46,7 @@ Page({
             goodsPrice: e.detail.value
         })
     },
-    // 获取地区数据
+    // 获取分类
     getGoodsType() {
         let that = this;
         let params = {
@@ -138,6 +138,7 @@ Page({
                     icon: 'success',
                     duration: 2000,
                     success: function () {
+                       
                         setTimeout(function () {
                             that.setData({
                                 typeName:'',

@@ -9,6 +9,11 @@ Page({
         currentTab: 1,
         btnNavcurrent: 2,
     },
+    gomessageList(){
+        wx.navigateTo({
+            url: '/pages/gomessageList/gomessageList',
+        })
+    },
     // 导航tab切换
     goIndex(e) {
         wx.reLaunch({

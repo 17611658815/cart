@@ -65,4 +65,8 @@ export default class Url {
     static createServiceOrderUrl() {
         return Url.PATH + '/createServiceOrder';
     };
+    // 订单状态
+    static getOrderStatusUrl() {
+        return Url.PATH + '/getOrderStatus';
+    };
 }

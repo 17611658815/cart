@@ -11,8 +11,8 @@
                 <!-- <view class="otherPic">
                     <image mode="scaleToFill" src="{{item.thumb}}" />
                 </view> -->
-                <view class="otherinfo">
-                    <view class="fontSize-30 color1" data-item='{{item}}' bindtap="selectShop">{{item.real_name}}</view>
+                <view class="otherinfo"  data-item='{{item}}' bindtap="selectShop">
+                    <view class="fontSize-30 color1">{{item.real_name}}</view>
                     <view class="fontSize-26 color3">{{item.status == 1 ? "已关联":"未关联"}}</view>
                 </view>
             </view>

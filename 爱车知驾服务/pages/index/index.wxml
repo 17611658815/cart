@@ -14,7 +14,7 @@
                 <!-- <view class="mssage_icon_box">
                     <image src="../../images/mssage_icon.png"></image>
                 </view> -->
-                <view class="scan_box">
+                <view class="scan_box" bindtap="goMessageList">
                      <image src="../../images/mssage_icon.png"></image>
                 </view>
             </view>
@@ -48,7 +48,9 @@
             <view class="server_item marginTop">
                 <view class="server_item_item dpfC" bindtap='swatchTab' data-id="0" id="item-0" data-index="0">
                     <view hover-class='none'>
-                        <view class="server_item_logo"></view>
+                        <view class="server_item_logo">
+                            <image src='../../images/img1.png'></image>
+                        </view>
                         <view class="color3 fontSize-26 marginTop">
                             初级技师
                         </view>
@@ -56,7 +58,9 @@
                 </view>
                 <view class="server_item_item dpfC" bindtap='swatchTab' data-id="1" id="item-1" data-index="1">
                     <view hover-class='none'>
-                        <view class="server_item_logo"></view>
+                        <view class="server_item_logo">
+                            <image src='../../images/img2.png'></image>
+                        </view>
                         <view class="color3 fontSize-26 marginTop">
                             中级技师
                         </view>
@@ -64,7 +68,9 @@
                 </view>
                 <view class="server_item_item dpfC" bindtap='swatchTab' data-id="2" id="item-2" data-index="2">
                     <view hover-class='none' url='{{item.path}}'>
-                        <view class="server_item_logo"></view>
+                        <view class="server_item_logo">
+                            <image src='../../images/img3.png'></image>
+                        </view>
                         <view class="color3 fontSize-26 marginTop">
                         高级技师
                         </view>
@@ -72,7 +78,9 @@
                 </view>
                 <view class="server_item_item dpfC" bindtap='swatchTab' data-id="3" id="item-3" data-index="3">
                     <view hover-class='none' url='{{item.path}}'>
-                        <view class="server_item_logo"></view>
+                         <view class="server_item_logo">
+                            <image src='../../images/img4.png'></image>
+                        </view>
                         <view class="color3 fontSize-26 marginTop">
                         技师维师
                         </view>
@@ -80,7 +88,9 @@
                 </view>
                 <view class="server_item_item dpfC">
                     <view hover-class='none' url='{{item.path}}'>
-                        <view class="server_item_logo"></view>
+                        <view class="server_item_logo">
+                            <image src='../../images/img5.png'></image>
+                        </view>
                         <view class="color3 fontSize-26 marginTop">
                         到家服务
                         </view>
@@ -88,7 +98,9 @@
                 </view>
                  <view class="server_item_item dpfC">
                     <view hover-class='none' url='{{item.path}}'>
-                        <view class="server_item_logo"></view>
+                         <view class="server_item_logo">
+                            <image src='../../images/img6.png'></image>
+                        </view>
                         <view class="color3 fontSize-26 marginTop">
                         来店服务
                         </view>
@@ -96,7 +108,9 @@
                 </view>
                  <view class="server_item_item dpfC">
                     <view hover-class='none' url='{{item.path}}'>
-                        <view class="server_item_logo"></view>
+                        <view class="server_item_logo">
+                            <image src='../../images/img7.png'></image>
+                        </view>
                         <view class="color3 fontSize-26 marginTop">
                         随行服务
                         </view>
@@ -104,7 +118,9 @@
                 </view>
                  <view class="server_item_item dpfC">
                     <navigator hover-class='none' url='/pages/nearby/nearby'>
-                        <view class="server_item_logo"></view>
+                        <view class="server_item_logo">
+                            <image src='../../images/img8.png'></image>
+                        </view>
                         <view class="color3 fontSize-26 marginTop">
                         附近店铺
                         </view>
@@ -112,7 +128,9 @@
                 </view>
                  <view class="server_item_item dpfC">
                     <view hover-class='none' url='{{item.path}}'>
-                        <view class="server_item_logo"></view>
+                        <view class="server_item_logo">
+                            <image src='../../images/img9.png'></image>
+                        </view>
                         <view class="color3 fontSize-26 marginTop">
                         活动推荐
                         </view>
@@ -120,7 +138,9 @@
                 </view>
                  <view class="server_item_item dpfC">
                     <view hover-class='none' url='{{item.path}}'>
-                        <view class="server_item_logo"></view>
+                         <view class="server_item_logo">
+                            <image src='../../images/img10.png'></image>
+                        </view>
                         <view class="color3 fontSize-26 marginTop">
                         车生活
                         </view>
@@ -128,7 +148,9 @@
                 </view>
                 <view class="server_item_item dpfC">
                     <view hover-class='none'>
-                        <view class="server_item_logo"></view>
+                       <view class="server_item_logo">
+                            <image src='../../images/img11.png'></image>
+                        </view>
                         <view class="color3 fontSize-26 marginTop">
                         车朋圈
                         </view>
@@ -136,7 +158,9 @@
                 </view>
                 <view class="server_item_item dpfC">
                     <view hover-class='none'>
-                        <view class="server_item_logo"></view>
+                         <view class="server_item_logo">
+                            <image src='../../images/img12.png'></image>
+                        </view>
                         <view class="color3 fontSize-26 marginTop">
                         周边活动
                         </view>
@@ -239,13 +263,17 @@
                 <view class="width100 dpf borderBtm type1" style="margin-bottom:5rpx;}">
                     <view class="serveType {{serveType == 0 ? 'serverTypeActive':''}}" data-index='0' bindtap="serveType">
                         <view class="color1 fontSize-32">来店</view>
-                        <view class="marginTop serveLogo"></view>
+                        <view class="marginTop serveLogo">
+                             <image src="{{serveType==0 ? '../../images/img18.jpg':'../../images/img19.jpg'}}"></image>
+                        </view>
                         <view class="marginTop fontSize-26">预估
                             <text class="color1 fontSize-36 fontWeight6">{{num1}}</text>元</view>
                     </view>
                     <view class="serveType {{serveType == 1 ? 'serverTypeActive':''}}" data-index='1' bindtap="serveType">
                         <view class="color1 fontSize-32">取车</view>
-                        <view class="marginTop serveLogo"></view>
+                        <view class="marginTop serveLogo">
+                            <image src="{{serveType==1 ? '../../images/img18.jpg':'../../images/img19.jpg'}}"></image>
+                        </view>
                         <view class="marginTop fontSize-26">预估
                             <text class="color1 fontSize-36 fontWeight6">{{num2}}</text>元
                         </view>

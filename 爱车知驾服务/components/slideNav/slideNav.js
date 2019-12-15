@@ -36,7 +36,7 @@ Component({
         }, {
             path: "/pages/mayCarList/mayCarList",
             name: "我的爱车",
-            icon: "../../images/kefu_icon.png"
+                icon: "../../images/img15.png"
         }, {
             path: "/pages/setCenter/setCenter",
             name: "设置",

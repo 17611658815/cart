@@ -19,6 +19,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+   
+}
+.bannerBox image{
+    width: 100rpx;
+    height: 100rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 15rpx;
 }
 .bannerBox>view{
     flex: 1;

@@ -177,6 +177,56 @@
 					"id": -1,
 					"name": "技师列表",
 					"pathName": "pages/technicianList/technicianList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "添加店铺",
+					"pathName": "pages/setAddress/setAddress",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "消息",
+					"pathName": "pages/messageList/messageList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "店铺等级",
+					"pathName": "pages/shopLevel/shopLevel",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "红包列表",
+					"pathName": "pages/redPacketList/redPacketList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 22,
+					"name": "添加红包",
+					"pathName": "pages/AddredPacket/AddredPacket",
+					"query": "type=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "优惠卷列表",
+					"pathName": "pages/couponList/couponList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动列表",
+					"pathName": "pages/activityList/activityList",
+					"query": "type=2",
 					"scene": null
 				}
 			]

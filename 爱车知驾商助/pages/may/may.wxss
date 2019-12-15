@@ -42,7 +42,6 @@
 .item_icon{
     width: 50rpx;
     height: 50rpx;
-    background: #999999;
     margin-right: 30rpx;
 }
 .item_icon image{

@@ -23,7 +23,7 @@
                 wx:key='key'>
             <view class="typeList_item dpf">
                 <view class="item_icon">
-                    <image src="../../images/Image 1.png"></image>
+                    <image src="{{item.icon}}"></image>
                 </view>
                 <view>
                     {{item.name}}
@@ -35,3 +35,4 @@
         </navigator>
     </view>
 </view>
+<bottomNav navbarData="3"></bottomNav>

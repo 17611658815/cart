@@ -39,7 +39,22 @@ Page({
             servetab: options.serveType / 1 + 1,
         })
         console.log(options.level / 1 + 1)
+        this.getAreaId();
         this.showServiceDetail()
+    },
+    // 获取区域id
+    getAreaId() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            name: app.globalData.city
+        }
+        app.net.$Api.getAreaId(params).then((res) => {
+            that.setData({
+                area_id: res.data.id
+            })
+            console.log(res, 199)
+        })
     },
     // 服务详情
     showServiceDetail() {
@@ -47,7 +62,7 @@ Page({
         let params = {
             appid: app.globalData.appid,
             member_id: that.data.member_id,
-            area_id: that.data.area_id,
+            area_id: app.globalData.area,
             id: that.data.serviceId,
             transfer_type: that.data.transfer_type,
             level: that.data.level,
@@ -77,13 +92,17 @@ Page({
             transfer_type: that.data.servetab,
             level: that.data.level,
             car_id: that.data.Carid,
-            goods: that.data.goodsid
+            goods: that.data.goodsid,
+            location: app.globalData.longitude + "," + app.globalData.latitude
+            // app.globalData.longitude = res.longitude;
+            // app.globalData.latitude = res.latitude;
         }
         if (that.data.goodsid.length<4){
             app.alert('请选择服务~')
             return
         }
         app.net.$Api.createServiceOrder(params).then((res) => {
+            app.globalData.order_id = res.data.id
             wx.requestPayment({
                 timeStamp: res.data.timeStamp,
                 nonceStr: res.data.nonceStr,

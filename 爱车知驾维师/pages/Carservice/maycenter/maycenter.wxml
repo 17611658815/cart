@@ -2,7 +2,7 @@
     <view class="headerBox">
         <view class="dpfb">
             <view class="userPic" bindtap="goupPicregister">
-                <image src='{{avatar}}'></image>
+                <image src='{{avatar != "" ? avatar:"../../../images/icon_33.png"}}'></image>
             </view>
             <view class="headerRight">
                 <view class="headerRight_item" wx:for='{{dataList}}'>
@@ -11,7 +11,7 @@
                 </view>
             </view>
          </view>
-        <view class="headerRight_title">{{real_name}}-{{level}}</view>
+        <view wx:if='{{real_name!=""}}' class="headerRight_title">{{real_name}}-{{level}}</view>
     </view>
     <!-- 功能列表 -->
     <view class="typeList width100 dpfC bgFFFF borderBtm {{index == 3 ? 'marginBtm':''}}" wx:for='{{typeListArr}}' wx:key='key'>

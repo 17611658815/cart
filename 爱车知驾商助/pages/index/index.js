@@ -9,6 +9,7 @@ Page({
         order:'',//订单
         trade:'',//交易
         list:'',//帖子
+        msgNum:0,
     },
     onLoad: function() {
         let userInfo = wx.getStorageSync('userinfo') || '';
@@ -57,7 +58,8 @@ Page({
           that.setData({
               goods: res.data.data.goods,
               order: res.data.data.order,
-              trade: res.data.data.trade
+              trade: res.data.data.trade,
+              msgNum: res.data.data.msg,
           })
         })
     },

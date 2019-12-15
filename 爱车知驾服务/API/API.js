@@ -74,5 +74,9 @@ export const api = {
     createServiceOrder: function (paramObj) {
         return Promise.post(Url.default.createServiceOrderUrl(), paramObj);
     },
+    // 获取订单状态
+    getOrderStatus: function (paramObj) {
+        return Promise.post(Url.default.getOrderStatusUrl(), paramObj);
+    },
     
 }

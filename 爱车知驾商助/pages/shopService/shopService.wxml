@@ -5,22 +5,27 @@
     </view>
     <!-- 轮播图部分 -->
     <view class='home-swiper'>
-        <swiper class="swiper" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' indicator-active-color="#ffffff" autoplay="true" circular='true' duration="1000" interval="5000">
-            <swiper-item wx:for='{{3}}' wx:key='key'>
-                <image src="../../images/Image 1.png"></image>
+        <!-- <swiper class="swiper" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' indicator-active-color="#ffffff" autoplay="true" circular='true' duration="1000" interval="5000"> -->
+        <swiper class="swiper" autoplay="true" circular='true' duration="1000" interval="5000">
+            <swiper-item>
+                <image src="../../images/2.jpg"></image>
             </swiper-item>
         </swiper>
     </view>
     <view class="tagBox width90 paddinglr dpfb bgFFFF marginTop">
         <navigator hover-class='none' url='/pages/promotionCenter/promotionCenter' style="padding:0 30rpx;" class="flex_1 dpfb">
             <view class="dpf fontSize-24">
-                <view class="iconBox marginRight"></view> 新商家系列课
+                <view class="iconBox marginRight">
+                 <image src="../../images/icon/icon_37.jpg"></image>
+                </view> 新商家系列课
             </view>
             <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
         </navigator>
         <navigator hover-class='none' url='/pages/shopChunks/shopChunks' style="padding:0 30rpx;border-left:10rpx solid #f8f8f8" class="flex_1 dpfb">
             <view class="dpf fontSize-24">
-                <view class="iconBox marginRight"></view> 日常运营3天俗称
+                <view class="iconBox marginRight">
+                    <image src="../../images/icon/icon_36.jpg"></image>
+                </view> 日常运营3天俗称
             </view>
             <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
         </navigator>
@@ -33,8 +38,11 @@
         </view>
     </view>
     <view class="question_list width90 bgFFFF paddinglr">
-        <view bindtap="swatchTab" data-index='{{index}}' class="question_list_item {{currentTab == index ? 'question_active':''}}" wx:for='{{8}}'>
-            常见问题
+        <view bindtap="swatchTab" data-index='{{index}}' class="question_list_item {{currentTab == index ? 'question_active':''}}" wx:for='{{tabArr}}'>
+            {{item}}
+        </view>
+        <view bindtap="swatchTab" class="question_list_item">
+            更多 >
         </view>
     </view>
     <!-- 功能列表 -->

@@ -1,0 +1,123 @@
+<!--page/order/pages/newAddress/newAddress.wxml-->
+<view class='container bgFFFF' wx:if='{{type == 1}}'>
+    <view class='width100 dpfC marginTop'>
+        <view class='width90'>
+            <view class='itembox dpf'>
+                <input placeholder='单个红包金额' value="{{shopName}}" bindinput="shopNameInpt" type='tetx'></input>
+            </view>
+            <view class='itembox dpf'>
+                <input placeholder='红包个数' value="{{shopPrice}}" bindinput="shopPriceInpt" type='number'></input>
+            </view>
+        </view>
+    </view>
+    <view class='btnBox'>
+        <view class="addBtn" bindtap="addShopActivitie">确认添加</view>
+    </view>
+</view>
+<view class='container bgFFFF' wx:if='{{type == 2}}'>
+    <view class='width100 dpfC marginTop'>
+        <view class='width90'>
+         <view class='itembox dpf'>
+                <view class='text' wx:if="{{zhicheng}}">优惠卷类型：</view>
+                <view class='text' style='color:#666666' wx:if="{{!zhicheng}}">{{referrerarray[index]}}</view>
+                <view>
+                    <picker bindchange="bindPickerChange" value="{{index}}" range="{{referrerarray}}">
+                        <view class="picker">
+                            <image wx:if="{{isshow}}" src='../../images/downArrow.png'></image>
+                            <view class="picker" wx:if="{{!isshow}}">
+                                优惠卷类型：{{referrerarray[index]}}
+                            </view>
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class='itembox dpf' wx:if='{{index!=1}}'>
+                <input placeholder='优惠卷金额' value="{{shopName}}" bindinput="shopNameInpt" type='tetx'></input>
+            </view>
+             <view class='itembox dpf' wx:if='{{index==1}}'>
+                <input placeholder='优惠卷折扣' value="{{shopName}}" bindinput="shopNameInpt" type='tetx'></input>
+            </view>
+            <view class='itembox dpf' wx:if='{{index == 0 || index == 1 || index == 2}}'>
+                <view class='text' wx:if="{{time1Flage}}">生效时间：</view>
+                <view class='text' style='color:#666666' wx:if="{{!time1Flage}}">{{timeName1}}</view>
+                <view>
+                    <picker mode="date" bindchange="bindDateChange">
+                        <view class="picker">
+                            <image wx:if="{{time1isshow}}" src='../../images/downArrow.png'></image>
+                            <view class="picker" wx:if="{{!time1isshow}}">
+                                优惠卷类型：{{timeName1}}
+                            </view>
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class='itembox dpf' wx:if='{{index == 0 || index == 1 || index == 2}}'>
+                <view class='text' wx:if="{{time2Flage}}">失效时间：</view>
+                <view class='text' style='color:#666666' wx:if="{{!time2Flage}}">{{timeName2}}</view>
+                <view>
+                    <picker mode="date" bindchange="bindDateChange2">
+                        <view class="picker">
+                            <image wx:if="{{time2isshow}}" src='../../images/downArrow.png'></image>
+                            <view class="picker" wx:if="{{!time2isshow}}">
+                                优惠卷类型：{{timeName2}}
+                            </view>
+                        </view>
+                    </picker>
+                </view>
+            </view>
+             <view class='itembox dpf' wx:if='{{index == 0 || index == 1}}'>
+                <input placeholder='生效金额' value="{{num1}}" bindinput="num1Inpt" type='number'></input>
+            </view>
+            <view class='itembox dpf'>
+                <input placeholder='优惠卷个数' value="{{shopPrice}}" bindinput="shopPriceInpt" type='number'></input>
+            </view>
+        </view>
+    </view>
+    <view class='btnBox'>
+        <view class="addBtn" bindtap="addShopActiviti2">确认添加</view>
+    </view>
+</view>
+
+<view class='container bgFFFF' wx:if='{{type == 3}}'>
+    <view class='width100 dpfC marginTop'>
+        <view class='width90'>
+            <view class='itembox dpf'>
+                <input placeholder='活动名称' value="{{shopName}}" bindinput="shopNameInpt" type='tetx'></input>
+            </view>
+            <view class='itembox dpf'>
+                <input placeholder='活动人数,0为不限人数' value="{{shopPrice}}" bindinput="shopPriceInpt" type='number'></input>
+            </view>
+            <view class='itembox dpf'>
+                <view class='text' wx:if="{{time1Flage}}">开始时间：</view>
+                <view class='text' style='color:#666666' wx:if="{{!time1Flage}}">{{timeName1}}</view>
+                <view>
+                    <picker mode="date" bindchange="bindDateChange">
+                        <view class="picker">
+                            <image wx:if="{{time1isshow}}" src='../../images/downArrow.png'></image>
+                            <view class="picker" wx:if="{{!time1isshow}}">
+                                优惠卷类型：{{timeName1}}
+                            </view>
+                        </view>
+                    </picker>
+                </view>
+            </view>
+            <view class='itembox dpf'>
+                <view class='text' wx:if="{{time2Flage}}">结束时间：</view>
+                <view class='text' style='color:#666666' wx:if="{{!time2Flage}}">{{timeName2}}</view>
+                <view>
+                    <picker mode="date" bindchange="bindDateChange2">
+                        <view class="picker">
+                            <image wx:if="{{time2isshow}}" src='../../images/downArrow.png'></image>
+                            <view class="picker" wx:if="{{!time2isshow}}">
+                                优惠卷类型：{{timeName2}}
+                            </view>
+                        </view>
+                    </picker>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='btnBox'>
+        <view class="addBtn" bindtap="addShopActivitie3">确认添加</view>
+    </view>
+</view>

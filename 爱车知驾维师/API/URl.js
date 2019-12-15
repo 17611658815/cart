@@ -74,5 +74,17 @@ export default class Url {
     static getJishiShopInfoUrl() {
         return Url.ART + '/getJishiShopInfo';
     };
+    // 消息列表
+    static noticeListUrl() {
+        return Url.ART + '/noticeList';
+    };
+    // 消息详情
+    static noticeInfoUrl() {
+        return Url.ART + '/noticeInfo';
+    };
+    // 消息已读
+    static noticeReadUrl() {
+        return Url.USER + '/noticeRead';
+    }
    
 }

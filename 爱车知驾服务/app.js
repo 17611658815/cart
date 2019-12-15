@@ -28,7 +28,8 @@ App({
         
         userInfo: null,
         isIphoneX:false,
-        appid:'8'
+        appid:'8',
+        order_id:'',
     },
     loading: function (content) {
         wx.showLoading({

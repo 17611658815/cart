@@ -1,7 +1,7 @@
 /* pages/shopSign/shopSign.wxss */
 .headerPic image{
     width: 100%;
-    height: 500rpx;
+    height: 950rpx;
 }
 .applyBtn{
     width: 80%;

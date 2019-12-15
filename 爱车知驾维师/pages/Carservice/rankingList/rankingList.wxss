@@ -31,7 +31,10 @@
 .ranking_num>view:nth-child(1){
     width: 200rpx;
     height: 250rpx;
-    background: #FFA500;
+}
+.ranking_num>view:nth-child(1) image{
+    width: 100%;
+    height: 100%;
 }
 .ranking_num>view:nth-child(2){
     flex: 1;

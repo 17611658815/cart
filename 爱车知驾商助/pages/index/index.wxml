@@ -85,7 +85,7 @@
                 class="flex_1 dpfb">
             <view class="dpf">
                 <view class="iconBox marginRight">
-                    <image src="../../images/Image 1.png"></image>
+                    <image src="../../images/icon/icon_10.jpg"></image>
                 </view> 推广中心
             </view>
             <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
@@ -96,7 +96,7 @@
                 class="flex_1 dpfb">
             <view class="dpf">
                 <view class="iconBox marginRight">
-                <image src="../../images/Image 1.png"></image>
+                <image src="../../images/icon/icon_9.jpg"></image>
                 </view> 商铺进宝
             </view>
             <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
@@ -169,10 +169,11 @@
         <view class="width90 paddinglr dpfC">
             <view class="dpf width100 padding30 borderBtm" wx:for='{{list}}' wx:key='key'>
                 <view class="iconBox marginRight">
-                <image src="../../images/Image 1.png"></image>
+                <image src="../../images/icon/icon_35.jpg"></image>
                 </view>
                 <text class="fontSize-28 color3">{{item.title}}</text>
             </view>
         </view>
     </view>
 </view>
+<bottomNav navbarData="0" msg='{{msgNum}}'></bottomNav>

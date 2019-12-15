@@ -1,7 +1,5 @@
 <template name="Emergency">
-    <view class='shade'  catchtap='selecEmergency' catchtouchmove='ture'>
-
-    </view>
+    <view class='shade'  catchtap='selecEmergency' catchtouchmove='ture'></view>
     <view class="{{isShow ? 'contentShow':'contentHide'}}" catchtouchmove='ture'>
         <view class="fontSize-40 fontWeight5">
             请选择您要维保的城市

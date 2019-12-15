@@ -1,34 +1,117 @@
 // pages/message/message.js
+let app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        isShow:1,
+        member_id:0,
+        goodsNum:0,
         msgArr:[{
             title:'重要通知',
-            icon:'',
+            icon:'../../images/icon/icon_11.jpg',
             path:''
         }, {
             title: '订单通知',
-            icon: '',
+                icon: '../../images/icon/icon_12.jpg',
             path: ''
         }, {
             title: '店铺通知',
-            icon: '',
+                icon: '../../images/icon/icon_13.jpg',
             path: ''
         }, {
             title: '其他通知',
-            icon: '',
+                icon: '../../images/icon/icon_14.jpg',
             path: ''
-        }]
+        }],
+        msgList:[]
     },
+    
+    gomessageList(e){
+        let currentTab = e.currentTarget.dataset.index;
+        if (this.data.goodsNum == 0){
+            return
+        }else{
+            wx.navigateTo({
+                url: '/pages/messageList/messageList?currentTab=' + currentTab,
+            })
+        }
+    },
+    gosetMsg(){
+        wx.navigateTo({
+            url: '/pages/setMsg/setMsg',
+        })
+    },
+    goaddgoods(){
+        wx.navigateTo({
+            url: '/pages/addgoods/addgoods',
+        })
+    },
+    // 获取分类
+    messagePower() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            member_id: that.data.member_id
+        };
+        app.net.$Api.messagePower(params).then((res) => {
+            console.log(res)
+            that.setData({
+                isShow: res.data.power
+            })
 
+        })
+
+    },
+    // 获取分类
+    getShopGoodsNum() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            member_id: that.data.member_id
+        };
+        app.net.$Api.getShopGoodsNum(params).then((res) => {
+            console.log(res)
+            that.setData({
+                goodsNum: res.data.goods_num
+            })
+
+        })
+
+    },
+    noticeList() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            member_id: that.data.member_id,
+            type: 0,
+            page: that.data.page
+        }
+        app.net.$Api.noticeList(params).then((res) => {
+            if (res.data.data.length > 0) {
+                that.setData({
+                    msgList: that.data.msgList.concat(res.data.data)
+                })
+            } else {
+                that.setData({
+                    on_off: true
+                })
+            }
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        let userinfo = wx.getStorageSync('userinfo');
+        this.setData({
+            member_id: userinfo.id,
+        })
+        this.messagePower();
+        this.getShopGoodsNum();
+        this.noticeList()
     },
 
     /**

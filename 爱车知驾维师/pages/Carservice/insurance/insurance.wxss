@@ -4,10 +4,9 @@
     height: 500rpx;
 }
 .addinsurance{
-    width: 80%;
+    width: 92%;
     background: #ffffff;
     padding: 40rpx 0;
-    border-radius: 10rpx;
 }
 .addbtn{
     width: 80%;

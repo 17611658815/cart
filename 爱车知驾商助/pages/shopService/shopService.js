@@ -19,7 +19,8 @@ Page({
             name: '消息中心',
             path: '/pages/Carservice/msgCenter/msgCenter',
             icon: '../../../images/mayList_3.png'
-        }]
+        }],
+        tabArr:['常见问题','日常运营','入驻退店','商品问题','活动咨询','交易流程','客服工具']
     },
     // 导航tab切换
     swatchTab(e) {

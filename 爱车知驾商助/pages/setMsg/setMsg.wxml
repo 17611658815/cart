@@ -1,0 +1,46 @@
+<view>
+    <!-- 功能列表 -->
+    <view class="typeList width100">
+        <navigator hover-class='none' url='/pages/setAddress/setAddress' class="width90 paddinglr dpfb bgFFFF fontSize-28">
+            <view class="typeList_item dpf">
+                <!-- <view class="item_icon">
+                    <image src="../../images/Image 1.png"></image>
+                </view> -->
+                <view>
+                    店铺位置
+                </view>
+            </view>
+            <view>
+                <image class="rightPic" src='../../images/icon/icon_right.png'></image>
+            </view>
+        </navigator>
+        <view class="width90 paddinglr dpfb bgFFFF fontSize-28" style='position: relative;'>
+            <view class="typeList_item dpf">
+                <!-- <view class="item_icon">
+                    <image src="../../images/Image 1.png"></image>
+                </view> -->
+                <view>
+                    授权订单提示
+                </view>
+            </view>
+            <view class="dpf">
+             <text class="color6 marginRight">{{text1}}</text>   <image class="rightPic" src='../../images/icon/icon_right.png'></image>
+            </view>
+             <button class="requestBtn" bindtap="requestMsg1"></button>
+        </view>
+        <view class="width90 paddinglr dpfb bgFFFF fontSize-28" style='position: relative;'>
+            <view class="typeList_item dpf">
+                <!-- <view class="item_icon">
+                    <image src="../../images/Image 1.png"></image>
+                </view> -->
+                <view>
+                    授权支付提示
+                </view>
+            </view>
+            <view class="dpf">
+             <text class="color6 marginRight">{{text2}}</text>   <image class="rightPic" src='../../images/icon/icon_right.png'></image>
+            </view>
+             <button class="requestBtn" bindtap="requestMsg2"></button>
+        </view>
+    </view>
+</view>

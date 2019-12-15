@@ -1,6 +1,6 @@
-<view class="container">
+<view class="container" wx:if='{{jiShiList.length>0}}'>
     <!-- 名片 -->
-    <navigator class='technician_info' hover-class='none' url="" wx:for='{{jiShiList}}'>
+    <navigator class='technician_info' hover-class='none' url="" wx:for='{{jiShiList}}' >
         <view class='technician_info_content width90'>
             <view class='technician_pic'>
                 <image src='{{item.avatar}}'></image>
@@ -24,8 +24,14 @@
             </view>
         </view>
     </navigator>
+     
 </view>
-
+ <view class="width100 dpfC" wx:else>
+            <view class="noList dpfC">
+                <image mode="scaleToFill"  src="../../images/icon/icon_43.jpg" />
+                <view class="fontSize-28 color1 marginTop">暂无关联技师</view>
+            </view>
+        </view>
 <view class="inputBox" wx:if='{{isfocus}}' style="bottom:{{bottom}}px">
         <input class="input"
         value="{{message}}" 

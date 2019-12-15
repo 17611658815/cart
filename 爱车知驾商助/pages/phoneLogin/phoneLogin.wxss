@@ -5,12 +5,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: #ffffff;
 }
 .logoBox{
-    width: 300rpx;
-    height: 200rpx;
+    width: 600rpx;
+    height: 300rpx;
     background: #999999;
     margin-top: 100rpx;
+}
+.logoBox image{
+    width: 100%;
+    height: 100%;
 }
 .inputBox{
     width: 80%;

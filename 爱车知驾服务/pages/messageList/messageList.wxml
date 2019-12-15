@@ -1,0 +1,29 @@
+<view class="container">
+    <!-- 头部导航 -->
+    <view class="navList width90">
+        <view bindtap="swatchTab" 
+            data-index='{{index}}' 
+            class="{{currentTab==index ? 'color1 navActive':'color3'}}" 
+            wx:for='{{navList}}' 
+            wx:key='key'>{{item}}</view>
+    </view>
+    <view class="mssageList">
+        <view class="mssageList_item" wx:for='{{6}}'>
+            <view class="dpfC">
+                <view class="mssageList_item_time">13:03</view>
+                <view class="mssageList_item_content boxShadow">
+                    <view class="fontSize-36 color1 width90">
+                        知驾新手商家成长路线
+                    </view>
+                    <view class="fontSize-28 color2 padding30 width90">
+                        知驾新手商家成长路线知驾新手商
+                        家成长路线知驾新手商家成长路线
+                    </view>
+                    <view class="width90">
+                        <text class="marginRight">查看详情 ></text> 
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

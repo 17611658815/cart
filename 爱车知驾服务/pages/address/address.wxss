@@ -52,7 +52,7 @@ textarea{
     height: 98rpx;
     text-align: center;
     line-height: 98rpx;
-    background: #5994f7;
+    background: #00A5C5;
     color: #fff;
     font-size: 34rpx;
     border-radius: 5rpx;

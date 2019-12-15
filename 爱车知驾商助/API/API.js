@@ -86,6 +86,47 @@ export const api = {
     setShopJishi: function (paramObj) {
         return Promise.post(Url.default.setShopJishiUrl(), paramObj);
     },
+    // 消息通知
+    noticeList: function (paramObj) {
+        return Promise.post(Url.default.noticeListUrl(), paramObj);
+    },
+    // 消息详情
+    noticeInfo: function (paramObj) {
+        return Promise.post(Url.default.noticeInfoUrl(), paramObj);
+    },
+    // 消息已读
+    noticeRead: function (paramObj) {
+        return Promise.post(Url.default.noticeReadUrl(), paramObj);
+    },
+    // 消息订阅状态
+    messagePower: function (paramObj) {
+        return Promise.post(Url.default.messagePowerUrl(), paramObj);
+    },
+    // 获取创建商品数量
+    getShopGoodsNum: function (paramObj) {
+        return Promise.post(Url.default.getShopGoodsNumUrl(), paramObj);
+    },
+    // 红包-优惠卷-活动列表
+    getShopActivitie: function (paramObj) {
+        return Promise.post(Url.default.getShopActivitieUrl(), paramObj);
+    },
+    // 添加-红包-优惠卷-活动列表
+    addShopActivitie: function (paramObj) {
+        return Promise.post(Url.default.addShopActivitieUrl(), paramObj);
+    },
+    // 奖励
+    getShopTaskInfo: function (paramObj) {
+        return Promise.post(Url.default.getShopTaskInfoUrl(), paramObj);
+    },
+    // 领取奖励
+    getShopScore: function (paramObj) {
+        return Promise.post(Url.default.getShopScoreUrl(), paramObj);
+    },
+    // 商品热搜词
+    getSearchWords: function (paramObj) {
+        return Promise.post(Url.default.getSearchWordsUrl(), paramObj);
+    }
+   
 
    
 }

@@ -28,7 +28,8 @@ App({
         userInfo: null,
         isIphoneX: false,
         appid: '10',
-        logistics:''
+        logistics:'',
+        ak:"sQdSTWiqZ5943Yjz8naByOZ1OcpE7d0u"
     },
     loading: function (content) {
         wx.showLoading({

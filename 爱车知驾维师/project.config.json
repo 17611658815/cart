@@ -269,6 +269,41 @@
 					"id": -1,
 					"name": "添加店铺",
 					"pathName": "pages/addShop/addShop",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "消息列表",
+					"pathName": "pages/messageList/messageList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "消息详情",
+					"pathName": "pages/noticeInfo/noticeInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "知驾车服",
+					"pathName": "pages/Carservice/Carservice/Carservice",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "全部服务",
+					"pathName": "pages/allservice/allservice",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "私人工具",
+					"pathName": "pages/Carservice/toolbar/toolbar",
 					"scene": null
 				}
 			]

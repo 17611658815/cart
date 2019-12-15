@@ -78,6 +78,44 @@ export default class Url {
     static setShopJishiUrl() {
         return Url.PATH + '/setShopJishi';
     }
-   
-
+    // 消息通知
+    static noticeListUrl() {
+        return Url.PATH + '/noticeList';
+    }
+    // 消息详情
+    static noticeInfoUrl() {
+        return Url.PATH + '/noticeInfo';
+    }
+    // 消息已读
+    static noticeReadUrl() {
+        return Url.USER + '/noticeRead';
+    }
+    // 消息是否订阅
+    static messagePowerUrl() {
+        return Url.PATH + '/messagePower';
+    }
+    // 获取创建商品数量
+    static getShopGoodsNumUrl() {
+        return Url.PATH + '/getShopGoodsNum';
+    }
+    // 红包-优惠卷-活动列表
+    static getShopActivitieUrl() {
+        return Url.PATH + '/getShopActivitie';
+    }
+    // 添加-红包-优惠卷-活动
+    static addShopActivitieUrl() {
+        return Url.PATH + '/addShopActivitie';
+    }
+    // 奖励
+    static getShopTaskInfoUrl() {
+        return Url.PATH + '/getShopTaskInfo';
+    }
+    // 领取奖励
+    static getShopScoreUrl() {
+        return Url.PATH + '/getShopScore';
+    }
+    // 商品热搜词
+    static getSearchWordsUrl() {
+        return Url.PATH + '/getSearchWords';
+    }
 }

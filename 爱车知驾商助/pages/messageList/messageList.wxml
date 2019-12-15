@@ -7,17 +7,16 @@
             wx:for='{{navList}}' 
             wx:key='key'>{{item}}</view>
     </view>
-    <view class="mssageList">
-        <view class="mssageList_item" wx:for='{{6}}'>
+    <view class="mssageList" wx:if='{{msgList.length>0}}'>
+        <view class="mssageList_item" data-path='{{item.path}}' data-id="{{item.id}}" bindtap="gonoticeInfo" wx:for='{{msgList}}' >
             <view class="dpfC">
-                <view class="mssageList_item_time">13:03</view>
+                <view class="mssageList_item_time">{{item.created}}</view>
                 <view class="mssageList_item_content boxShadow">
                     <view class="fontSize-36 color1 width90">
-                        知驾新手商家成长路线
+                       {{item.title}}
                     </view>
                     <view class="fontSize-28 color2 padding30 width90">
-                        知驾新手商家成长路线知驾新手商
-                        家成长路线知驾新手商家成长路线
+                      {{item.desc}}
                     </view>
                     <view class="width90">
                         <text class="marginRight">查看详情 ></text> 
@@ -26,4 +25,10 @@
             </view>
         </view>
     </view>
+    <view class="width100 dpfC" wx:else>
+            <view class="noList dpfC">
+                <image mode="scaleToFill"  src="../../images/icon/icon_43.jpg" />
+                <view class="fontSize-28 color1 marginTop">暂无相关消息</view>
+            </view>
+        </view>
 </view>

@@ -85,6 +85,18 @@ export const api = {
     // 回显店铺信息
     getJishiShopInfo: function (paramObj){
         return Promise.post(Url.default.getJishiShopInfoUrl(), paramObj);
-    }
+    },
+    // 消息列表
+    noticeList: function (paramObj){
+        return Promise.post(Url.default.noticeListUrl(), paramObj);
+    },
+    // 消息详情
+    noticeInfo: function (paramObj){
+        return Promise.post(Url.default.noticeInfoUrl(), paramObj);
+    },
+    // 消息已读
+    noticeRead: function (paramObj) {
+        return Promise.post(Url.default.noticeReadUrl(), paramObj);
+    },
     
 }

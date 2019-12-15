@@ -1,6 +1,6 @@
 <view class="container bgFFFF">
     <view class="headerPic width100">
-        <image mode="aspectFill" src="../../images/17.png"></image>
+        <image mode="aspectFill" src="../../images/icon9.jpg"></image>
     </view>
     <view class="applyBtn">
         申请成为知驾商助店铺

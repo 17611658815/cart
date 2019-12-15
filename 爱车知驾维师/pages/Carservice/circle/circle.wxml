@@ -5,12 +5,20 @@
             <view bindtap="goIndex" data-index='{{index}}' class="{{currentTab==0 ? 'color4 navActive':'color4'}}">首页</view>
             <view data-index='{{index}}' class="{{currentTab==1 ? 'color4 navActive':'color4'}}">知驾车服</view>
         </view>
-        <image class="mag_pic" src="../../../images/1.png"></image>
+        <image bindtap="gomessageList" class="mag_pic" src="../../../images/1.png"></image>
     </view>
     <view class="circle_Nav width90 dpf">
-        <view class="circle_Nav_item" wx:for='{{circle_Nav}}'>
-            <image src="../../../images/1.jpg"></image>
-            <view class="marginTop10">{{item.name}}</view>
+        <view class="circle_Nav_item">
+            <image src="../../../images/icon_27.png"></image>
+            <view class="marginTop10">我的</view>
+        </view>
+        <view class="circle_Nav_item">
+            <image src="../../../images/icon_28.png"></image>
+            <view class="marginTop10">排行榜</view>
+        </view>
+        <view class="circle_Nav_item">
+            <image src="../../../images/icon_29.png"></image>
+            <view class="marginTop10">技能证书</view>
         </view>
     </view>
     <view class="circle_Tab">
@@ -21,7 +29,7 @@
     <view class="circle_content" wx:for='{{5}}'>
         <view class="width100 dpfb">
             <view class="dpf">
-                <image class="userPic" src="../../../images/1.jpg"></image>
+                <image class="userPic" src="../../../images/aicheLogo.png"></image>
                 <text class="fontSize-26 color3">知驾车服</text>
             </view>
             <view class="fontSize-26 color3">07-15</view>
@@ -30,21 +38,21 @@
             <view class="cover_title">
                 勇者无畏！知驾维工在事故现场孤战一线
             </view>
-           <image class="cover_Image" src="../../../images/1.jpg"></image>
+           <image class="cover_Image" src="../../../images/icon2.jpg"></image>
         </view>
         <view class="dpfb" >
             <view class="fontSize-26 color3">#今日话题</view>
             <view class="rightIconBob">
                 <view>
-                    <image class="circle_content_icon" src="../../../images/1.jpg"></image>
+                    <image class="circle_content_icon" src="../../../images/icon_30.png"></image>
                     <text>14千</text>
                 </view>
                 <view>
-                    <image class="circle_content_icon" src="../../../images/1.jpg"></image>
+                     <image class="circle_content_icon" src="../../../images/icon_31.png"></image>
                     <text>456</text>
                 </view>
                 <view>
-                    <image class="circle_content_icon" src="../../../images/1.jpg"></image>
+                     <image class="circle_content_icon" src="../../../images/icon_32.png"></image>
                     <text>48</text>
                 </view>
             </view>

@@ -13,6 +13,11 @@ Page({
         circleTabNum:0,//内容切换
 
     },
+    gomessageList() {
+        wx.navigateTo({
+            url: '/pages/messageList/messageList',
+        })
+    },
     // 导航tab切换
     goIndex(e) {
         wx.reLaunch({

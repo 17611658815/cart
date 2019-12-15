@@ -10,6 +10,11 @@ Component({
             value: {},
             observer: function(newVal, oldVal) {}
         },
+        msg: { 
+            type: Number,
+            value: {},
+            observer: function (newVal, oldVal) { }
+        },
     },
 
     /**
@@ -17,28 +22,28 @@ Component({
      */
     data: {
         tabArr: [{
-            "pagePath": "pages/index/index",
+            "pagePath": "/pages/index/index",
             "text": "主页",
-            "iconPath": "images/tabber/home_select_2.png",
-            "selectedIconPath": "images/tabber/home_select_1.png"
+            "iconPath": "../../images/tabber/home_select_2.png",
+            "selectedIconPath": "../../images/tabber/home_select_1.png"
         },
         {
-            "pagePath": "pages/message/message",
+            "pagePath": "/pages/message/message",
             "text": "消息",
-            "iconPath": "images/tabber/msg_select_2.png",
-            "selectedIconPath": "images/tabber/msg_select_1.png"
+            "iconPath": "../../images/tabber/msg_select_2.png",
+            "selectedIconPath": "../../images/tabber/msg_select_1.png"
         },
         {
-            "pagePath": "pages/tool/tool",
+            "pagePath": "/pages/tool/tool",
             "text": "工具",
-            "iconPath": "images/tabber/type_select_2.png",
-            "selectedIconPath": "images/tabber/type_select_1.png"
+            "iconPath": "../../images/tabber/type_select_2.png",
+            "selectedIconPath": "../../images/tabber/type_select_1.png"
         },
         {
-            "pagePath": "pages/may/may",
+            "pagePath": "/pages/may/may",
             "text": "我的",
-            "iconPath": "images/tabber/may_select_2.png",
-            "selectedIconPath": "images/tabber/may_select_1.png"
+            "iconPath": "../../images/tabber/may_select_2.png",
+            "selectedIconPath": "../../images/tabber/may_select_1.png"
         }],
         isIphoneX: false,
         currenTab: app.globalData.currenTab,

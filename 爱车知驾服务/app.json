@@ -29,7 +29,8 @@
         "pages/addCarCode/addCarCode",
         "pages/mayCarList/mayCarList",
         "pages/serviceOtherDetaile/serviceOtherDetaile",
-        "pages/join/join"
+        "pages/join/join",
+        "pages/messageList/messageList"
     ],
     "window": {
         "backgroundTextStyle": "light",

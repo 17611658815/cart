@@ -87,7 +87,7 @@ page {
     color: #fff;
     font-size: 32rpx;
     border-radius: 50rpx;
-    background: #E43C54;
+    background: #00A5C5;
 }
 .purchase_text{
     white-space : nowrap ;

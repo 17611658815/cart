@@ -43,6 +43,10 @@ swiper-item {
     height: 50rpx;
     background: #999999;
 }
+.iconBox image{
+    width: 100%;
+    height: 100%;
+}
 .tagBox>view{
     height: 100%;
 }
@@ -76,7 +80,7 @@ swiper-item {
     width: 17%;
     padding: 15rpx 20rpx;
     /* border: 1rpx solid #1694EC; */
-    border: 2rpx solid #333333;
+    border: 2rpx solid #E1E1E1;
     font-size: 26rpx;
     text-align: center;
 }

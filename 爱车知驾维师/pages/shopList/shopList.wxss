@@ -96,7 +96,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #f8f8f8f8;
+    background: #ffffff;
 }
 .fastTitle {
     font-size: 27rpx;

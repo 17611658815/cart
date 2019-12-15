@@ -1,0 +1,11 @@
+<view class="container">
+    <view class="fontSize-36 color1">
+        {{msg.title}}
+    </view>
+    <view class="fontSize-26 color2">
+     {{msg.created}}
+    </view>
+    <view class="fontSize-32 color1">
+       {{msg.desc}}
+    </view>
+</view>

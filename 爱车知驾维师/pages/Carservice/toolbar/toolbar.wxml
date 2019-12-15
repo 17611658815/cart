@@ -5,24 +5,26 @@
             <view bindtap="goIndex" data-index='{{index}}' class="{{currentTab==0 ? 'color4 navActive':'color4'}}">首页</view>
             <view data-index='{{index}}' class="{{currentTab==1 ? 'color4 navActive':'color4'}}">知驾车服</view>
         </view>
-        <image class="mag_pic" src="../../../images/1.png"></image>
+        <image bindtap="gomessageList" class="mag_pic" src="../../../images/1.png"></image>
     </view>
     <view class="header_box">
         <image mode="aspectFill" src="../../../images/1.jpg"></image>
     </view>
     <view class="bannerBox">
-        <view class="boxShadow">
+        <view class="boxShadow" style=" position: relative">
             <view>多装多转</view>
             <view>免费加盟试驾</view>
+            <image src="../../../images/icon_42.png"></image>
         </view>
-        <view class="marginLeft boxShadow">
+        <view class="marginLeft boxShadow" style=" position: relative">
              <view>高价卖车</view>
             <view>无中间商赚差价</view>
+            <image src="../../../images/icon_43.png"></image>
         </view>
     </view>
     <view class="width90 otherentrance paddinglr dpfb bgFFFF" bindtap="goOtherList">
         <view class="dpf">
-             <image style='width:70rpx;height:70rpx' class="marginRight" mode="aspectFill" src="../../../images/1.jpg"></image>
+             <image style='width:70rpx;height:70rpx' class="marginRight" mode="aspectFill" src="../../../images/icon_44.png"></image>
              <text>订单服务</text>
         </view>
           <image class="rightPic" src='../../../images/icon_right.png'></image>
@@ -31,12 +33,54 @@
         便携工具
     </view>
     <view class="toolbar-list">
-        <view class="toolbar-list-item" wx:for='{{8}}'>
+        <view class="toolbar-list-item">
             <view>
-                <image src="../../../images/1.jpg"></image>
+                <image src="../../../images/icon_45.png"></image>
             </view>
             <view>维师操课</view>
         </view>
+        <view class="toolbar-list-item">
+            <view>
+                <image src="../../../images/icon_46.png"></image>
+            </view>
+            <view>卡卷包</view>
+        </view>
+        <view class="toolbar-list-item">
+            <view>
+                <image src="../../../images/icon_47.png"></image>
+            </view>
+            <view>机分兑换</view>
+        </view>
+        <view class="toolbar-list-item">
+            <view>
+                <image src="../../../images/icon_48.png"></image>
+            </view>
+            <view>知驾医保</view>
+        </view>
+        <view class="toolbar-list-item">
+            <view>
+                <image src="../../../images/icon_49.png"></image>
+            </view>
+            <view>推荐有奖</view>
+        </view>
+        <view class="toolbar-list-item">
+            <view>
+                <image src="../../../images/icon_50.png"></image>
+            </view>
+            <view>平凡之路</view>
+        </view>
+        <view class="toolbar-list-item">
+            <view>
+                <image src="../../../images/icon_51.png"></image>
+            </view>
+            <view>工具商城</view>
+        </view>
+        <navigator hover-class="none" url="/pages/Carservice/insurance/insurance" class="toolbar-list-item">
+            <view>
+                <image src="../../../images/icon_52.png"></image>
+            </view>
+            <view>知驾互助</view>
+        </navigator>
     </view>
 </view>
 

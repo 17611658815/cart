@@ -1,7 +1,9 @@
 <view class="container">
     <view class="loansNum">
         <view class="dpf color1 fontSize-32">
-            <view class="loansLogo"></view>
+            <view class="loansLogo">
+                <image src="../../images/icon/icon_34.jpg"></image>
+            </view>
             <view class="marginLeft">贷款总额</view>
             <image class="rightPic marginLeft" src='../../images/icon/icon_right.png'></image>
         </view>

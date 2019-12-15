@@ -4,14 +4,32 @@
         <view bindtap="swatchTab" data-index='1' class="{{currentTab == 1 ? 'toptab_active':''}}">关注</view>
     </view>
     <view class="headerImg">
-        <image src="../../images/1.png"></image>
+        <image src="../../images/3.jpg"></image>
     </view>
      <view class="toolbar-list">
-        <view class="toolbar-list-item" wx:for='{{4}}'>
+        <view class="toolbar-list-item">
             <view>
-                <image src="../../images/1.png"></image>
+                <image src="../../images/icon/icon_38.jpg"></image>
             </view>
             <view>维师操课</view>
+        </view>
+        <view class="toolbar-list-item">
+            <view>
+                <image src="../../images/icon/icon_39.jpg"></image>
+            </view>
+            <view>一周热帖</view>
+        </view>
+        <view class="toolbar-list-item">
+            <view>
+                <image src="../../images/icon/icon_40.jpg"></image>
+            </view>
+            <view>经营干货</view>
+        </view>
+        <view class="toolbar-list-item">
+            <view>
+                <image src="../../images/icon/icon_41.jpg"></image>
+            </view>
+            <view>社区达人</view>
         </view>
     </view>
     <view class="contentList width100 dpfC">
@@ -53,4 +71,8 @@
              </view>
         </view>
     </view>
+</view>
+
+<view class="icon_42Box">
+    <image src='../../images/icon/icon_42.jpg'></image>
 </view>

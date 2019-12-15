@@ -1,6 +1,6 @@
 <view class="container">
     <view class="headerpic width100">
-        <image mode="aspectFill" src="../../images/1.jpg"></image>
+        <image mode="aspectFill" src="../../images/icon1.jpg"></image>
     </view>
     <view class="serverList boxShadow" wx:for='{{6}}'>
         <view class="fontSize-36 fontWeight5">成为网约维师</view>

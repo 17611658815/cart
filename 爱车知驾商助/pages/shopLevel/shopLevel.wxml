@@ -1,0 +1,116 @@
+<view class="container">
+    <image class="headerImg" src="../../images/6.jpg"></image>
+    <view class="listBox width100">
+        <view class="listBox_item" >
+            <view class="listBox_item_left">
+                <image src="../../images/7.jpg"></image>
+            </view>
+            <view class="listBox_item_center">
+                <view class="color1">发红包</view>
+                <view class="fontSize-24 color2">每发一次红包领取特权</view>
+            </view>
+            <view bindtap="goredPacketList" class="listBox_item_right" wx:if="{{!statusData[1] || statusData[1].status == 1}}">
+                去领取
+            </view>
+            <view bindtap="getShopScore" data-type='1' class="listBox_item_right" wx:elif="{{statusData[1] && statusData[1].status == 0}}">
+                领取
+            </view>
+        </view>
+        <view class="listBox_item" >
+            <view class="listBox_item_left">
+                <image src="../../images/7.jpg"></image>
+            </view>
+            <view class="listBox_item_center">
+                <view class="color1">发优惠卷</view>
+                <view class="fontSize-24 color2">发优惠卷后领取奖分</view>
+            </view>
+            <view bindtap="gocouponList" class="listBox_item_right" wx:if="{{!statusData[2] || statusData[2].status == 1}}">
+                去领取
+            </view>
+            <view bindtap="getShopScore" data-type='2' class="listBox_item_right" wx:elif="{{statusData[2] && statusData[2].status == 0}}">
+                领取
+            </view>
+        </view>
+        <view class="listBox_item" >
+            <view class="listBox_item_left">
+                <image src="../../images/7.jpg"></image>
+            </view>
+            <view class="listBox_item_center">
+                <view class="color1">发起活动</view>
+                <view class="fontSize-24 color2">发起活动后领取奖分</view>
+            </view>
+            <view bindtap="goactivityList" class="listBox_item_right" wx:if="{{!statusData[3] || statusData[3].status == 1}}">
+                去领取
+            </view>
+            <view bindtap="getShopScore" data-type='3' class="listBox_item_right" wx:elif="{{statusData[3] && statusData[3].status == 0}}">
+                领取
+            </view>
+        </view>
+        <view class="listBox_item">
+            <view class="listBox_item_left">
+                <image src="../../images/7.jpg"></image>
+            </view>
+            <view class="listBox_item_center">
+                <view class="color1">注册用户</view>
+                <view class="fontSize-24 color2">新用户注册后领取奖分</view>
+            </view>
+            <view bindtap="getShopScore" data-type='4' class="listBox_item_right" wx:if="{{statusData[4] && statusData[4].status == 0}}">
+                领取
+            </view>
+            <view class="listBox_item_right_2" wx:else>
+                已领取
+            </view>
+        </view>
+        <view class="listBox_item">
+            <view class="listBox_item_left">
+                <image src="../../images/7.jpg"></image>
+            </view>
+            <view class="listBox_item_center">
+                <view class="color1">用户好评</view>
+                <view class="fontSize-24 color2">新用好评后领取奖分</view>
+            </view>
+            <view bindtap="getShopScore" data-type='5' class="listBox_item_right" wx:if="{{statusData[5] && statusData[5].status == 0}}">
+                领取
+            </view>
+            <!-- <view class="listBox_item_right_2" wx:else>
+                    已领取
+                </view> -->
+        </view>
+    </view>
+    <view class="width90 paddinglr">
+        商家社区 {{num}}/2
+    </view>
+    <view class="listBox width100">
+        <view class="listBox_item">
+            <view class="listBox_item_left">
+                <image src="../../images/7.jpg"></image>
+            </view>
+            <view class="listBox_item_center">
+                <view class="color1">天天向上</view>
+                <view class="fontSize-24 color2">社区天天向上头像1天使用权</view>
+            </view>
+            <view class="listBox_item_right" wx:if="{{!statusData[6] || statusData[6].status == 1}}">
+                去领取
+            </view>
+            <view bindtap="getShopScore" data-type='6' class="listBox_item_right" wx:elif="{{statusData[6] && statusData[6].status == 0}}">
+                领取
+            </view>
+        </view>
+        <view class="listBox_item">
+            <view class="listBox_item_left">
+                <image src="../../images/7.jpg"></image>
+            </view>
+            <view class="listBox_item_center">
+                <view class="color1">发帖达人</view>
+                <view class="fontSize-24 color2">社区连续七天发帖</view>
+            </view>
+            <view class="listBox_item_right" wx:if="{{!statusData[7] || statusData[7].status == 1}}">
+                去领取
+            </view>
+            <view bindtap="getShopScore" data-type='7' class="listBox_item_right" wx:elif="{{statusData[7] && statusData[7].status == 0}}">
+                领取
+            </view>
+        </view>
+    </view>
+
+</view>

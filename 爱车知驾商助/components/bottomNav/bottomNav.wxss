@@ -11,6 +11,8 @@
     justify-content: space-around;
     z-index: 99999;
     font-size: 22rpx;
+    padding-bottom: env(safe-area-inset-bottom);
+    
 }
 .bottomNav{
     width: 100%;
@@ -30,4 +32,17 @@
 }
 .actives{
     color: #000000;
+}
+.numMsg{
+    width: 20rpx;
+    height: 20rpx;
+    background: #FC252B;
+    position: absolute;
+    right: -5rpx;
+    top: -3rpx;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20rpx;
+    font-size: 15rpx;
+    color: #ffffff;
 }

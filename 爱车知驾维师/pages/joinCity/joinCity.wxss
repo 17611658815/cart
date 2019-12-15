@@ -65,3 +65,7 @@ page{
     height: 60rpx;
     background: #093;
 }
+.layout_box_2_icon image{
+    width: 100%;
+    height: 100%;
+}

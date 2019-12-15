@@ -60,7 +60,7 @@ Page({
             wx.setStorageSync("userinfo", res.data);
             wx.hideLoading();
             wx.reLaunch({
-                url: '/pages/index/index',
+                url: '/pages/phoneLogin/phoneLogin',
             })
         })
     },

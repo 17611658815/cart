@@ -50,7 +50,7 @@ Page({
             wx.hideLoading()
         })
     },
-    getJishiShop(){
+    getJishiShop() {
         let that = this;
         let params = {
             appid: app.globalData.appid,

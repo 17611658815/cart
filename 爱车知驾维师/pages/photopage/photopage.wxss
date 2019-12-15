@@ -26,19 +26,9 @@ page{
     height: 200rpx;
 }
 
-
-.addBtn{
-    width: 700rpx;
-    height: 90rpx;
-    margin-top: 100rpx;
-    color: #ffffff;
-    text-align: center;
-    line-height: 90rpx;
-    border-radius: 20rpx;
-    background-image: linear-gradient(#F9903F, #F35235);
-}
 .vlogBox{
     width: 80%;
+    margin-top: 50rpx;
 }
 
 .vlog_border{
@@ -190,7 +180,6 @@ button{
     line-height: 90rpx;
     border-radius: 20rpx;
     background-image: linear-gradient(#F9903F, #F35235);
-
 }
 
 .itemPic{

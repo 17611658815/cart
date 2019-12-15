@@ -156,6 +156,9 @@ Page({
         if (options.id){
             that.showService()
         }
+        // if(app.globalData.order_id!=""){
+        //     that.getOrderStatus()
+        // }
         that.getLocationMsg();
         that.getAreaId()
         console.log(userinfo)
@@ -181,6 +184,18 @@ Page({
                 serviceId: service.service.id
             })
             console.log(that.data.service)
+        })
+    },
+    // 获取订单状态
+    getOrderStatus(){
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            id: app.globalData.order_id
+        }
+        app.net.$Api.getOrderStatus(params).then((res) => {
+           
+            console.log(res)
         })
     },
     // 判断是否有车
@@ -223,10 +238,10 @@ Page({
         let markers = that.data.markers;
         let params = {
             appid: app.globalData.appid,
-            // lat: that.data.latitude,
-            // lng: that.data.longitude,
-            lat: '39.905277252197266',
-            lng: '116.51362609863281',
+            lat: that.data.latitude,
+            lng: that.data.longitude,
+            // lat: '39.905277252197266',
+            // lng: '116.51362609863281',
             level: that.data.currentTab+1
         }
         app.net.$Api.getShopListByLocation(params).then((res) => {
@@ -537,7 +552,11 @@ Page({
             }
         })
     },
-   
+    goMessageList(){
+        wx.navigateTo({
+            url: '/pages/messageList/messageList',
+        })
+    },
     // 急救中心
     selecEmergency(){
         this.setData({

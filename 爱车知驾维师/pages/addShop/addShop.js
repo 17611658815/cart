@@ -117,9 +117,9 @@ Page({
                                 shopPrice: '',
                                 message: '',
                             })
-                            wx.navigateTo({
-                                url: '/pages/shopList/shopList',
-                            })
+                          wx.navigateBack({
+                              delta:1
+                          })
                         }, 2000)
                     }
                 })

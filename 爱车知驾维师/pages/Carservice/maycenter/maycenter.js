@@ -10,11 +10,11 @@ Page({
         typeListArr: [{
                 name: '订单列表',
                 path: '/pages/otherList/otherList',
-                icon: '../../../images/mayList_1.png'
+            icon: '../../../images/icon_37.png'
             }, {
                 name: '门店列表',
                 path: '/pages/shopList/shopList',
-                icon: '../../../images/mayList_1.png'
+                icon: '../../../images/icon_39.png'
             }
             , {
                 name: '历史动态',
@@ -23,7 +23,7 @@ Page({
             }, {
                 name: '接单设置',
                 path: '',
-                icon: '../../../images/mayList_1.png'
+                icon: '../../../images/icon_40.png'
             },
             {
                 name: '同城排行',
@@ -37,20 +37,38 @@ Page({
         ],
         avatar: '',
         real_name: "",
-        level: ''
+        level: '',
+        userid:0,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        let userInfo = wx.getStorageSync('userinfo') || {};
         this.setData({
-            avatar: app.globalData.hasInfo.avatar || "",
-            real_name: app.globalData.hasInfo.real_name || "",
-            level: app.globalData.hasInfo.level || "",
+            userid: userInfo.id,
+          
+        })
+        this.getUserInfo()
+    },
+    getUserInfo() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            userid: that.data.userid,
+        }
+        app.net.$Api.getUserInfo(params).then((res) => {
+            console.log(res, 38)
+         
+            that.setData({
+                avatar: res.data.user.avatar,
+                real_name: res.data.user.real_name || "",
+                level: res.data.user.level || "",
+            })
+            console.log(that.data.avatar)
         })
     },
-
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

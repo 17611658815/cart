@@ -13,10 +13,11 @@ Page({
         address: "",//当前位置
         longitude: 0,
         latitude: 0,
+        hasInfoNum:0
 
     },
     onLoad: function () {
-        let userInfo = wx.getStorageSync('userinfo');
+        let userInfo = wx.getStorageSync('userinfo') || {};
         this.setData({
             userid: userInfo.id,
             userInfo: userInfo
@@ -61,7 +62,8 @@ Page({
             app.globalData.hasInfo = res.data.user;
             app.globalData.num = res.data.hasInfo
             that.setData({
-                hasInfo: res.data.hasInfo
+                hasInfo: res.data.hasInfo,
+                hasInfoNum: res.data.hasInfo
             })
         })
     },
@@ -78,14 +80,26 @@ Page({
         })
     },
     gomaycenter() {
-        wx.navigateTo({
-            url: '/pages/Carservice/maycenter/maycenter',
-        })
+        if (this.data.hasInfoNum == 0){
+            wx.navigateTo({
+                url: '/pages/photopage/photopage',
+            })
+        }else{
+            wx.navigateTo({
+                url: '/pages/Carservice/maycenter/maycenter',
+            })
+        }
+       
     },
     // 立即注册
     gosign(){
         wx.navigateTo({
             url: '/pages/photopage/photopage',
+        })
+    },
+    gomessageList(){
+        wx.navigateTo({
+            url: '/pages/messageList/messageList',
         })
     },
   //事件处理函数

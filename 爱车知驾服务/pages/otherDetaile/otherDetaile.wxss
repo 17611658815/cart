@@ -198,7 +198,7 @@
     text-align: center;
     line-height: 60rpx;
     font-size: 28rpx;
-    color: #5994f7;
+    color: #00A4C5;
     border: 2rpx solid #5994f7;
     border-radius: 6rpx;
     position: relative;

@@ -9,35 +9,35 @@ Page({
         member_id:0,
         typeListArr:[{
             name:'店铺等级',
-            path:'',
-            icon:''
+            path:'/pages/shopLevel/shopLevel',
+            icon: '../../images/icon/icon_16.jpg'
         },
-            {
-                name: '账户资金',
-                path: '/pages/shopWallet/shopWallet',
-                icon: ''
-            }, {
-                name: '舍友圈',
-                path: '',
-                icon: ''
-            }, {
-                name: '维修技师',
-                path: '/pages/technicianList/technicianList',
-                icon: ''
-            }, {
-                name: '商家服务',
-                path: '',
-                icon: ''
-            }, {
-                name: '车辆服务',
-                path: '',
-                icon: ''
-            }, {
-                name: '设置',
-                path: '',
-                icon: ''
-            }],
-            name:'',
+        {
+            name: '账户资金',
+            path: '/pages/shopWallet/shopWallet',
+            icon: '../../images/icon/icon_17.jpg'
+        }, {
+            name: '舍友圈',
+            path: '/pages/community/community',
+            icon: '../../images/icon/icon_18.jpg'
+        }, {
+            name: '维修技师',
+            path: '/pages/technicianList/technicianList',
+            icon: '../../images/icon/icon_19.jpg'
+        },{
+            name: '车辆服务',
+            path: '',
+            icon: '../../images/icon/icon_20.jpg'
+        }, {
+            name: '系统消息',
+            path: '/pages/messageList/messageList',
+            icon: '../../images/icon/icon_23.png'
+        }, {
+            name: '设置',
+            path: '/pages/setMsg/setMsg',
+            icon: '../../images/icon/icon_22.jpg'
+        }],
+        name:'',
         statusOb: ["资质未提交审核未", "店铺营业中", "店铺已下架", "店铺暂停接单"] ,
         status:0,
     },
@@ -66,6 +66,7 @@ Page({
         }
         app.net.$Api.getShopInfo(params).then((res) => {
             console.log(res)
+            app.globalData.shopInfo = res.data.data
             if (res.data.data.aptitude_photos == "" || res.data.data.work_photos == ""){
                 wx.navigateTo({
                     url: '/pages/register/register',

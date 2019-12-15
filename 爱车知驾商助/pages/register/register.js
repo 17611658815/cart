@@ -102,6 +102,9 @@ Page({
     },
     upImgs: function (imgurl, index, type) {
         var that = this;
+        wx.showLoading({
+            title: '上传中..',
+        })
         wx.uploadFile({
             url: 'https://api.dodo.wiki/appInterface/artificer/upImgFile',
             filePath: imgurl,
@@ -114,8 +117,8 @@ Page({
 
             },
             success: function (res) {
-                var data = JSON.parse(res.data)
-                console.log(data)
+                var data = JSON.parse(res.data);
+              
                 if (type == 1) {
                     that.setData({
                         new_img1: data.url
@@ -129,6 +132,7 @@ Page({
                         new_img3: data.url
                     })
                 }
+                wx.hideLoading()
                 console.log(that.data.new_img1, that.data.new_img2)
             }
         })

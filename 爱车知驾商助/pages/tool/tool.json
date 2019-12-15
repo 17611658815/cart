@@ -1,4 +1,6 @@
 {
     "navigationBarTitleText": "工具",
-    "usingComponents": {}
+    "usingComponents": {
+        "bottomNav": "../../components/bottomNav/bottomNav"
+    }
 }

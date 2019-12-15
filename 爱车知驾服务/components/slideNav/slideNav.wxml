@@ -14,18 +14,18 @@
     </view>
     <view wx:if='{{slideNav}}' class="bottomContent dpfC">
         <view class="recommend dpf">
-            <view class="dpfC">
-               <image src='../../images/user_icon.png'></image>
+             <navigator url='/pages/recommend/recommend' hover-class='none' class="dpfC">
+               <image src='../../images/img17.png'></image>
                 推荐有奖
-            </view>
-           <view class="dpfC">
+            </navigator>
+          <navigator url='/pages/join/join' hover-class='none' class="dpfC">
                <image src='../../images/user_icon.png'></image>
-                推荐有奖
-            </view>
-         <view class="dpfC">
-               <image src='../../images/user_icon.png'></image>
-                推荐有奖
-            </view>
+                维师招募
+            </navigator>
+          <navigator url='/pages/shopLogin/shopLogin' hover-class='none' class="dpfC">
+               <image src='../../images/img16.png'></image>
+                店铺开设
+           </navigator>
         </view>
         <view class="clause">
             法律条款与平台规则 <image src="../../images/right2_icon.png"></image>

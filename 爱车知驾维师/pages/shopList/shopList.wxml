@@ -1,9 +1,9 @@
-
-<view class="container" wx:if='{{shopList.length>0}}'>
-    <view class="fastTitleBoxs">
+<view class="fastTitleBoxs">
         <text class="fastTitle">添加关联门店</text>
         <text class="fastBtn" style="margin-left:10rpx;" bindtap="goAddshop">添加</text>
     </view>
+<view class="container" wx:if='{{shopList.length>0}}'>
+    
     <!-- 名片 -->
     <view class='technician_info' wx:for='{{shopList}}'>
         <view class='technician_info_content width90'>

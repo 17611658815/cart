@@ -2,7 +2,7 @@
      <!-- 功能列表 -->
     <view class="typeList width100 dpfC bgFFFF {{index == 0 ?'borderBtom20':''}}"  wx:for='{{typeListArr}}' wx:key='key'>
             <navigator hover-class='none' url='{{item.path}}' 
-            class="width90 dpfb bgFFFF padding30 borderBtm" >
+            class="width90 dpfb bgFFFF padding30 borderBtm">
           
             <view class="typeList_item dpf">
                 <view>
