@@ -9,18 +9,18 @@
         </view>
         <view class="marginTop">
             <text>￥</text>
-            <text class="fontSize-45 fontWeight5">0.00</text>
+            <text class="fontSize-45 fontWeight5">{{total}}</text>
         </view>
     </view>
     <view class="layoutList dpfC bgFFFF width100 marginTop">
-        <view class="layoutList_item width90 dpfb  borderBtm padding20">
+        <navigator hover-class="none" url='/pages/loansList/loansList' class="layoutList_item width90 dpfb  borderBtm padding20">
             <view>贷款明细</view>
             <image class="rightPic" src='../../images/icon/icon_right.png'></image>
-        </view>
-        <view class="layoutList_item width90 dpfb paddinglr bgFFFF">
+        </navigator>
+       <navigator hover-class="none" url='/pages/bankList/bankList' class="layoutList_item width90 dpfb paddinglr bgFFFF">
             <view>管理银行卡</view>
             <image class="rightPic" src='../../images/icon/icon_right.png'></image>
-        </view>
+        </navigator>
     </view>
     <view class="layoutList dpfC bgFFFF width100 marginTop">
         <view class="width90 dpfb padding20 borderBtm">
@@ -28,13 +28,13 @@
                 <view>店铺保证金</view>
                 <view class="marginTop">
                     <text>￥</text>
-                    <text class="fontSize-40 fontWeight5">00.00</text>
+                    <text class="fontSize-40 fontWeight5">{{shopmoney}}</text>
                 </view>
             </view>
             <image class="rightPic" src='../../images/icon/icon_right.png'></image>
         </view>
     </view>
-    <view class="layoutList dpfC bgFFFF width100">
+    <!-- <view class="layoutList dpfC bgFFFF width100">
         <view class="width90 dpfb padding20 borderBtm">
             <view class="NumBox flex_1" style="border-right:1rpx solid #e2e2e2">
                 <view>店铺保证金
@@ -46,7 +46,7 @@
                 </view>
             </view>
             <view class="NumBox flex_1 marginLeft">
-                <view>店铺保证金
+                <view>营销保证金
                  <image class="rightPic marginLeft10" src='../../images/icon/icon_right.png'></image>
                 </view>
                 <view class="marginTop">
@@ -55,15 +55,15 @@
                 </view>
             </view>
         </view>
-    </view>
+    </view> -->
     <view class="layoutList dpfC bgFFFF  width100">
-        <view class="layoutList_item width90 dpfb borderBtm padding20">
+        <!-- <view class="layoutList_item width90 dpfb borderBtm padding20">
             <view>欠费账单记录</view>
             <image class="rightPic" src='../../images/icon/icon_right.png'></image>
-        </view>
-        <view class="layoutList_item width90 dpfb paddinglr bgFFFF">
+        </view> -->
+       <navigator hover-class="none" url='/pages/loansList/loansList?type=2'class="layoutList_item width90 dpfb paddinglr bgFFFF">
             <view>保证金资金记录</view>
             <image class="rightPic" src='../../images/icon/icon_right.png'></image>
-        </view>
+        </navigator>
     </view>
 </view>

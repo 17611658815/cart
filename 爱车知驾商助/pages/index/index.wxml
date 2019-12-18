@@ -111,15 +111,15 @@
             </view>
         </view>
         <view class="width90 paddinglr dpfb">
-            <view class="dpfC flex_1">
+            <view class="dpfC flex_1" bindtap="goGoodsList"  data-status="1" data-index="0">
                 <view class="fontSize-32 fontWeight6">{{goods.on_sale}}</view>
                 <view class="textTitle">出售中</view>
             </view>
-            <view class="dpfC flex_1">
+            <view class="dpfC flex_1" bindtap="goGoodsList" data-status="2" data-index="1">
                 <view class="fontSize-32 fontWeight6">{{goods.down}}</view>
                 <view class="textTitle">已下架</view>
             </view>
-            <view class="dpfC flex_1">
+            <view class="dpfC flex_1" bindtap="goGoodsList" data-status="0" data-index="2">
                 <view class="fontSize-32 fontWeight6">{{goods.unpublished}}</view>
                 <view class="textTitle">草稿中</view>
             </view>
@@ -173,6 +173,30 @@
                 </view>
                 <text class="fontSize-28 color3">{{item.title}}</text>
             </view>
+        </view>
+    </view>
+    <!-- 平台考核指标 -->
+    <view class="tractionData width100 marginTop" wx:if='{{list.length>0}}'>
+        <view class="width90 paddinglr dpfb" bindtap="gocommunity">
+            <view class="fontSize-26">商家社区</view>
+            <view class="dpf">
+                <text class="fontSize-26">指标说明</text>
+                <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
+            </view>
+        </view>
+        <view class="width90 paddinglr routerBox">
+            <navigator hover-class="none" url="/pages/register/register">
+                <image class="routerImg" src="../../images/8.png"></image>
+            </navigator>
+            <navigator hover-class="none" url="/pages/goodsList/goodsList?index=0&status=1">
+                <image class="routerImg" src="../../images/9.png"></image>
+            </navigator>
+            <navigator hover-class="none" url="/pages/register/register">
+                <image class="routerImg" src="../../images/10.png"></image>
+            </navigator>
+            <navigator hover-class="none" url="/pages/register/register">
+                <image class="routerImg" src="../../images/11.png"></image>
+            </navigator>
         </view>
     </view>
 </view>

@@ -14,7 +14,26 @@ Page({
     onLoad: function (options) {
 
     },
-
+    gocouponList(){
+       wx.navigateTo({
+           url: '/pages/couponList/couponList',
+       })
+    },
+    goredPacketList(){
+       wx.navigateTo({
+           url: '/pages/redPacketList/redPacketList',
+       })
+    },
+    goactivityList(){
+       wx.navigateTo({
+           url: '/pages/activityList/activityList',
+       })
+    },
+    gotechnicianList(){
+       wx.navigateTo({
+           url: '/pages/technicianList/technicianList',
+       })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

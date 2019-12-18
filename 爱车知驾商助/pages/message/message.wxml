@@ -1,11 +1,11 @@
 <view class="container">
     <!-- 搜索框 -->
-    <view class="index-serch-box">
+    <navigator hover-class="none" url='/pages/searchPage/searchPage' class="index-serch-box">
         <view class="index-serch-con">
             <image class="index-serch-link-icon" src="../../images/icon/icon_serch.png"></image>
             <text class="index-serch-link-text">搜索买家昵称</text>
         </view>
-    </view>
+    </navigator>
     <!-- 订单提示 -->
     <view class="alertText" bindtap="gosetMsg" wx:if='{{isShow==0}}'>
         <view class="dpf">

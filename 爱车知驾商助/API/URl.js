@@ -52,7 +52,7 @@ export default class Url {
     }
     // 添加商品
     static addShopGoodsUrl() {
-        return Url.PATH + '/addShopGoods';
+        return Url.PATH + '/saveShopGoods';
     }
     // 获取订单列表
     static getOrderListUrl() {
@@ -104,7 +104,7 @@ export default class Url {
     }
     // 添加-红包-优惠卷-活动
     static addShopActivitieUrl() {
-        return Url.PATH + '/addShopActivitie';
+        return Url.PATH + '/addShopActivitie'; 
     }
     // 奖励
     static getShopTaskInfoUrl() {
@@ -117,5 +117,37 @@ export default class Url {
     // 商品热搜词
     static getSearchWordsUrl() {
         return Url.PATH + '/getSearchWords';
+    }
+    // 商品列表
+    static getShopGoodsListUrl() {
+        return Url.PATH + '/getShopGoodsList';
+    }
+    // 获取商品信息
+    static getShopGoodsUrl() {
+        return Url.PATH + '/getShopGoods';
+    }
+    // 删除商品
+    static setShopGoodsStatusUrl() {
+        return Url.PATH + '/setShopGoodsStatus';
+    }
+    // 账户资金
+    static getBillHomeDataUrl() {
+        return Url.PATH + '/getBillHomeData';
+    }
+    // 贷款明细
+    static getBillListUrl() {
+        return Url.PATH + '/getBillList';
+    }
+    // 银行卡列表
+    static getBankCardListUrl() {
+        return Url.PATH + '/getBankCardList';
+    }
+    // 添加银行卡
+    static addBankCardUrl() {
+        return Url.PATH + '/addBankCard';
+    }
+    // 删除银行卡
+    static delBankCardUrl() {
+        return Url.PATH + '/delBankCard';
     }
 }

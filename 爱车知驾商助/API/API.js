@@ -125,6 +125,38 @@ export const api = {
     // 商品热搜词
     getSearchWords: function (paramObj) {
         return Promise.post(Url.default.getSearchWordsUrl(), paramObj);
+    },
+    // 商品列表
+    getShopGoodsList: function (paramObj) {
+        return Promise.post(Url.default.getShopGoodsListUrl(), paramObj);
+    },
+    // 获取商品信息
+    getShopGoods: function (paramObj) {
+        return Promise.post(Url.default.getShopGoodsUrl(), paramObj);
+    },
+    // 删除商品
+    setShopGoodsStatus: function (paramObj) {
+        return Promise.post(Url.default.setShopGoodsStatusUrl(), paramObj);
+    },
+    // 账户资金
+    getBillHomeData: function (paramObj) {
+        return Promise.post(Url.default.getBillHomeDataUrl(), paramObj);
+    },
+    // 货款列表
+    getBillList: function (paramObj) {
+        return Promise.post(Url.default.getBillListUrl(), paramObj);
+    },
+    // 银行卡列表
+    getBankCardList: function (paramObj) {
+        return Promise.post(Url.default.getBankCardListUrl(), paramObj);
+    },
+    // 添加银行卡
+    addBankCard: function (paramObj) {
+        return Promise.post(Url.default.addBankCardUrl(), paramObj);
+    },
+    // 删除银行卡
+    delBankCard: function (paramObj) {
+        return Promise.post(Url.default.delBankCardUrl(), paramObj);
     }
    
 

@@ -6,37 +6,88 @@
                 <view class='leaberleft fontSize-30 color2'>
                     <text>选择分类</text>
                 </view>
-                <picker  bindchange="bindMultiPickerChange" value="{{index}}" range="{{array}}">
+                <picker bindchange="bindMultiPickerChange" value="{{index}}" range="{{array}}">
                     <view class="picker">
-<text class='fontSize-30 color1'>{{typeName}}</text>
+                        <text class='fontSize-30 color1'>{{typeName}}</text>
                         <image class='icon_right' src='../../images/icon/icon_right.png'></image>
                     </view>
                 </picker>
             </view>
-              <view class='itembox dpf'>
-                <input placeholder='商品名称' value="{{goodsName}}" bindinput="goodsNameInpt" type='tetx'></input>
-            </view>
-            <view class="goodsBox" wx:if='{{newGoodsList.length>0}}'>
-            
-             <view class="otherMsg" wx:for='{{newGoodsList}}' data-item='{{item}}' bindtap="checkdItem">
-                <view class="otherPic">
-                    <image mode="scaleToFill" src="{{item.thumb}}" />
-                </view>
-                <view class="otherinfo">
-                    <view class="fontSize-30 color1">{{item.name}}</view>
-                    <view class="fontSize-26 color3">{{item.brand_name}}</view>
-                </view>
-            </view>
-            </view>
-           
-          
             <view class='itembox dpf'>
-                <input placeholder='商品价格' value="{{goodsPrice}}" bindinput="goodsPriceInpt" type='number'></input>
+                <view class='leaberleft fontSize-30 color2'>
+                    <text>选择品牌</text>
+                </view>
+                <picker bindchange="bindMultiPickerChange2" value="{{index2}}" range="{{brandsArr}}">
+                    <view class="picker">
+                        <text class='fontSize-30 color1'>{{typeName2}}</text>
+                        <image class='icon_right' src='../../images/icon/icon_right.png'></image>
+                    </view>
+                </picker>
+            </view>
+            <view class='itembox dpf'>
+             <view class='leaberleft fontSize-30 color2'>
+                    <text>商品名称</text>
+                </view>
+                <input  value="{{goodsName}}" bindinput="goodsNameInpt" type='tetx'></input>
+            </view>
+            <view class='fontSize-30 padding30' style="color:#808080">
+            上传图片
+        </view>
+        <view class="btnBox">
+            <view class="imgBox clearfix">
+                <block wx:if='{{oldimg!=""}}'>
+                    <image class="feedPic db fl" src="{{oldimg}}" bindtap="previewImage" data-src='{{oldimg}}' style="margin-right:{{(index+1)%4==0 ? '0' : '12'}}px"></image>
+                </block>
+                <view class="feedpic feedAdd fl">
+                    <view class="chooseImg db fl" bindtap="chooseImageTap">
+                        <image class='add' src='../../images/add.png'></image>
+                    </view>
+                    <view class="chooseImg db fl" wx:if="{{imgs.length>6}}" bindtap="noChoose">
+                        <image class='add' src='../../images/add.png'></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+            <!-- <view class="goodsBox" wx:if='{{newGoodsList.length>0}}'>
+
+                <view class="otherMsg" wx:for='{{newGoodsList}}' data-item='{{item}}' bindtap="checkdItem">
+                    <view class="otherPic">
+                        <image mode="scaleToFill" src="{{item.thumb}}" />
+                    </view>
+                    <view class="otherinfo">
+                        <view class="fontSize-30 color1">{{item.name}}</view>
+                        <view class="fontSize-26 color3">{{item.brand_name}}</view>
+                    </view>
+                </view>
+            </view> -->
+            <view class='itembox dpf'>
+              <view class='leaberleft fontSize-30 color2'>
+                    <text>商品原价</text>
+                </view>
+                <input  value="{{oldPrice}}" bindinput="oldPriceInpt" type='number'></input>
+            </view>
+            <view class='itembox dpf'>
+             <view class='leaberleft fontSize-30 color2'>
+                    <text>商品现价</text>
+                </view>
+                <input  value="{{newPrice}}" bindinput="newPriceInpt" type='number'></input>
+            </view>
+            <view class='itembox dpf'>
+             <view class='leaberleft fontSize-30 color2'>
+                    <text>数量/容量:({{num}})</text>
+                </view>
+                <input  value="{{goodsNum}}" bindinput="goodsNumInpt" type='number'></input>
+            </view>
+            <view class='itembox dpf'>
+             <view class='leaberleft fontSize-30 color2'>
+                    <text>商品型号</text>
+                </view>
+                <input  value="{{goodstype}}" bindinput="goodstypeInpt" type='rext'></input>
             </view>
         </view>
     </view>
     <view class='btnBox'>
-         <view class="addBtn" bindtap="addGoodsItem">确认添加</view>
+        <view class="addBtn" bindtap="addGoodsItem">确认添加</view>
     </view>
 
 </view>

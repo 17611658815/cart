@@ -32,10 +32,10 @@
                 </view>
             </view>
             <view class='itembox dpf' wx:if='{{index!=1}}'>
-                <input placeholder='优惠卷金额' value="{{shopName}}" bindinput="shopNameInpt" type='tetx'></input>
+                <input placeholder='优惠卷金额' value="{{shopName}}" bindinput="shopNameInpt" type='text'></input>
             </view>
              <view class='itembox dpf' wx:if='{{index==1}}'>
-                <input placeholder='优惠卷折扣' value="{{shopName}}" bindinput="shopNameInpt" type='tetx'></input>
+                <input placeholder='优惠卷折扣' value="{{shopName}}" bindinput="shopNameInpt" type='text'></input>
             </view>
             <view class='itembox dpf' wx:if='{{index == 0 || index == 1 || index == 2}}'>
                 <view class='text' wx:if="{{time1Flage}}">生效时间：</view>
@@ -82,7 +82,7 @@
     <view class='width100 dpfC marginTop'>
         <view class='width90'>
             <view class='itembox dpf'>
-                <input placeholder='活动名称' value="{{shopName}}" bindinput="shopNameInpt" type='tetx'></input>
+                <input placeholder='活动名称' value="{{shopName}}" bindinput="shopNameInpt" type='text'></input>
             </view>
             <view class='itembox dpf'>
                 <input placeholder='活动人数,0为不限人数' value="{{shopPrice}}" bindinput="shopPriceInpt" type='number'></input>

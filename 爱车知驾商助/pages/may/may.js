@@ -24,10 +24,6 @@ Page({
             name: '维修技师',
             path: '/pages/technicianList/technicianList',
             icon: '../../images/icon/icon_19.jpg'
-        },{
-            name: '车辆服务',
-            path: '',
-            icon: '../../images/icon/icon_20.jpg'
         }, {
             name: '系统消息',
             path: '/pages/messageList/messageList',

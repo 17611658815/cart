@@ -1,0 +1,43 @@
+<!--page/order/pages/newAddress/newAddress.wxml-->
+<view class='container bgFFFF'>
+    <view class='width100 dpfC marginTop'>
+        <view class='width90'>
+            <view class='itembox dpf'>
+              <view class='leaberleft fontSize-30 color2'>
+                    <text>持卡人姓名</text>
+                </view>
+                <input  value="{{name}}" bindinput="nameInpt" type='text'></input>
+            </view>
+            <view class='itembox dpf'>
+             <view class='leaberleft fontSize-30 color2'>
+                    <text>银行卡号</text>
+                </view>
+                <input  value="{{code}}" bindinput="codeInpt" type='number'></input>
+            </view>
+            <view class='itembox dpf'>
+             <view class='leaberleft fontSize-30 color2'>
+                    <text>开户行名称</text>
+                </view>
+                <input  value="{{bank_name}}" bindinput="bankNameInpt" type='text'></input>
+            </view>
+            <view class='itembox dpf'>
+             <view class='leaberleft fontSize-30 color2'>
+                    <text>身份证号</text>
+                </view>
+                <input  value="{{identity}}" bindinput="identityInpt" type='text'></input>
+            </view>
+            <view class='itembox dpf'>
+             <view class='leaberleft fontSize-30 color2'>
+                    <text>手机号</text>
+                </view>
+                <input  value="{{mobile}}" bindinput="mobileInpt" type='number'></input>
+            </view>
+        </view>
+    </view>
+   
+
+
+</view>
+ <view class='btnBox'>
+        <view class="addBtn" bindtap="addBankCard">确认添加</view>
+    </view>

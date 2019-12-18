@@ -8,7 +8,7 @@
             wx:for='{{navList}}' 
             wx:key='key'>{{item.name}}</view>
     </view>
-    <view class="newGoodsList">
+    <view class="newGoodsList" wx:if='{{orderList.length>0}}'>
         <view class="otherMsg" wx:for='{{orderList}}' data-item='{{item}}' bindtap="checkdItem">
             <!-- <view class="otherPic">
                 <image mode="scaleToFill" src="{{item.thumb}}" />
@@ -19,5 +19,11 @@
             </view>
         </view>
     </view>
+     <view class="width100 dpfC" wx:else>
+            <view class="noList dpfC"> 
+                <image mode="scaleToFill" style="width: 300rpx; margin-top: 300rpx;" src="../../images/icon/icon_15.jpg" />
+                <!-- <view class="fontSize-28 color1 marginTop">暂无商品</view> -->
+            </view>
+        </view>
 
 </view>

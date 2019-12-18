@@ -1,0 +1,30 @@
+<!--page/order/pages/newAddress/newAddress.wxml-->
+<view class='container'>
+    <view class='width100 dpfC'>
+        <view class="navList width90">
+            <view bindtap="swatchTab" data-index='{{index}}' data-status='{{item.status}}' class="{{currentTab==index ? 'color1 navActive':'color3'}}" wx:for='{{navList}}' wx:key='key'>{{item.name}}</view>
+        </view>
+        <view class="goodsBox width90 dpfC" wx:if='{{goodsList.length>0}}'>
+            <view class="otherMsg boxShadow" wx:for='{{goodsList}}' data-item='{{item}}' bindtap="checkdItem">
+                <view class="otherPic">
+                    <image mode="scaleToFill" src="{{item.thumb}}" />
+                </view>
+                <view class="otherinfo">
+                    <view class="fontSize-30 color1">{{item.name}}</view>
+                    <view class="fontSize-26 color3">现价:{{item.price}} 原价:{{item.original_price}}</view>
+                </view>
+                <view>
+                    <view class="fontSize-30 color1 btn1" bindtap="setGoodsStatus" data-id="{{item.id}}" data-status="3" wx:if='{{currentTab==1}}'>删除</view>
+                    <view class="fontSize-26 color3 btn2" bindtap="changeGoods" data-id="{{item.id}}" wx:if='{{currentTab==2}}'>修改</view>
+                    <view class="fontSize-26 color3 btn2" bindtap="setGoodsStatus" data-status="2" data-id="{{item.id}}" wx:if='{{currentTab==0}}'>下架</view>
+                </view>
+            </view>
+        </view>
+        <view class="width100 dpfC" wx:else>
+            <view class="noList dpfC">
+                <image mode="scaleToFill" src="../../images/icon/icon_15.jpg" />
+                <!-- <view class="fontSize-28 color1 marginTop">暂无商品</view> -->
+            </view>
+        </view>
+    </view>
+</view>

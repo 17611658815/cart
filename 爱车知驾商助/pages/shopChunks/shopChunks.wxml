@@ -1,9 +1,27 @@
 <view class="container">
-    <view class="dpf">
+    <!-- <view class="dpf">
         <view class="checkedBox" bindtap="chenkedChange">
             <image wx:if='{{flage}}' src="../../images/icon/icon_mark.png"></image>
         </view>
         <view>开通即代表你同意 <text class="color7">《知驾进宝使用协议》</text> </view>
     </view>
-    <view class="addBtn">开通全店推广</view>
+    <view class="addBtn">开通全店推广</view> -->
+    <view class="numList width100 dpfC">
+        <view>
+            <text>已关注过本店车辆</text>
+            <text>10辆</text>
+        </view>
+        <view>
+            <text>已场地共享维修技师</text>
+            <text>8人</text>
+        </view>
+        <view>
+            <text>已发起线上活动</text>
+            <text>8次</text>
+        </view>
+        <view>
+            <text>已发线下体验活动</text>
+            <text>8次</text>
+        </view>
+    </view>
 </view>

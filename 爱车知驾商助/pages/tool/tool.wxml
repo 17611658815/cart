@@ -2,12 +2,12 @@
     <view class="layout_tool">
         <view class="padding30 fontSize-28">商品</view>
         <view class="toolList">
-            <view class="toolList_item">
+            <navigator hover-class="none" url='/pages/activityList/activityList' class="toolList_item">
                 <view class="toolList_item_icon">
                       <image src="../../images/icon/icon_24.jpg"></image>
                 </view>
-                <view class="marginTop10 fontSize-24 color3">车品体验</view>
-            </view>
+                <view class="marginTop10 fontSize-24 color3">发起活动</view>
+            </navigator>
             <view class="toolList_item">
                 <view class="toolList_item_icon">
                       <image src="../../images/icon/icon_25.jpg"></image>
@@ -31,19 +31,19 @@
     <view class="layout_tool">
         <view class="padding30 fontSize-28">营销</view>
         <view class="toolList">
-            <view class="toolList_item">
+            <view class="toolList_item" bindtap="goredPacketList">
                 <view class="toolList_item_icon">
                       <image src="../../images/icon/icon_28.jpg"></image>
                 </view>
-                <view class="marginTop10 fontSize-24 color3">红包链接</view>
+                <view class="marginTop10 fontSize-24 color3">红包</view>
             </view>
-            <view class="toolList_item">
+            <view class="toolList_item" bindtap="gocouponList"> 
                 <view class="toolList_item_icon">
                       <image src="../../images/icon/icon_29.jpg"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">优惠卷</view>
             </view>
-            <view class="toolList_item">
+            <view class="toolList_item" bindtap="goactivityList">
                 <view class="toolList_item_icon">
                       <image src="../../images/icon/icon_30.jpg"></image>
                 </view>
@@ -60,7 +60,7 @@
                 </view>
                 <view class="marginTop10 fontSize-24 color3">绑定车辆</view>
             </view>
-            <view class="toolList_item">
+            <view class="toolList_item" bindtap="gotechnicianList">
                 <view class="toolList_item_icon">
                       <image src="../../images/icon/icon_32.jpg"></image>
                 </view>

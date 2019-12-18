@@ -228,6 +228,34 @@
 					"pathName": "pages/activityList/activityList",
 					"query": "type=2",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品列表",
+					"pathName": "pages/goodsList/goodsList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "反馈",
+					"pathName": "pages/feedback/feedback",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "贷款明细",
+					"pathName": "pages/loansList/loansList",
+					"query": "type=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "银行卡列表",
+					"pathName": "pages/bankList/bankList",
+					"query": "type=2",
+					"scene": null
 				}
 			]
 		}

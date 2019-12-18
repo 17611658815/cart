@@ -17,3 +17,11 @@
     margin-top: 30rpx;
     background-image: linear-gradient(#F9903F, #F35235);
 }
+.numList>view{
+    width: 90%;
+    padding: 30rpx 5%;
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10rpx;
+}

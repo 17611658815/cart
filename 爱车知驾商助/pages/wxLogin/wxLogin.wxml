@@ -1,7 +1,9 @@
 <view class="container">
     <view class="loginContent">
         <view class="appName dpf">
-            <view></view>
+            <view>
+                <image src='../../images/aicheLogo.png'></image>
+            </view>
             <view class="color1 fontSize-24">知驾服务</view>
         </view>
         <view class="login_hint">

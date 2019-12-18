@@ -28,7 +28,7 @@
 </view>
  <view class="width100 dpfC" wx:else>
             <view class="noList dpfC">
-                <image mode="scaleToFill"  src="../../images/icon/icon_43.jpg" />
+                <image mode="scaleToFill"  src="../../images/icon/icon_15.jpg" />
                 <view class="fontSize-28 color1 marginTop">暂无关联技师</view>
             </view>
         </view>

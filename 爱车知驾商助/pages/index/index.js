@@ -18,8 +18,11 @@ Page({
             id: userInfo.id
         })
         this.getShopHomeData()
-        this.getPostingsList()
+        // this.getPostingsList()
         this.getLocationMsg()
+    },
+    onShow(){
+        this.getShopHomeData()
     },
     //获取当前位置
     getLocationMsg() {
@@ -60,10 +63,20 @@ Page({
               order: res.data.data.order,
               trade: res.data.data.trade,
               msgNum: res.data.data.msg,
+              list: res.data.data.postings
           })
         })
     },
-    // 社区帖子
+    goGoodsList(e){
+        let index = e.currentTarget.dataset.index;
+        let status = e.currentTarget.dataset.status;
+        console.log(index, status)
+        wx.navigateTo({
+            url: '/pages/goodsList/goodsList?index=' + index + "&status=" + status,
+        })
+
+    },
+   /*  // 社区帖子
     getPostingsList(){
         let that = this,
             params = {
@@ -75,7 +88,7 @@ Page({
                 list: res.data.data,
             })
         })
-    },
+    }, */
     godataCenter() {
         wx.navigateTo({
             url: '/pages/dataCenter/dataCenter',

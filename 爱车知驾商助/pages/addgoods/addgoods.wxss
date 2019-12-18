@@ -15,6 +15,7 @@ input{
     flex: 1;
     font-size: 30rpx;
     color: #333333;
+    text-align: right;
 }
 picker{
     flex: 1;
@@ -106,12 +107,51 @@ textarea{
     text-align: center;
     line-height: 100rpx;
     color: #ffffff;
-    margin-top: 30rpx;
     margin: auto;
     background-image: linear-gradient(#F9903F, #F35235);
+    margin-top: 50rpx;
 }
 .goodsBox{
     width: 100%;
     max-height: 800rpx;
     overflow: auto;
 }
+
+
+.btnBox{
+  width: 690rpx;
+  height: auto;
+  margin: 0 auto;
+}
+.imgBox{
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+.feedPic{
+  width: 150rpx;
+  height: 150rpx;
+  border: 1rpx solid #cecece;
+  margin-bottom: 30rpx;
+}
+.feedAdd{
+  margin: 10rpx;
+}
+.chooseImg{
+  display: flex;
+  width: 130rpx;
+  height: 130rpx;
+  color: #cecece;
+  font-size: 80rpx;
+  line-height: 130rpx;
+  text-align: center;
+  border-radius: 8rpx;
+  font-weight: 100;
+  border: 1rpx dashed #D1D1D1;
+}
+.chooseImg .add{
+  width: 100rpx;
+  height: 100rpx;
+  margin: auto;
+}
+

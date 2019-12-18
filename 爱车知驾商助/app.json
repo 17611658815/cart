@@ -31,7 +31,12 @@
         "pages/redPacketList/redPacketList",
         "pages/AddredPacket/AddredPacket",
         "pages/couponList/couponList",
-        "pages/activityList/activityList"
+        "pages/activityList/activityList",
+        "pages/goodsList/goodsList",
+        "pages/feedback/feedback",
+        "pages/loansList/loansList",
+        "pages/bankList/bankList",
+        "pages/addBank/addBank"
     ],
     "window": {
         "backgroundTextStyle": "light",

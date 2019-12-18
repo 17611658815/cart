@@ -16,7 +16,7 @@
             <view class="gradeDistance">
                 <view class="fontSize-26 color1">0.0/318.1</view>
                 <view class="fontSize-28 color3">距离下一级还差
-                    <text class="fontSize-30 fontWeight6 color1">318.1</text>元</view>
+                <text class="fontSize-30 fontWeight6 color1">318.1</text>元</view>
             </view>
         </view>
         <view class="shopGrade_right">
