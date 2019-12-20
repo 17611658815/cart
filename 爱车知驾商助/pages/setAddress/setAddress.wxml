@@ -19,8 +19,7 @@
             <text>{{item.name}}</text>
         </view>
     </view>
-    <view class="mapBox">
-        <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14"  markers="{{markers}}" bindtap='onLocation' polyline="{{polyline}}" show-location style="width: 100%; height: 80vh;"></map>
-    </view>
+        <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14"  markers="{{markers}}" bindtap='onLocation' polyline="{{polyline}}" show-location style="width: 100%; height:{{windowH}}px;"></map>
+        
  <button class="addBtn" bindtap="saveShopInfo">保存</button>
 </view>

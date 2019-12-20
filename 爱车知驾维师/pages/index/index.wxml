@@ -7,6 +7,8 @@
     </view>
      <image bindtap="gomessageList" class="mag_pic" src="../../images/1.png"></image>
 </view>
+            
+<!-- <button open-type="contact" bindcontact='onbindcontact'>客服</button> -->
 <view class="container">
     <view class="headerBox">
         <view class="padding30 dpfC">

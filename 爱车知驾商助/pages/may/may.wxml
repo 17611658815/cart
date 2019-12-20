@@ -35,4 +35,4 @@
         </navigator>
     </view>
 </view>
-<bottomNav navbarData="3"></bottomNav>
+<!-- <bottomNav navbarData="3"></bottomNav> -->

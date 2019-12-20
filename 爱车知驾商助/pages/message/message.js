@@ -109,6 +109,8 @@ Page({
         this.setData({
             member_id: userinfo.id,
         })
+       
+       
         this.messagePower();
         this.getShopGoodsNum();
         this.noticeList()
@@ -125,7 +127,8 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        app.removeTabBarBadge(1)
+        app.hideTabBarRedDot(1)
     },
 
     /**

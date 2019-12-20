@@ -157,8 +157,22 @@ export const api = {
     // 删除银行卡
     delBankCard: function (paramObj) {
         return Promise.post(Url.default.delBankCardUrl(), paramObj);
+    },
+    // 商家客服
+    customerHome: function (paramObj) {
+        return Promise.post(Url.default.customerHomeUrl(), paramObj);
+    },
+    // 商家客服列表
+    customerList: function (paramObj) {
+        return Promise.post(Url.default.customerListUrl(), paramObj);
+    },
+    // 推广概况
+    promotionHomeData: function (paramObj) {
+        return Promise.post(Url.default.promotionHomeDataUrl(), paramObj);
+    },
+    // 店铺进宝
+    shopJinbaoData: function (paramObj) {
+        return Promise.post(Url.default.shopJinbaoDataUrl(), paramObj);
     }
-   
-
    
 }

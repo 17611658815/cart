@@ -36,13 +36,45 @@
         "pages/feedback/feedback",
         "pages/loansList/loansList",
         "pages/bankList/bankList",
-        "pages/addBank/addBank"
+        "pages/addBank/addBank",
+        "pages/msgContent/msgContent",
+        "pages/contentList/contentList"
     ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "知驾商助",
         "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#000000",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "主页",
+                "iconPath": "images/tabber/home_select_2.png",
+                "selectedIconPath": "images/tabber/home_select_1.png"
+            },
+            {
+                "pagePath": "pages/message/message",
+                "text": "消息",
+                "iconPath": "images/tabber/msg_select_2.png",
+                "selectedIconPath": "images/tabber/msg_select_1.png"
+            },
+            {
+                "pagePath": "pages/tool/tool",
+                "text": "工具",
+                "iconPath": "images/tabber/type_select_2.png",
+                "selectedIconPath": "images/tabber/type_select_1.png"
+            },
+            {
+                "pagePath": "pages/may/may",
+                "text": "我的",
+                "iconPath": "images/tabber/may_select_2.png",
+                "selectedIconPath": "images/tabber/may_select_1.png"
+            }
+        ]
     },
     "sitemapLocation": "sitemap.json",
     "permission": {

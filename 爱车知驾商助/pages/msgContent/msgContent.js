@@ -1,43 +1,20 @@
-// pages/shopChunks/shopChunks.js
-const app = getApp()
+// pages/msgContent/msgContent.js
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        member_id:0,
-        flage:false,
-        numData:{}
+
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        let userInfo = wx.getStorageSync('userinfo');
-        this.setData({
-            member_id: userInfo.id
-        })
-        this.shopJinbaoData()
+
     },
-    shopJinbaoData() {
-        let that = this,
-            params = new Object();
-        params.appid = app.globalData.appid;
-        params.member_id = that.data.member_id;
-        app.net.$Api.shopJinbaoData(params).then((res) => {
-            console.log(res)
-            that.setData({
-                numData:res.data
-            })
-        })
-    },
-    chenkedChange(){
-        this.setData({
-            flage: !this.data.flage
-        })
-    },
+
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

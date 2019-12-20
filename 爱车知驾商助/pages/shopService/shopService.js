@@ -1,4 +1,5 @@
 // pages/shopService/shopService.js
+let app = getApp()
 Page({
 
     /**
@@ -20,20 +21,38 @@ Page({
             path: '/pages/Carservice/msgCenter/msgCenter',
             icon: '../../../images/mayList_3.png'
         }],
-        tabArr:['常见问题','日常运营','入驻退店','商品问题','活动咨询','交易流程','客服工具']
+        tabArr:['常见问题','日常运营','入驻退店','商品问题','活动咨询','交易流程','客服工具'],
+        dataMsg:{}
+
     },
     // 导航tab切换
     swatchTab(e) {
         let index = e.currentTarget.dataset.index;
+        let id = e.currentTarget.dataset.id;
         this.setData({
             currentTab: index
+        },()=>{
+            wx.navigateTo({
+                url: '/pages/contentList/contentList?index=' + index+"&id="+id,
+            })
+        })
+    },
+    customerHome(){
+        let that = this,
+            params = new Object();
+        params.appid = app.globalData.appid;
+        app.net.$Api.customerHome(params).then((res) => {
+            console.log(res)
+            that.setData({
+                dataMsg:res.data
+            })
         })
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.customerHome()
     },
 
     /**

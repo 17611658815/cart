@@ -1,0 +1,124 @@
+<view class="container">
+    <!-- 头部导航 -->
+    <view class="navList width90">
+        <view bindtap="swatchTab" data-index='{{index}}' data-type='{{4/1-index}}' class="{{currentTab==index ? 'color1 navActive':'color3'}}" wx:for='{{navList}}' wx:key='key'>{{item}}</view>
+    </view>
+
+    <view class="width100" wx:if='{{currentTab==0}}'>
+        <view class="slect_item">
+            <view class="dp fontSize-28 color1" bindtap="slect_3itemShow">{{name3}}
+                <image class="marginLeft {{slect_item3 ? 'rotateRight':''}}" src="../../images/icon/icon_4.png"></image>
+            </view>
+            <view class='sortList' wx:if='{{slect_item3}}'>
+                <view data-index="{{index}}" bindtap="changeIndex_3" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList2}}'>{{item}}
+                    <image wx:if='{{selectIndex3==index}}' src="../../images/icon/icon_mark.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="typeList_3" wx:if='{{packetList.length>0}}'>
+        <view class="wrapper" wx:for="{{packetList}}">
+            <view class="left">
+                <view class="marginLefts">
+                    <view class="fontSize-36">
+                        {{item.title}}
+                    </view>
+                </view>
+            </view>
+            <view class="right">
+                <view class="fontSize-36 ">{{item.num == 0 ? "不限":"限"+item.num+"位"}}</view>
+            </view>
+            <view class="tiemsBox">
+                <label>{{item.created}}</label>
+                <label>有效期：{{item.stime}}-{{item.etime}}</label>
+            </view>
+        </view>
+    </view>
+    <view class="width100 dpfC" wx:else>
+        <view class="noList dpfC">
+            <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+            <view class="fontSize-28 color1 marginTop">暂无相关活动</view>
+        </view>
+    </view>
+    </view>
+    <view class="width100" wx:if='{{currentTab==1}}'>
+        <view class="slect_item">
+            <view class="dp fontSize-28 color1" bindtap="slect_1itemShow"> {{name1}}
+                <image class="marginLeft {{slect_item1 ? 'rotateRight':''}}" src="../../images/icon/icon_4.png"></image>
+            </view>
+            <view class="dp fontSize-28 color1" bindtap="slect_2itemShow">{{name2}}
+                <image class="marginLeft {{slect_item2 ? 'rotateRight':''}}" src="../../images/icon/icon_4.png"></image>
+            </view>
+            <!-- 排序下拉 -->
+            <view class='sortList' wx:if='{{slect_item1}}'>
+                <view data-index="{{index}}" bindtap="changeIndex_1" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList1}}'>{{item}}
+                    <image wx:if='{{selectIndex1==index}}' src="../../images/icon/icon_mark.png"></image>
+                </view>
+            </view>
+            <view class='sortList' wx:if='{{slect_item2}}'>
+                <view data-index="{{index}}" bindtap="changeIndex_2" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList2}}'>{{item}}
+                    <image wx:if='{{selectIndex2==index}}' src="../../images/icon/icon_mark.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="typeList_2" wx:if='{{packetList.length>0}}'>
+            <view class="wrapper" wx:for="{{packetList}}">
+                <view class="left">
+                    <view class="marginLefts">
+                        <view class="fontSize-36" wx:if='{{item.youhui_type==1}}'>
+                            {{item.value}}元
+                            <label class='fontSize-20 marginLeft'> 满{{item.man}}</label>
+                        </view>
+                        <view class="fontSize-36" wx:if='{{item.youhui_type==2}}'>
+                            {{item.value}}折
+                            <label class='fontSize-20 marginLeft'> 满{{item.man}}</label>
+                        </view>
+                        <view class="fontSize-36" wx:if='{{item.youhui_type==3}}'>
+                            {{item.value}}元-代金卷
+                        </view>
+                    </view>
+                </view>
+                <view class="right">
+                    <view class="fontSize-36 ">{{item.num}}张</view>
+                </view>
+                <label class="tiemsBox">
+                   有效时间:{{item.stime}}-{{item.etime}}
+                </label>
+            </view>
+        </view>
+        <view class="width100 dpfC" wx:else>
+            <view class="noList dpfC">
+                <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+                <view class="fontSize-28 color1 marginTop">暂无相关优惠卷</view>
+            </view>
+        </view>
+    </view>
+    <view class="width100" wx:if='{{currentTab==2}}'>
+        <view class="typeList_1" style="margin-top:100rpx;" wx:if='{{packetList.length>0}}'>
+            <view class="wrapper" wx:for="{{packetList}}">
+                <view class="left">
+                    <view class="marginLeft dpf">
+                        <view class="ticket_icon">
+                            <image src="../../images/icon/icon_44.png"></image>
+                        </view>
+                        <view class="fontSize-36">
+                            {{item.value}}元
+                        </view>
+                    </view>
+                </view>
+                <view class="right">
+                    <view class="fontSize-36 ">{{item.num}}个</view>
+                </view>
+                <label class="tiemsBox">
+                    {{item.created}}
+                </label>
+            </view>
+        </view>
+        <view class="width100 dpfC" wx:else>
+            <view class="noList dpfC">
+                <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+                <view class="fontSize-28 color1 marginTop">暂无添加红包</view>
+            </view>
+        </view>
+    </view>
+</view>
+

@@ -1,10 +1,15 @@
 <view class="container">
 
-    <view class="navList width90">
-        <view bindtap="swatchTab" data-index='{{index}}' data-status='{{item.status}}' class="{{currentTab==index ? 'color1 navActive':'color3'}}" wx:for='{{navList}}' wx:key='key'>{{item.name}}</view>
+   <view class='scroll-x-content'>
+        <scroll-view scroll-x="true" class='scroll-x-box' scroll-with-animation="true" id="scroll-view" scroll-left="{{ scrollLeft }}" >
+            <view class='scroll-x-content-item' bindtap='swatchTab' data-id="{{item.id}}" id="item-{{index}}" data-index="{{index}}" wx:for='{{catList}}' wx:key='index'>
+                <text class='{{currentTab==index? "active":""}}'>{{item.name}}</text>
+                <view class='{{currentTab==index? "borderhover":"border"}}'></view>
+            </view>
+        </scroll-view>
     </view>
-    <view class="newGoodsList" wx:if='{{orderList.length>0}}'>
-        <view class="otherMsg" wx:for='{{orderList}}' data-item='{{item}}' bindtap="checkdItem">
+    <view class="newGoodsList" wx:if='{{contList.length>0}}'>
+        <view class="otherMsg" wx:for='{{contList}}' data-item='{{item}}' bindtap="checkdItem">
             <!-- <view class="otherPic">
                 <image mode="scaleToFill" src="{{item.thumb}}" />
             </view> -->

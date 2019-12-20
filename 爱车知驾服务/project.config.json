@@ -282,6 +282,13 @@
 					"id": -1,
 					"name": "维修师傅招募",
 					"pathName": "pages/join/join",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动列表",
+					"pathName": "pages/activityList/activityList",
 					"scene": null
 				}
 			]

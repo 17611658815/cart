@@ -10,7 +10,8 @@
         <view class="dpfC width90 padStl bgF">
             <view class="width100 padding30 fontSize-32 dpfb">
                 <text>{{shopObj.real_name}}</text>
-            
+                <navigator hover-class="none" url='/pages/activityList/activityList'>店铺活动</navigator>
+
             </view>
             <!-- <view class="width100">
                 <text class="fontSize-26">日租金</text>
@@ -34,12 +35,17 @@
             </block>
         </view>
     </view> -->
-    <view class="navList width100">
-            <view bindtap="swatchTab" 
-                data-index='{{index}}' 
-                class="{{currentTab==index ? 'color1 navActive':'color1'}}" 
-                wx:for='{{shopObj.goods}}' wx:key='key'>{{item.name}}</view>
-        </view>
+    <!-- <view class="navList width100">
+        <view bindtap="swatchTab" data-index='{{index}}' class="{{currentTab==index ? 'color1 navActive':'color1'}}" wx:for='{{shopObj.goods}}' wx:key='key'>{{item.name}}</view>
+    </view> -->
+    <view class='scroll-x-content'>
+        <scroll-view scroll-x="true" class='scroll-x-box' scroll-with-animation="true" id="scroll-view" scroll-left="{{ scrollLeft }}" >
+            <view class='scroll-x-content-item' bindtap='swatchTab' data-id="{{item.id}}" id="item-{{index}}" data-index="{{index}}" wx:for='{{shopObj.goods}}' wx:key='index'>
+                <text class='{{currentTab==index? "active":""}}'>{{item.name}}</text>
+                <view class='{{currentTab==index? "borderhover":"border"}}'></view>
+            </view>
+        </scroll-view>
+    </view>
 
     <view class="width100 dpfC list_itemBox">
         <view class='dpfC width90 padStl bgF'>
@@ -49,7 +55,7 @@
                         <view class="listBox_item_img dpfC">
                             <image mode="aspectFill" src="{{item.thumb}}" />
                         </view>
-                        <view class="phoneName white_noWrap">{{item.name}}</view>
+                        <view class="phoneName">【】【】{{item.name}}</view>
                         <view class="phonePriceNum marginTop5">
                             <text class="fontSize-20 color7">￥</text>
                             <text class="fontSize-32 color7 fontWeight5">{{item.price}}</text>
@@ -75,7 +81,8 @@
                     <button class='contactBtn' open-type='contact'></button>
                 </view> -->
                 <view class="total fontSize-36">
-                    合计:<text class="color7 fontWeight5">{{total}}</text> 元
+                    合计:
+                    <text class="color7 fontWeight5">{{total}}</text> 元
                 </view>
             </view>
             <view class='addCartBox-box-right'>

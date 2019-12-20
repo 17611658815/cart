@@ -30,7 +30,8 @@
         "pages/mayCarList/mayCarList",
         "pages/serviceOtherDetaile/serviceOtherDetaile",
         "pages/join/join",
-        "pages/messageList/messageList"
+        "pages/messageList/messageList",
+        "pages/activityList/activityList"
     ],
     "window": {
         "backgroundTextStyle": "light",

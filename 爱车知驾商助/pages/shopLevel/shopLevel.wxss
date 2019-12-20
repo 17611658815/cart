@@ -14,7 +14,7 @@
 }
 .listBox_item_left image{
     width: 80rpx;
-    height: 80rpx;
+    height: 100rpx;
 }
 .listBox_item_center{
     flex: 1;

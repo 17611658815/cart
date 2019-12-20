@@ -1,37 +1,42 @@
-
-<view class="fastTitleBoxs">
-        <text class="fastTitle">添加优惠卷</text>
-        <text class="fastBtn" style="margin-left:10rpx;" bindtap="goAddredPacket">添加</text>
-    </view>
+<view class="fastTitleBoxs" catchtap="goAddredPacket">
+    添加
+</view>
 <view class="container">
+    <view class="navList width90">
+        <navigator hover-class="none" url='/pages/activityList/activityList' class="{{currentTab==0 ? 'color1 navActive':'color3'}}">推广概况</navigator>
+        <navigator hover-class="none" url='/pages/couponList/couponList' class="{{currentTab==1 ? 'color1 navActive':'color3'}}">赠优惠卷</navigator>
+        <navigator hover-class="none" url='/pages/redPacketList/redPacketList' class="{{currentTab==2 ? 'color1 navActive':'color3'}}">发红包</navigator>
+    </view>
     <view class="typeList" wx:if='{{packetList.length>0}}'>
-            <view class="wrapper" wx:for="{{packetList}}">
-                <view class="left">
-                    <view class="marginLefts">
-                       <view class="fontSize-36" wx:if='{{item.youhui_type==1}}'>
-                            {{item.value}}元 <label  class='fontSize-20 marginLeft'> 满{{item.man}}</label>
-                       </view> 
-                       <view class="fontSize-36" wx:if='{{item.youhui_type==2}}'>
-                            {{item.value}}折 <label  class='fontSize-20 marginLeft'> 满{{item.man}}</label>
-                       </view> 
-                       <view class="fontSize-36" wx:if='{{item.youhui_type==3}}'>
-                            {{item.value}}元-代金卷
-                       </view> 
+        <view class="wrapper" wx:for="{{packetList}}">
+            <view class="left">
+                <view class="marginLefts">
+                    <view class="fontSize-36" wx:if='{{item.youhui_type==1}}'>
+                        {{item.value}}元
+                        <label class='fontSize-20 marginLeft'> 满{{item.man}}</label>
+                    </view>
+                    <view class="fontSize-36" wx:if='{{item.youhui_type==2}}'>
+                        {{item.value}}折
+                        <label class='fontSize-20 marginLeft'> 满{{item.man}}</label>
+                    </view>
+                    <view class="fontSize-36" wx:if='{{item.youhui_type==3}}'>
+                        {{item.value}}元-代金卷
                     </view>
                 </view>
-                <view class="right">
-                   <view class="fontSize-36 ">{{item.num}}张</view>
-                </view>
-                <label class="tiemsBox">
-                    {{item.created}}
-                </label> 
             </view>
-        </view>
-        <view class="width100 dpfC" wx:else>
-            <view class="noList dpfC">
-                <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
-                <view class="fontSize-28 color1 marginTop">暂无添加红包</view>
+            <view class="right">
+                <view class="fontSize-36 ">{{item.num}}张</view>
             </view>
+            <label class="tiemsBox">
+                {{item.created}}
+            </label>
         </view>
+    </view>
+    <view class="width100 dpfC" wx:else>
+        <view class="noList dpfC">
+            <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+            <view class="fontSize-28 color1 marginTop">暂无添加红包</view>
+        </view>
+    </view>
 
 </view>

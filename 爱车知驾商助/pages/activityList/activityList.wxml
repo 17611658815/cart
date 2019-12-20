@@ -1,31 +1,34 @@
-
-<view class="fastTitleBoxs">
-        <text class="fastTitle">发起活动</text>
-        <text class="fastBtn" style="margin-left:10rpx;" bindtap="goAddredPacket">发起</text>
-    </view>
+<view class="fastTitleBoxs" catchtap="goAddredPacket">
+    发起
+</view>
 <view class="container">
+    <view class="navList width90">
+        <navigator hover-class="none" url='/pages/activityList/activityList' class="{{currentTab==0 ? 'color1 navActive':'color3'}}">推广概况</navigator>
+        <navigator hover-class="none" url='/pages/couponList/couponList' class="{{currentTab==1 ? 'color1 navActive':'color3'}}">赠优惠卷</navigator>
+        <navigator hover-class="none" url='/pages/redPacketList/redPacketList' class="{{currentTab==2 ? 'color1 navActive':'color3'}}">发红包</navigator>
+    </view>
     <view class="typeList" wx:if='{{packetList.length>0}}'>
-            <view class="wrapper" wx:for="{{packetList}}">
-                <view class="left">
-                  <view class="marginLefts">
-                       <view class="fontSize-36">
-                            {{item.title}}
-                       </view> 
+        <view class="wrapper" wx:for="{{packetList}}">
+            <view class="left">
+                <view class="marginLefts">
+                    <view class="fontSize-36">
+                        {{item.title}}
                     </view>
                 </view>
-                <view class="right">
-                   <view class="fontSize-36 ">{{item.num == 0 ? "不限":"前"+item.num+"位"}}</view>
-                </view>
-                <view class="tiemsBox">
-                   <label>{{item.created}}</label>  <label>有效期：{{item.stime}}-{{item.etime}}</label>      
-                </view> 
+            </view>
+            <view class="right">
+                <view class="fontSize-36 ">{{item.num == 0 ? "不限":"限"+item.num+"位"}}</view>
+            </view>
+            <view class="tiemsBox">
+                <label>{{item.created}}</label>
+                <label>有效期：{{item.stime}}-{{item.etime}}</label>
             </view>
         </view>
-        <view class="width100 dpfC" wx:else>
-            <view class="noList dpfC">
-                <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
-                <view class="fontSize-28 color1 marginTop">暂无添加红包</view>
-            </view>
+    </view>
+    <view class="width100 dpfC" wx:else>
+        <view class="noList dpfC">
+            <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+            <view class="fontSize-28 color1 marginTop">暂无添加红包</view>
         </view>
-
+    </view>
 </view>

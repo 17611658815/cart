@@ -150,4 +150,20 @@ export default class Url {
     static delBankCardUrl() {
         return Url.PATH + '/delBankCard';
     }
+    // 商家客服数据
+    static customerHomeUrl() {
+        return Url.PATH + '/customerHome';
+    }
+    // 商家客服列表
+    static customerListUrl() {
+        return Url.PATH + '/customerList';
+    }
+    // 推广概况
+    static promotionHomeDataUrl() {
+        return Url.PATH + '/promotionHomeData';
+    }
+    // 店铺进宝
+    static shopJinbaoDataUrl() {
+        return Url.PATH + '/shopJinbaoData';
+    }
 }

@@ -9,7 +9,7 @@
                 <view class="color1">发红包</view>
                 <view class="fontSize-24 color2">每发一次红包领取特权</view>
             </view>
-            <view bindtap="goredPacketList" class="listBox_item_right" wx:if="{{!statusData[1] || statusData[1].status == 1}}">
+            <view bindtap="goredPacketList" data-index="3" data-type='1' class="listBox_item_right" wx:if="{{!statusData[1] || statusData[1].status == 1}}">
                 去领取
             </view>
             <view bindtap="getShopScore" data-type='1' class="listBox_item_right" wx:elif="{{statusData[1] && statusData[1].status == 0}}">
@@ -24,7 +24,7 @@
                 <view class="color1">发优惠卷</view>
                 <view class="fontSize-24 color2">发优惠卷后领取奖分</view>
             </view>
-            <view bindtap="gocouponList" class="listBox_item_right" wx:if="{{!statusData[2] || statusData[2].status == 1}}">
+            <view bindtap="goredPacketList" data-index="2" data-type='2' class="listBox_item_right" wx:if="{{!statusData[2] || statusData[2].status == 1}}">
                 去领取
             </view>
             <view bindtap="getShopScore" data-type='2' class="listBox_item_right" wx:elif="{{statusData[2] && statusData[2].status == 0}}">
@@ -39,7 +39,7 @@
                 <view class="color1">发起活动</view>
                 <view class="fontSize-24 color2">发起活动后领取奖分</view>
             </view>
-            <view bindtap="goactivityList" class="listBox_item_right" wx:if="{{!statusData[3] || statusData[3].status == 1}}">
+            <view bindtap="goredPacketList" data-index="1" data-type='3' class="listBox_item_right" wx:if="{{!statusData[3] || statusData[3].status == 1}}">
                 去领取
             </view>
             <view bindtap="getShopScore" data-type='3' class="listBox_item_right" wx:elif="{{statusData[3] && statusData[3].status == 0}}">
@@ -112,5 +112,4 @@
             </view>
         </view>
     </view>
-
 </view>

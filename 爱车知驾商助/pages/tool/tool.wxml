@@ -81,4 +81,4 @@
     </view>
 </view>
 <image class="png5" src="../../images/5.png"></image>
-<bottomNav navbarData="2"></bottomNav>
+<!-- <bottomNav navbarData="2"></bottomNav> -->

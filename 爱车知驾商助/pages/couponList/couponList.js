@@ -6,6 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        currentTab: 1,//头部导航
         member_id: 0,
         page: 1,
         packetList: [],

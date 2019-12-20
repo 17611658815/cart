@@ -1,0 +1,8 @@
+/* pages/msgContent/msgContent.wxss */
+page{
+    background: #ffffff;
+}
+.container>view{
+    width: 94%;
+    padding: 20rpx 3%;
+}

@@ -238,10 +238,10 @@ Page({
         let markers = that.data.markers;
         let params = {
             appid: app.globalData.appid,
-            lat: that.data.latitude,
-            lng: that.data.longitude,
-            // lat: '39.905277252197266',
-            // lng: '116.51362609863281',
+            // lat: that.data.latitude,
+            // lng: that.data.longitude,
+            lat: '39.905277252197266',
+            lng: '116.51362609863281',
             level: that.data.currentTab+1
         }
         app.net.$Api.getShopListByLocation(params).then((res) => {

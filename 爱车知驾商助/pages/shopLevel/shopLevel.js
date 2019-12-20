@@ -77,19 +77,11 @@ Page({
             }
         })
     },
-    goredPacketList(){
+    goredPacketList(e){
+        let index = e.currentTarget.dataset.index;
+        let type = e.currentTarget.dataset.type;
         wx.navigateTo({
-            url: '/pages/redPacketList/redPacketList?type=1',
-        })
-    },
-    gocouponList(){
-        wx.navigateTo({
-            url: '/pages/couponList/couponList?type=2',
-        })
-    },
-    goactivityList(){
-        wx.navigateTo({
-            url: '/pages/activityList/activityList?type=3',
+            url: '/pages/promotionCenter/promotionCenter?type=' + type + "&index=" + index,
         })
     },
     /**

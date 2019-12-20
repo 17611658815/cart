@@ -9,7 +9,8 @@ Page({
         member_id: 0,
         page: 1,
         packetList: [],
-        on_off: false
+        on_off: false,
+        currentTab:0,
     },
 
     /**

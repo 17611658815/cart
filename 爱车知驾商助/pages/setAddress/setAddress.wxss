@@ -127,11 +127,14 @@ page{
 .addBtn{
     width: 700rpx;
     height: 90rpx;
-    margin: 50rpx 0;
     color: #ffffff;
     text-align: center;
     line-height: 90rpx;
     border-radius: 20rpx;
     background-image: linear-gradient(#F9903F, #F35235);
+    position: fixed;
+    bottom: -2%;
+    left: 50%;
+    transform: translate(-50%,-50%)
 
 }

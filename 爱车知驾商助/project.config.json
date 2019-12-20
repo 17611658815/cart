@@ -256,6 +256,27 @@
 					"pathName": "pages/bankList/bankList",
 					"query": "type=2",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "内容详情",
+					"pathName": "pages/msgContent/msgContent",
+					"query": "type=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "服务列表",
+					"pathName": "pages/contentList/contentList",
+					"query": "type=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "店铺位置",
+					"pathName": "pages/setAddress/setAddress",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

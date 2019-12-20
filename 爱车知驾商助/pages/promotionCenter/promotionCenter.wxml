@@ -1,23 +1,21 @@
 <view class="container">
     <!-- 头部导航 -->
     <view class="navList width90">
-        <view bindtap="swatchTab" 
-            data-index='{{index}}' 
-            class="{{currentTab==index ? 'color1 navActive':'color3'}}" 
-            wx:for='{{navList}}' 
-            wx:key='key'>{{item}}</view>
+        <view bindtap="swatchTab" data-index='{{index}}' data-type='{{4/1-index}}' class="{{currentTab==index ? 'color1 navActive':'color3'}}" wx:for='{{navList}}' wx:key='key'>{{item}}</view>
     </view>
     <view wx:if='{{currentTab==0}}'>
-        <view class="moneySum width90 paddinglr">
+        <view class="moneySum" style="margin-top:90rpx;">
             <view class="sumNum dpfC">
                 <view class="fontSize-26">推广账户余额</view>
                 <view class="dpf marginTop">￥
-                    <text class="fontSize-40 fontWeight6">0.00</text>
+                    <text class="fontSize-40 fontWeight6">{{msgData.money}}</text>
                     <image class="icon_4 marginLeft" src="../../images/icon/icon_4.png"></image>
                 </view>
             </view>
             <view class="sumLogo dpfC">
                 <image class="icon_3" src='../../images/icon/icon_3.png'></image>
+                <view class="view1" wx:if='{{msgData.invest_num == 0}}'></view>
+                <view class="view2" wx:if='{{msgData.invest_num == 0}}'>初次充值送100</view>
             </view>
             <view class="sumBtn dpfC">
                 <view>充值</view>
@@ -25,21 +23,94 @@
         </view>
         <view class="tabListData width90 paddinglr bgFFFF marginTop">
             <view class="dataTab">
-                <view class="{{index==dataTab?'acticeClass':''}}" 
-                    data-index='{{index}}' 
-                    wx:for='{{tabArr}}' 
-                    wx:key='key' 
-                    bindtap="dataSwatchTab">{{item}}</view>
+                <view class="{{index==dataTab?'acticeClass':''}}" data-index='{{index}}' wx:for='{{tabArr}}' wx:key='key' bindtap="dataSwatchTab">{{item}}</view>
             </view>
             <view class="listBox marginTop">
-                <view class="list_item" wx:for='{{6}}' wx:key='key'>
+                <view class="list_item">
                     <view class="dpfb">
                         <text class="fontSize-26 color3">交易额 </text>
                         <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
                     </view>
                     <view class="dpfb marginTop">
                         <view class="color1"> ￥
-                            <text class="fontSize-40 fontWeight6">0.00</text> </view>
+                            <text class="fontSize-40 fontWeight6">{{msgData.trade}}</text> </view>
+                        <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                    </view>
+                </view>
+                <view class="list_item">
+                    <view class="dpfb">
+                        <text class="fontSize-26 color3">总消耗 </text>
+                        <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                    </view>
+                    <view class="dpfb marginTop">
+                        <view class="color1"> ￥
+                            <text class="fontSize-40 fontWeight6">{{msgData.consume}}</text> </view>
+                        <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                    </view>
+                </view>
+                <view class="list_item">
+                    <view class="dpfb">
+                        <text class="fontSize-26 color3">平均点击消耗 </text>
+                        <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                    </view>
+                    <view class="dpfb marginTop">
+                        <view class="color1"> ￥
+                            <text class="fontSize-40 fontWeight6">{{msgData.average_consume}}</text> </view>
+                        <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                    </view>
+                </view>
+                <view class="list_item">
+                    <view class="dpfb">
+                        <text class="fontSize-26 color3">投入产出比 </text>
+                        <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                    </view>
+                    <view class="dpfb marginTop">
+                        <view class="color1"> ￥
+                            <text class="fontSize-40 fontWeight6">{{msgData.roi_rate}}</text> </view>
+                        <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                    </view>
+                </view>
+                <view class="list_item">
+                    <view class="dpfb">
+                        <text class="fontSize-26 color3">订单数 </text>
+                        <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                    </view>
+                    <view class="dpfb marginTop">
+                        <view class="color1"> 
+                            <text class="fontSize-40 fontWeight6">{{msgData.order_num}}</text> 笔 </view>
+                        <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                    </view>
+                </view>
+                <view class="list_item">
+                    <view class="dpfb">
+                        <text class="fontSize-26 color3">曝光量 </text>
+                        <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                    </view>
+                    <view class="dpfb marginTop">
+                        <view class="color1"> 
+                            <text class="fontSize-40 fontWeight6">{{msgData.show}}</text> 次</view>
+                        <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                    </view>
+                </view>
+                <view class="list_item">
+                    <view class="dpfb">
+                        <text class="fontSize-26 color3">点击量 </text>
+                        <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                    </view>
+                    <view class="dpfb marginTop">
+                        <view class="color1"> 
+                            <text class="fontSize-40 fontWeight6">{{msgData.click}}</text> 次</view>
+                        <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                    </view>
+                </view>
+                <view class="list_item">
+                    <view class="dpfb">
+                        <text class="fontSize-26 color3">点击率 </text>
+                        <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                    </view>
+                    <view class="dpfb marginTop">
+                        <view class="color1"> 
+                            <text class="fontSize-40 fontWeight6">{{msgData.click_rate}}</text> %</view>
                         <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
                     </view>
                 </view>
@@ -48,40 +119,128 @@
     </view>
     <view class="width100" wx:if='{{currentTab==1}}'>
         <view class="slect_item">
-            <view class="dp fontSize-28 color1" bindtap="slect_1itemShow">推广类型
+            <view class="dp fontSize-28 color1" bindtap="slect_3itemShow">{{name3}}
+                <image class="marginLeft {{slect_item3 ? 'rotateRight':''}}" src="../../images/icon/icon_4.png"></image>
+            </view>
+            <view class='sortList' wx:if='{{slect_item3}}'>
+                <view data-index="{{index}}" bindtap="changeIndex_3" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList2}}'>{{item}}
+                    <image wx:if='{{selectIndex3==index}}' src="../../images/icon/icon_mark.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="typeList_3" wx:if='{{packetList.length>0}}'>
+        <view class="wrapper" wx:for="{{packetList}}">
+            <view class="left">
+                <view class="marginLefts">
+                    <view class="fontSize-36">
+                        {{item.title}}
+                    </view>
+                </view>
+            </view>
+            <view class="right">
+                <view class="fontSize-36 ">{{item.num == 0 ? "不限":"限"+item.num+"位"}}</view>
+            </view>
+            <view class="tiemsBox">
+                <label>{{item.created}}</label>
+                <label>有效期：{{item.stime}}-{{item.etime}}</label>
+            </view>
+        </view>
+    </view>
+    <view class="width100 dpfC" wx:else>
+        <view class="noList dpfC">
+            <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+            <view class="fontSize-28 color1 marginTop">暂无相关活动</view>
+        </view>
+    </view>
+    </view>
+    <view class="width100" wx:if='{{currentTab==2}}'>
+        <view class="slect_item">
+            <view class="dp fontSize-28 color1" bindtap="slect_1itemShow"> {{name1}}
                 <image class="marginLeft {{slect_item1 ? 'rotateRight':''}}" src="../../images/icon/icon_4.png"></image>
             </view>
-            <view class="dp fontSize-28 color1" bindtap="slect_2itemShow">状态
+            <view class="dp fontSize-28 color1" bindtap="slect_2itemShow">{{name2}}
                 <image class="marginLeft {{slect_item2 ? 'rotateRight':''}}" src="../../images/icon/icon_4.png"></image>
             </view>
             <!-- 排序下拉 -->
             <view class='sortList' wx:if='{{slect_item1}}'>
-                <view data-index="{{index}}" bindtap="changeIndex_1" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList}}'>{{item}}
-                <image wx:if='{{selectIndex1==index}}' src="../../images/icon/icon_mark.png"></image></view>
+                <view data-index="{{index}}" bindtap="changeIndex_1" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList1}}'>{{item}}
+                    <image wx:if='{{selectIndex1==index}}' src="../../images/icon/icon_mark.png"></image>
+                </view>
             </view>
             <view class='sortList' wx:if='{{slect_item2}}'>
-                 <view data-index="{{index}}" bindtap="changeIndex_1" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList}}'>{{item}}
-                <image wx:if='{{selectIndex1==index}}' src="../../images/icon/icon_mark.png"></image></view>
+                <view data-index="{{index}}" bindtap="changeIndex_2" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList2}}'>{{item}}
+                    <image wx:if='{{selectIndex2==index}}' src="../../images/icon/icon_mark.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="typeList_2" wx:if='{{packetList.length>0}}'>
+            <view class="wrapper" wx:for="{{packetList}}">
+                <view class="left">
+                    <view class="marginLefts">
+                        <view class="fontSize-36" wx:if='{{item.youhui_type==1}}'>
+                            {{item.value}}元
+                            <label class='fontSize-20 marginLeft'> 满{{item.man}}</label>
+                        </view>
+                        <view class="fontSize-36" wx:if='{{item.youhui_type==2}}'>
+                            {{item.value}}折
+                            <label class='fontSize-20 marginLeft'> 满{{item.man}}</label>
+                        </view>
+                        <view class="fontSize-36" wx:if='{{item.youhui_type==3}}'>
+                            {{item.value}}元-代金卷
+                        </view>
+                    </view>
+                </view>
+                <view class="right">
+                    <view class="fontSize-36 ">{{item.num}}张</view>
+                </view>
+                <label class="tiemsBox">
+                   有效时间:{{item.stime}}-{{item.etime}}
+                </label>
+            </view>
+        </view>
+        <view class="width100 dpfC" wx:else>
+            <view class="noList dpfC">
+                <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+                <view class="fontSize-28 color1 marginTop">暂无相关优惠卷</view>
             </view>
         </view>
     </view>
-    <view class="width100" wx:if='{{currentTab==2}}'>
-       <view class="slect_item">
-            <view class="dp fontSize-28 color1" bindtap="slect_3itemShow">推广类型
-                <image class="marginLeft {{slect_item3 ? 'rotateRight':''}}" src="../../images/icon/icon_4.png"></image>
+    <view class="width100" wx:if='{{currentTab==3}}'>
+        <view class="typeList_1" style="margin-top:100rpx;" wx:if='{{packetList.length>0}}'>
+            <view class="wrapper" wx:for="{{packetList}}">
+                <view class="left">
+                    <view class="marginLeft dpf">
+                        <view class="ticket_icon">
+                            <image src="../../images/icon/icon_44.png"></image>
+                        </view>
+                        <view class="fontSize-36">
+                            {{item.value}}元
+                        </view>
+                    </view>
+                </view>
+                <view class="right">
+                    <view class="fontSize-36 ">{{item.num}}个</view>
+                </view>
+                <label class="tiemsBox">
+                    {{item.created}}
+                </label>
             </view>
-            <view class="dp fontSize-28 color1" bindtap="slect_4itemShow">状态
-                <image class="marginLeft {{slect_item4 ? 'rotateRight':''}}" src="../../images/icon/icon_4.png"></image>
-            </view>
-            <!-- 排序下拉 -->
-            <view class='sortList' wx:if='{{slect_item3}}'>
-                <view data-index="{{index}}" bindtap="changeIndex_2" class="sortList_item width90 borderBtm padding30"  wx:for='{{selctList}}' wx:key='key'>{{item}}
-                <image wx:if='{{selectIndex2==index}}' src="../../images/icon/icon_mark.png"></image></view>
-            </view>
-            <view class='sortList' wx:if='{{slect_item4}}'>
-                 <view data-index="{{index}}" bindtap="changeIndex_2" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList}}' wx:key='key'>{{item}}
-                <image wx:if='{{selectIndex2==index}}' src="../../images/icon/icon_mark.png"></image></view>
+        </view>
+        <view class="width100 dpfC" wx:else>
+            <view class="noList dpfC">
+                <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+                <view class="fontSize-28 color1 marginTop">暂无添加红包</view>
             </view>
         </view>
     </view>
+</view>
+
+<view class="fastTitleBoxs" style="color: #6e9ff7;" catchtap="goAddredPacket" data-index="3" wx:if="{{currentTab ==1}}">
+    发起
+</view>
+<view class="fastTitleBoxs" style="color: #E7402E;" catchtap="goAddredPacket" data-index="2" wx:if="{{currentTab ==2}}">
+    添加
+</view>
+<view class="fastTitleBoxs" style="color: #F9903F;" catchtap="goAddredPacket" data-index="1" wx:if="{{currentTab ==3}}">
+    添加
 </view>

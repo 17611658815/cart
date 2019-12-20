@@ -46,4 +46,32 @@ App({
         })
         return this
     },
+    // 显示红点
+    showTabBarRedDot:function(index){
+        wx.showTabBarRedDot({
+            index: index,
+            success: function (res) {
+                console.log(res)
+            }
+        })
+    },
+    // 显示文字
+    setTabBarBadge: function (index,num){
+        wx.setTabBarBadge({
+            index: index,
+            text: num
+        })
+    },
+    // 移除 tabBar 某一项右上角的文本
+    removeTabBarBadge(index){
+        wx.removeTabBarBadge({
+            index: index,
+        })
+    },
+    // 隐藏红点
+    hideTabBarRedDot(index){
+        wx.removeTabBarBadge({
+            index: index,
+        })
+    }
 })

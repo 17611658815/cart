@@ -18,10 +18,19 @@ Page({
             latitude:'',
             width: 50,
             height: 50,
-        }]
+        }],
+        windowH:""
     },
     onLoad: function () {
         var that = this;
+        wx.getSystemInfo({
+            success: (res) => {
+                console.log(res)
+               that.setData({
+                   windowH: res.windowHeight-150
+               })
+            }
+        })
         this.setData({
             city: app.globalData.city,
             "markers[0].longitude": app.globalData.shopInfo.lng,

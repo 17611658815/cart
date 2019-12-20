@@ -10,16 +10,21 @@ Page({
         trade:'',//交易
         list:'',//帖子
         msgNum:0,
+        isIphoneX:false
     },
     onLoad: function() {
         let userInfo = wx.getStorageSync('userinfo') || '';
         app.globalData.userInfo = userInfo
         this.setData({
-            id: userInfo.id
+            id: userInfo.id,
+            isIphoneX: app.globalData.isIphoneX
         })
         this.getShopHomeData()
         // this.getPostingsList()
         this.getLocationMsg()
+    },
+    onbindcontact(e){
+        console.log(e,27)
     },
     onShow(){
         this.getShopHomeData()
@@ -57,14 +62,18 @@ Page({
                 member_id:that.data.id
             }
         app.net.$Api.getShopHomeData(params).then((res) => {
-          console.log(res)
-          that.setData({
-              goods: res.data.data.goods,
-              order: res.data.data.order,
-              trade: res.data.data.trade,
-              msgNum: res.data.data.msg,
-              list: res.data.data.postings
-          })
+            console.log(res.data.data.msg)
+            if (res.data.data.msg>0){
+                app.showTabBarRedDot(1)
+                app.setTabBarBadge(1, msgNum + "")
+            }
+            that.setData({
+                goods: res.data.data.goods,
+                order: res.data.data.order,
+                trade: res.data.data.trade,
+                msgNum: res.data.data.msg,
+                list: res.data.data.postings
+            })
         })
     },
     goGoodsList(e){

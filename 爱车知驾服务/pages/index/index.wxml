@@ -1,3 +1,4 @@
+<!-- <button open-type="contact" bindcontact='onbindcontact'>客服</button> -->
 <view class="container">
 <!-- <button bindtap="goShopApp">商户</button>
 <button bindtap="goStechnician">技师</button> -->

@@ -1,14 +1,13 @@
 <view class="container">
-    <view class="width90 paddinglr dpf">
+    <view class="width90 paddinglr dpf bgFFFF">
         <view class="title color6 fontWeight6 fontSize-30">公告</view>
-        <view class="marginLeft fontSize-28">全店满减卷功能更新，一招提升客订单</view>
+        <view class="marginLeft fontSize-28">{{dataMsg.notice.title}}</view>
     </view>
     <!-- 轮播图部分 -->
     <view class='home-swiper'>
-        <!-- <swiper class="swiper" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' indicator-active-color="#ffffff" autoplay="true" circular='true' duration="1000" interval="5000"> -->
         <swiper class="swiper" autoplay="true" circular='true' duration="1000" interval="5000">
-            <swiper-item>
-                <image src="../../images/2.jpg"></image>
+            <swiper-item wx:for='{{dataMsg.banner}}' wx:key='key'>
+                <image src="{{item.thumb}}"></image>
             </swiper-item>
         </swiper>
     </view>
@@ -38,16 +37,16 @@
         </view>
     </view>
     <view class="question_list width90 bgFFFF paddinglr">
-        <view bindtap="swatchTab" data-index='{{index}}' class="question_list_item {{currentTab == index ? 'question_active':''}}" wx:for='{{tabArr}}'>
-            {{item}}
+        <view bindtap="swatchTab" data-index='{{index}}' data-id='{{item.id}}' class="question_list_item {{currentTab == index ? 'question_active':''}}" wx:for='{{dataMsg.cat}}' wx:key='key'>
+            {{item.name}}
         </view>
-        <view bindtap="swatchTab" class="question_list_item">
+        <view bindtap="swatchTab" data-index='0' data-id='0' class="question_list_item">
             更多 >
         </view>
     </view>
     <!-- 功能列表 -->
     <view class="typeList width100 marginTop20 dpfC bgFFFF">
-        <navigator hover-class='none' url='{{item.path}}' class="width90 dpfb bgFFFF padding30 borderBtm" wx:for='{{typeListArr}}' wx:key='key'>
+        <navigator hover-class='none' url='/pages/msgContent/msgContent' class="width90 dpfb bgFFFF padding30 borderBtm" wx:for='{{dataMsg.list}}' wx:key='key'>
             <view class="typeList_item dpf">
                 <view>
                     {{item.name}}
@@ -58,4 +57,10 @@
             </view>
         </navigator>
     </view>
+</view>
+
+
+<view class="kefuBtn">
+        <image src='../../images/icon/kefu2.png'></image> 在线客服
+<button open-type="contact" bindcontact='onbindcontact'></button>
 </view>

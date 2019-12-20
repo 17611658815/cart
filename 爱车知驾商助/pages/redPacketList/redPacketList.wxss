@@ -1,4 +1,49 @@
-/* pages/redPacketList/redPacketList.wxss */
+.navList{
+    padding: 20rpx 3%  10rpx 3%;
+    background: #ffffff;
+    border-bottom: 1rpx solid #e2e2e2;
+    font-size: 28rpx;
+    display: flex;
+    justify-content: space-around;
+}
+.navList>navigator{
+    padding-bottom: 10rpx;
+}
+.navActive{
+    color: #F9903F;
+    border-bottom: 5rpx solid #F9903F;
+}
+.icon_3{
+    width: 150rpx;
+    height: 100rpx;
+}
+.icon_4{
+    width: 30rpx;
+    height: 30rpx;
+}
+.moneySum{
+    display: flex;
+    justify-content: space-between;
+    background: #ffffff;
+}
+.moneySum>view{
+    flex: 1;
+}
+.sumBtn{
+    display: flex;
+    justify-content: flex-end;
+}
+.sumBtn>view{
+    width: 120rpx;
+    height: 50rpx;
+    background: #D84438;
+    color: #ffffff;
+    font-size: 28rpx;
+    text-align: center;
+    line-height: 50rpx;
+    border-radius: 3rpx;
+}
+
 .typeList{
     width: 94%;
     padding: 0 3%;
@@ -92,13 +137,17 @@
 
 /*  */
 .fastTitleBoxs{
-    width: 94%;
-    padding: 0 3%;
-    height: 88rpx;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #ffffff;
+   width: 130rpx;
+   height: 130rpx;
+   background: #ffffff;
+   text-align: center;
+   line-height: 130rpx;
+   border-radius: 50%;
+   position: fixed;
+   bottom: 150rpx;
+   right:30rpx;
+   color: #F9903F;
+    z-index: 999;
 }
 .fastTitle {
     font-size: 27rpx;

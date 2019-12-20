@@ -25,7 +25,6 @@ page{
 }
 
 .mssageList_item_time{
-    width: 100rpx;
     height: 50rpx;
     background: #D7D7D7;
     color: #ffffff;
@@ -33,6 +32,7 @@ page{
     text-align: center;
     line-height: 50rpx;
     font-size: 26rpx;
+    padding: 0 20rpx;
     margin: 30rpx 0;
 }
 .mssageList_item_content{

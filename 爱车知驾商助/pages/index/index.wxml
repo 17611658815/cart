@@ -1,4 +1,5 @@
 <!--index.wxml-->
+<!-- <button open-type="contact" bindcontact='onbindcontact'>客服</button> -->
 <view class="container">
     <view class="alertText">
         <image class="icon_1 marginRight" src="../../images/icon/icon_1.png"></image>
@@ -200,4 +201,4 @@
         </view>
     </view>
 </view>
-<bottomNav navbarData="0" msg='{{msgNum}}'></bottomNav>
+<!-- <bottomNav navbarData="0" msg='{{msgNum}}'></bottomNav> -->

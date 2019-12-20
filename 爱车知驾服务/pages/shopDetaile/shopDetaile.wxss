@@ -171,6 +171,12 @@ swiper-item {
   background: #ffffff;
   padding-left: 20rpx;
   padding-top: 20rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  line-clamp:2
 }
 .phonePriceNum{
     padding-bottom: 20rpx;
@@ -501,4 +507,60 @@ line-height:0;
     flex: 1;
 
     margin-left: 20rpx;
+}
+
+
+.scroll-x-box {
+    width: 95%;
+    padding-left: 5%;
+    display: flex;
+}
+
+.scroll-x-content {
+    width: 100%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    box-shadow:0 5rpx 20rpx #eee;
+
+}
+
+.scroll-x-content-item {
+    display: inline-block;
+    padding: 35rpx 0;
+    margin-right: 38rpx;
+    font-size: 30rpx;
+    color: #2d2d2d;
+    position: relative;
+}
+
+.border {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 19rpx;
+    border-radius: 44rpx;
+    width: 0;
+    height: 6rpx;
+    background: #000000;
+    transition: all 0.2s;
+}
+
+.borderhover {
+    content: "";
+    width: 100%;
+    height: 5rpx;
+    bottom: 19rpx;
+    border-radius: 44rpx;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: #000000;
+    transition: all 0.2s;
+}
+.active{
+    color: #000000;
+    font-weight: 500;
 }
