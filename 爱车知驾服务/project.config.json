@@ -289,6 +289,14 @@
 					"id": -1,
 					"name": "活动列表",
 					"pathName": "pages/activityList/activityList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品列表",
+					"pathName": "pages/cartList/cartList",
+					"query": "serviceId=1&area_id=2&serveType=0&level=0&time=",
 					"scene": null
 				}
 			]

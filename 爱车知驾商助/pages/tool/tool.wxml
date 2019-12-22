@@ -31,19 +31,19 @@
     <view class="layout_tool">
         <view class="padding30 fontSize-28">营销</view>
         <view class="toolList">
-            <view class="toolList_item" bindtap="goredPacketList">
+            <view class="toolList_item"  data-index="3" data-type='1' bindtap="goredPacketList">
                 <view class="toolList_item_icon">
                       <image src="../../images/icon/icon_28.jpg"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">红包</view>
             </view>
-            <view class="toolList_item" bindtap="gocouponList"> 
+            <view class="toolList_item" data-index="2" data-type='2' bindtap="goredPacketList"> 
                 <view class="toolList_item_icon">
                       <image src="../../images/icon/icon_29.jpg"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">优惠卷</view>
             </view>
-            <view class="toolList_item" bindtap="goactivityList">
+            <view class="toolList_item" data-index="1" data-type='3' bindtap="goredPacketList">
                 <view class="toolList_item_icon">
                       <image src="../../images/icon/icon_30.jpg"></image>
                 </view>

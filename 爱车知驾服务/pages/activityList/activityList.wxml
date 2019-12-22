@@ -16,29 +16,29 @@
             </view>
         </view>
         <view class="typeList_3" wx:if='{{packetList.length>0}}'>
-        <view class="wrapper" wx:for="{{packetList}}">
-            <view class="left">
-                <view class="marginLefts">
-                    <view class="fontSize-36">
-                        {{item.title}}
+            <view class="wrapper" wx:for="{{packetList}}">
+                <view class="left">
+                    <view class="marginLefts">
+                        <view class="fontSize-36">
+                            {{item.title}}
+                        </view>
                     </view>
                 </view>
-            </view>
-            <view class="right">
-                <view class="fontSize-36 ">{{item.num == 0 ? "不限":"限"+item.num+"位"}}</view>
-            </view>
-            <view class="tiemsBox">
-                <label>{{item.created}}</label>
-                <label>有效期：{{item.stime}}-{{item.etime}}</label>
+                <view class="right">
+                    <view class="fontSize-36 ">{{item.num == 0 ? "不限":"限"+item.num+"位"}}</view>
+                </view>
+                <view class="tiemsBox">
+                    <label>{{item.created}}</label>
+                    <label>有效期：{{item.stime}}-{{item.etime}}</label>
+                </view>
             </view>
         </view>
-    </view>
-    <view class="width100 dpfC" wx:else>
-        <view class="noList dpfC">
-            <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
-            <view class="fontSize-28 color1 marginTop">暂无相关活动</view>
+        <view class="width100 dpfC" wx:else>
+            <view class="noList dpfC">
+                <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+                <view class="fontSize-28 color1 marginTop">暂无相关活动</view>
+            </view>
         </view>
-    </view>
     </view>
     <view class="width100" wx:if='{{currentTab==1}}'>
         <view class="slect_item">
@@ -78,10 +78,10 @@
                     </view>
                 </view>
                 <view class="right">
-                    <view class="fontSize-36 ">{{item.num}}张</view>
+                    <view class="fontSize-36">{{item.num}}张</view>
                 </view>
                 <label class="tiemsBox">
-                   有效时间:{{item.stime}}-{{item.etime}}
+                    有效时间:{{item.stime}}-{{item.etime}}
                 </label>
             </view>
         </view>
@@ -121,4 +121,3 @@
         </view>
     </view>
 </view>
-

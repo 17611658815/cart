@@ -173,6 +173,53 @@ export const api = {
     // 店铺进宝
     shopJinbaoData: function (paramObj) {
         return Promise.post(Url.default.shopJinbaoDataUrl(), paramObj);
-    }
-   
+    },
+    // 数据分析
+    operateData: function (paramObj) {
+        return Promise.post(Url.default.operateDataUrl(), paramObj);
+    },
+    // 内容详情
+    getSysContentInfo: function (paramObj) {
+        return Promise.post(Url.default.getSysContentInfoUrl(), paramObj);
+    },
+    // 舍友圈
+    communityHomeData: function (paramObj) {
+        return Promise.post(Url.default.communityHomeDataUrl(), paramObj);
+    },
+    // 社区列表
+    postingsList: function (paramObj) {
+        return Promise.post(Url.default.postingsListUrl(), paramObj);
+    },
+    // 帖子详情
+    postingsInfo: function (paramObj) {
+        return Promise.post(Url.default.postingsInfoUrl(), paramObj);
+    },
+    // 获取评论列表
+    postingsComment: function (paramObj) {
+        return Promise.post(Url.default.postingsCommentUrl(), paramObj);
+    },
+    // 添加评论
+    addPostingsComment: function (paramObj) {
+        return Promise.post(Url.default.addPostingsCommentUrl(), paramObj);
+    },
+    // 点赞
+    postingsZan: function (paramObj) {
+        return Promise.post(Url.default.postingsZanUrl(), paramObj);
+    },
+    // 收藏
+    postingsCollection: function (paramObj) {
+        return Promise.post(Url.default.postingsCollectionUrl(), paramObj);
+    },
+    // 评论赞
+    postingsCommentZan: function (paramObj) {
+        return Promise.post(Url.default.postingsCommentZanUrl(), paramObj);
+    },
+    // 评论赞
+    collectionPostings: function (paramObj) {
+        return Promise.post(Url.default.collectionPostingsUrl(), paramObj);
+    },
+    // 发布帖子
+    addPostings: function (paramObj) {
+        return Promise.post(Url.default.addPostingsUrl(), paramObj);
+    },
 }

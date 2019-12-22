@@ -31,6 +31,7 @@ Page({
     
     gomessageList(e){
         let currentTab = e.currentTarget.dataset.index;
+        console.log(currentTab)
         if (this.data.goodsNum == 0){
             return
         }else{

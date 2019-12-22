@@ -1,20 +1,39 @@
 // pages/msgContent/msgContent.js
+let app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        id:0,
+        content:{}
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        this.setData({
+            id: options.id
+        })
+        this.getSysContentInfo()
     },
+    // 获取分类
+    getSysContentInfo() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            id: that.data.id
+        };
+        app.net.$Api.getSysContentInfo(params).then((res) => {
+            console.log(res)
+            that.setData({
+                content:res.data
+            })
 
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

@@ -4,7 +4,9 @@
         <view class="typeList width100">
             <navigator hover-class='none' url='{{item.path}}' class="listitem width100 dpfb" wx:for='{{typeListArr}}' wx:key='key'>
                 <view class="typeList_item dpf">
-                    <view class="item_icon"></view>
+                    <view class="item_icon">
+                        <image src="{{item.icon}}"></image>
+                    </view>
                     <view class="fontSize-26 color2">
                         {{item.name}}
                     </view>
@@ -21,7 +23,9 @@
         <view class="typeList width100">
             <navigator hover-class='none' url='{{item.path}}' class="listitem width100 dpfb">
                 <view class="typeList_item dpf">
-                    <view class="item_icon"></view>
+                    <view class="item_icon">
+                        <image src="../../images/wxplay.png"></image>
+                    </view>
                     <view class="fontSize-26 color2">
                         微信支付
                     </view>
@@ -43,7 +47,9 @@
             <view class="wrapper">
                 <view class="left">
                     <view class="marginLeft dpf">
-                        <view class="ticket_icon"></view> 车票</view>
+                        <view class="ticket_icon">
+                            <image src="../../images/img24.jpg"></image>
+                        </view> 车票</view>
                     <view class="marginLeft fontSize-26 color3">去购买</view>
                 </view>
                 <view class="right">

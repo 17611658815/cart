@@ -69,4 +69,5 @@ export default class Url {
     static getOrderStatusUrl() {
         return Url.PATH + '/getOrderStatus';
     };
+  
 }

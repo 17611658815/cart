@@ -6,12 +6,31 @@
         <view class="joinBtn">
             立即加入
         </view>
+         <image style="width:100%" mode="scaleToFill" src='https://img.dodo.wiki/app/img5.jpg'></image>
         <view class="join_pic">
             <view class="join_pic_list boxShadow">
-                <view class="dpfC" wx:for="{{4}}">
-                    <image src="../../images/sun.png"></image>
-                    <view style="margin-top:20rpx;" class="fontSize-28 color3">
+                <view class="dpfC">
+                     <image src='../../images/img28.png'></image>
+                    <view style="margin-top:20rpx;" class="fontSize-26 color1">
                         急速应答
+                    </view>
+                </view>
+                <view class="dpfC">
+                     <image src='../../images/img29.png'></image>
+                    <view style="margin-top:20rpx;" class="fontSize-26 color1">
+                        溢价保护
+                    </view>
+                </view>
+                <view class="dpfC">
+                     <image src='../../images/img30.png'></image>
+                    <view style="margin-top:20rpx;" class="fontSize-26 color1">
+                        专属客服
+                    </view>
+                </view>
+                <view class="dpfC">
+                     <image src='../../images/img31.png'></image>
+                    <view style="margin-top:20rpx;" class="fontSize-26 color1">
+                        安全保障
                     </view>
                 </view>
             </view>

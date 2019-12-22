@@ -14,24 +14,16 @@ Page({
     onLoad: function (options) {
 
     },
+    goredPacketList(e) {
+        let index = e.currentTarget.dataset.index;
+        let type = e.currentTarget.dataset.type;
+        wx.navigateTo({
+            url: '/pages/promotionCenter/promotionCenter?type=' + type + "&index=" + index,
+        })
+    },
     gocouponList(){
        wx.navigateTo({
            url: '/pages/couponList/couponList',
-       })
-    },
-    goredPacketList(){
-       wx.navigateTo({
-           url: '/pages/redPacketList/redPacketList',
-       })
-    },
-    goactivityList(){
-       wx.navigateTo({
-           url: '/pages/activityList/activityList',
-       })
-    },
-    gotechnicianList(){
-       wx.navigateTo({
-           url: '/pages/technicianList/technicianList',
        })
     },
     /**

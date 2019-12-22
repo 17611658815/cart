@@ -10,14 +10,7 @@
     </navigator> -->
     <!-- 轮播图部分 -->
     <view class='home-swiper'>
-        <swiper class="swiper" 
-                indicator-dots='true' 
-                indicator-color='rgba(255,255, 255, .3)' 
-                indicator-active-color="#ffffff" 
-                autoplay="true" 
-                circular='true' 
-                duration="1000" 
-                interval="5000">
+        <swiper class="swiper" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' indicator-active-color="#ffffff" autoplay="true" circular='true' duration="1000" interval="5000">
             <swiper-item wx:for='{{3}}' wx:key='key'>
                 <image src="../../images/Image 1.png"></image>
             </swiper-item>
@@ -32,7 +25,7 @@
                 <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
             </view>
         </view>
-        <view class="width90 paddinglr dpfb" bindtap="goOrderList">
+        <view class="width90 paddinglr dpfb" bindtap="godataCenter">
             <view class="dpfC flex_1">
                 <view class="fontSize-32 fontWeight6">￥{{trade.money}}</view>
                 <view class="textTitle">成交金额</view>
@@ -80,10 +73,7 @@
     </view>
     <!-- 推广中心 -->
     <view class="tagBox width90 dpfb bgFFFF marginTop">
-        <navigator hover-class='none' 
-                url='/pages/promotionCenter/promotionCenter' 
-                style="padding:0 30rpx;" 
-                class="flex_1 dpfb">
+        <navigator hover-class='none' url='/pages/promotionCenter/promotionCenter' style="padding:0 30rpx;" class="flex_1 dpfb">
             <view class="dpf">
                 <view class="iconBox marginRight">
                     <image src="../../images/icon/icon_10.jpg"></image>
@@ -91,13 +81,10 @@
             </view>
             <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
         </navigator>
-        <navigator hover-class='none' 
-                url='/pages/shopChunks/shopChunks' 
-                style="padding:0 30rpx;border-left:10rpx solid #f8f8f8" 
-                class="flex_1 dpfb">
+        <navigator hover-class='none' url='/pages/shopChunks/shopChunks' style="padding:0 30rpx;border-left:10rpx solid #f8f8f8" class="flex_1 dpfb">
             <view class="dpf">
                 <view class="iconBox marginRight">
-                <image src="../../images/icon/icon_9.jpg"></image>
+                    <image src="../../images/icon/icon_9.jpg"></image>
                 </view> 商铺进宝
             </view>
             <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
@@ -112,7 +99,7 @@
             </view>
         </view>
         <view class="width90 paddinglr dpfb">
-            <view class="dpfC flex_1" bindtap="goGoodsList"  data-status="1" data-index="0">
+            <view class="dpfC flex_1" bindtap="goGoodsList" data-status="1" data-index="0">
                 <view class="fontSize-32 fontWeight6">{{goods.on_sale}}</view>
                 <view class="textTitle">出售中</view>
             </view>
@@ -170,9 +157,9 @@
         <view class="width90 paddinglr dpfC">
             <view class="dpf width100 padding30 borderBtm" wx:for='{{list}}' wx:key='key'>
                 <view class="iconBox marginRight">
-                <image src="../../images/icon/icon_35.jpg"></image>
+                    <image src="../../images/icon/icon_35.jpg"></image>
                 </view>
-                <text class="fontSize-28 color3">{{item.title}}</text>
+                <text class="fontSize-28 color3 white_noWrap">{{item.title}}</text>
             </view>
         </view>
     </view>

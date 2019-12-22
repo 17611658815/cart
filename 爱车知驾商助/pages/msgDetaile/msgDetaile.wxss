@@ -1,0 +1,332 @@
+/*menubar*/
+.container {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 150rpx;
+   
+}
+.contentBox {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.title {
+    display: block;
+    font-size: 46rpx;
+    font-weight: 600;
+    margin: 0 auto;
+    padding: 40rpx 5% 40rpx;
+}
+.time {
+    display: block;
+    font-size: 30rpx;
+    margin-left: 5%;
+}
+.info {
+    width: 690rpx;
+    margin: 0 auto;
+    padding: 10rpx 0 40rpx;
+}
+.info view {
+    font-size: 35rpx;
+    line-height: 70rpx;
+    color: #343434;
+    text-indent: -10;
+}
+.voice {
+    width: 90%;
+    margin: 10rpx auto;
+}
+.voice video {
+    display: block;
+    width: 100%;
+}
+.voice button {
+    display: none;
+}
+
+/*分页*/
+.pageControl {
+    width: 686rpx;
+    padding: 16rpx 0;
+    margin: 0 auto;
+    border: 2rpx solid #d4d4d4;
+}
+.leftBtn,
+.center,
+.rightBtn {
+    height: 52rpx;
+    line-height: 52rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #6a6a6a;
+}
+.leftBtn,
+.rightBtn {
+    width: 164rpx;
+}
+.center {
+    width: 354rpx;
+    border-left: 2rpx solid #d4d4d4;
+    border-right: 2rpx solid #d4d4d4;
+    font-size: 36rpx;
+    color: #505054;
+}
+
+/*关键词*/
+.keywordBox {
+    width: 100%;
+    padding: 20rpx 0;
+}
+.keyword {
+    font-size: 26rpx;
+    color: #3b9bff;
+    padding: 12rpx 35rpx;
+    border: 1rpx solid #d4d4d4;
+    border-radius: 52rpx;
+    margin-right: 26rpx;
+    margin-top: 16rpx;
+}
+
+/*相关内容*/
+.relevant {
+    width: 690rpx;
+    padding: 0 30rpx;
+    background-color: #ffffff;
+    margin-top: 16rpx;
+}
+.r_title {
+    width: 100%;
+    height: 100rpx;
+    position: relative;
+    line-height: 100rpx;
+    display: flex;
+    font-size: 38rpx;
+    font-weight: 500;
+    
+}
+.titleBg {
+    position: absolute;
+    width: 278rpx;
+    height: 40rpx;
+    left: 50%;
+    top: 50%;
+    margin-top: -20rpx;
+    margin-left: -139rpx;
+}
+.title_name {
+    font-size: 32rpx;
+    z-index: 9;
+    margin: 0 20rpx;
+}
+.list {
+    width: 690rpx;
+    padding: 40rpx 0;
+    display: flex;
+    background-color: #ffffff;
+    border-bottom: 1rpx solid #F0F0F0;
+}
+.smallcontentBox {
+    flex: 1;
+    height: 164rpx;
+    position: relative;
+    margin-left: 3%;
+}
+.contentTitle {
+    display: block;
+    color: #434446;
+    line-height: 48rpx;
+    font-size: 34rpx;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.width100 {
+    width: 100%;
+    height: 100rpx;
+}
+.contentTime {
+    position: absolute;
+    bottom: 0rpx;
+    height: 30rpx;
+    width: 100%;
+    color: #a5a7ab;
+    line-height: 30rpx;
+}
+.contentThumb {
+    width: 270rpx;
+    height: 170rpx;
+}
+.thumb {
+    width: 100%;
+    height: 100%;
+    border-radius: 6rpx;
+}
+.textNull {
+    display: block;
+    width: 20rpx;
+    /* height: 1rpx; */
+    border: 1rpx solid #333333;
+}
+
+.shareBtnBox {
+    width: 90%;
+    padding: 20rpx 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+button::after {
+    border: none;
+    margin: 0;
+}
+.p text {
+    text-indent: 2em; /*em是相对单位，2em即现在一个字大小的两倍*/
+}
+.p image {
+   width: 690rpx;
+}
+
+.inputBox {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 94%;
+    padding: 15rpx 3%;
+    background: #fff;
+    z-index: 9999;
+}
+.inputBox_top{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    animation: myfirst2 0.8s;
+}
+.input {
+    flex: 1;
+    height: 66rpx;
+    font-size: 30rpx;
+    background: #e9e9e9;
+    padding-left: 20rpx;
+    border: none;
+    border-radius: 5rpx;
+}
+.isIphoneXBox {
+    width: 100%;
+    height: 50rpx;
+     background: #fff;
+}
+.addmsg{
+    /* margin-left: 50rpx; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+}
+.addMsgBtn{
+    width: 100rpx;
+    height: 66rpx;
+    text-align: center;
+    line-height: 66rpx;
+    border-radius: 10rpx;
+    background: #267ed9;
+    color: #ffffff;
+    font-size: 32rpx;
+    margin-left: 20rpx;
+}
+.msg_icon{
+    width: 50rpx;
+    height: 50rpx;
+    margin-left: 20rpx;
+}
+.msg_icon_box{
+    position: relative;
+}
+.msg_icon_box button{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+}
+.color_icon{
+    width: 25rpx;
+    height: 20rpx;
+    text-align: center;
+    line-height: 20rpx;
+    background: #FD7238;
+    border-radius: 44rpx;
+    position: absolute;
+    right: -5rpx;
+    top: -5rpx;
+    color: #ffffff;
+    font-size: 16rpx;
+}
+swan-button[plain=true] {
+    color:#333;
+    background-color:transparent;
+    border:none;
+}
+.commentBox{
+     width: 690rpx;
+    padding: 0 30rpx;
+    background-color: #ffffff;
+    margin-top: 16rpx;
+}
+.commentBox_info_item{
+    width: 100%;
+    display: flex;
+    border-bottom: 1rpx solid #eee
+}
+.commentBox_info_item_left view image{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+}
+.commentBox_info_item_right{
+    flex: 1;
+    margin-left: 20rpx;
+}
+.userName{
+    height: 60rpx;
+    line-height: 60rpx;
+}
+.userMsg{
+    font-size: 32rpx;
+    color: #000000;
+}
+.addMsgTime{
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 26rpx;
+    color: #999999;
+}
+.zan{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.zan view{
+    font-size: 25rpx;
+}
+.zan image{
+    width: 40rpx;
+    height: 40rpx;
+}
+.rich-img{
+    width: 100%;
+}
+.rich-p {
+    font-size: 37rpx;
+    line-height: 70rpx;
+}

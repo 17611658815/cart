@@ -38,7 +38,10 @@
         "pages/bankList/bankList",
         "pages/addBank/addBank",
         "pages/msgContent/msgContent",
-        "pages/contentList/contentList"
+        "pages/contentList/contentList",
+        "pages/msgList/msgList",
+        "pages/msgDetaile/msgDetaile",
+        "pages/addMsg/addMsg"
     ],
     "window": {
         "backgroundTextStyle": "light",

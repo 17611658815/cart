@@ -1,43 +1,42 @@
 <view class="container">
     <!-- 头部导航 -->
-    <view class="navList width90 dpfb">
+    <!-- <view class="navList width90 dpfb">
         <view bindtap="swatchTab" 
             data-index='{{index}}' 
             class="{{currentTab==index ? 'color1 navActive':'color3'}}" 
             wx:for='{{navList}}' 
             wx:key='key'>{{item}}</view>
-    </view>
+    </view> -->
     <!-- 店铺等级 -->
     <view class="shopGrade">
         <view class="shopGrade_left">
             <view class="gradeNum fontWeight6">店铺等级:LV1
-                <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                <!-- <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image> -->
             </view>
             <view class="gradeDistance">
-                <view class="fontSize-26 color1">0.0/318.1</view>
-                <view class="fontSize-28 color3">距离下一级还差
-                <text class="fontSize-30 fontWeight6 color1">318.1</text>元</view>
+                <view class="fontSize-26 color1">店铺影响力</view>
+                <view class="fontSize-45 color1 fontWeight6">{{dataObj.shop_score}}</view>
             </view>
         </view>
         <view class="shopGrade_right">
             <view class="shopDSR">
                 <view class="dpf fontWeight6">店铺DSR
-                    <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image>
+                    <!-- <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image> -->
                 </view>
                 <view class="dpf fontSize-26 color5">了解更多></view>
             </view>
             <view class="dsrData">
                 <view class="dpfb marginTop10">
-                    <text>描述相符:</text>
-                    <text>-超-%同行</text>
+                    <text>店铺描述:</text>
+                    <text>{{dataObj.score1}}-超-{{dataObj.pass1}}%同行</text>
                 </view>
                 <view class="dpfb marginTop10">
-                    <text>物流服务:</text>
-                    <text>-超-%同行</text>
+                    <text>商品评价:</text>
+                    <text>{{dataObj.score2}}-超-{{dataObj.pass2}}%同行</text>
                 </view>
                 <view class="dpfb marginTop10">
-                    <text>服务态度:</text>
-                    <text>-超-%同行</text>
+                    <text>服务评价:</text>
+                   <text>{{dataObj.score3}}-超-{{dataObj.pass3}}%同行</text>
                 </view>
             </view>
         </view>
@@ -47,26 +46,98 @@
         <view class="width100 dpfb">
             <view class="fontSize-30">交易数据</view>
             <view class="dpf">
-                <text class="fontSize-22 color3">2017年03月27日</text>
-                <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>
+                <text class="fontSize-22 color3">{{dataObj.date}}</text>
             </view>
         </view>
         <view class="tractionTab">
-            <view bindtap="tractionTab" 
+            <view bindtap="swatchTab" 
                 data-index='{{index}}' 
-                class="{{tractionTab==index? 'acticeClass':''}}" 
+                class="{{currentTab==index? 'acticeClass':''}}" 
                 wx:for='{{traction}}'>{{item}}</view>
         </view>
         <view class="tractionDataList dpfb width100 marginTop">
-            <view class="listitem" wx:for='{{8}}'>
+            <view class="listitem">
                 <view class="dpfb">
                     <text class="fontSize-26 color1">成交额</text>
-                    <image src="../../images/icon/icon_2.png" class="icon_2"></image>
+                    <!-- <image src="../../images/icon/icon_2.png" class="icon_2"></image> -->
                 </view>
-                <view class="fontSize-34 padding30 fontWeight6">￥90546.73</view>
-                <view>
-                    <text class="fontSize-22">校前一天</text>
-                    <text class="fontSize-22 fontWeight6 marginLeft">120%</text>
+                <view class="fontSize-34 padding30 fontWeight6">￥{{dataObj.money}}</view>
+                <view class="dpf">
+                    <text class="fontSize-22" wx:if='{{currentTab == 0 || currentTab == 1}}'>校前一天</text>
+                    <text class="fontSize-22" wx:if='{{currentTab == 2}}'>校前一周</text>
+                    <text class="fontSize-22" wx:if='{{currentTab == 3}}'>校前一月</text>
+                    <text class="fontSize-22 fontWeight6 marginLeft">{{dataObj.money2}}%</text>
+                    <image class="Jiantou {{dataObj.money3==1 ? '':'translate'}}" src="../../images/icon/Jiantou.png"></image>
+                </view>
+            </view>
+            <view class="listitem">
+                <view class="dpfb">
+                    <text class="fontSize-26 color1">访客数</text>
+                    <!-- <image src="../../images/icon/icon_2.png" class="icon_2"></image> -->
+                </view>
+                <view class="fontSize-34 padding30 fontWeight6">{{dataObj.click}}人</view>
+                 <view class="dpf">
+                     <text class="fontSize-22" wx:if='{{currentTab == 0 || currentTab == 1}}'>校前一天</text>
+                    <text class="fontSize-22" wx:if='{{currentTab == 2}}'>校前一周</text>
+                    <text class="fontSize-22" wx:if='{{currentTab == 3}}'>校前一月</text>
+                    <text class="fontSize-22 fontWeight6 marginLeft">{{dataObj.click2}}%</text>
+                     <image class="Jiantou {{dataObj.click3==1 ? '':'translate'}}" src="../../images/icon/Jiantou.png"></image>
+                </view>
+            </view>
+            <view class="listitem">
+                <view class="dpfb">
+                    <text class="fontSize-26 color1">客单价</text>
+                    <!-- <image src="../../images/icon/icon_2.png" class="icon_2"></image> -->
+                </view>
+                <view class="fontSize-34 padding30 fontWeight6">￥{{dataObj.price}}</view>
+                <view class="dpf">
+                     <text class="fontSize-22" wx:if='{{currentTab == 0 || currentTab == 1}}'>校前一天</text>
+                    <text class="fontSize-22" wx:if='{{currentTab == 2}}'>校前一周</text>
+                    <text class="fontSize-22" wx:if='{{currentTab == 3}}'>校前一月</text>
+                    <text class="fontSize-22 fontWeight6 marginLeft">{{dataObj.price2}}%</text>
+                    <image class="Jiantou {{dataObj.price3==1 ? '':'translate'}}" src="../../images/icon/Jiantou.png"></image>
+                </view>
+            </view>
+            <view class="listitem">
+                <view class="dpfb">
+                    <text class="fontSize-26 color1">订单数</text>
+                    <!-- <image src="../../images/icon/icon_2.png" class="icon_2"></image> -->
+                </view>
+                <view class="fontSize-34 padding30 fontWeight6">{{dataObj.order_num}}单</view>
+                <view class="dpf">
+                    <text class="fontSize-22" wx:if='{{currentTab == 0 || currentTab == 1}}'>校前一天</text>
+                    <text class="fontSize-22" wx:if='{{currentTab == 2}}'>校前一周</text>
+                    <text class="fontSize-22" wx:if='{{currentTab == 3}}'>校前一月</text>
+                    <text class="fontSize-22 fontWeight6 marginLeft">{{dataObj.order_num2}}%</text>
+                     <image class="Jiantou {{dataObj.order_num3==1 ? '':'translate'}}" src="../../images/icon/Jiantou.png"></image>
+                </view>
+            </view>
+            <view class="listitem">
+                <view class="dpfb">
+                    <text class="fontSize-26 color1">退款金额</text>
+                    <!-- <image src="../../images/icon/icon_2.png" class="icon_2"></image> -->
+                </view>
+                <view class="fontSize-34 padding30 fontWeight6">￥{{dataObj.remark_money}}</view>
+                 <view class="dpf">
+                     <text class="fontSize-22" wx:if='{{currentTab == 0 || currentTab == 1}}'>校前一天</text>
+                    <text class="fontSize-22" wx:if='{{currentTab == 2}}'>校前一周</text>
+                    <text class="fontSize-22" wx:if='{{currentTab == 3}}'>校前一月</text>
+                    <text class="fontSize-22 fontWeight6 marginLeft">{{dataObj.remark_money2}}%</text>
+                    <image class="Jiantou {{dataObj.remark_money3==1 ? '':'translate'}}" src="../../images/icon/Jiantou.png"></image>
+                </view>
+            </view>
+            <view class="listitem">
+                <view class="dpfb">
+                    <text class="fontSize-26 color1">退款单数</text>
+                    <!-- <image src="../../images/icon/icon_2.png" class="icon_2"></image> -->
+                </view>
+                <view class="fontSize-34 padding30 fontWeight6">{{dataObj.remark_num}}单</view>
+                <view class="dpf">
+                     <text class="fontSize-22" wx:if='{{currentTab == 0 || currentTab == 1}}'>校前一天</text>
+                    <text class="fontSize-22" wx:if='{{currentTab == 2}}'>校前一周</text>
+                    <text class="fontSize-22" wx:if='{{currentTab == 3}}'>校前一月</text>
+                    <text class="fontSize-22 fontWeight6 marginLeft">{{dataObj.remark_num2}}%</text>
+                      <image class="Jiantou {{dataObj.remark_num3==1 ? '':'translate'}}" src="../../images/icon/Jiantou.png"></image>
                 </view>
             </view>
         </view>

@@ -15,7 +15,6 @@
     width: 93%;
     padding: 20rpx 3%;
     background: #ffffff;
-    margin-top: 20rpx;
     display: flex;
 }
 .shopGrade_left{
@@ -94,4 +93,11 @@
 }
 .listitem{
     border-bottom: none;
+}
+.Jiantou{
+    width: 30rpx;
+    height: 30rpx;
+}
+.translate{
+    transform: rotate(180deg);
 }

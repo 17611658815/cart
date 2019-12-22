@@ -9,6 +9,7 @@
     </view>
     <!-- 滚动文字 -->
     <view class="bgBox">
+       <image style="width:100%" mode="scaleToFill" src='https://img.dodo.wiki/app/img3.jpg'></image>
         <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="3000">
             <block wx:for="{{msgList}}">
                 <navigator url="/pages/index/index?title={{item.url}}" open-type="navigate">
@@ -22,23 +23,29 @@
             </block>
         </swiper>
         <view class="shareBox dpfC boxShadow">
-            <view class="width90 dpfb">
+            <view class="width90 dpfb marginTop">
                 <view class="solid"></view>
-                <view>分享到一下平台</view>
+                <view class="fontSize-28 color3">分享到一下平台</view>
                 <view class="solid"></view>
             </view>
             <view class="width90 shareList">
                 <view class="shareItem">
-                    <view></view>
+                    <view>
+                        <image style="width:110rpx;" src="../../images/img25.jpg"></image>
+                    </view>
                     <view>微信好友</view>
                 </view>
                 <view class="shareItem">
-                    <view></view>
-                    <view>微信好友</view>
+                    <view>
+                        <image src="../../images/img26.jpg"></image>
+                    </view>
+                    <view>面对面分享</view>
                 </view>
                 <view class="shareItem">
-                    <view></view>
-                    <view>微信好友</view>
+                      <view>
+                        <image src="../../images/img27.jpg"></image>
+                    </view>
+                    <view>更多</view>
                 </view>
             </view>
             <view class="fontSize-22 color3 padding20">

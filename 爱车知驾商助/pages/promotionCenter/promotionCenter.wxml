@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" style="padding-bottom:30rpx;">
     <!-- 头部导航 -->
     <view class="navList width90">
         <view bindtap="swatchTab" data-index='{{index}}' data-type='{{4/1-index}}' class="{{currentTab==index ? 'color1 navActive':'color3'}}" wx:for='{{navList}}' wx:key='key'>{{item}}</view>
@@ -116,6 +116,19 @@
                 </view>
             </view>
         </view>
+        <navigator>
+          <image class="t_1"  src="{{msgData.banner1.thumb}}"></image>
+        </navigator>
+        <navigator url="/pages/AddredPacket/AddredPacket?type=1" hover-class="none">
+          <image class="t_1" src="{{msgData.banner2.thumb}}"></image>
+        </navigator>
+        <navigator url="/pages/AddredPacket/AddredPacket?type=2" hover-class="none">
+          <image class="t_1" src="{{msgData.banner3.thumb}}"></image>
+        </navigator>
+        <navigator url="/pages/AddredPacket/AddredPacket?type=3" hover-class="none">
+          <image class="t_1" src="{{msgData.banner4.thumb}}"></image>
+        </navigator>
+      
     </view>
     <view class="width100" wx:if='{{currentTab==1}}'>
         <view class="slect_item">
@@ -123,13 +136,13 @@
                 <image class="marginLeft {{slect_item3 ? 'rotateRight':''}}" src="../../images/icon/icon_4.png"></image>
             </view>
             <view class='sortList' wx:if='{{slect_item3}}'>
-                <view data-index="{{index}}" bindtap="changeIndex_3" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList2}}'>{{item}}
+                <view data-index="{{index}}" bindtap="changeIndex_3" class="sortList_item width90 borderBtm padding30" wx:for='{{selctList2}}' wx:key='key'>{{item}}
                     <image wx:if='{{selectIndex3==index}}' src="../../images/icon/icon_mark.png"></image>
                 </view>
             </view>
         </view>
         <view class="typeList_3" wx:if='{{packetList.length>0}}'>
-        <view class="wrapper" wx:for="{{packetList}}">
+        <view class="wrapper" wx:for="{{packetList}}" wx:key='key'>
             <view class="left">
                 <view class="marginLefts">
                     <view class="fontSize-36">
@@ -148,7 +161,7 @@
     </view>
     <view class="width100 dpfC" wx:else>
         <view class="noList dpfC">
-            <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+           <image mode="scaleToFill" style="width:400rpx;" src="../../images/aicheLogo.png" />
             <view class="fontSize-28 color1 marginTop">暂无相关活动</view>
         </view>
     </view>
@@ -174,7 +187,7 @@
             </view>
         </view>
         <view class="typeList_2" wx:if='{{packetList.length>0}}'>
-            <view class="wrapper" wx:for="{{packetList}}">
+            <view class="wrapper" wx:for="{{packetList}}" wx:key='key'>
                 <view class="left">
                     <view class="marginLefts">
                         <view class="fontSize-36" wx:if='{{item.youhui_type==1}}'>
@@ -200,14 +213,14 @@
         </view>
         <view class="width100 dpfC" wx:else>
             <view class="noList dpfC">
-                <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+               <image mode="scaleToFill" style="width:400rpx;" src="../../images/aicheLogo.png" />
                 <view class="fontSize-28 color1 marginTop">暂无相关优惠卷</view>
             </view>
         </view>
     </view>
     <view class="width100" wx:if='{{currentTab==3}}'>
         <view class="typeList_1" style="margin-top:100rpx;" wx:if='{{packetList.length>0}}'>
-            <view class="wrapper" wx:for="{{packetList}}">
+            <view class="wrapper" wx:for="{{packetList}}" wx:key='key'>
                 <view class="left">
                     <view class="marginLeft dpf">
                         <view class="ticket_icon">
@@ -228,7 +241,7 @@
         </view>
         <view class="width100 dpfC" wx:else>
             <view class="noList dpfC">
-                <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+              <image mode="scaleToFill" style="width:400rpx;" src="../../images/aicheLogo.png" />
                 <view class="fontSize-28 color1 marginTop">暂无添加红包</view>
             </view>
         </view>

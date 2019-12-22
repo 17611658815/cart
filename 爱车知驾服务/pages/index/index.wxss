@@ -549,7 +549,10 @@
 .serveList_item>view:nth-child(1){
     width: 40rpx;
     height: 40rpx;
-    background: #999999;
+}
+.serveList_item>view:nth-child(1) image{
+    width: 100%;
+    height: 100%;
 }
 .serveList_item>view{
     width: 150rpx;

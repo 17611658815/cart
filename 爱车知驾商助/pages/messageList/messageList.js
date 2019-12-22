@@ -25,7 +25,7 @@ Page({
         let userInfo = wx.getStorageSync('userinfo');
         this.setData({
             member_id: userInfo.id,
-            currentTab: options.currentTab ? options.currentTab:0
+            currentTab: options.currentTab || 0
         })
         this.noticeList()
     },
@@ -34,7 +34,7 @@ Page({
         let params = {
             appid: app.globalData.appid,
             member_id: that.data.member_id,
-            type: that.data.currentTab+1,
+            type: that.data.currentTab/1+1,
             page: that.data.page
         }
         app.net.$Api.noticeList(params).then((res) => {

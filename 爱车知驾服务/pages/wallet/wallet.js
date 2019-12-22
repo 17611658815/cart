@@ -9,23 +9,23 @@ Page({
             name: '账户余额',
             text:'0.00元',
             path: '',
-            icon: ''
+            icon: '../../images/img21.png'
         },
         {
             name: '理财余额',
             text: '立即查看',
             path: '',
-            icon: ''
+            icon: '../../images/img22.png'
         }, {
             name: '开车时长',
             text: '815小时',
             path: '',
-            icon: ''
+            icon: '../../images/img23.png'
             }, {
                 name: '我的积分',
             text: '121个',
                 path: '',
-                icon: ''
+            icon: '../../images/img20.png'
             }]
     },
 

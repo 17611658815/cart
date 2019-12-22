@@ -258,10 +258,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 29,
 					"name": "内容详情",
 					"pathName": "pages/msgContent/msgContent",
-					"query": "type=2",
+					"query": "id=8",
 					"scene": null
 				},
 				{
@@ -276,6 +276,12 @@
 					"name": "店铺位置",
 					"pathName": "pages/setAddress/setAddress",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发帖",
+					"pathName": "pages/addMsg/addMsg",
 					"scene": null
 				}
 			]

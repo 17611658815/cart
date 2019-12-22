@@ -53,10 +53,11 @@
 /* 商品模板 */
 .otherMsg{
   width: 94%;
-  padding: 20rpx 0;
+  padding: 20rpx 3%;
    display: flex;
   align-items: center;
   border-bottom: 1rpx solid #e2e2e2;
+  background: #ffffff;
 }
 .otherPic image{
   width: 200rpx;
@@ -64,7 +65,6 @@
 }
 .otherinfo{
     flex: 1;
-    height: 100rpx;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

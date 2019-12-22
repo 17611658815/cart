@@ -1,0 +1,60 @@
+<!--content-->
+<scroll-view class="container" scroll-y="true" id="scroll-view" bindscroll='pageScroll' scroll-into-view="{{toView}}" bindscrolltolower="pullUpLoad" scroll-with-animation="true">
+    <view class="content">
+        <view class="contentBox">
+            <text class="title">{{newsData.title}}</text>
+            <text class="time">{{newsData.created}}</text>
+            <view wx:if="{{newsData.type==1}}" class="voice">
+                <video id="myVideo" src="{{newsData.video}}" danmu-btn="false" enable-danmu="false"></video>
+            </view>
+            <view class="info">
+                {{newsData.content}}
+            </view>
+        </view>
+        <view class="commentBox" id="comment">
+            <view class="r_title">
+                全部评论
+            </view>
+            <view class="commentBox_info">
+                <view class="commentBox_info_item" wx:for='{{postingsList}}'>
+                    <view class="commentBox_info_item_left">
+                        <view>
+                            <image src="{{item.member.avatar}}"></image>
+                        </view>
+                    </view>
+                    <view class="commentBox_info_item_right">
+                        <view class="userName">{{item.member.real_name}}</view>
+                        <view class="userMsg">{{item.content}}</view>
+                        <view class="addMsgTime">
+                            <view>{{item.created}}</view>
+                            <view class="zan" >
+                              <image wx:if="{{item.cai != 0}}" class='marginRight10' data-id="{{item.id}}" data-index='{{index}}' data-type='no' bindtap="clickZan" src="../../images/zan.png"></image>
+                    <image src="../../images/nozan.png" data-id="{{item.id}}" data-index='{{index}}' data-type='yes' bindtap="clickZan" class='marginRight10' wx:else></image>
+                                <view>{{item.cai}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+</scroll-view>
+
+<view class="inputBox" style="bottom:{{bottom}}px">
+    <view class="inputBox_top">
+        <input class="input" value="{{msgVal}}" adjust-position="{{false}}" cursor-spacing="90" type='text' bindfocus='onbindfocus' bindconfirm='addMsg' bindblur="onbindblur" placeholder="发表评论..." focus="{{isfocus}}" bindinput="oncommentMsg" placeholder-style='color:#9a9a9a; font-size: 14px;padding-left:20rpx;'
+        />
+        <view class="addmsg">
+            <view class="msg_icon_box" bindtap="gocomment">
+                <image class="msg_icon" src="../../images/msg.png"></image>
+                <view class="color_icon">{{lengthNum}}</view>
+            </view>
+            <view class="msg_icon_box">
+                <image class="msg_icon" src="../../images/share.png"></image>
+                <button class="shareBtn" hover-class='none' open-type='share'></button>
+            </view>
+        </view>
+    </view>
+    <view class='isIphoneXBox' s-if='isIphoneX && !isAddmsg'></view>
+</view>

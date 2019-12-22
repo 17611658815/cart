@@ -3,7 +3,7 @@
     <view class='width100 dpfC marginTop'>
         <view class='width90'>
             <view class='itembox dpf'>
-                <input placeholder='单个红包金额' value="{{shopName}}" bindinput="shopNameInpt" type='tetx'></input>
+                <input placeholder='单个红包金额' value="{{shopName}}" bindinput="shopNameInpt" type='text'></input>
             </view>
             <view class='itembox dpf'>
                 <input placeholder='红包个数' value="{{shopPrice}}" bindinput="shopPriceInpt" type='number'></input>

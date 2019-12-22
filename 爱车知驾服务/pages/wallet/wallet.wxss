@@ -9,8 +9,11 @@ page{
 .item_icon{
     width: 50rpx;
     height: 50rpx;
-    background: #999999;
     margin-right: 30rpx;
+}
+.item_icon image{
+    width: 100%;
+    height: 100%;
 }
 .listitem{
     padding: 30rpx  0;
@@ -46,10 +49,14 @@ page{
 
 }
 .ticket_icon{
-    width: 40rpx;
+    width: 60rpx;
     height: 40rpx;
     background: #999999;
     margin-right: 20rpx;
+}
+.ticket_icon image{
+    width: 100%;
+    height: 100%;
 }
 .left {
      background: #ffffff;

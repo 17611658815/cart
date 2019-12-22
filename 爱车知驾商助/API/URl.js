@@ -166,4 +166,53 @@ export default class Url {
     static shopJinbaoDataUrl() {
         return Url.PATH + '/shopJinbaoData';
     }
+    // 数据分析
+    static operateDataUrl() {
+        return Url.PATH + '/operateData';
+    }
+    // 内容详情
+    static getSysContentInfoUrl() {
+        return Url.PATH + '/getSysContentInfo';
+    }
+    // 舍友圈
+    static communityHomeDataUrl() {
+        return Url.PATH + '/communityHomeData';
+    }
+    // 社区列表
+    static postingsListUrl() {
+        return Url.PATH + '/postingsList';
+    }
+    // 帖子详情
+    static postingsInfoUrl() {
+        return Url.PATH + '/postingsInfo';
+    }
+    // 获取评论列表
+    static postingsCommentUrl() {
+        return Url.PATH + '/postingsComment';
+    }
+    // 提交评论
+    static addPostingsCommentUrl() {
+        return Url.PATH + '/addPostingsComment';
+    }
+    // 点赞
+    static postingsZanUrl() {
+        return Url.PATH + '/postingsZan';
+    }
+    // 收藏
+    static postingsCollectionUrl() {
+        return Url.PATH + '/postingsCollection';
+    }
+    // 评论赞
+    static postingsCommentZanUrl() {
+        return Url.PATH + '/postingsCommentZan';
+    }
+    // 收藏文章列表
+    static collectionPostingsUrl() {
+        return Url.PATH + '/collectionPostings';
+    }
+    // 发布帖子
+    static addPostingsUrl() {
+        return Url.PATH + '/addPostings';
+    };
+
 }

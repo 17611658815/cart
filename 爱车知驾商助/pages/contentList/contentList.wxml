@@ -9,15 +9,11 @@
         </scroll-view>
     </view>
     <view class="newGoodsList" wx:if='{{contList.length>0}}'>
-        <view class="otherMsg" wx:for='{{contList}}' data-item='{{item}}' bindtap="checkdItem">
-            <!-- <view class="otherPic">
-                <image mode="scaleToFill" src="{{item.thumb}}" />
-            </view> -->
+        <navigator class="otherMsg" url="/pages/msgContent/msgContent?id='{{item.id}}'" hover-class="none" wx:for='{{contList}}' data-item='{{item}}' bindtap="checkdItem">
             <view class="otherinfo">
-                <view class="fontSize-30 color1">{{item.created}}</view>
-                <view class="fontSize-26 color3">{{item.titel}}</view>
+                <view class="fontSize-26 color3">{{item.title}}</view>
             </view>
-        </view>
+        </navigator>
     </view>
     <view class="width100 dpfC" wx:else>
         <view class="noList dpfC">

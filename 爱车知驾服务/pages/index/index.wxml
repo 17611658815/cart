@@ -373,7 +373,7 @@
             </view>
         </view>
         <!-- 维保结束 -->
-        <view class="width100 dpfC moduleBox" wx:if='{{typeNum== 4}}'>
+        <view class="width100 dpfC" wx:if='{{typeNum== 4}}'>
             <view class="width90 dpfC boxShadow padding30">
                 <view class="width90 fontSize-32 fontWeight5">
                     您的评价会让维师做的更好

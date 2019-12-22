@@ -1,0 +1,45 @@
+<view class="container">
+    <view class="contentList width100 dpfC">
+     <!-- <view class="dpfb width90 paddinglr bgFFFF">
+                <view class="fontSize-26 color1">{{magData.default_cat.name}}</view>
+                <view class="fontSize-26 color3">{{magData.talk}}万人商友正在热议</view>
+             </view> -->
+        <view class="contentList_item dpfC marginTop10" wx:for='{{magData.list}}'>
+            
+              <view style="margin-top:30rpx" class="fontSize-34 width100 fontWeight5">{{item.title}}</view>
+             <view class="conten_txtBox" style="margin-top:20rpx">
+                    <view class="conten_text">{{item.desc}}
+                    </view>
+                <view class="conten_img" wx:if='{{item.thumb!=""}}'>
+                    <image src="{{item.thumb}}"></image>
+                </view>
+             </view>
+              <view class="dpfb width100" style="margin-top:20rpx">
+                <view class="fontSize-26 color dpf">
+                    <image class="marginLeft10" style="width:40rpx;height:40rpx" wx:if='{{item.member_id!=0}}' src="{{item.member.avatar}}"></image>
+                    <text class="color2 marginLeft10" wx:if='{{item.member_id!=0}}'>{{item.member.real_name}}</text>
+                    <text class="color2 marginLeft10">{{item.created}}</text>
+                </view>
+                <view class="fontSize-26 color3">浏览量:{{item.pv}}</view>
+             </view>
+             <view class="discussNum">
+                <view class="dpf">
+                    <image src='../../images/icon/icon_7.png'></image>
+                    <text>{{item.zan}}</text>
+                </view>
+                <view class="dpf">
+                    <image src='../../images/icon/icon_8.png'></image>
+                    <text>{{item.collection}}</text>
+                </view>
+                <view class="dpf" data-id="{{item.id}}" bindtap="gomsgDetaile">
+                    <image src='../../images/icon/icon_6.png'></image>
+                    <text>{{item.comment}}</text>
+                </view>
+             </view>
+        </view>
+    </view>
+</view>
+
+<view class="icon_42Box">
+    <image src='../../images/icon/icon_42.jpg'></image>
+</view>

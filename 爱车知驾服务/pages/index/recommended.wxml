@@ -1,12 +1,37 @@
 <!-- 活动推荐 -->
 <template name="recommended">
     <view class="container">
-        <view class="picBox"></view>
+        <view class="picBox">
+        <image style="width:100%;height:100%;" mode="scaleToFill" src='https://img.dodo.wiki/app/img6.jpg'></image>
+        </view>
         <view class="serveList">
-            <view class="serveList_item" wx:for='{{4}}'>
-                <view></view>
+            <view class="serveList_item">
+                <view>
+                    <image src="../../images/img32.png"></image>
+                </view>
                 <view class="fontSize-32 fontWeight6">领红包</view>
                 <view class="fontSize-22 color3">服劲店主正在发红包(别错过)</view>
+            </view>
+            <view class="serveList_item">
+                <view>
+                    <image src="../../images/img33.png"></image>
+                </view>
+                <view class="fontSize-32 fontWeight6">优惠卷</view>
+                <view class="fontSize-22 color3">距离您最近的商城正在发起优惠卷活动</view>
+            </view>
+            <view class="serveList_item">
+                <view>
+                    <image src="../../images/img34.png"></image>
+                </view>
+                <view class="fontSize-32 fontWeight6">取车还车</view>
+                <view class="fontSize-22 color3">数字交验，全程监管</view>
+            </view>
+            <view class="serveList_item">
+                <view>
+                    <image src="../../images/img35.png"></image>
+                </view>
+                <view class="fontSize-32 fontWeight6">用品推荐</view>
+                <view class="fontSize-22 color3">用上与我车最匹配的车品</view>
             </view>
         </view>
         <view class="recommended_title">
