@@ -42,7 +42,9 @@
         "pages/addShop/addShop",
         "pages/messageList/messageList",
         "pages/noticeInfo/noticeInfo",
-        "pages/allservice/allservice"
+        "pages/allservice/allservice",
+        "pages/insurance/insurance",
+        "pages/insuranceNum/insuranceNum"
     ],
     "window": {
         "backgroundTextStyle": "light",

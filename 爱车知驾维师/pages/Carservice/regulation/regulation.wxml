@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" wx:if='{{type==1}}'>
     <view class="regulationBox">
         <view class="fontSize-26 color3">参与规则:</view>
         <view class="fontSize-30 color1 marginTop20">
@@ -18,6 +18,34 @@
         </view>
          <view class="fontSize-28 color1">
            前1000名每100名进入幸运逢百榜。
+        </view>
+         <view class="fontSize-26 color3 padding30">更新时间:</view>
+          <view class="fontSize-28 color1">
+            每日7点更新榜单
+        </view>
+    </view>
+</view>
+<view class="container" wx:if='{{type==2}}'>
+    <view class="regulationBox">
+        <view class="fontSize-26 color3">参与规则:</view>
+        <view class="fontSize-30 color1 marginTop20">
+            <view>1.</view>
+            <view>只限本业务线维师参与排行</view>
+        </view>
+         <view class="fontSize-28 color1">
+            <view>2.</view>
+            <view>昨日在线满2小时</view>
+        </view>
+         <view class="fontSize-28 color1">
+            <view>3.</view>
+            <view>按昨日时薪金额从高至低排序(时薪=流水/在线时长。流水不包含补贴,附加费，消费)</view>
+        </view>
+        <view class="fontSize-26 color3 padding30">上榜规则:</view>
+        <view class="fontSize-28 color1">
+            前10名进入十佳榜
+        </view>
+         <view class="fontSize-28 color1">
+            前100名每10名进入幸运逢十榜。
         </view>
          <view class="fontSize-26 color3 padding30">更新时间:</view>
           <view class="fontSize-28 color1">

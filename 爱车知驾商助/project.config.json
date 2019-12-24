@@ -282,6 +282,13 @@
 					"id": -1,
 					"name": "发帖",
 					"pathName": "pages/addMsg/addMsg",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "店长推荐",
+					"pathName": "pages/ortherShop/ortherShop",
 					"scene": null
 				}
 			]

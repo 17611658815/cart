@@ -5,7 +5,6 @@
                 <view class="fontSize-26 color3">{{magData.talk}}万人商友正在热议</view>
              </view> -->
         <view class="contentList_item dpfC marginTop10" wx:for='{{magData.list}}'>
-            
               <view style="margin-top:30rpx" class="fontSize-34 width100 fontWeight5">{{item.title}}</view>
              <view class="conten_txtBox" style="margin-top:20rpx">
                     <view class="conten_text">{{item.desc}}

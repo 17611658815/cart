@@ -304,6 +304,20 @@
 					"id": -1,
 					"name": "私人工具",
 					"pathName": "pages/Carservice/toolbar/toolbar",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "保险",
+					"pathName": "pages/insurance/insurance",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "加入保险",
+					"pathName": "pages/insuranceNum/insuranceNum",
 					"scene": null
 				}
 			]

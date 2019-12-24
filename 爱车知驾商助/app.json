@@ -41,7 +41,10 @@
         "pages/contentList/contentList",
         "pages/msgList/msgList",
         "pages/msgDetaile/msgDetaile",
-        "pages/addMsg/addMsg"
+        "pages/addMsg/addMsg",
+        "pages/shopScoreList/shopScoreList",
+        "pages/ortherShopAct/ortherShopAct",
+        "pages/ortherShop/ortherShop"
     ],
     "window": {
         "backgroundTextStyle": "light",

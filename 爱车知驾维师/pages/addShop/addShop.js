@@ -100,7 +100,7 @@ Page({
             params.shop_id = that.data.shop_id;
             params.money = that.data.shopPrice;
             params.msg = that.data.message;
-        if (that.data.shopName == '' || that.data.shopPrice == "" || that.data.message == ""){
+        if (that.data.shopName == '' || that.data.shopPrice == ""){
             app.alert('请完善店铺信息~');
             return;
         }

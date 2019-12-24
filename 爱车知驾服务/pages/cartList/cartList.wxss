@@ -24,7 +24,7 @@ page {
 .radioBox {
     width: 30rpx;
     height: 30rpx;
-    border: 2rpx solid #999;
+    /* border: 2rpx solid #999; */
     border-radius: 50%;
     position: absolute;
     top: 5rpx;
@@ -100,13 +100,25 @@ page {
 .service{
     width: 100rpx;
     height: 90rpx;
+    position: relative;
+}
+.service button{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: none;
+}
+button::after{
+    border: none;
 }
 .empty_box {
-    margin-top: 248rpx;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 248rpx;
 }
 
 .empty_image {

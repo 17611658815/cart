@@ -1,0 +1,26 @@
+<view class="container">
+    <view class="container" wx:if='{{packetList.length>0}}'>
+    <view class="headerBox" bindtap="goregister" wx:for='{{packetList}}'>
+        <view class="userPic">
+            <image mode="aspectFill" src="{{item.avatar}}"></image>
+        </view>
+        <view class="userText flex_1 marginLeft">
+            <view class="fontSize-32">{{item.real_name}}</view>
+            <view class="usertag">
+                <!-- 0未审核，1已审核，2已下架，3暂停接单 -->
+                <text>{{statusOb[item.score]}}</text>
+            </view>
+        </view>
+        <view class="fontSize-45">
+            80
+        </view> 
+        <!-- <image class="rightPic" src='../../images/icon/icon_right.png'></image> -->
+    </view>
+     </view>
+    <view class="width100 dpfC" wx:else>
+        <view class="noList dpfC">
+            <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+            <view class="fontSize-28 color1 marginTop">暂无相关数据</view>
+        </view>
+    </view>
+</view>

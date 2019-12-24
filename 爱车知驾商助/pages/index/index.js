@@ -10,13 +10,14 @@ Page({
         trade:'',//交易
         list:'',//帖子
         msgNum:0,
-        isIphoneX:false
+        isIphoneX:false,
+        member_id:0
     },
     onLoad: function() {
         let userInfo = wx.getStorageSync('userinfo') || '';
         app.globalData.userInfo = userInfo
         this.setData({
-            id: userInfo.id,
+            member_id: userInfo.id,
             isIphoneX: app.globalData.isIphoneX
         })
         this.getShopHomeData()
@@ -59,13 +60,13 @@ Page({
         let that = this,
             params = {
                 appid: app.globalData.appid,
-                member_id:that.data.id
+                member_id: that.data.member_id
             }
         app.net.$Api.getShopHomeData(params).then((res) => {
-            console.log(res.data.data.msg)
+            console.log(res)
             if (res.data.data.msg>0){
                 app.showTabBarRedDot(1)
-                app.setTabBarBadge(1, msgNum + "")
+                app.setTabBarBadge(1, res.data.data.msg + "")
             }
             that.setData({
                 goods: res.data.data.goods,

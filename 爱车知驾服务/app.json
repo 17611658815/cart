@@ -31,7 +31,8 @@
         "pages/serviceOtherDetaile/serviceOtherDetaile",
         "pages/join/join",
         "pages/messageList/messageList",
-        "pages/activityList/activityList"
+        "pages/activityList/activityList",
+        "pages/couponList/couponList"
     ],
     "window": {
         "backgroundTextStyle": "light",

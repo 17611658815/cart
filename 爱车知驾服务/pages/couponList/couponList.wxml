@@ -1,0 +1,40 @@
+<!-- <view class="fastTitleBoxs" catchtap="goAddredPacket">
+    添加
+</view> -->
+<view class="container">
+    <view class="typeList" wx:if='{{packetList.length>0}}'>
+        <view class="wrapper" wx:for="{{packetList}}" bindtap="selctcoupon" 
+        data-couponType='{{item.youhui_type}}'
+        data-couponvalue='{{item.value}}'
+        data-couponId='{{item.id}}'>
+            <view class="left">
+                <view class="marginLefts">
+                    <view class="fontSize-36" wx:if='{{item.youhui_type==1}}'>
+                        {{item.value}}元
+                        <label class='fontSize-20 marginLeft'> 满{{item.man}}</label>
+                    </view>
+                    <view class="fontSize-36" wx:if='{{item.youhui_type==2}}'>
+                        {{item.value}}折
+                        <label class='fontSize-20 marginLeft'> 满{{item.man}}</label>
+                    </view>
+                    <view class="fontSize-36" wx:if='{{item.youhui_type==3}}'>
+                        {{item.value}}元-代金卷
+                    </view>
+                </view>
+            </view>
+            <view class="right">
+                <view class="fontSize-36 ">使用</view>
+            </view>
+            <label class="tiemsBox" wx:if='{{item.stime}}'>
+                有效期:{{item.stime}}至{{item.etime}}
+            </label>
+        </view>
+    </view>
+    <view class="width100 dpfC" wx:else>
+        <view class="noList dpfC">
+            <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+            <view class="fontSize-28 color1 marginTop">暂无添加红包</view>
+        </view>
+    </view>
+
+</view>

@@ -1,0 +1,16 @@
+<view class="container">
+   <image class="headerImg" mode="scaleToFill" src='https://img.dodo.wiki/app/img7.jpg'></image>
+   <view class="insurancecard boxShadow">
+        <image src="https://img.dodo.wiki/app/img8.jpg"></image>
+        <view class="insurancecard_bottom">
+            <view>
+                <view class="fontSize-32 color3">每接一单 <text class="color6">缴0.1元</text> </view>
+                <view class="fontSize-26 color3">最高保额100万元</view>
+                <view  class="fontSize-26 color3">现在就加入1000元保额  <text class="bubble">随时送</text> </view>
+            </view>
+            <navigator hover-class="none" url='/pages/insuranceNum/insuranceNum' class="insurancecard_bottom_btn">
+                查看保额            
+            </navigator>
+        </view>
+   </view>
+</view>

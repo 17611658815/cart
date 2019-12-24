@@ -78,5 +78,9 @@ export const api = {
     getOrderStatus: function (paramObj) {
         return Promise.post(Url.default.getOrderStatusUrl(), paramObj);
     },
+    // 优惠卷列表
+    couponList: function (paramObj) {
+        return Promise.post(Url.default.couponListUrl(), paramObj);
+    },
    
 }

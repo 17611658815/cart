@@ -564,3 +564,10 @@ line-height:0;
     color: #000000;
     font-weight: 500;
 }
+
+.paddingBtm180{
+    padding-bottom: 180rpx;
+}
+.paddingBtm90{
+    padding-bottom: 90rpx;
+}

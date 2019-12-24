@@ -163,61 +163,6 @@ Page({
                     })
                 }
             })
-        // var that = this;
-        // var index = e.currentTarget.dataset.index;
-        // var commentList = that.data.commentList;
-        // var commentid = e.currentTarget.dataset.id;
-        // console.log(commentList[index].zan / 1 + 1)
-        // if (commentList[index].iszan) {
-        //     that.setData({
-        //         [`commentList[${index}].zan`]: commentList[index].zan / 1 - 1,
-        //         [`commentList[${index}].iszan`]: false,
-        //     })
-        // } else {
-        //     that.setData({
-        //         [`commentList[${index}].zan`]: commentList[index].zan / 1 + 1,
-        //         [`commentList[${index}].iszan`]: true
-        //     })
-        // }
-        // that.zan(commentid)
-        // console.log(commentList)
-    },
-    // 点赞
-    zan(commentid) {
-        var that = this;
-        swan.request({
-            url: 'https://mfkapi.39yst.com/appInterface/bd39yst/zan',
-            method: 'POST',
-            header: {
-                'content-type': 'application/x-www-form-urlencoded'
-            },
-            data: {
-                appid: app.globalData.appid,
-                userid: that.data.userInfo.id,
-                commentid: commentid
-            },
-            success: function (res) {
-                console.log(res)
-            },
-            fail: function () {// fail
-            },
-            complete: function () {// complete
-            }
-        });
-    },
-    seoInfo(options) {
-        console.log(options, 104)
-        swan.setPageInfo && swan.setPageInfo({
-            title: `${options.title}-民福康健康`,
-            articleTitle: `${options.title}-民福康健康`,
-            releaseDate: options.time,
-            image: options.thumb[0],
-            keywords: options.title,
-            description: options.desc,
-            success: function () {
-                console.log('页面基础信息设置完成');
-            }
-        })
     },
     loading: function () {
         swan.showToast({
@@ -225,22 +170,6 @@ Page({
             icon: 'loading',
             duration: 10000
         });
-    },
-    //获取相关列表方法
-    getArrayItems: function (arr, num, key) {
-        var that = this;
-        var temp_array = {};
-        var rand = [];
-        while (rand.length < 3) {
-            let k = Math.ceil(Math.random() * arr.length);
-            if (k != key && rand.indexOf(k) < 0) {
-                rand.push(k);
-            }
-        }
-        for (let i = 0; i < rand.length; i++) {
-            temp_array[rand[i]] = arr[rand[i]];
-        }
-        return temp_array;
     },
     onReachBottom: function () {
         if (!this.data.on_off) {

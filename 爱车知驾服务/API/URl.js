@@ -69,5 +69,9 @@ export default class Url {
     static getOrderStatusUrl() {
         return Url.PATH + '/getOrderStatus';
     };
+    // 优惠卷列表
+    static couponListUrl() {
+        return Url.PATH + '/couponList';
+    };
   
 }

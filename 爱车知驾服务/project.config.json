@@ -298,6 +298,13 @@
 					"pathName": "pages/cartList/cartList",
 					"query": "serviceId=1&area_id=2&serveType=0&level=0&time=",
 					"scene": null
+				},
+				{
+					"id": 35,
+					"name": "优惠卷列表",
+					"pathName": "pages/couponList/couponList",
+					"query": "NewTotal=5068",
+					"scene": null
 				}
 			]
 		}

@@ -1,0 +1,29 @@
+<!-- <view class="fastTitleBoxs" catchtap="goAddredPacket">
+    发起
+</view> -->
+<view class="container">
+    <view class="typeList" wx:if='{{packetList.length>0}}'>
+        <view class="wrapper" wx:for="{{packetList}}">
+            <view class="left">
+                <view class="marginLefts">
+                    <view class="fontSize-36">
+                        {{item.title}}
+                    </view>
+                </view>
+            </view>
+            <view class="right">
+                <view class="fontSize-36 "></view>
+            </view>
+            <view class="tiemsBox">
+                <label>有效期：{{item.stime}}-{{item.etime}}</label>
+                <label class="fontSize-30">{{item.shop.real_name}}</label>
+            </view>
+        </view>
+    </view>
+    <view class="width100 dpfC" wx:else>
+        <view class="noList dpfC">
+            <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+            <view class="fontSize-28 color1 marginTop">暂无活动</view>
+        </view>
+    </view>
+</view>

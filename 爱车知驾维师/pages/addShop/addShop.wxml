@@ -3,7 +3,7 @@
     <view class='width100 dpfC marginTop'>
         <view class='width90'>
               <view class='itembox dpf'>
-                <input placeholder='商品名称' value="{{shopName}}" bindinput="shopNameInpt" type='tetx'></input>
+                <input placeholder='门店名称' value="{{shopName}}" bindinput="shopNameInpt" type='tetx'></input>
             </view>
             <view class="goodsBox" wx:if='{{searchData.length>0}}'>
             

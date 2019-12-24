@@ -1,0 +1,30 @@
+<!--pages/insuranceNum/insuranceNum.wxml-->
+
+<view class="container">
+  <image class="headerImg" mode="scaleToFill" src='https://img.dodo.wiki/app/img9.jpg'></image>
+    <view class="card_info boxShadow">
+        <view class="card_info_msg">
+            <view class="card_info_msg_left">
+             <image class="headerImg" mode="scaleToFill" src='https://img.dodo.wiki/app/img9.jpg'></image>
+            </view>
+            <view class="card_info_msg_center">
+                <view class="fontSize-28 color1">张技师</view>
+                <view class="fontSize-26 color3 dpf"> 
+                <image src="../../images/icon_53.png"></image> 5.0 <text class="tagStyle">城市英雄</text> </view>
+                <view class="fontSize-26 color3">2018/04/05加入保障</view>
+            </view>
+            <view class="card_info_msg_right">
+                维工说
+            </view>
+        </view>
+        <view class="card_info_text">
+            人生安全比什么都重要人生安全比什么都重要人生安全比什么都重要人生安全比什么都重要人生安全比什么都重要人生安全比什么都重要
+        </view>
+    </view>
+</view>
+
+<view class="bottom_btn" bindtap="confirm">
+    <view>每单缴纳1毛钱</view>
+    <view>立即加入</view>
+</view>
+

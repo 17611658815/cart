@@ -222,4 +222,16 @@ export const api = {
     addPostings: function (paramObj) {
         return Promise.post(Url.default.addPostingsUrl(), paramObj);
     },
+    // 服务体验
+    shopScoreList: function (paramObj) {
+        return Promise.post(Url.default.shopScoreListUrl(), paramObj);
+    },
+    // 车品推荐
+    ortherShopAct: function (paramObj) {
+        return Promise.post(Url.default.ortherShopActUrl(), paramObj);
+    },
+    // 店长推荐
+    ortherShop: function (paramObj) {
+        return Promise.post(Url.default.ortherShopUrl(), paramObj);
+    },
 }

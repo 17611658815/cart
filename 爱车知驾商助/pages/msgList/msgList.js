@@ -6,6 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        member_id:0,
         magData: {},
         currentTab: 0,
         catid:0,
@@ -23,7 +24,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        let userinfo = wx.getStorageSync('userinfo') || '';
         this.setData({
+            member_id: userinfo.id,
             catid: options.id
         })
         this.onLoadList()
@@ -34,6 +37,7 @@ Page({
         params.appid = app.globalData.appid;
         params.cat = that.data.catid;
         params.page = that.data.page;
+        params.member_id = that.data.member_id;
         app.net.$Api.postingsList(params).then((res) => {
             console.log(res)
             that.setData({
@@ -59,8 +63,6 @@ Page({
                     on_off:true
                 })
             }
-           
-
         })
     },
     onReachBottom: function () {

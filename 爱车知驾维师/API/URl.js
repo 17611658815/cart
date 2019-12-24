@@ -86,5 +86,13 @@ export default class Url {
     static noticeReadUrl() {
         return Url.USER + '/noticeRead';
     }
+    // 我的累计登录-发帖-评论-获赞
+    static getCenterDataUrl() {
+        return Url.ART + '/getCenterData';
+    }
+    // 立即加入保险
+    static jishiInsuranceUrl() {
+        return Url.ART + '/jishiInsurance';
+    }
    
 }

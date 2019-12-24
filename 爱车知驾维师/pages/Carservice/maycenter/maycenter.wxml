@@ -5,9 +5,21 @@
                 <image src='{{avatar != "" ? avatar:"../../../images/icon_33.png"}}'></image>
             </view>
             <view class="headerRight">
-                <view class="headerRight_item" wx:for='{{dataList}}'>
-                    <view class="fontSize-36 fontWeight6">0</view>
-                    <view class="headerRight_item_text fontSize-26 color3">{{item}}</view>
+                <view class="headerRight_item">
+                    <view class="fontSize-36 fontWeight6">{{numMsg.login_num}}</view>
+                    <view class="headerRight_item_text fontSize-26 color3">累计登录</view>
+                </view>
+                <view class="headerRight_item">
+                    <view class="fontSize-36 fontWeight6">{{numMsg.postings_num}}</view>
+                    <view class="headerRight_item_text fontSize-26 color3">发帖</view>
+                </view>
+                <view class="headerRight_item">
+                    <view class="fontSize-36 fontWeight6">{{numMsg.comment_num}}</view>
+                    <view class="headerRight_item_text fontSize-26 color3">评论</view>
+                </view>
+                <view class="headerRight_item">
+                    <view class="fontSize-36 fontWeight6">{{numMsg.zan_num}}</view>
+                    <view class="headerRight_item_text fontSize-26 color3">获赞</view>
                 </view>
             </view>
          </view>

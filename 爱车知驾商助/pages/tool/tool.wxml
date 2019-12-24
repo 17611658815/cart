@@ -8,24 +8,24 @@
                 </view>
                 <view class="marginTop10 fontSize-24 color3">发起活动</view>
             </navigator>
-            <view class="toolList_item">
+            <navigator hover-class="none" url='/pages/shopScoreList/shopScoreList' class="toolList_item"> 
                 <view class="toolList_item_icon">
                       <image src="../../images/icon/icon_25.jpg"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">服务体验</view>
-            </view>
-            <view class="toolList_item">
+             </navigator>
+            <navigator hover-class="none" url='/pages/ortherShopAct/ortherShopAct' class="toolList_item"> 
                 <view class="toolList_item_icon">
                       <image src="../../images/icon/icon_26.jpg"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">车品推荐</view>
-            </view>
-            <view class="toolList_item">
-                <view class="toolList_item_icon">
+            </navigator>
+            <navigator hover-class="none" url='/pages/ortherShop/ortherShop' class="toolList_item"> 
+                <view class="toolList_item_icon"> 
                       <image src="../../images/icon/icon_27.jpg"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">店长推荐</view>
-            </view>
+            </navigator>
         </view>
     </view>
     <view class="layout_tool">

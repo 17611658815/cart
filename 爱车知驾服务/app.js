@@ -25,11 +25,15 @@ App({
         $Api: Api.api,
     },
     globalData: {
-        
         userInfo: null,
         isIphoneX:false,
         appid:'8',
         order_id:'',
+        couponType:'', //优惠卷类型
+        couponvalue:0,//优惠卷额度
+        couponId:'',//优惠卷id
+        NewTotal:'',//总价
+
     },
     loading: function (content) {
         wx.showLoading({

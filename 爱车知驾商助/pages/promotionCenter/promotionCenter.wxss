@@ -217,6 +217,7 @@
   color: #ffffff;
   width: 70%;
   border-radius: 10rpx 0 0 10rpx;
+  position: relative;
   
 }
 
@@ -252,7 +253,7 @@
     height: 100%;
 }
 .typeList_1 .tiemsBox{
-    position: fixed;
+    position: absolute;
     bottom: 20rpx;
     left: 30rpx;
     font-size: 20rpx;
@@ -302,6 +303,7 @@
   color: #ffffff;
   width: 70%;
   border-radius: 10rpx 0 0 10rpx;
+  position: relative;
   
 }
 
@@ -337,7 +339,7 @@
     height: 100%;
 }
  .typeList_2 .tiemsBox{
-    position: fixed;
+    position: absolute;
     bottom: 20rpx;
     left: 30rpx;
     font-size: 20rpx;
@@ -378,6 +380,7 @@
   height: 200rpx;
   border-radius: 10rpx 0 0 10rpx;
   padding-left: 20rpx;
+  position: relative;
   
 }
 

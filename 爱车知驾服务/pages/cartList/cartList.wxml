@@ -6,12 +6,12 @@
         <view class="width90 dpfb">
             <view class="maegin20 dpfb width100">
                 <view class="fontSize-34 color1 fontWeight5 dpf">
-                 <image style="width:40rpx;height:40rpx;margin-right:20rpx;" src='../../images/checked.png'></image>   {{serviceData.service[0].name}}
+                 <image style="width:40rpx;height:40rpx;margin-right:20rpx;" src='../../images/checked.png'></image>{{serviceData.service[0].name}}
                 </view>
-                <view>优惠卷</view>
+                <view bindtap="gocouponList">优惠卷</view>
             </view>
         </view>
-        <view class="width100" wx:for='{{serviceData.service[0].items}}' wx:for-index='index' data-index="{{index}}" bindtap="selService" wx:key='index'>
+        <view class="width100 dpfC" wx:for='{{serviceData.service[0].items}}' wx:for-index='index' data-index="{{index}}" bindtap="selService" wx:key='index'>
             <!-- <view class="width90 dpf padding30">
                 <view>{{index+1}}，{{item.name}}</view>
             </view> -->
@@ -19,6 +19,7 @@
                 <view class="scroll-x-item"  wx:for='{{item.brands}}' wx:for-item='itemData' wx:for-index='key' wx:key='key'>
                     <view class='radioBox' data-index='{{index}}' data-id="{{key}}" data-key="{{key}}" bindtap='SingChecked'>
                         <image wx:if='{{itemData.goods[0].checked}}' src='../../images/inon_checked.png'></image>
+                        <image src='../../images/no_checked.png' wx:else></image>
                     </view>
                     <view class='goods_content_item' wx:for='{{itemData.goods}}' wx:for-item='product' wx:for-index='k' wx:key='key'>
                         <view class='itemright'>
@@ -28,8 +29,8 @@
                                 </view>
                                 <view class='goodsContent'>
                                     <view>
-                                        <view class='fontSize-32 color1 fontWeight5 white_noWrap'>{{product.name}}</view>
-                                        <view class='fontSize-32 color1'>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>{{product.name}}</view>
+                                        <view class='fontSize-26 color1'>
                                             <text class='fontWeight5 color7'>{{product.price}}</text>
                                             <text class='fontWeight5 color1'>元</text>
                                         </view>
@@ -75,11 +76,12 @@
             <view class="dpfC service">
                 <image style="width:45rpx;height:45rpx" src="../../images/kefu_icon.png"></image>
                 <view class='fontSize-22 color2'>在线客服</view>
+                <button open-type="contact"></button>
             </view>
             <view class="dpfC" style="flex:1">
                 <view class="purchase_text">合计:
-                    <text class="color7 fontWeight5 fontSize-36">￥{{total}}</text> </view>
-                <view>节省：633元</view>
+                    <text class="color7 fontWeight5 fontSize-36">￥{{NewTotal}}</text> </view>
+                <view>节省：{{economize}}元</view>
             </view>
         </view>
         <view class='purchase_btn' catchtap='createServiceOrder'>去结算</view>

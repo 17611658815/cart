@@ -28,7 +28,7 @@
                 <view class='leaberleft fontSize-30 color2'>
                     <text>商品名称</text>
                 </view>
-                <input value="{{goodsName}}" bindinput="goodsNameInpt" type='tetx'></input>
+                <input value="{{goodsName}}" bindinput="goodsNameInpt" type='text'></input>
             </view>
             <view class='fontSize-30 padding30' style="color:#808080">
                 上传图片

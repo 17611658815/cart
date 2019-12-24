@@ -38,7 +38,8 @@ Page({
         avatar: '',
         real_name: "",
         level: '',
-        userid:0,
+        member_id:0,
+        numMsg:{}
     },
 
     /**
@@ -47,16 +48,18 @@ Page({
     onLoad: function(options) {
         let userInfo = wx.getStorageSync('userinfo') || {};
         this.setData({
-            userid: userInfo.id,
-          
+            member_id: userInfo.id,
         })
-        this.getUserInfo()
+        this.getUserInfo();
+        if (userInfo.id){
+            this.getCenterData()
+        }
     },
     getUserInfo() {
         let that = this;
         let params = {
             appid: app.globalData.appid,
-            userid: that.data.userid,
+            userid: that.data.member_id,
         }
         app.net.$Api.getUserInfo(params).then((res) => {
             console.log(res, 38)
@@ -67,6 +70,20 @@ Page({
                 level: res.data.user.level || "",
             })
             console.log(that.data.avatar)
+        })
+    },
+    // 获赞信息
+    getCenterData() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            member_id: that.data.member_id,
+        }
+        app.net.$Api.getCenterData(params).then((res) => {
+            console.log(res, 79)
+            that.setData({
+                numMsg:res.data
+            })
         })
     },
     /**

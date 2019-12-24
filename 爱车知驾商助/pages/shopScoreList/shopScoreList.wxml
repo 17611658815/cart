@@ -1,0 +1,17 @@
+<scroll-view style='height:100%;width:100%;' wx:if='{{loansList.length>0}}'>
+    <view class='deposit-content' wx:for='{{loansList}}' wx:key='key'>
+        <view class='deposit-content-money'>
+            <text style='color:#000000'>{{item.msg}}</text>
+            <text style='color:#333333' class="fontSize-45">{{item.score}}</text>
+        </view>
+        <view class='deposit-content-time'>
+            <text>{{item.time}}</text>
+        </view>
+    </view>
+</scroll-view>
+<view class='contens' wx:else>
+    <view>
+         <image src='../../../images/nomsg-img.png'></image>
+         <view class='textCenter' style='margin-top:88rpx;font-size:28rpx;color:#666666'>暂无收益明细</view>
+    </view>
+</view>

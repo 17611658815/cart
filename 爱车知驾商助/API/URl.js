@@ -214,5 +214,17 @@ export default class Url {
     static addPostingsUrl() {
         return Url.PATH + '/addPostings';
     };
+    // 服务体验
+    static shopScoreListUrl() {
+        return Url.PATH + '/shopScoreList';
+    };
+    // 车品推荐
+    static ortherShopActUrl() {
+        return Url.PATH + '/ortherShopAct';
+    };
+    // 店长推荐
+    static ortherShopUrl() {
+        return Url.PATH + '/ortherShop';
+    };
 
 }

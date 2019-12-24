@@ -25,8 +25,9 @@
                                 <text class='fontWeight5'>{{item.price}}</text>元</view>
                         </view>
                         <view class='dpfb width100'>
-                             <view class='fontSize-32 color1'>
-                                <text class='fontWeight5'>数量</text></view>
+                            <view class='fontSize-32 color1'>
+                                <text class='fontWeight5'>数量</text>
+                            </view>
                             <view class='dpf'>
                                 <text class='add' data-type='sub' data-id='{{index}}' catchtap='can'>-</text>
                                 <text class='num'>{{item.num}}</text>
@@ -41,7 +42,7 @@
 
 </view>
 <view class='purchase'>
-    <view style='width:100%;' class='dpf'> 
+    <view style='width:100%;' class='dpf'>
         <view class='purchase_price dpf'>
             <!-- <view class='radioBox marginRight marginLeft' data-index='{{index}}' bindtap='Checked'>
                 <image wx:if='{{selectAll}}' src='../../../../images/icon/inon_checked.png'></image>

@@ -98,5 +98,13 @@ export const api = {
     noticeRead: function (paramObj) {
         return Promise.post(Url.default.noticeReadUrl(), paramObj);
     },
+    // 我的累计登录-发帖-评论-获赞
+    getCenterData: function (paramObj) {
+        return Promise.post(Url.default.getCenterDataUrl(), paramObj);
+    },
+    // 立即加入保险
+    jishiInsurance: function (paramObj) {
+        return Promise.post(Url.default.jishiInsuranceUrl(), paramObj);
+    },
     
 }

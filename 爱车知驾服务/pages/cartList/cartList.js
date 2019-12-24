@@ -14,10 +14,16 @@ Page({
         isIphoneX: false,
         serviceData: {},
         goodsItem: {},
-        total: 0, //总价
+        goodsid:[],//产品id
+        NewTotal: 0, //现总价
+        OldTotal: 0, //原总价
+        economize:0,//节省
         Carid: 0, //车辆id
         servetab: 1,
         transfer_price: [],
+        balance:0,
+        sub_service:'',//服务id
+        coupon_id:0,//优惠卷id
     },
 
     /**
@@ -41,6 +47,25 @@ Page({
         this.getAreaId();
         this.showServiceDetail()
     },
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+        let NeTotal 
+        console.log(app.globalData.couponType, app.globalData.couponvalue, app.globalData.couponId)
+        if (app.globalData.couponType != 0 && app.globalData.couponType == 1 || app.globalData.couponType == 3){
+            this.setData({
+                coupon_id: app.globalData.couponid,
+                NewTotal: parseInt(app.globalData.NewTotal) - app.globalData.couponvalue / 1
+            })
+        } else if (app.globalData.couponType != 0 && app.globalData.couponType == 2){
+            this.setData({
+                coupon_id: app.globalData.couponid,
+                NewTotal: parseInt(app.globalData.NewTotal) * app.globalData.couponvalue / 100 
+            })
+        }
+       
+    },
     // 获取区域id
     getAreaId() {
         let that = this;
@@ -58,6 +83,10 @@ Page({
     // 服务详情
     showServiceDetail() {
         let that = this;
+        let NewTotal = 0;
+        let OldTotal = 0;
+        let goodsid = [];
+        let goodsItem = that.data.goodsItem;
         let params = {
             appid: app.globalData.appid,
             member_id: that.data.member_id,
@@ -69,23 +98,54 @@ Page({
             // location: app.globalData.longitude + "," + app.globalData.latitude
             location: "116.520616,39.911792"
         }
+        app.loading('加载中')
         app.net.$Api.showServiceDetail(params).then((res) => {
             let data = res.data;
             for (var i in data.service[0].items) {
-                for (var k in data.service[0].items[i].brands) {
-                    console.log(data.service[0].items[i].brands[k])
-                    data.service[0].items[i].brands[k].goods[0].checked = false
+                var ss =0;
+                for (var j in data.service[0].items[i].brands) {
+                    ss++;
+                    if(ss==1)
+                    {
+                        data.service[0].items[i].brands[j].goods[0].checked = true;
+                        goodsItem[i] = data.service[0].items[i].brands[j].goods;
+                       
+                    }else{
+                        data.service[0].items[i].brands[j].goods[0].checked = false;
+                    }
+                    // data.service[0].items[i].brands[j].goods[0].id_service = 2;
                 }
             }
+            for (var k in goodsItem) {
+                for (var v = 0; v < goodsItem[k].length; v++) {
+                    console.log(goodsItem[k][v])
+                    goodsid.push({
+                        id: goodsItem[k][v].id,
+                        num: goodsItem[k][v].nums,
+                    })
+                    NewTotal += goodsItem[k][v].price / 1 * goodsItem[k][v].nums / 1
+                    OldTotal += goodsItem[k][v].original_price / 1 * goodsItem[k][v].nums / 1
+                }
+            } 
             res.data.sub_service.forEach((item)=>{
                 item.checked = false
-                item.nums = 1
+                item.is_service = 1
             })
+            NewTotal = (res.data.transfer_price[that.data.servetab] / 1 + NewTotal - res.data.balance).toFixed(2);
+            OldTotal = (res.data.transfer_price[that.data.servetab] / 1 + OldTotal - res.data.balance).toFixed(2);
             that.setData({
+                balance: res.data.balance,
                 serviceData: data,
-                transfer_price: res.data.transfer_price
+                transfer_price: res.data.transfer_price,
+                goodsItem: goodsItem,
+                goodsid: goodsid,
+                NewTotal: NewTotal,//现价
+                OldTotal: OldTotal,//原价
+                economize: parseInt(OldTotal) - parseInt(NewTotal)
             })
-            console.log(that.data.serviceData)
+            app.globalData.NewTotal = NewTotal
+            wx.hideLoading()
+            console.log(that.data.goodsid)
         })
     },
     // 生成订单
@@ -100,16 +160,13 @@ Page({
             level: that.data.level,
             car_id: that.data.Carid,
             goods: that.data.goodsid,
+            coupon_id: that.data.coupon_id,
             location: app.globalData.longitude + "," + app.globalData.latitude
             // app.globalData.longitude = res.longitude;
             // app.globalData.latitude = res.latitude;
         }
-        if (that.data.goodsid.length < 4) {
-            app.alert('请选择服务~')
-            return
-        }
         app.net.$Api.createServiceOrder(params).then((res) => {
-            app.globalData.order_id = res.data.id
+            app.globalData.order_id = res.data.id;
             wx.requestPayment({
                 timeStamp: res.data.timeStamp,
                 nonceStr: res.data.nonceStr,
@@ -122,14 +179,9 @@ Page({
                         tmplIds: ['F8TezMCsMq0qdlv-Wm9hGkDGRNyZPKu1PaYo7h8tOvY'],
                         success(r) {
                             console.log(r)
-                            // wx.reLaunch({
-                            //     url: '/pages/index/index?typeNum=2',
-                            // })
                         },
                         fail() {
-                            // wx.reLaunch({
-                            //     url: '/pages/index/index?typeNum=2',
-                            // })
+                          
                         },
                         complete() {
                             wx.reLaunch({
@@ -145,7 +197,9 @@ Page({
     },
     SingChecked(e) {
         let that = this;
-        let total = 0;
+        let NewTotal = 0;
+        let OldTotal = 0;
+        let goodsid = [];
         let goodsItem = that.data.goodsItem;
         let serviceData = that.data.serviceData;
         let key1 = e.currentTarget.dataset.index; //一级索引
@@ -160,7 +214,13 @@ Page({
                             for (var k in goodsItem){
                                 for (var v = 0; v < goodsItem[k].length;v++){
                                     console.log(goodsItem[k][v])
-                                    total += goodsItem[k][v].price / 1 * goodsItem[k][v].nums / 1
+                                    goodsid.push({
+                                        id: goodsItem[k][v].id,
+                                        num: goodsItem[k][v].nums,
+                                        is_service: goodsItem[k][v].is_service == 1 ? goodsItem[k][v].is_service : 2
+                                    })
+                                    NewTotal += goodsItem[k][v].price / 1 * goodsItem[k][v].nums / 1
+                                    OldTotal += goodsItem[k][v].original_price / 1 * goodsItem[k][v].nums / 1
                                 }
                             }
                         }
@@ -171,23 +231,31 @@ Page({
                 }
             }
         }
+        NewTotal = (serviceData.transfer_price[that.data.servetab] / 1 + NewTotal - that.data.balance).toFixed(2);
+        OldTotal = (serviceData.transfer_price[that.data.servetab] / 1 + OldTotal - that.data.balance).toFixed(2);
         that.setData({
+            goodsid: goodsid,
             serviceData: serviceData,
             goodsItem: goodsItem,
-            total: total.toFixed(2)
+            NewTotal: NewTotal < 0 ? 0 : NewTotal,//现价
+            OldTotal: OldTotal,//原价
+            economize: parseInt(OldTotal) - parseInt(NewTotal)
         })
-        console.log(goodsItem)
+        app.globalData.NewTotal = NewTotal
+        console.log(NewTotal, OldTotal + "OldTotal-NewTotal=", OldTotal - NewTotal)
+        console.log(goodsItem, goodsid)
     },
     // 选择子服务
     SonChecked(e){
         let that = this;
-        let total = 0;
+        let NewTotal = 0;
+        let OldTotal = 0;
+        let goodsid = [];
         let serviceData = that.data.serviceData;
         let index = e.currentTarget.dataset.index;
         let type = e.currentTarget.dataset.type;
         let goodsItem = that.data.goodsItem;
         if (type == "nochecked"){
-            console.log(1)
             goodsItem[index] = [serviceData.sub_service[index]];
             serviceData.sub_service[index].checked = true;
         }else{
@@ -197,153 +265,54 @@ Page({
         for (var k in goodsItem) {
             for (var v = 0; v < goodsItem[k].length; v++) {
                 console.log(goodsItem[k][v])
-                total += goodsItem[k][v].price / 1 * goodsItem[k][v].nums / 1
+                goodsid.push({
+                    id: goodsItem[k][v].id,
+                    num: goodsItem[k][v].nums,
+                    is_service: goodsItem[k][v].is_service == 1 ? goodsItem[k][v].is_service : 2
+                })
+                NewTotal += goodsItem[k][v].price / 1 * goodsItem[k][v].nums / 1
+                OldTotal += goodsItem[k][v].original_price / 1 * goodsItem[k][v].nums / 1
             }
         }
+        NewTotal = (serviceData.transfer_price[that.data.servetab] / 1 + NewTotal - that.data.balance).toFixed(2)
+        OldTotal = (serviceData.transfer_price[that.data.servetab] / 1 + OldTotal - that.data.balance).toFixed(2)
         that.setData({
             [`serviceData.sub_service[${index}].checked`]: serviceData.sub_service[index].checked,
             goodsItem: goodsItem,
-            total: total.toFixed(2)
+            goodsid: goodsid,
+            NewTotal: NewTotal < 0 ? 0 : NewTotal,//现价
+            OldTotal: OldTotal,//原价
+            economize: parseInt(OldTotal) - parseInt(NewTotal)
         })
-        console.log(goodsItem)
-
+        app.globalData.NewTotal = NewTotal
+        console.log(goodsItem, goodsid)
     },
-    /*  // 第一列单选
-     firstChecked: function (e) {
-         let CartData = this.data.CartData1;
-         let index = e.currentTarget.dataset.index;
-         let Num = 0;
-         let cartStr = []
-         for (var i = 0; i < CartData.length; i++) {
-             console.log(index,i)
-             if (index == i){
-                 CartData[i].checked = true
-                 console.log(CartData[i])
-             }else{
-                 CartData[i].checked = false
-             }
-         }
-         // 合计
-         var sum = 0
-         for (var i = 0; i < CartData.length; i++) {
-             if (CartData[i].checked) {
-                 sum += CartData[i].num * CartData[i].price/1
-             }
-         }
-         //更新数据
-         this.setData({
-             total: sum.toFixed(2),
-             CartData1: CartData,
-             cartStr: cartStr,
-         })
-         wx.setStorage({
-             key: 'CartData1',
-             data: CartData,
-         })
-         console.log('购物车id=>', cartStr)
-     },
-     // 第二列
-     secondChecked(e){
-         let CartData = this.data.CartData2;
-         let index = e.currentTarget.dataset.index;
-         let Num = 0;
-         let cartStr = []
-         for (var i = 0; i < CartData.length; i++) {
-             console.log(index, i)
-             if (index == i) {
-                 CartData[i].checked = true
-                 console.log(CartData[i])
-             } else {
-                 CartData[i].checked = false
-             }
-         }
-         // 合计
-         var sum = 0
-         for (var i = 0; i < CartData.length; i++) {
-             if (CartData[i].checked) {
-                 sum += CartData[i].num * CartData[i].price
-             }
-         }
-         //更新数据
-         this.setData({
-             total: sum.toFixed(2),
-             CartData2: CartData,
-             cartStr: cartStr,
-         })
-         wx.setStorage({
-             key: 'CartData2',
-             data: CartData,
-         })
-         console.log('购物车id=>', cartStr)
-     }, */
     // 去下单
     placeOther() {
         wx.navigateTo({
             url: '/pages/placeOther/placeOther',
         })
     },
+    //去选择优惠卷
+    gocouponList(){
+        wx.navigateTo({
+            url: '/pages/couponList/couponList?NewTotal=' + this.data.NewTotal,
+        })
+    },
     changeServce(e) {
         let index = e.currentTarget.dataset.index;
-        let total = this.data.total;
+        let NewTotal = this.data.NewTotal;
         if (index == this.data.servetab) {
             return
         }
         if (index == 2) {
-            total = total - this.data.transfer_price[1] + this.data.transfer_price[2] / 1
+            NewTotal = NewTotal - this.data.transfer_price[1] + this.data.transfer_price[2] / 1
         } else {
-            total = total - this.data.transfer_price[2] + this.data.transfer_price[1] / 1
+            NewTotal = NewTotal - this.data.transfer_price[2] + this.data.transfer_price[1] / 1
         }
         this.setData({
-            total: total.toFixed(2),
+            NewTotal: NewTotal.toFixed(2),
             servetab: index
         })
     },
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function() {
-
-    }
 })
