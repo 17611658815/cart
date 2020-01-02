@@ -14,11 +14,11 @@
             </view>
             <view class="sumLogo dpfC">
                 <image class="icon_3" src='../../images/icon/icon_3.png'></image>
-                <view class="view1" wx:if='{{msgData.invest_num == 0}}'></view>
-                <view class="view2" wx:if='{{msgData.invest_num == 0}}'>初次充值送100</view>
+                <!-- <view class="view1" wx:if='{{msgData.invest_num == 0}}'></view> -->
+                <!-- <view class="view2" wx:if='{{msgData.invest_num == 0}}'>初次充值送100</view> -->
             </view>
             <view class="sumBtn dpfC">
-                <view>充值</view>
+                <!-- <view>充值</view> -->
             </view>
         </view>
         <view class="tabListData width90 paddinglr bgFFFF marginTop">

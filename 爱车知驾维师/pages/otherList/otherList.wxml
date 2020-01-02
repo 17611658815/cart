@@ -11,8 +11,9 @@
                 <view class="left_Box">
                    <image class="time_icon" src="../../images/time_icon.png"></image>
                 </view>
-                <view class="fontSize-28 color3">
-                    {{item.date}}
+                <view class="fontSize-28 color3 width100 dpfb">
+                   <text>{{item.date}}</text> 
+                   <text wx:if="{{statusArr[item.status]!=undefinde}}">{{statusArr[item.status]}}</text> 
                 </view>
            </view>
            <view class="dpf padding20">
@@ -20,7 +21,7 @@
                     <text class="dian_1"></text>
                 </view>
                <view class="fontSize-28 color3">
-                    {{item.name}}
+                    {{item.title}}
                 </view>
            </view>
            <view class="dpf">
@@ -28,7 +29,7 @@
                     <text class="dian_2"></text>
                 </view>
                <view class="fontSize-28 color3">
-                    ￥{{item.price}}
+                    {{item.price}}元
                 </view>
            </view>
         </view>

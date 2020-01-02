@@ -10,6 +10,7 @@ Page({
         Carid:0,//汽车id
         searchList:[],
         keyword:'',
+        level:0,
 
     },
 
@@ -21,6 +22,7 @@ Page({
         this.setData({
             area_id: options.area_id,
             Carid: options.Carid,
+            level: options.currentTab/1+1,
         })
         this.getGoodsList()
     },

@@ -23,7 +23,7 @@
                 </view>
             </view>
             <view class="right">
-                <view class="fontSize-36 ">使用</view>
+                <view class="fontSize-36">使用</view>
             </view>
             <label class="tiemsBox" wx:if='{{item.stime}}'>
                 有效期:{{item.stime}}至{{item.etime}}

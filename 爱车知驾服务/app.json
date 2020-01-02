@@ -32,7 +32,9 @@
         "pages/join/join",
         "pages/messageList/messageList",
         "pages/activityList/activityList",
-        "pages/couponList/couponList"
+        "pages/couponList/couponList",
+        "pages/noticeInfo/noticeInfo",
+        "pages/evaluate/evaluate"
     ],
     "window": {
         "backgroundTextStyle": "light",

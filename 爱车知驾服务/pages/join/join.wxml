@@ -1,7 +1,7 @@
 <view class="container">
     <!-- 维师招募 -->
     <view class="headers">
-    
+
     </view>
     <view class="list_item boxShadow" bindtap="goStechnician">
         <view class="fontSize-36">成为网约技师</view>

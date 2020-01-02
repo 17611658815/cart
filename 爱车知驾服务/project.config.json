@@ -21,7 +21,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.9.4",
+	"libVersion": "2.8.3",
 	"appid": "wx9a340b49c24a080a",
 	"projectname": "%E7%88%B1%E8%BD%A6%E7%9F%A5%E9%A9%BE%E6%9C%8D%E5%8A%A1",
 	"debugOptions": {
@@ -304,6 +304,34 @@
 					"name": "优惠卷列表",
 					"pathName": "pages/couponList/couponList",
 					"query": "NewTotal=5068",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "评价",
+					"pathName": "pages/evaluate/evaluate",
+					"query": "NewTotal=5068",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/evaluate/evaluate",
+					"pathName": "pages/evaluate/evaluate",
+					"query": "id=213&type=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/evaluate/evaluate",
+					"pathName": "pages/evaluate/evaluate",
+					"query": "id=213&type=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/evaluate/evaluate",
+					"pathName": "pages/evaluate/evaluate",
+					"query": "id=213&type=1",
 					"scene": null
 				}
 			]

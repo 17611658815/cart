@@ -9,7 +9,8 @@ Page({
         member_id:'',
         otherList:[],
         otherListLength:1,
-        on_off:false
+        on_off:false,
+        statusArr: { 1: "待付款", 2: "派单中", 3: "服务中", 4: "已完成", 5: "退款中", 6: "已退款", 7: "退款拒绝", 8: "取消订单", 9: "未发货", 10: '已发货', 11: "已收货", 12: "已评价"}
     },
     /**
      * 生命周期函数--监听页面加载
@@ -19,6 +20,14 @@ Page({
         this.setData({
             member_id: userinfo.id
         })
+        
+    },
+    /**
+    * 生命周期函数--监听页面显示
+    */
+    onShow: function () {
+        this.data.otherList = []
+        this.data.page = 1
         this.getOrderList()
     },
     // 购买
@@ -52,15 +61,15 @@ Page({
         let id = e.currentTarget.dataset.id;
         let status = e.currentTarget.dataset.status;
         let type = e.currentTarget.dataset.type;
-        if(type == 1){
-            wx.navigateTo({
-                url: '/pages/serviceOtherDetaile/serviceOtherDetaile?id=' + id + '&status=' + status,
-            })
-        }else{
+        // if(type == 1){
+        //     wx.navigateTo({
+        //         url: '/pages/serviceOtherDetaile/serviceOtherDetaile?id=' + id + '&status=' + status,
+        //     })
+        // }else{
             wx.navigateTo({
                 url: '/pages/otherDetaile/otherDetaile?id=' + id + '&status=' + status,
             })
-        }
+        // }
       
     },
     /**
@@ -79,12 +88,7 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
+   
 
     /**
      * 生命周期函数--监听页面隐藏

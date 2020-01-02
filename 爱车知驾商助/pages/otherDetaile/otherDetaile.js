@@ -128,6 +128,7 @@ Page({
                         duration: 2000,
                         success: function () {
                             setTimeout(function () {
+                                app.globalData.logistics = ""
                                wx.navigateBack({
                                    delta:1
                                })

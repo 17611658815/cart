@@ -7,6 +7,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        member_id:0,
         status: '',
         id: '',
         otherObj: {},
@@ -26,6 +27,7 @@ Page({
      */
     onLoad: function (options) {
         let that = this;
+        let userinfo = wx.getStorageSync('userinfo') || '';
         wx.getSystemInfo({
             success: function (res) {
                 that.setData({
@@ -35,11 +37,18 @@ Page({
         });
         that.setData({
             id: options.id,
+            member_id: userinfo.id,
             status: options.status
         })
-        that.getorderDetail()
+        
     },
-    
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+        this.getorderDetail()
+    },
+
     getorderDetail() {
         let that = this;
         let num = 0
@@ -110,13 +119,51 @@ Page({
     },
     gotechnicianService(){
         wx.navigateTo({
-            url: '/pages/technicianService/technicianService',
+            url: '/pages/technicianService/technicianService?order_id=' + this.data.order_id,
         })
     },
     goUpImg(){
         wx.navigateTo({
             url: '/pages/progressPic/progressPic?id='+this.data.order_id,
         })
+    },
+    // 完成服务
+    finishService(){
+        let that = this;
+        let num = 0
+        let params = {
+            appid: app.globalData.appid,
+            id: that.data.id,
+            member_id: that.data.member_id
+        }
+        wx.showModal({
+            title: '温馨提示',
+            content: '确定完成此订单？',
+            success(res) {
+                if (res.confirm) {
+                    app.net.$Api.setOrderFinish(params).then((res) => {
+                        console.log(res)
+                        if(res.data.code == 200){
+                            wx.showToast({
+                                title: '完成',
+                                icon: 'success',
+                                duration: 2000,
+                                success: function () {
+                                    setTimeout(function () {
+                                      wx.navigateBack({
+                                          delta:1
+                                      })
+                                    }, 2000)
+                                }
+                            })
+                        }
+                    })
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+            }
+        })
+       
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
@@ -125,13 +172,7 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
+    
     /**
      * 生命周期函数--监听页面隐藏
      */

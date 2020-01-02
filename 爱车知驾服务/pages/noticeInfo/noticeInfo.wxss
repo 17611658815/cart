@@ -1,0 +1,7 @@
+/* pages/noticeInfo/noticeInfo.wxss */
+
+.container view{
+    width: 94%;
+    padding: 0 3%;
+    margin-top: 20rpx;
+}

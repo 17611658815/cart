@@ -38,6 +38,14 @@
     right: 30rpx;
     z-index: 9999;
 }
+.delBox3{
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    top: 20rpx;
+    right: 30rpx;
+    z-index: 9999;
+}
 .donw_icon {
     width: 15rpx;
     height: 15rpx;
@@ -389,9 +397,13 @@
     width: 120rpx;
     height: 120rpx;
     border-radius: 50%;
-    background: #999;
+    /* background: #999; */
 }
-
+.technicianPic image{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
 .marginLeft {
     flex: 1;
 }
@@ -411,8 +423,13 @@
     width: 200rpx;
     height: 150rpx;
     background: #999;
+     margin-right: 30rpx;
 }
-
+.rightPic image{
+    width: 100%;
+    height: 100%;
+   
+}
 .sherec_ontainer image {
     width: 35rpx;
     height: 35rpx;
@@ -723,4 +740,14 @@ margin-bottom: 20rpx;
     bottom: 20rpx;
     left: 0;
     background: #ffffff;
+}
+.submitBtn{
+    width: 90%;
+    height: 80rpx;
+    background: #03a1ea;
+    color: #fff;
+    border-radius: 90rpx;
+    margin-top: 30rpx;
+    text-align: center;
+    line-height: 80rpx;
 }

@@ -3,6 +3,9 @@
         <view class="fontSize-45 fontWeight6">注册需要材料</view>
         <view class="fontSize-26 color3 padding20">请确保身边已准备好一下材料,您的信息将严格保密</view>
     </view>
+    <view class='itembox dpf width100'>
+        <input placeholder='请输入姓名' value="{{name}}" bindinput="nameInpt" type='tetx'></input>
+    </view>
     <view class="photoList">
         <view class="dpfC" style='position: relative' data-type="1" bindtap="chooseImageTap">
             <image src='{{oldidCard}}'></image>
@@ -51,7 +54,8 @@
             <button class="requestBtn" bindtap="requestMsg2"></button>
         </view>
     </view>
-        <button class="addBtn" open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber'>保存</button>
+        <!-- <button class="addBtn" open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber'>保存</button> -->
+        <button class="addBtn"  bindtap='getPhoneNumber'>保存</button>
 </view>
 
 

@@ -1,13 +1,14 @@
-.carList-shade{
+.carList-shade {
     width: 100%;
     min-height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 100;
 }
-.cacarList-contentHide{
+
+.cacarList-contentHide {
     width: 100%;
     height: 800rpx;
     display: flex;
@@ -16,28 +17,29 @@
     position: fixed;
     left: 0;
     bottom: -800rpx;
-   background: #FFFFFD;
+    background: #fffffd;
     z-index: 999;
     animation: myfirsts 0.5s;
     overflow: auto;
     padding-top: 50rpx;
 }
-.carList-contentShow{
+
+.carList-contentShow {
     position: fixed;
-     display: flex;
-     flex-direction: column;
-     padding: 30rpx 3%;
+    display: flex;
+    flex-direction: column;
+    padding: 30rpx 3%;
     align-items: center;
     left: 0;
     bottom: 0;
     width: 94%;
     height: 800rpx;
-    background: #FFFFFD;
+    background: #fffffd;
     z-index: 999;
     animation: carList 0.2s;
-     overflow: auto;
-    
+    overflow: auto;
 }
+
 @keyframes carList {
     0% {
         bottom: -800rpx;
@@ -48,27 +50,30 @@
     }
 }
 
-.text_1{
+.text_1 {
     line-height: 40rpx;
 }
-.btnBox view{
+
+.btnBox view {
     width: 325rpx;
     height: 80rpx;
     text-align: center;
     line-height: 80rpx;
     border-radius: 6rpx;
+}
 
-}
-.leftBtn{
+.leftBtn {
     border: 1rpx solid #535466;
-    color: #535466
+    color: #535466;
 }
-.rightBtn{
+
+.rightBtn {
     background: #535466;
-    color: #ffffff;
+    color: #fff;
     position: relative;
 }
-.loginBtn{
+
+.loginBtn {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -76,26 +81,29 @@
     left: 0;
     background: none;
 }
-.carBtnBox{
+
+.carBtnBox {
     width: 94%;
     position: absolute;
     bottom: 30rpx;
     right: 30rpx;
 }
-.carBtn{
+
+.carBtn {
     width: 90%;
     height: 100rpx;
     font-size: 34rpx;
     line-height: 100rpx;
     background: #6ea8f7;
-    color: #ffffff;
+    color: #fff;
     border-radius: 50rpx;
     border: none;
     text-align: center;
     margin: auto;
 }
-.carlistBox{
+
+.carlistBox {
     width: 100%;
     height: 666rpx;
-     overflow: auto;
+    overflow: auto;
 }

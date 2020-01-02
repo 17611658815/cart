@@ -110,6 +110,9 @@ page {
     left: 0;
     background: none;
 }
+.selService{
+    min-height: 400rpx;
+}
 button::after{
     border: none;
 }
@@ -148,11 +151,11 @@ button::after{
 
 .scroll-x-box {
     width: 90%;
-    /* padding: 0 5%; */
+    height: 430rpx;
     white-space: nowrap;
     display: flex;
     padding-bottom: 30rpx;
-    position: relative;
+    /* position: relative; */
 }
 
 .goods_content_item {
@@ -163,6 +166,7 @@ button::after{
     margin-left: 50rpx;
 }
 .scroll-x-item{
+    height: 165rpx;
     display: inline-block;
     position: relative;
 }

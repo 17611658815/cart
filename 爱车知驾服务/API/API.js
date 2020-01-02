@@ -82,5 +82,41 @@ export const api = {
     couponList: function (paramObj) {
         return Promise.post(Url.default.couponListUrl(), paramObj);
     },
+    // 获取用户手机号
+    analysisUserPhone: function (paramObj) {
+        return Promise.post(Url.default.analysisUserPhoneUrl(), paramObj);
+    },
+    // 保存用户手机号
+    phoneLogin: function (paramObj) {
+        return Promise.post(Url.default.phoneLoginUrl(), paramObj);
+    },
+    // 取消订单
+    cancelOrder: function (paramObj) {
+        return Promise.post(Url.default.cancelOrderUrl(), paramObj);
+    },
+    // 子订单支付
+    paySubOrder: function (paramObj) {
+        return Promise.post(Url.default.paySubOrderUrl(), paramObj);
+    },
+    // 消息已读
+    noticeRead: function (paramObj) {
+        return Promise.post(Url.default.noticeReadUrl(), paramObj);
+    },
+    // 消息列表
+    noticeList: function (paramObj) {
+        return Promise.post(Url.default.noticeListUrl(), paramObj);
+    },
+    // 消息详情
+    noticeInfo: function (paramObj) {
+        return Promise.post(Url.default.noticeInfoUrl(), paramObj);
+    },
+    // 订单评价
+    appraiseServiceOrder: function (paramObj) {
+        return Promise.post(Url.default.appraiseServiceOrderUrl(), paramObj);
+    },
+    // 商品评价
+    appraiseShopOrder: function (paramObj) {
+        return Promise.post(Url.default.appraiseShopOrderUrl(), paramObj);
+    },
    
 }

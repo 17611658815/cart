@@ -12,6 +12,8 @@ Page({
         listlength:1,
     },
     onShow(){
+        this.data.page = 1;
+        this.data.dataList = []
         this.getOrderList()
     },
     onLoad(options) { 
@@ -20,7 +22,7 @@ Page({
             currentTab: options.currentTab,
             member_id: userInfo.id
         })
-        this.getOrderList()
+        // this.getOrderList()
     },
     // 导航tab切换
     swatchTab(e) {

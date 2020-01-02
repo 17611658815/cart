@@ -228,7 +228,7 @@ Page({
                     success: function () {
                         setTimeout(function () {
                             wx.navigateTo({
-                                url: '/pages/search/search',
+                                url: '/pages/index/index',
                             })
                         }, 2000)
                     }

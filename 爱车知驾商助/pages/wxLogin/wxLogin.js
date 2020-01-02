@@ -22,6 +22,8 @@ Page({
                         that.getOpenid(loginCode);
                     },
                     fail: function (res) { //用户点了“拒绝” 
+                        wx.navigateBack();
+                        console.log('用户点了“拒绝” ')
                         wx.hideLoading();
                     },
                     complete: function (res) {
@@ -59,10 +61,16 @@ Page({
             console.log(res.data)
             wx.setStorageSync("userinfo", res.data);
             wx.hideLoading();
-            wx.reLaunch({
-                url: '/pages/index/index',
-            })
+            wx.navigateBack();
+            // wx.reLaunch({
+            //     url: '/pages/index/index',
+            // })
         })
+    },
+
+    //用户拒绝授权,返回上层页面
+    userRefuse:function(){
+        wx.navigateBack();
     },
     /**
      * 生命周期函数--监听页面加载

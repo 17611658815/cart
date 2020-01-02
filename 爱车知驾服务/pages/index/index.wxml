@@ -1,7 +1,8 @@
-<!-- <button open-type="contact" bindcontact='onbindcontact'>客服</button> -->
+<!-- <button bindtap='open'>开启</button>
+<button  bindtap='del'>关闭</button> -->
 <view class="container">
 <!-- <button bindtap="goShopApp">商户</button>
-<button bindtap="goStechnician">技师</button> -->
+    <button bindtap="goStechnician">技师</button> -->
     <!-- 头部 -->
     <view class="headerBox width100 dpfC padding20">
         <view class="headerBox width90 dpfb">
@@ -312,11 +313,11 @@
             <view class="width90 dpfC boxShadow">
                 <view class="width90 dpf">
                     <view class="technicianPic">
-
+                            <image src='../../images/pic.jpg'></image>
                     </view>
                     <view class="marginLeft">
                         <view style="padding-top:30rpx;">正在为您预约维师...</view>
-                        <view class="padding20 fontSize-22 color3">正在为您预约维师正在为您预正正在为您预约维师正在为您预约维师正在为您预约维师在为您预约维师约维师</view>
+                        <view class="padding20 fontSize-22 color3">正在为您预约技师请您耐心等待...</view>
                     </view>
                 </view>
                 <image class="delBox2" catchtap="delmodel" src="../../images/icon_colse.png"></image>
@@ -328,16 +329,16 @@
             <view class="width90 dpfC boxShadow">
                 <view class="width90 dpf padding20 borderBtm">
                     <view class="leftinfo">
-                        <view class="fontSize-40 color1 fontWeight6">证书:***0689</view>
-                        <view class="fontSize-32 color1 fontWeight6 marginTop10">初级技能</view>
+                        <view class="fontSize-40 color1 fontWeight6">证书:{{jishi_info.certificate}}</view>
+                        <view class="fontSize-32 color1 fontWeight6 marginTop10">{{jishi_info.leve}}</view>
                         <view class="fontSize-26 color3 marginTop10">
-                            <text class="marginRight">陈师傅</text>
-                            <text class="marginRight">5.0</text>
-                            <text class="marginRight">6519单</text>
+                            <text class="marginRight">{{jishi_info.name}}</text>
+                            <text class="marginRight">{{jishi_info.score}}</text>
+                            <text class="marginRight">{{jishi_info.order_num}}单</text>
                         </view>
                     </view>
                     <view class="rightPic">
-
+                        <image src="{{jishi_info.wx_avatar}}"></image>
                     </view>
                 </view>
                 <view class="width90 dpf padding20 sherec_ontainer">
@@ -347,7 +348,7 @@
                         <text class="marginTop10">122报警</text>
                     </view>
                     <!-- 取消订单 -->
-                    <view class="dpfC shereBox fontSize-20 borderLeft" bindtap="sendDanmuOff">
+                    <view class="dpfC shereBox fontSize-20 borderLeft" bindtap="recallOther">
                         <image src="../../images/del2_icon.png"></image>
                         <text class="marginTop10">取消订单</text>
                     </view>
@@ -370,6 +371,7 @@
                         <image src="../../images/gengduo.png"></image>
                     </view>
                 </view>
+                 <image class="delBox3" catchtap="delmodel" src="../../images/icon_colse.png"></image>
             </view>
         </view>
         <!-- 维保结束 -->
@@ -412,10 +414,13 @@
                     <view class="questionitem">对维修工不满意</view>
                     <view class="questionitem">级别或维修信息不符</view>
                 </view>
-                <view class="width90 fontSize-28 color1 padding20 more">
+                <view class="width90 submitBtn">
+                    完成
+                </view>
+                <!-- <view class="width90 fontSize-28 color1 padding20 more">
                     更多问题
                     <image class="more_right" src="../../images/icon_right.png"></image>
-                </view>
+                </view> -->
             </view>
         </view>
     </view>

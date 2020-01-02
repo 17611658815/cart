@@ -1,30 +1,28 @@
 <!--关注医生-->
 <scroll-view class="content" wx:if="{{carList.length>0}}" scroll-y="true" bindscrolltolower="pullUpLoad">
-  <view class="page-body">
-    <view class='doctorList' wx:for="{{carList}}" wx:key='key'>
-       <view class="info_item">
-            <text>品牌型号：</text>
-            <text class="color2 fontSize-28">{{item.brand_model}}</text>
-       </view>
-       <view class="padding30 info_item">
-            <text>车辆类型：</text>
-            <text class="color2 fontSize-28">{{item.car_type}}</text>
-       </view>
-       <view class="info_item">
-            <text>号牌号码：</text>
-            <text class="color2 fontSize-28">{{item.car_number}}</text>
-       </view>
-       <view class="delInfo" data-carid='{{item.id}}' catchtap="delCarInfo">
-            删除
-       </view>
+    <view class="page-body">
+        <view class='doctorList' wx:for="{{carList}}" wx:key='key'>
+            <view class="info_item">
+                <text>品牌型号：</text>
+                <text class="color2 fontSize-28">{{item.brand_model}}</text>
+            </view>
+            <view class="padding30 info_item">
+                <text>车辆类型：</text>
+                <text class="color2 fontSize-28">{{item.car_type}}</text>
+            </view>
+            <view class="info_item">
+                <text>号牌号码：</text>
+                <text class="color2 fontSize-28">{{item.car_number}}</text>
+            </view>
+            <view class="delInfo" data-carid='{{item.id}}' catchtap="delCarInfo">
+                删除
+            </view>
+        </view>
     </view>
-
-  </view>
-
 </scroll-view>
 <view wx:if="{{carList.length == 0}}" class='noGzdoctorBox'>
-  <view class='noGzdoctor'>
-    <image src='../../images/mayGz.png'></image>
-    <view class='txt'>您还没有添加爱车~</view>
-  </view>
+    <view class='noGzdoctor'>
+        <image src='../../images/mayGz.png'></image>
+        <view class='txt'>您还没有添加爱车~</view>
+    </view>
 </view>

@@ -105,7 +105,10 @@ Page({
         carListShow:false,
         carList:[],
         carindex:0,
-        area_id:0
+        area_id:0,
+        playId:0,
+        times:null,
+        jishi_info:{}
     },
     requestMsg(){
         wx.requestSubscribeMessage({
@@ -156,9 +159,9 @@ Page({
         if (options.id){
             that.showService()
         }
-        // if(app.globalData.order_id!=""){
-        //     that.getOrderStatus()
-        // }
+        if(app.globalData.order_id!=0){
+            that.getOrderStatus(app.globalData.order_id)
+        }
         that.getLocationMsg();
         that.getAreaId()
         console.log(userinfo)
@@ -187,16 +190,42 @@ Page({
         })
     },
     // 获取订单状态
-    getOrderStatus(){
+    getOrderStatus(id){
         let that = this;
         let params = {
             appid: app.globalData.appid,
             id: app.globalData.order_id
         }
         app.net.$Api.getOrderStatus(params).then((res) => {
-           
             console.log(res)
+            clearTimeout(that.data.times)
+            if(res.data.status>2){
+                that.setData({
+                    typeNum: 3,
+                    jishi_info: res.data.member_info
+                })
+                app.globalData.order_id = 0;
+
+            }else{
+                // that.setData({
+                //     typeNum: 2,
+                // })
+                that.data.times = setTimeout(()=>{
+                    that.getOrderStatus(app.globalData.order_id)
+                    console.log(that.data.times)
+                },3000)
+            }
         })
+    },
+    open(){
+        let that = this;
+        that.data.times = setInterval(() => {
+            console.log(that.data.times)
+        }, 1000)
+    },
+    del(){
+        console.log(this.data.times)
+        clearInterval(this.data.times)
     },
     // 判断是否有车
     isHaveCar(){
@@ -238,11 +267,11 @@ Page({
         let markers = that.data.markers;
         let params = {
             appid: app.globalData.appid,
-            // lat: that.data.latitude,
-            // lng: that.data.longitude,
-            lat: '39.905277252197266',
-            lng: '116.51362609863281',
-            level: that.data.currentTab+1
+            lat: that.data.latitude,
+            lng: that.data.longitude,
+            // lat: '39.905277252197266',
+            // lng: '116.51362609863281',
+            level: that.data.currentTab/1+1
         }
         app.net.$Api.getShopListByLocation(params).then((res) => {
             res.data.forEach((item) => {
@@ -444,7 +473,7 @@ Page({
     // 预约维师
     gocartList(){
         wx.navigateTo({
-            url: '/pages/cartList/cartList?serviceId=' + this.data.serviceId + '&area_id=2' + '&serveType=' + this.data.serveType + "&level=" + this.data.currentTab + '&time=' + this.data.dateTime,
+            url: '/pages/cartList/cartList?serviceId=' + this.data.serviceId + '&area_id=2' + '&serveType=' + this.data.serveType + "&level=" + this.data.currentTab/1 + '&time=' + this.data.dateTime,
         })
     },
     onshowslideNav() {
@@ -478,7 +507,7 @@ Page({
         app.globalData.area_id = that.data.area_id
         app.globalData.Carid = id
         wx.navigateTo({
-            url: '/pages/search/search?currentTab=' + (that.data.currentTab + 1) + "&Carid=" + id + "&area_id=" +that.data.area_id,
+            url: '/pages/search/search?currentTab=' + (that.data.currentTab/1 + 1) + "&Carid=" + id + "&area_id=" +that.data.area_id,
         })
     },
     //全部服务
@@ -496,13 +525,17 @@ Page({
         })
     },
     delmodel(){
+        app.globalData.order_id = 0;
         this.setData({
             typeNum:0
         })
+        clearTimeout(that.data.times)
     },
     onbindfocus() {
         let that = this;
-        if (that.data.isHaveCar==0){
+        if (!app.globalData.userinfo.id){
+            app.checkLogin();
+        }else if (that.data.isHaveCar==0){
             wx.navigateTo({
                 url: '/pages/uploadPic/uploadPic',
             })
@@ -510,7 +543,7 @@ Page({
             app.globalData.area_id = that.data.area_id
             app.globalData.Carid = that.data.car_id
             wx.navigateTo({
-                url: '/pages/search/search?currentTab=' + that.data.currentTab + 1 + "&area_id=" + that.data.area_id,
+                url: '/pages/search/search?currentTab=' + that.data.currentTab + "&area_id=" + that.data.area_id,
             })
         } else if (that.data.isHaveCar > 1){
             this.setData({
@@ -528,11 +561,26 @@ Page({
             success(res) {
                 if (res.confirm) {
                     console.log('用户点击确定')
-                    // that.removeOther(data)
+                    that.removeOther()
                 } else if (res.cancel) {
                     console.log('用户点击取消')
                 }
             }
+        })
+    },
+    removeOther(){
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            id: app.globalData.order_id
+        }
+        app.net.$Api.cancelOrder(params).then((res) => {
+            clearTimeout(that.data.times)
+            app.globalData.order_id = 0;
+            that.setData({
+                typeNum: 0
+            })
+            
         })
     },
     // 感谢红包
@@ -611,5 +659,5 @@ Page({
         }
 
     },
-    
+
 })

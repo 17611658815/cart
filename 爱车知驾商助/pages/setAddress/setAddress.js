@@ -31,7 +31,9 @@ Page({
                })
             }
         })
-        this.setData({
+        that.setData({
+            latitude: app.globalData.shopInfo.lat,
+                longitude: app.globalData.shopInfo.lng,
             city: app.globalData.city,
             "markers[0].longitude": app.globalData.shopInfo.lng,
             "markers[0].latitude":  app.globalData.shopInfo.lat

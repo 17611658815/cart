@@ -9,7 +9,8 @@ Page({
         member_id: '',
         otherList: [],
         otherListLength: 1,
-        on_off: false
+        on_off: false,
+        statusArr: { 1: "待付款", 2: "派单中", 3: "服务中", 4: "已完成", 5: "退款中", 6: "已退款", 7: "退款拒绝", 8: "取消订单", 9: "未发货", 10: '已发货', 11: "已收货" }
     },
     /**
      * 生命周期函数--监听页面加载
@@ -19,6 +20,14 @@ Page({
         this.setData({
             member_id: userinfo.id
         })
+
+    },
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+        this.data.page = 1;
+        this.data.otherList = []
         this.getOrderList()
     },
     // 购买
@@ -73,12 +82,7 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
+    
 
     /**
      * 生命周期函数--监听页面隐藏

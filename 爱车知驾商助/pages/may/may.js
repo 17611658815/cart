@@ -46,18 +46,33 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
-        let userInfo = wx.getStorageSync('userinfo') || '';
+    onLoad: function (){
+        let userInfo = wx.getStorageSync('userinfo') || {};
         app.globalData.userInfo = userInfo
         this.setData({
             member_id: userInfo.id
         })
-        this.getShopInfo()
+        this.getShopInfo();
+    },
+    onShow: function () {
+        let userInfo = wx.getStorageSync('userinfo') || {};
+        console.log('onShow', userInfo)
+        app.globalData.userInfo = userInfo
+        this.setData({
+            member_id: userInfo.id
+        })
+        this.getShopInfo();
     },
     goregister() {
-        wx.navigateTo({
-            url: '/pages/register/register',
-        })
+        console.log(app.globalData.userInfo)
+        if (!app.globalData.userInfo.id){
+            app.checkLogin();
+            
+        }else{
+            wx.navigateTo({
+                url: '/pages/register/register',
+            })
+        }
     },
     getShopInfo() {
         let that = this;
@@ -85,17 +100,11 @@ Page({
         })
 
     },
+    
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function() {
 
     },
 

@@ -7,7 +7,7 @@ Page({
      */
     data: {
         status: '',
-        id: '39',//订单id
+        id: '',//订单id
         otherObj: {},
         num: 0,
         userid:0,//技师id
@@ -42,11 +42,17 @@ Page({
         }
         app.loading('加载中')
         app.net.$Api.getWillOrder(params).then((res) => {
-            console.log(res)
-            that.setData({
-                otherObj: res.data.data,
-               
-            })
+            console.log(res.data.code != 200 , res.data.data.jishi_member_id == that.data.userid)
+            if (res.data.code != 200 && res.data.data.jishi_member_id == that.data.userid) {
+               wx.navigateTo({
+                   url: '/pages/otherList/otherList',
+               })
+            } else {
+                that.setData({
+                    otherObj: res.data.data
+                })
+            }
+          
             wx.hideLoading()
         })
     },
@@ -61,6 +67,7 @@ Page({
                 that.setData({
                     shop_id: res.data.data[0].id
                 })
+                that.acceptOrder()
             }else{
                 that.setData({
                     carList: res.data.data,

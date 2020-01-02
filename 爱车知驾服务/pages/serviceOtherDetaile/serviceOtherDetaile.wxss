@@ -191,6 +191,7 @@
     color: #333333;
     border: 2rpx solid #8f8f8f;
     border-radius: 6rpx;
+    margin-right: 20rpx;
 }
 .btn_2{
      width: 156rpx;
@@ -202,5 +203,5 @@
     border: 2rpx solid #5994f7;
     border-radius: 6rpx;
     position: relative;
-    margin-left: 20rpx;
+    margin-right: 20rpx;
 }

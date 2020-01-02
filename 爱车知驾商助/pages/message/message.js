@@ -102,7 +102,35 @@ Page({
             }
         })
     },
+    noticeRead(id, path) {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            id: id,
+        }
+        app.net.$Api.noticeRead(params).then((res) => {
+            console.log(res)
+            wx.navigateTo({
+                url: path,
+            })
+        })
+    },
+    gonoticeInfo(e) {
+        let id = e.currentTarget.dataset.id;
+        let path = e.currentTarget.dataset.path;
+        console.log(id, path)
+        if (path) {
+            console.log('1')
+            this.noticeRead(id, path)
+        } else {
+            console.log('2')
+            wx.navigateTo({
+                url: '/pages/noticeInfo/noticeInfo?id=' + id,
+            })
+        }
+    },
     /**
+     * 
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
@@ -114,7 +142,7 @@ Page({
        
         this.messagePower();
         this.getShopGoodsNum();
-        this.noticeList()
+        
     },
 
     /**
@@ -128,6 +156,8 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        this.data.msgList = []
+        this.noticeList()
         app.removeTabBarBadge(1)
         app.hideTabBarRedDot(1)
     },

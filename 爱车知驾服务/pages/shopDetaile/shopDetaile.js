@@ -14,8 +14,12 @@ Page({
    
     onLoad(options) {
         let that = this;
+        wx.removeStorage({
+            key: 'CarList',
+            success: function(res) {},
+        })
         let userinfo = wx.getStorageSync('userinfo') || '';
-        let CarList = wx.getStorageSync('CarList') || {};
+        let CarList =  {};
         this.setData({
             isIphoneX: app.globalData.isIphoneX,
             id: options.id,
@@ -23,7 +27,7 @@ Page({
             member_id: userinfo.id
         })
         this.getShopInfo()
-        this.sumTotal(CarList)
+        // this.sumTotal(CarList)
     },
     sumTotal(CarList){
         let total = 0;
@@ -170,13 +174,13 @@ Page({
     },
     //  查看更多
     gohelpCenter() {
-        my.navigateTo({
+        wx.navigateTo({
             url: '/pages/helpCenter/helpCenter'
         });
     },
     //  去添加信息
     goaddres() {
-        my.navigateTo({
+        wx.navigateTo({
             url: '/pages/addres/addres'
         });
     }

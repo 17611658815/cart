@@ -106,5 +106,9 @@ export const api = {
     jishiInsurance: function (paramObj) {
         return Promise.post(Url.default.jishiInsuranceUrl(), paramObj);
     },
+    // 完成订单
+    setOrderFinish: function (paramObj) {
+        return Promise.post(Url.default.setOrderFinishUrl(), paramObj);
+    },
     
 }

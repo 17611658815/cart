@@ -33,7 +33,7 @@ Page({
         app.net.$Api.orderDetail(params).then((res) => {
            console.log(res)
             that.setData({
-                otherObj: res.data,
+                otherObj: res.data.data,
                 num: num
             })
             wx.hideLoading()

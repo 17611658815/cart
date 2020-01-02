@@ -9,23 +9,29 @@ Page({
         currentTab: 0,
         total: 0,
         CarList: {},
-        order_id:39,
+        order_id:'',
         goodsData: [],
         serviceData: [],
         page:1,
     },
 
     onLoad(options) {
+        wx.removeStorage({
+            key: 'CarList',
+            success: function(res) {},
+        })
         let CarList = wx.getStorageSync('CarList') || {};
         this.setData({
             isIphoneX: app.globalData.isIphoneX,
             id: options.id,
-            CarList: CarList
+            CarList: CarList,
+            order_id: options.order_id,
+            // order_id:
         })
         this.searchList1()
         this.searchList2()
         // this.getShopInfo()
-        this.sumTotal(CarList)
+        // this.sumTotal(CarList)
     },//搜索内容
     searchList1() {
         let that = this;

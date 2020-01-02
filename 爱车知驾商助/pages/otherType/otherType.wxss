@@ -95,7 +95,6 @@
 .noList{
   width: 100%;
   padding-top: 50rpx;
-  background: #f8f8f8;
 }
 .noList image{
   width: 200rpx;

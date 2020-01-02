@@ -105,31 +105,38 @@ Page({
         }
         app.loading('加载中')
         app.net.$Api.createOrder(params).then((res) => {
+            console.log(res)
+            wx.requestPayment({
+                timeStamp: res.data.timeStamp,
+                nonceStr: res.data.nonceStr,
+                package: res.data.package,
+                signType: res.data.signType,
+                paySign: res.data.paySign,
+                success(res) {
+                    console.log(res)
+                    app.globalData.couponType = '', //优惠卷类型
+                        app.globalData.couponvalue = 0,//优惠卷额度
+                        app.globalData.couponId = '',//优惠卷id
+                        wx.requestSubscribeMessage({
+                            tmplIds: ['F8TezMCsMq0qdlv-Wm9hGkDGRNyZPKu1PaYo7h8tOvY'],
+                            success(r) {
+                                console.log(r)
+                            },
+                            fail() {
+
+                            },
+                            complete() {
+                                wx.reLaunch({
+                                    url: '/pages/index/index',
+                                })
+                            }
+                        })
+                },
+                fail(res) { }
+            })
            wx.hideLoading()
         })
     },
-    // requestMsg() {
-    //     wx.requestSubscribeMessage({
-    //         tmplIds: ['h63kyZQSQoQqosVVfkTdD1kvA9x5tMAUwhzoGTrCpS4', 'T1ZvDJPVwlt4FXBMdcIslUF6AzZ_pMhQUwM-r_IYW_k', 'S5tuM0uifn67CiLRqReVZk97GETAzHGoGlQhzGlNF_o', 'F8TezMCsMq0qdlv-Wm9hGkDGRNyZPKu1PaYo7h8tOvY'],
-    //         success: (res) => {
-    //             // if (res['h63kyZQSQoQqosVVfkTdD1kvA9x5tMAUwhzoGTrCpS4'] === 'accept') {
-    //             //     wx.showToast({
-    //             //         title: '订阅OK！',
-    //             //         duration: 1000,
-    //             //         success(data) {
-    //             //             //成功
-    //             //             resolve()
-    //             //         }
-    //             //     })
-    //             // }
-    //             console.log(res)
-    //         },
-    //         fail(err) {
-    //             //失败
-    //             console.error(err);
-    //         }
-    //     })
-    // },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

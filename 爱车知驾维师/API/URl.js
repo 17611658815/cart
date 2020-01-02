@@ -94,5 +94,9 @@ export default class Url {
     static jishiInsuranceUrl() {
         return Url.ART + '/jishiInsurance';
     }
+    // 立即加入保险
+    static setOrderFinishUrl() {
+        return Url.ART + '/setOrderFinish';
+    }
    
 }

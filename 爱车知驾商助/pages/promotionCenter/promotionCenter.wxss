@@ -503,3 +503,6 @@
     width: 100%;
     height: 150rpx;
 }
+.noList image{
+    margin-top: 100rpx;
+}

@@ -183,6 +183,11 @@ page{
 }
 .boxShadow{
    box-shadow:-1rpx 2rpx 12rpx #CCCCCC;
+
+}
+.boxShadow2{
+   box-shadow:-1rpx 2rpx 12rpx #999999;
+
 }
 .icon_1{
     width: 40rpx;

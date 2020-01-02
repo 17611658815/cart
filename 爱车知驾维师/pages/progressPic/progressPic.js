@@ -180,6 +180,9 @@ Page({
             that.setData({
                 otherObj: res.data.data
             })
+            wx.navigateBack({
+                delta:1
+            })
             wx.hideLoading()
         })
     },

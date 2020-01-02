@@ -27,7 +27,7 @@ export default class Url {
     };
     // 订单详情
     static orderDetailUrl() {
-        return Url.PATH + '/orderDetail';
+        return Url.PATH + '/getOrderInfo';
     };
     // 存车辆信息
     static saveCarUrl() {
@@ -73,5 +73,41 @@ export default class Url {
     static couponListUrl() {
         return Url.PATH + '/couponList';
     };
+    // 获取用户手机号
+    static analysisUserPhoneUrl() {
+        return Url.USER + '/analysisUserPhone';
+    };
+    // 保存用户手机号
+    static phoneLoginUrl() {
+        return Url.USER + '/phoneLogin';
+    };
+    // 取消订单
+    static cancelOrderUrl() {
+        return Url.PATH + '/cancelOrder';
+    };
+    // 子订单支付
+    static paySubOrderUrl() {
+        return Url.PATH + '/paySubOrder';
+    };
+    // 消息已读
+    static noticeReadUrl() {
+        return Url.USER + '/noticeRead';
+    }
+    // 消息列表
+    static noticeListUrl() {
+        return Url.PATH + '/noticeList';
+    }
+    // 消息详情
+    static noticeInfoUrl() {
+        return Url.PATH + '/noticeInfo';
+    }
+    // 订单评价
+    static appraiseServiceOrderUrl() {
+        return Url.PATH + '/appraiseServiceOrder';
+    }
+    // 店铺评价
+    static appraiseShopOrderUrl() {
+        return Url.PATH + '/appraiseShopOrder';
+    }
   
 }

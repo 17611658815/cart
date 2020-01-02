@@ -32,27 +32,73 @@ Page({
     * 生命周期函数--监听页面加载
     */
     onLoad: function (options) {
+        if (!app.globalData.hasInfo || !app.globalData.hasInfo.id){
+            app.checkLogin();
+        }else{
+            this.initialize();
+        }
+    },
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+        this.initialize();
+    },
+    //初始化方法
+    initialize(){
         let sessionKey = wx.getStorageSync('session_key');
         let userInfo = wx.getStorageSync('userinfo');
         this.setData({
             sessionKey,
             userid: userInfo.id,
-            oldidCard: app.globalData.hasInfo.card_photos || "",
-            oldcertification: app.globalData.hasInfo.aptitude_photos || "",
-            olddriving: app.globalData.hasInfo.healthy_photos || "",
-            avatar: app.globalData.hasInfo.avatar || "",
-            tempImagePath: app.globalData.hasInfo.avatar || "",
-            certification: app.globalData.hasInfo.aptitude_photos || "",
-            driving: app.globalData.hasInfo.healthy_photos || "",
+            oldidCard: userInfo.card_photos || "",
+            oldcertification: userInfo.aptitude_photos || "",
+            olddriving: userInfo.healthy_photos || "",
+            avatar: userInfo.avatar || "",
+            tempImagePath: userInfo.avatar || "",
+            certification: userInfo.aptitude_photos || "",
+            driving: userInfo.healthy_photos || "",
             city: app.globalData.city,
             num: app.globalData.num
         })
-        console.log(app.globalData.hasInfo.avata)
+        this.getLocationMsg();
         this.setData({
             ctx: wx.createCameraContext()
         })
         this.getUserInfo()
-        console.log(this.data.oldcertification)
+    },
+
+    //获取当前位置
+    getLocationMsg() {
+        let that = this;
+        wx.getLocation({
+            type: 'gcj02',
+            altitude: true, //高精度定位
+            success: function (res) {
+                console.log(res)
+                wx.request({
+                    url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + res.latitude + ',' + res.longitude + '&key=UYFBZ-ANUWW-Y7GRO-OURNR-G5L7O-PHFMD',
+                    success: function (e) {
+                        console.log(e, 39)
+                        app.globalData.longitude = res.longitude;
+                        app.globalData.latitude = res.latitude;
+                        app.globalData.city = e.data.result.address_component.city
+                        // app.globalData.id = e.data.result.address_component.city
+                        // that.setData({
+                        //     city: e.data.result.address_component.city,//当前城市
+                        //     address: e.data.result.address,//当前位置
+                        //     longitude: res.longitude,
+                        //     latitude: res.latitude,
+                        // })
+                    }
+                })
+            }
+        });
+    },
+    nameInpt(e) {
+        this.setData({
+            name: e.detail.value
+        })
     },
     getShopInfo() {
         let that = this;
@@ -81,7 +127,7 @@ Page({
             userid: that.data.userid,
         }
         app.net.$Api.getUserInfo(params).then((res) => {
-            console.log(res)
+            app.globalData.hasInfo = res.data.user;
             that.setData({
                 certification: res.data.user.aptitude_photos,
                 driving: res.data.user.healthy_photos,
@@ -91,6 +137,7 @@ Page({
                 oldcertification: res.data.user.aptitude_photos,
                 olddriving: res.data.user.healthy_photos,
                 avatar: res.data.user.avatar,
+                name: res.data.user.name,
                 text1: (res.data.user.subscribe_message['8T_Xni23AoLeZwG3r3T-iXIw3eTus12_FzLSV-EQPJQ'] != undefined && res.data.user.subscribe_message['8T_Xni23AoLeZwG3r3T-iXIw3eTus12_FzLSV-EQPJQ'] == 'accept') ? '已授权' : '未授权',
                 text2: (res.data.user.subscribe_message['IajJtRQNTx_f695jvXlM1Fa2qBAcW6nCA3Rny0KLZIg'] != undefined && res.data.user.subscribe_message['IajJtRQNTx_f695jvXlM1Fa2qBAcW6nCA3Rny0KLZIg'] == 'accept') ? '已授权' : '未授权',
             })
@@ -256,6 +303,14 @@ Page({
             encryptedData: e.detail.encryptedData,
             iv: e.detail.iv,
         }
+        if (!app.globalData.hasInfo || !app.globalData.hasInfo.id) {
+            app.checkLogin();
+            return
+        }
+        if (that.data.name == "") {
+            app.alert('请填写名称~');
+            return
+        }
         if (idCard == "") {
             app.alert('上传身份证~');
             return
@@ -272,12 +327,12 @@ Page({
             console.log('拒绝')
             app.alert('拒绝授权将无法注册~')
         } else {
-            app.net.$Api.analysisUserPhone(params).then((res) => {
-                var data = JSON.parse(res.data.data)
-                let phone = data.purePhoneNumber;
-                console.log(res)
-                that.saveUserInfo(phone)
-            })
+            // app.net.$Api.analysisUserPhone(params).then((res) => {
+            //     var data = JSON.parse(res.data.data)
+            //     let phone = data.purePhoneNumber;
+            //     console.log(res)
+                that.saveUserInfo("")
+            // })
         }
 
     },
@@ -290,7 +345,9 @@ Page({
             identity: that.data.idCard,
             aptitude: that.data.certification,
             healthy_photos: that.data.driving,
-            avatar: that.data.avatar
+            avatar: that.data.avatar,
+            city: app.globalData.city,
+            name:that.data.name
         }
         app.net.$Api.saveUserInfo(params).then((res) => {
             console.log(res)
@@ -313,6 +370,7 @@ Page({
     },
     upImgs: function (imgurl, index, type) {
         var that = this;
+        app.loading('上传中')
         wx.uploadFile({
             url: 'https://api.dodo.wiki/appInterface/artificer/upImgFile',
             filePath: imgurl,
@@ -325,6 +383,7 @@ Page({
             },
             success: function (res) {
                 var data = JSON.parse(res.data)
+
                 if (type == 1) {
                     that.setData({
                         idCard: data.url
@@ -342,6 +401,7 @@ Page({
                         avatar: data.url
                     })
                 }
+                wx.hideLoading()
                 console.log(that.data.idCard)
             }
         })
@@ -396,12 +456,7 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
+    
 
     /**
      * 生命周期函数--监听页面隐藏

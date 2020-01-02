@@ -17,12 +17,12 @@ Page({
         let userInfo = wx.getStorageSync('userinfo') || '';
         app.globalData.userInfo = userInfo
         this.setData({
-            member_id: userInfo.id,
+            member_id: userInfo.id ? userInfo.id : 0,
             isIphoneX: app.globalData.isIphoneX
         })
-        this.getShopHomeData()
+        // this.getShopHomeData()
         // this.getPostingsList()
-        this.getLocationMsg()
+        // this.getLocationMsg()
     },
     onbindcontact(e){
         console.log(e,27)
@@ -62,6 +62,7 @@ Page({
                 appid: app.globalData.appid,
                 member_id: that.data.member_id
             }
+        console.log(params)
         app.net.$Api.getShopHomeData(params).then((res) => {
             console.log(res)
             if (res.data.data.msg>0){
@@ -85,6 +86,12 @@ Page({
             url: '/pages/goodsList/goodsList?index=' + index + "&status=" + status,
         })
 
+    },
+    gomsgDetaile(e) {
+        let id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '/pages/msgDetaile/msgDetaile?id=' + id,
+        })
     },
    /*  // 社区帖子
     getPostingsList(){

@@ -22,6 +22,8 @@ Page({
                         that.getOpenid(loginCode);
                     },
                     fail: function(res) { //用户点了“拒绝” 
+                        wx.navigateBack();
+                        console.log('用户点了“拒绝” ')
                         wx.hideLoading();
                     },
                     complete: function(res) {
@@ -30,6 +32,10 @@ Page({
                 })
             }
         })
+    },
+    //用户拒绝授权,返回上层页面
+    userRefuse: function () {
+        wx.navigateBack();
     },
     getOpenid: function(loginCode) {
         let that = this,

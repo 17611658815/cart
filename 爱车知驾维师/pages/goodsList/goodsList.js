@@ -37,6 +37,7 @@ Page({
             order_id: options.id
         })
         this.sumTotal(CarList)
+        console.log(options)
     },
     sumTotal(CarList) {
         let total = 0;

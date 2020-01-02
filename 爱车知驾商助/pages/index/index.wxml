@@ -62,11 +62,11 @@
                 <view class="textTitle">待维修</view>
             </view>
             <view class="dpfC flex_1" data-status="9" data-currentTab="2" bindtap="gootherType">
-                <view class="fontSize-32 fontWeight6">{{order.no_refund}}</view>
+                <view class="fontSize-32 fontWeight6">{{order.no_send_goods}}</view>
                 <view class="textTitle">待发货</view>
             </view>
             <view class="dpfC flex_1" data-status="5" data-currentTab="3" bindtap="gootherType">
-                <view class="fontSize-32 fontWeight6">{{order.no_send_goods}}</view>
+                <view class="fontSize-32 fontWeight6">{{order.no_refund}}</view>
                 <view class="textTitle">待退款</view>
             </view>
         </view>
@@ -155,7 +155,7 @@
             </view>
         </view>
         <view class="width90 paddinglr dpfC">
-            <view class="dpf width100 padding30 borderBtm" wx:for='{{list}}' wx:key='key'>
+            <view class="dpf width100 padding30 borderBtm" wx:for='{{list}}' bindtap="gomsgDetaile" data-id="{{item.id}}" wx:key='key'>
                 <view class="iconBox marginRight">
                     <image src="../../images/icon/icon_35.jpg"></image>
                 </view>

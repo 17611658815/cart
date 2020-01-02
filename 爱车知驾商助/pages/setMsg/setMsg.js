@@ -28,7 +28,7 @@ Page({
             member_id: that.data.member_id,
         }
         app.net.$Api.getShopInfo(params).then((res) => {
-            this.setData({
+            that.setData({
                 text1: (res.data.data.subscribe_message['5Bk34iK5EBCkW1-rDRwepXPdTfL3TgtipfMubCGvv40']
                     != undefined && res.data.data.subscribe_message['5Bk34iK5EBCkW1-rDRwepXPdTfL3TgtipfMubCGvv40'] == 'accept') ? '已授权' : '未授权',
                 text2: (res.data.data.subscribe_message['Fy899cypwva2oUVilULgO7BJp3z7IY4qI8Tkicnus2k']
@@ -88,9 +88,7 @@ Page({
                     icon: 'success',
                     duration: 2000,
                     success: function () {
-                        // setTimeout(function () {
-                        //     that.NeworderList()
-                        // }, 2000)
+                      
                     }
                 })
             } else {
@@ -101,7 +99,6 @@ Page({
                 })
             }
         })
-
     },
     /**
      * 生命周期函数--监听页面初次渲染完成

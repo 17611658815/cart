@@ -27,6 +27,15 @@ Page({
             member_id: userInfo.id,
             currentTab: options.currentTab || 0
         })
+        // this.noticeList()
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+        this.data.msgList = []
+        this.data.page = 1
         this.noticeList()
     },
     noticeList() {
@@ -58,7 +67,7 @@ Page({
         }
         app.net.$Api.noticeRead(params).then((res) => {
             console.log(res)
-            wx.reLaunch({
+            wx.navigateTo({
                 url: path,
             })
         })
@@ -94,12 +103,6 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
 
     /**
      * 生命周期函数--监听页面隐藏

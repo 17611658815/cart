@@ -21,7 +21,7 @@
             bindgetuserinfo="getUserInfo">
             同意
         </button>
-            <button>拒绝</button>
+            <button bindtap="userRefuse">拒绝</button>
         </view>
     </view>
 </view>

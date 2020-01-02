@@ -20,9 +20,9 @@ Page({
         app.loading('加载中')
         app.net.$Api.carList(params).then((res) => {
             console.log(res)
-               that.setData({
-                   carList:res.data
-               })
+            that.setData({
+                carList:res.data
+            })
             wx.hideLoading()
         })
     },
@@ -64,7 +64,6 @@ Page({
                     }
                 })
             }
-            
             wx.hideLoading()
         })
     },

@@ -184,7 +184,13 @@
    box-shadow:-1rpx 2rpx 12rpx #CCCCCC;
 
 }
+.boxShadow2{
+   box-shadow:-1rpx 2rpx 12rpx #999999;
 
+}
+.borderBtm{
+    border-bottom: 2rpx solid #e2e2e2;
+}
 .dian_1{
     display: block;
     width: 10rpx;

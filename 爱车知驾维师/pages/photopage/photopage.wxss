@@ -30,7 +30,9 @@ page{
     width: 80%;
     margin-top: 50rpx;
 }
-
+.itembox{
+    width: 80%;
+}
 .vlog_border{
     width: 300rpx;
     height: 200rpx;

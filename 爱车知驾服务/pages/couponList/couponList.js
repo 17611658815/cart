@@ -35,18 +35,9 @@ Page({
         })
 
     },
-   /*  couponType: 0, //优惠卷类型
-    couponvalue: 0,//优惠卷额度
-    couponId: 0,//优惠卷id */
-    /**
-    * 生命周期函数--监听页面显示
-    */
     onShow: function () {
         this.loadList();
     },
-    
-
-    
     loadList() {
         let that = this,
             params = new Object();

@@ -8,14 +8,14 @@
                 <view class="fontSize-34 color1 fontWeight5 dpf">
                  <image style="width:40rpx;height:40rpx;margin-right:20rpx;" src='../../images/checked.png'></image>{{serviceData.service[0].name}}
                 </view>
-                <view bindtap="gocouponList">优惠卷</view>
+                <!-- <view bindtap="gocouponList">优惠卷</view> -->
             </view>
         </view>
         <view class="width100 dpfC" wx:for='{{serviceData.service[0].items}}' wx:for-index='index' data-index="{{index}}" bindtap="selService" wx:key='index'>
             <!-- <view class="width90 dpf padding30">
                 <view>{{index+1}}，{{item.name}}</view>
             </view> -->
-            <scroll-view scroll-x="true" class='scroll-x-box'>
+            <scroll-view scroll-x="true" enable-flex='true' class='scroll-x-box'>
                 <view class="scroll-x-item"  wx:for='{{item.brands}}' wx:for-item='itemData' wx:for-index='key' wx:key='key'>
                     <view class='radioBox' data-index='{{index}}' data-id="{{key}}" data-key="{{key}}" bindtap='SingChecked'>
                         <image wx:if='{{itemData.goods[0].checked}}' src='../../images/inon_checked.png'></image>
@@ -25,7 +25,7 @@
                         <view class='itemright'>
                             <view class='dpfC'>
                                 <view class='leftImg'>
-                                    <image src='../../images/1570861870.jpg'></image>
+                                    <image src='{{product.thumb}}'></image>
                                 </view>
                                 <view class='goodsContent'>
                                     <view>
@@ -80,10 +80,14 @@
             </view>
             <view class="dpfC" style="flex:1">
                 <view class="purchase_text">合计:
-                    <text class="color7 fontWeight5 fontSize-36">￥{{NewTotal}}</text> </view>
+                    <text class="color7 fontWeight5 fontSize-36">￥{{NewTotal}}</text>
+                    <text class="color3 fontWeight5 fontSize-26" style="text-decoration:line-through">￥{{OldTotal}}</text>
+                 </view>
                 <view>节省：{{economize}}元</view>
             </view>
         </view>
+        <!-- <button class='purchase_btn' open-type='getPhoneNumber' bindgetphonenumber='getUserPhone'  wx:if='{{phone == ""}}'>去结算</button> 
+         <view class='purchase_btn' catchtap='createServiceOrder' wx:else>去结算</view> -->
         <view class='purchase_btn' catchtap='createServiceOrder'>去结算</view>
     </view>
     <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>

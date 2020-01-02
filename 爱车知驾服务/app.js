@@ -2,15 +2,7 @@
 const Api = require('API/API.js');
 App({
     onLaunch: function () {
-        let userInfo = wx.getStorageSync('userinfo') || '';
-        if (userInfo == ""){
-            wx.navigateTo({
-                url: '/pages/login/login',
-                success: function(res) {},
-                fail: function(res) {},
-                complete: function(res) {},
-            })
-        }
+        
         wx.getSystemInfo({
             success: (res) => {
                 console.log(res)
@@ -19,6 +11,18 @@ App({
                 }
             }
         })
+    },
+    //检查登录
+    checkLogin:function(){
+        let userInfo = wx.getStorageSync('userinfo') || '';
+        if (userInfo == "") {
+            wx.navigateTo({
+                url: '/pages/login/login',
+                success: function (res) { },
+                fail: function (res) { },
+                complete: function (res) { },
+            })
+        }
     },
     //挂载网络请求api
     net: {
@@ -33,6 +37,7 @@ App({
         couponvalue:0,//优惠卷额度
         couponId:'',//优惠卷id
         NewTotal:'',//总价
+        order_id:0,//总价
 
     },
     loading: function (content) {

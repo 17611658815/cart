@@ -18,7 +18,7 @@ Page({
             }
             , {
                 name: '历史动态',
-                path: '/pages/shopList/shopList',
+                path: '',
                 icon: '../../../images/mayList_1.png'
             }, {
                 name: '接单设置',
@@ -55,6 +55,17 @@ Page({
             this.getCenterData()
         }
     },
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+        let userInfo = wx.getStorageSync('userinfo') || {};
+        this.setData({
+            member_id: userInfo.id,
+        })
+        this.getUserInfo();
+        this.getCenterData()
+    },
     getUserInfo() {
         let that = this;
         let params = {
@@ -63,7 +74,7 @@ Page({
         }
         app.net.$Api.getUserInfo(params).then((res) => {
             console.log(res, 38)
-         
+            app.globalData.hasInfo = res.data.user;
             that.setData({
                 avatar: res.data.user.avatar,
                 real_name: res.data.user.real_name || "",
@@ -93,17 +104,16 @@ Page({
 
     },
     goupPicregister() {
-        wx.navigateTo({
-            url: '/pages/photopage/photopage',
-        })
+        if (!this.data.member_id){
+            app.checkLogin();
+        }else{
+            wx.navigateTo({
+                url: '/pages/photopage/photopage',
+            })
+        }
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function() {
-
-    },
+    
 
     /**
      * 生命周期函数--监听页面隐藏

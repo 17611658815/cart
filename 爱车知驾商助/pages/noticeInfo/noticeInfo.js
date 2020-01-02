@@ -19,6 +19,7 @@ Page({
             id: options.id
         })
         this.noticeInfo();
+        this.noticeRead();
     },
     noticeInfo() {
         let that = this;
@@ -31,6 +32,17 @@ Page({
             that.setData({
                 msg:res.data.data
             })
+        })
+    },
+    noticeRead(){
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            id: that.data.id,
+        }
+        app.net.$Api.noticeRead(params).then((res) => {
+            console.log(res)
+          
         })
     },
     /**

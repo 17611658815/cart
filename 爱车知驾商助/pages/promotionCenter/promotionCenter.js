@@ -103,6 +103,7 @@ Page({
             console.log(res)
             that.setData({
                 packetList: res.data.data
+                // packetList: []
             })
         })
     },

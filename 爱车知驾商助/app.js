@@ -2,15 +2,7 @@
 const Api = require('API/API.js');
 App({
     onLaunch: function () {
-        let userInfo = wx.getStorageSync('userinfo') || '';
-        if (userInfo == "") {
-            wx.navigateTo({
-                url: '/pages/wxLogin/wxLogin',
-                success: function (res) { },
-                fail: function (res) { },
-                complete: function (res) { },
-            })
-        }
+        
         wx.getSystemInfo({
             success: (res) => {
                 console.log(res)
@@ -19,6 +11,20 @@ App({
                 }
             }
         })
+        // this.checkLogin();
+    },
+    //检查登录
+    checkLogin:function(){
+        let userInfo = wx.getStorageSync('userinfo') || '';
+        if (userInfo == "") {
+            console.log(123)
+            wx.navigateTo({
+                url: '/pages/wxLogin/wxLogin',
+                success: function (res) { },
+                fail: function (res) { },
+                complete: function (res) { },
+            })
+        }
     },
     //挂载网络请求api
     net: {
@@ -73,5 +79,6 @@ App({
         wx.removeTabBarBadge({
             index: index,
         })
-    }
+    },
+    
 })

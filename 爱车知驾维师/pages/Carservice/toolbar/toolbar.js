@@ -30,6 +30,11 @@ Page({
             url: '/pages/Carservice/maycenter/maycenter',
         })
     },
+    gomessageList() {
+        wx.navigateTo({
+            url: '/pages/messageList/messageList',
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

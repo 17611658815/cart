@@ -23,7 +23,10 @@ Page({
         transfer_price: [],
         balance:0,
         sub_service:'',//服务id
-        coupon_id:0,//优惠卷id
+        couponid:0,//优惠卷id,
+        phone:"",
+        session_key:'',
+        openid:'',
     },
 
     /**
@@ -42,6 +45,7 @@ Page({
             level: options.level / 1 + 1,
             appointment_date: options.time,
             servetab: options.serveType / 1 + 1,
+            phone: userinfo.phone
         })
         console.log(options.level / 1 + 1)
         this.getAreaId();
@@ -51,18 +55,23 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        let NeTotal 
-        console.log(app.globalData.couponType, app.globalData.couponvalue, app.globalData.couponId)
+        let that = this;
+        // console.log(app.globalData.couponType, app.globalData.couponvalue, app.globalData.couponId)
         if (app.globalData.couponType != 0 && app.globalData.couponType == 1 || app.globalData.couponType == 3){
-            this.setData({
-                coupon_id: app.globalData.couponid,
-                NewTotal: parseInt(app.globalData.NewTotal) - app.globalData.couponvalue / 1
+            let NewTotal = (parseInt(app.globalData.NewTotal) - app.globalData.couponvalue / 1).toFixed(2);;
+            that.setData({
+                couponid: app.globalData.couponId,
+                NewTotal: NewTotal,
+                economize:that.data.OldTotal - NewTotal
             })
         } else if (app.globalData.couponType != 0 && app.globalData.couponType == 2){
-            this.setData({
-                coupon_id: app.globalData.couponid,
-                NewTotal: parseInt(app.globalData.NewTotal) * app.globalData.couponvalue / 100 
+            let NewTotal = (parseInt(app.globalData.NewTotal) * app.globalData.couponvalue / 100).toFixed(2);
+            that.setData({
+                couponid: app.globalData.couponId,
+                NewTotal: NewTotal,
+                economize: that.data.OldTotal - NewTotal
             })
+            console.log(NewTotal)
         }
        
     },
@@ -95,9 +104,10 @@ Page({
             transfer_type: that.data.transfer_type,
             level: that.data.level,
             car_id: that.data.Carid,
-            // location: app.globalData.longitude + "," + app.globalData.latitude
-            location: "116.520616,39.911792"
+            location: app.globalData.longitude + "," + app.globalData.latitude
+            // location: "116.520616,39.911792"
         }
+        
         app.loading('加载中')
         app.net.$Api.showServiceDetail(params).then((res) => {
             let data = res.data;
@@ -113,7 +123,6 @@ Page({
                     }else{
                         data.service[0].items[i].brands[j].goods[0].checked = false;
                     }
-                    // data.service[0].items[i].brands[j].goods[0].id_service = 2;
                 }
             }
             for (var k in goodsItem) {
@@ -123,16 +132,27 @@ Page({
                         id: goodsItem[k][v].id,
                         num: goodsItem[k][v].nums,
                     })
-                    NewTotal += goodsItem[k][v].price / 1 * goodsItem[k][v].nums / 1
+                    NewTotal += goodsItem[k][v].price / 1 * goodsItem[k][v].nums / 1;
                     OldTotal += goodsItem[k][v].original_price / 1 * goodsItem[k][v].nums / 1
+                    if (app.globalData.couponType != 0 && app.globalData.couponType == 1 || app.globalData.couponType == 3) {
+                        NewTotal = NewTotal - app.globalData.couponvalue - res.data.balance
+                        // this.setData({
+                        //     couponid: app.globalData.couponId,
+                        //     NewTotal: parseInt(NewTotal) - app.globalData.couponvalue / 1
+                        // })
+                    } else if (app.globalData.couponType != 0 && app.globalData.couponType == 2) {
+                        NewTotal = NewTotal * app.globalData.couponvalue / 100 - res.data.balance
+                    }
                 }
             } 
             res.data.sub_service.forEach((item)=>{
                 item.checked = false
                 item.is_service = 1
             })
-            NewTotal = (res.data.transfer_price[that.data.servetab] / 1 + NewTotal - res.data.balance).toFixed(2);
-            OldTotal = (res.data.transfer_price[that.data.servetab] / 1 + OldTotal - res.data.balance).toFixed(2);
+            NewTotal = (res.data.transfer_price[that.data.servetab] / 1 + NewTotal + data.service[0].price).toFixed(2);
+            OldTotal = (res.data.transfer_price[that.data.servetab] / 1 + OldTotal + data.service[0].price).toFixed(2);
+            // NewTotal = NewTotal - that.data.balance;
+            // OldTotal = OldTotal - that.data.balance;
             that.setData({
                 balance: res.data.balance,
                 serviceData: data,
@@ -141,11 +161,11 @@ Page({
                 goodsid: goodsid,
                 NewTotal: NewTotal,//现价
                 OldTotal: OldTotal,//原价
-                economize: parseInt(OldTotal) - parseInt(NewTotal)
+                economize: (OldTotal - NewTotal).toFixed(2)
             })
             app.globalData.NewTotal = NewTotal
             wx.hideLoading()
-            console.log(that.data.goodsid)
+            console.log(NewTotal)
         })
     },
     // 生成订单
@@ -160,11 +180,12 @@ Page({
             level: that.data.level,
             car_id: that.data.Carid,
             goods: that.data.goodsid,
-            coupon_id: that.data.coupon_id,
+            coupon_id: that.data.couponid,
             location: app.globalData.longitude + "," + app.globalData.latitude
             // app.globalData.longitude = res.longitude;
             // app.globalData.latitude = res.latitude;
         }
+        console.log(JSON.stringify(params))
         app.net.$Api.createServiceOrder(params).then((res) => {
             app.globalData.order_id = res.data.id;
             wx.requestPayment({
@@ -175,6 +196,9 @@ Page({
                 paySign: res.data.paySign,
                 success(res) {
                     console.log(res)
+                    app.globalData.couponType =  '', //优惠卷类型
+                    app.globalData.couponvalue = 0,//优惠卷额度
+                    app.globalData.couponId = '',//优惠卷id
                     wx.requestSubscribeMessage({
                         tmplIds: ['F8TezMCsMq0qdlv-Wm9hGkDGRNyZPKu1PaYo7h8tOvY'],
                         success(r) {
@@ -231,19 +255,27 @@ Page({
                 }
             }
         }
-        NewTotal = (serviceData.transfer_price[that.data.servetab] / 1 + NewTotal - that.data.balance).toFixed(2);
-        OldTotal = (serviceData.transfer_price[that.data.servetab] / 1 + OldTotal - that.data.balance).toFixed(2);
+        NewTotal = (serviceData.transfer_price[that.data.servetab] / 1 + NewTotal + serviceData.service[0].price);
+        OldTotal = (serviceData.transfer_price[that.data.servetab] / 1 + OldTotal + serviceData.service[0].price);
+        if (app.globalData.couponType != 0 && app.globalData.couponType == 1 || app.globalData.couponType == 3) {
+            NewTotal = (NewTotal - app.globalData.couponvalue - that.data.balance).toFixed(2);
+        } else if (app.globalData.couponType != 0 && app.globalData.couponType == 2) {
+            NewTotal = (NewTotal * app.globalData.couponvalue / 100).toFixed(2);
+        }
+        NewTotal = (NewTotal - that.data.balance).toFixed(2);
+        OldTotal = OldTotal.toFixed(2);
         that.setData({
             goodsid: goodsid,
             serviceData: serviceData,
             goodsItem: goodsItem,
             NewTotal: NewTotal < 0 ? 0 : NewTotal,//现价
             OldTotal: OldTotal,//原价
-            economize: parseInt(OldTotal) - parseInt(NewTotal)
+            economize: (OldTotal - NewTotal).toFixed(2)
         })
         app.globalData.NewTotal = NewTotal
         console.log(NewTotal, OldTotal + "OldTotal-NewTotal=", OldTotal - NewTotal)
         console.log(goodsItem, goodsid)
+        console.log(NewTotal)
     },
     // 选择子服务
     SonChecked(e){
@@ -274,30 +306,25 @@ Page({
                 OldTotal += goodsItem[k][v].original_price / 1 * goodsItem[k][v].nums / 1
             }
         }
-        NewTotal = (serviceData.transfer_price[that.data.servetab] / 1 + NewTotal - that.data.balance).toFixed(2)
-        OldTotal = (serviceData.transfer_price[that.data.servetab] / 1 + OldTotal - that.data.balance).toFixed(2)
+        NewTotal = (serviceData.transfer_price[that.data.servetab] / 1 + NewTotal + serviceData.service[0].price)
+        OldTotal = (serviceData.transfer_price[that.data.servetab] / 1 + OldTotal + serviceData.service[0].price)
+        if (app.globalData.couponType != 0 && app.globalData.couponType == 1 || app.globalData.couponType == 3) {
+            NewTotal = (NewTotal - app.globalData.couponvalue).toFixed(2)
+        } else if (app.globalData.couponType != 0 && app.globalData.couponType == 2) {
+            NewTotal = (NewTotal * app.globalData.couponvalue / 100).toFixed(2)
+        }
+        NewTotal = (NewTotal - that.data.balance).toFixed(2);
+        OldTotal = OldTotal.toFixed(2);
         that.setData({
             [`serviceData.sub_service[${index}].checked`]: serviceData.sub_service[index].checked,
             goodsItem: goodsItem,
             goodsid: goodsid,
             NewTotal: NewTotal < 0 ? 0 : NewTotal,//现价
             OldTotal: OldTotal,//原价
-            economize: parseInt(OldTotal) - parseInt(NewTotal)
+            economize: (OldTotal - NewTotal).toFixed(2)
         })
         app.globalData.NewTotal = NewTotal
         console.log(goodsItem, goodsid)
-    },
-    // 去下单
-    placeOther() {
-        wx.navigateTo({
-            url: '/pages/placeOther/placeOther',
-        })
-    },
-    //去选择优惠卷
-    gocouponList(){
-        wx.navigateTo({
-            url: '/pages/couponList/couponList?NewTotal=' + this.data.NewTotal,
-        })
     },
     changeServce(e) {
         let index = e.currentTarget.dataset.index;
@@ -315,4 +342,84 @@ Page({
             servetab: index
         })
     },
+    // 去下单
+    placeOther() {
+        wx.navigateTo({
+            url: '/pages/placeOther/placeOther',
+        })
+    },
+    //去选择优惠卷
+    gocouponList() {
+        wx.navigateTo({
+            url: '/pages/couponList/couponList?NewTotal=' + this.data.NewTotal,
+        })
+    },
+    getOpenid: function (loginCode, detail) {
+        let that = this,
+            params = {
+                appid: app.globalData.appid,
+                code: loginCode.code
+            }
+        app.net.$Api.getOpenId(params).then((res) => {
+            console.log(res)
+            that.setData({
+                openid: res.data.openid
+            })
+            that.analysisUserPhone(res.data.session_key, detail)
+        })
+    },
+    // 解析手机号
+    analysisUserPhone(session_key,detail){
+        let that = this;
+        console.log(detail.encryptedData)
+        console.log(encodeURIComponent(detail.encryptedData))
+        let params = {
+            appid: app.globalData.appid,
+            sessionKey: session_key,
+            encryptedData: detail.encryptedData ,
+            iv: detail.iv,
+        }
+        app.net.$Api.analysisUserPhone(params).then((res) => {
+            console.log(res)
+            let data = JSON.parse(res.data.data)
+            that.setData({
+                phone: data.phoneNumber
+            })
+            that.phoneLogin()
+        })
+    },
+    // 获取用户手机号
+    getUserPhone(e){
+        var that = this;
+        let detail = e.detail
+        if (e.detail.errMsg == "getPhoneNumber:fail user deny"){
+            app.alert('请授权手机号')
+        }else{
+            wx.login({
+                success: function (loginCode) {
+                    //获取用户信息
+                    wx.getUserInfo({
+                        lang: 'zh_CN',
+                        success: function (res) { // 当用户授权成功的时候，保存用户的登录信息 
+                            console.log(res, 384)
+                            app.globalData.userInfo = res.userInfo;
+                            that.getOpenid(loginCode, detail);
+                        },
+                    })
+                }
+            })
+        }
+    },
+    // 保存用户手机号
+    phoneLogin(){
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            openid: that.data.openid,
+            mobile: that.data.phone,
+        }
+        app.net.$Api.analysisUserPhone(params).then((res) => {
+            console.log(res)
+        })
+    }
 })

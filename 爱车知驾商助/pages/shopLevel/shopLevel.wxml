@@ -104,7 +104,7 @@
                 <view class="color1">发帖达人</view>
                 <view class="fontSize-24 color2">社区连续七天发帖</view>
             </view>
-            <view class="listBox_item_right" wx:if="{{!statusData[7] || statusData[7].status == 1}}">
+            <view bindtap="goraddMsg" class="listBox_item_right" wx:if="{{!statusData[7] || statusData[7].status == 1}}">
                 去领取
             </view>
             <view bindtap="getShopScore" data-type='7' class="listBox_item_right" wx:elif="{{statusData[7] && statusData[7].status == 0}}">
