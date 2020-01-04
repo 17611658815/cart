@@ -240,7 +240,7 @@ Page({
             typeName: list[index].name,
             typeid: list[index].id,
             brandsArr: this.data.brandsArr,
-            num: list[index].unit
+            num: list[index].unit == "" ? "个": list[index].unit
         })
         console.log(this.data.brandsArr)
         this.getTypeGoods(this.data.typeid)

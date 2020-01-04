@@ -1,5 +1,5 @@
 <view class="container">
-   <view class="tabBox">
+    <view class="tabBox">
         <view class="tabItem" bindtap="swatchTab" data-index="0">
             <text class="{{currentTab == 0 ? 'active':''}}">法律条款</text>
         </view>
@@ -7,16 +7,49 @@
             <text class="{{currentTab == 1 ? 'active':''}}">平台规则</text>
         </view>
     </view>
-    <view class="videoList" wx:for='{{5}}'>
+    <view class="videoList" wx:if='{{currentTab == 0}}'>
         <view class="dpfb padding30">
             <view class="fontSize-32 fontWeight5 color1">
-               封面策划 
+                封面策划
             </view>
         </view>
         <view class="videoList_box padding20">
-            <view class="videoList_box_item" wx:for='{{4}}'>
-                <text class="marginLeft">规则公示</text>  
+
+            <navigator hover-class="none" url="/pages/textPage/textPage?id={{item.id}}" class="videoList_box_item" data-id='{{item.id}}' wx:for='{{list1}}'>
+                <text class="marginLeft">{{item.title}}</text>
+            </navigator>
+        </view>
+    </view>
+    <view class="videoList" wx:if='{{currentTab == 1}}'>
+        <view class="dpfb padding30">
+            <view class="fontSize-32 fontWeight5 color1">
+                用户平台规则
             </view>
+        </view>
+        <view class="videoList_box padding20">
+            <navigator hover-class="none" url="/pages/textPage/textPage?id={{item.id}}" class="videoList_box_item" data-id='{{item.id}}' wx:for='{{list2}}'>
+                <text class="marginLeft">{{item.title}}</text>
+            </navigator>
+        </view>
+        <view class="dpfb padding30">
+            <view class="fontSize-32 fontWeight5 color1">
+                平台秩序
+            </view>
+        </view>
+        <view class="videoList_box padding20">
+            <navigator hover-class="none" url="/pages/textPage/textPage?id={{item.id}}" class="videoList_box_item" data-id='{{item.id}}' wx:for='{{list3}}'>
+                <text class="marginLeft">{{item.title}}</text>
+            </navigator>
+        </view>
+        <view class="dpfb padding30">
+            <view class="fontSize-32 fontWeight5 color1">
+                维保体验
+            </view>
+        </view>
+        <view class="videoList_box padding20">
+            <navigator hover-class="none" url="/pages/textPage/textPage?id={{item.id}}" class="videoList_box_item" data-id='{{item.id}}' wx:for='{{list4}}'>
+                <text class="marginLeft">{{item.title}}</text>
+            </navigator>
         </view>
     </view>
 </view>

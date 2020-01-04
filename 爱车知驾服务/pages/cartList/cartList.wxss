@@ -151,10 +151,10 @@ button::after{
 
 .scroll-x-box {
     width: 90%;
-    height: 430rpx;
     white-space: nowrap;
     display: flex;
-    padding-bottom: 30rpx;
+    padding-bottom: 50rpx;
+    overflow-x: auto;
     /* position: relative; */
 }
 

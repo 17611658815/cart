@@ -5,12 +5,12 @@
         </view>
         <view class="marginTop">{{userinfo.wx_nick}}</view>
         <view class="marginTop fontSize-26">{{userinfo.name}}</view>
-        <navigator hover-class='none' wx:for='{{list}}' wx:key='key' url='{{item.path}}'>
+        <view hover-class='none' bindtap="goDetaile" wx:for='{{list}}' wx:key='key' data-url='{{item.path}}'>
             <view class="mayCenterList dpf padding20 {{index == 0 ? 'marginTop':''}}">
                 <image class="listicon marginRight" src='{{item.icon}}'></image>
                 <view>{{item.name}}</view>
             </view>
-        </navigator>
+        </view>
     </view>
     <view wx:if='{{slideNav}}' class="bottomContent dpfC">
         <view class="recommend dpf">
@@ -27,8 +27,8 @@
                 店铺开设
            </navigator>
         </view>
-        <view class="clause">
+        <navigator hover-class="none" url='/pages/clauseList/clauseList' class="clause">
             法律条款与平台规则 <image src="../../images/right2_icon.png"></image>
-        </view>
+       </navigator>
     </view>
 </view>

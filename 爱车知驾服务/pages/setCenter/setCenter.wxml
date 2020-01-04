@@ -3,7 +3,6 @@
         <view class="typeList width100">
             <view hover-class='none' url='{{item.path}}' class="listitem width100 dpfb">
                 <view class="typeList_item dpf">
-                  
                     <view class="fontSize-26 color2">
                         账号安全
                     </view>
@@ -46,7 +45,7 @@
                     </view>
                 </view>
                 <view class="dpf">
-                    <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
+                    <image class="rightPic marginLeft" src='../../images/icon_right.png'></image> 
                 </view>
             </view>
         </view>

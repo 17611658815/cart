@@ -8,7 +8,7 @@ Page({
         navList: ['首页', '知驾服务'],
         currentTab:0,
         userInfo: {},
-        hasInfo:0,
+        hasInfo:1,
         city: "",//当前城市
         address: "",//当前位置
         longitude: 0,
@@ -16,12 +16,13 @@ Page({
         hasInfoNum:0
 
     },
-    onLoad: function () {
+    onLoad: function (options) {
         let userInfo = wx.getStorageSync('userinfo') || {};
         this.setData({
             userid: userInfo.id,
             userInfo: userInfo
         })
+        app.globalData.share_source = options.share_source || 0
         this.getUserInfo()
     },
     

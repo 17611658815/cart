@@ -49,7 +49,6 @@
                 </view>
             </view>
             <!-- <view class="goodsBox" wx:if='{{newGoodsList.length>0}}'>
-
                 <view class="otherMsg" wx:for='{{newGoodsList}}' data-item='{{item}}' bindtap="checkdItem">
                     <view class="otherPic">
                         <image mode="scaleToFill" src="{{item.thumb}}" />
@@ -82,7 +81,7 @@
                 <view class='leaberleft fontSize-30 color2'>
                     <text>商品型号</text>
                 </view>
-                <input value="{{goodstype}}" bindinput="goodstypeInpt" type='rext'></input>
+                <input value="{{goodstype}}" bindinput="goodstypeInpt" type='text'></input>
             </view>
         </view>
     </view>

@@ -1,4 +1,5 @@
 // components/slideNav/slideNav.js
+let app  = getApp()
 Component({
     /**
      * 组件的属性列表
@@ -68,5 +69,15 @@ Component({
             })
             that.triggerEvent("showslideNav", data);
         },
+        goDetaile(e){
+            let url = e.currentTarget.dataset.url;
+            if (!app.globalData.userinfo.id) {
+                app.checkLogin()
+            }else{
+                wx.navigateTo({
+                    url: url,
+                })
+            }
+        }
     }
 })

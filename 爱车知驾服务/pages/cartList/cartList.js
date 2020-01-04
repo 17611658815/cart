@@ -27,6 +27,8 @@ Page({
         phone:"",
         session_key:'',
         openid:'',
+        userid:0,
+        serverPrice:0,
     },
 
     /**
@@ -38,18 +40,17 @@ Page({
         this.setData({
             isIphoneX: app.globalData.isIphoneX,
             member_id: userinfo.id,
-            area_id: app.globalData.area_id,
             Carid: app.globalData.Carid,
             serviceId: options.serviceId,
             transfer_type: options.serveType / 1 + 1,
             level: options.level / 1 + 1,
             appointment_date: options.time,
             servetab: options.serveType / 1 + 1,
-            phone: userinfo.phone
+            phone: userinfo.phone || ""
         })
-        console.log(options.level / 1 + 1)
+        console.log(userinfo.id)
         this.getAreaId();
-        this.showServiceDetail()
+        
     },
     /**
      * 生命周期函数--监听页面显示
@@ -86,7 +87,7 @@ Page({
             that.setData({
                 area_id: res.data.id
             })
-            console.log(res, 199)
+            that.showServiceDetail()
         })
     },
     // 服务详情
@@ -96,16 +97,17 @@ Page({
         let OldTotal = 0;
         let goodsid = [];
         let goodsItem = that.data.goodsItem;
+        console.log(that.data.area_id)
         let params = {
             appid: app.globalData.appid,
             member_id: that.data.member_id,
-            area_id: app.globalData.area,
+            area_id: that.data.area_id,
             id: that.data.serviceId,
             transfer_type: that.data.transfer_type,
             level: that.data.level,
             car_id: that.data.Carid,
-            location: app.globalData.longitude + "," + app.globalData.latitude
-            // location: "116.520616,39.911792"
+            // location: app.globalData.longitude + "," + app.globalData.latitude
+            location: "116.520616,39.911792"
         }
         
         app.loading('加载中')
@@ -161,12 +163,18 @@ Page({
                 goodsid: goodsid,
                 NewTotal: NewTotal,//现价
                 OldTotal: OldTotal,//原价
-                economize: (OldTotal - NewTotal).toFixed(2)
+                economize: (OldTotal - NewTotal).toFixed(2),
+                serverPrice: res.data.service[0].price,
             })
             app.globalData.NewTotal = NewTotal
             wx.hideLoading()
             console.log(NewTotal)
         })
+    },
+    gocheckLogin(){
+        if (!app.globalData.userinfo.id) {
+            app.checkLogin()
+        }
     },
     // 生成订单
     createServiceOrder() {
@@ -185,6 +193,7 @@ Page({
             // app.globalData.longitude = res.longitude;
             // app.globalData.latitude = res.latitude;
         }
+      
         console.log(JSON.stringify(params))
         app.net.$Api.createServiceOrder(params).then((res) => {
             app.globalData.order_id = res.data.id;
@@ -382,6 +391,12 @@ Page({
         app.net.$Api.analysisUserPhone(params).then((res) => {
             console.log(res)
             let data = JSON.parse(res.data.data)
+            let userinfo = wx.getStorageSync('userinfo');
+            userinfo.phone = data.phoneNumber;
+            wx.setStorage({
+                key: 'userinfo',
+                data: userinfo,
+            })
             that.setData({
                 phone: data.phoneNumber
             })
@@ -392,20 +407,23 @@ Page({
     getUserPhone(e){
         var that = this;
         let detail = e.detail
+       
         if (e.detail.errMsg == "getPhoneNumber:fail user deny"){
             app.alert('请授权手机号')
         }else{
             wx.login({
                 success: function (loginCode) {
+                    console.log(loginCode,400)
                     //获取用户信息
-                    wx.getUserInfo({
-                        lang: 'zh_CN',
-                        success: function (res) { // 当用户授权成功的时候，保存用户的登录信息 
-                            console.log(res, 384)
-                            app.globalData.userInfo = res.userInfo;
-                            that.getOpenid(loginCode, detail);
-                        },
-                    })
+                    // wx.getUserInfo({
+                    //     lang: 'zh_CN',
+                    //     success: function (res) { // 当用户授权成功的时候，保存用户的登录信息 
+                    //         console.log(res, 384)
+                    //         app.globalData.userInfo = res.userInfo;
+                           
+                    //     },
+                    // })
+                    that.getOpenid(loginCode, detail);
                 }
             })
         }
@@ -418,8 +436,20 @@ Page({
             openid: that.data.openid,
             mobile: that.data.phone,
         }
-        app.net.$Api.analysisUserPhone(params).then((res) => {
-            console.log(res)
+        app.net.$Api.phoneLogin(params).then((res) => {
+           
+            if(res.data.code == 200){
+
+                wx.showModal({
+                    title: '温馨提示',
+                    content: '提交成功',
+                    showCancel: false,
+                    success: function () {
+                        that.createServiceOrder()
+                    }
+
+                })
+            }
         })
     }
 })

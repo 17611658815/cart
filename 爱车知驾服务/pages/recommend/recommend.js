@@ -5,6 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        share_source:0,
         currentTab:0,
         msgList: [
             { url: "url", title: "多地首套房贷利率上浮 热点城市渐迎零折扣时代" },
@@ -18,11 +19,19 @@ Page({
             currentTab: index
         })
     },
+    gotextPage(){
+        wx.navigateTo({
+            url: '/pages/clauseList/clauseList',
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        let userinfo = wx.getStorageSync('userinfo') || '';
+        this.setData({
+            share_source: userinfo.share_source,
+        })
     },
 
     /**
@@ -71,6 +80,10 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+        let that = this;
+        return {
+            title: "推荐有奖",
+            path: '/pages/index/index?share_source=' + that.data.share_source,
+        }
     }
 })

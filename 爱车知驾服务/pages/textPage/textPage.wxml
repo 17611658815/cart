@@ -1,0 +1,9 @@
+<view class="container">
+    <view class="content">
+        <view class="width100 padding30 fontSize-40 fontWeight5 color1">{{title}}</view>
+        <view class="width100 fontSize-36 color2 contentBox">
+            <rich-text nodes="{{content}}" bindtap="tap"></rich-text>
+        </view>
+    </view>
+
+</view>

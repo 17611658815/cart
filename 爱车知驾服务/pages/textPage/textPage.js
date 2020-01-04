@@ -1,43 +1,41 @@
-// pages/wallet/wallet.js
+// pages/textPage/textPage.js
+let app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        typeListArr: [{
-                name: '账户余额',
-                text: '0.00元',
-                path: '',
-                icon: '../../images/img21.png'
-            },
-            // {
-            //     name: '理财余额',
-            //     text: '立即查看',
-            //     path: '',
-            //     icon: '../../images/img22.png'
-            // }, {
-            //     name: '开车时长',
-            //     text: '815小时',
-            //     path: '',
-            //     icon: '../../images/img23.png'
-            //     },
-            {
-                name: '我的积分',
-                text: '121个',
-                path: '',
-                icon: '../../images/img20.png'
-            }
-        ]
+        id: 0,
+        content:'',
+        title:"",
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-
+        console.log(options)
+        this.setData({
+            id: options.id
+        })
+        this.getContentInfo()
     },
+    getContentInfo() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            id: that.data.id
+        }
+        app.net.$Api.getContentInfo(params).then((res) => {
+            console.log(res)
+            that.setData({
+                content: res.data.data.content, 
+                title: res.data.data.title, 
+            })
 
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

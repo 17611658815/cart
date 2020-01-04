@@ -2,12 +2,34 @@
 Page({
 
     /**
-     * 页面的初始数据
-     */
+    * 页面的初始数据
+    */
     data: {
-
+        share_source: 0,
     },
 
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        let userinfo = wx.getStorageSync('userinfo') || {};
+        this.setData({
+            share_source: userinfo.share_source
+        })
+    },
+    goStechnician(e) {
+        let that = this;
+        wx.navigateToMiniProgram({
+            appId: 'wxd74f8d61561db250',
+            path: 'pages/index/index?share_source=' + that.data.share_source,
+            extraData: {},
+            envVersion: 'release',
+            success(res) {
+                // 打开成功
+                console.log('打开了')
+            }
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

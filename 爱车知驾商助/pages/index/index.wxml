@@ -92,7 +92,7 @@
     </view>
     <!-- 商品管理 -->
     <view class="tractionData width100 marginTop">
-        <view class="width90 paddinglr dpfb">
+        <view class="width90 paddinglr dpfb"  bindtap="goGoodsList" data-status="1" data-index="0">
             <view class="fontSize-26">商品管理</view>
             <view>
                 <image class="icon_right marginLeft" src="../../images/icon/icon_right.png"></image>

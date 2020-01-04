@@ -57,5 +57,6 @@
         </view>
          <image class="itemPic" data-src="{{imgs3}}" bindtap="previewImage" wx:if='{{imgs3!=""}}' mode="aspectFit" src="{{imgs3}}"></image>
     </view>
-    <button class="addBtn" open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber'>保存</button>
+    <button class="addBtn" open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber' wx:if='{{phone == ""}}'>保存</button>
+    <view class="addBtn" bindtap='saveUserInfo2' wx:else>保存</view>
 </view>

@@ -10,11 +10,11 @@
     <!-- 店铺等级 -->
     <view class="shopGrade">
         <view class="shopGrade_left">
-            <view class="gradeNum fontWeight6">店铺等级:LV1
-                <!-- <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image> -->
-            </view>
+            <!-- <view class="gradeNum fontWeight6">店铺等级:LV1
+               
+            </view> -->
             <view class="gradeDistance">
-                <view class="fontSize-26 color1">店铺影响力</view>
+                <view class="color1 gradeNum">店铺影响力</view>
                 <view class="fontSize-45 color1 fontWeight6">{{dataObj.shop_score}}</view>
             </view>
         </view>
@@ -23,7 +23,7 @@
                 <view class="dpf fontWeight6">店铺DSR
                     <!-- <image src="../../images/icon/icon_2.png" class="icon_2 marginLeft10"></image> -->
                 </view>
-                <view class="dpf fontSize-26 color5">了解更多></view>
+                <!-- <view class="dpf fontSize-26 color5">了解更多></view> -->
             </view>
             <view class="dsrData">
                 <view class="dpfb marginTop10">

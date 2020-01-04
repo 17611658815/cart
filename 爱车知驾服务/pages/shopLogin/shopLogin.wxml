@@ -3,7 +3,7 @@
         <view style="margin-top:60rpx;" class="fontSize-40 color9 fontWeight5">知驾商助版</view>
         <view style="margin-top:10rpx;" class="fontSize-40 color9 fontWeight5">店面服务商都在这里</view>
         <view style="margin-top:10rpx;" class="fontSize-28 color9">双重好礼 等你来领,最高2000元补贴卷</view>
-        <view class="joinBtn">
+        <view class="joinBtn" bindtap="goStechnician">
             立即加入
         </view>
          <image style="width:100%" mode="scaleToFill" src='https://img.dodo.wiki/app/img5.jpg'></image>
@@ -37,7 +37,7 @@
         </view>
     </view>
 </view>
-<view class="footBtn dpf">
+<view class="footBtn dpf" bindtap="goStechnician">
     <view>
         成为服务商
     </view>

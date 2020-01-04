@@ -13,21 +13,22 @@ Page({
         isIphoneX:false,
         member_id:0
     },
-    onLoad: function() {
+    onLoad: function (options) {
+        app.globalData.share_source = options.share_source || 0
+        // this.getShopHomeData()
+        // this.getPostingsList()
+        // this.getLocationMsg()
+    },
+    onbindcontact(e){
+        console.log(e, 27)
+    },
+    onShow(){
         let userInfo = wx.getStorageSync('userinfo') || '';
         app.globalData.userInfo = userInfo
         this.setData({
             member_id: userInfo.id ? userInfo.id : 0,
             isIphoneX: app.globalData.isIphoneX
         })
-        // this.getShopHomeData()
-        // this.getPostingsList()
-        // this.getLocationMsg()
-    },
-    onbindcontact(e){
-        console.log(e,27)
-    },
-    onShow(){
         this.getShopHomeData()
     },
     //获取当前位置
@@ -122,9 +123,14 @@ Page({
     },
     // 订单管理
     goaddgoods() {
-        wx.navigateTo({
-            url: '/pages/addgoods/addgoods',
-        })
+        if (!app.globalData.userInfo.id) {
+            app.checkLogin();
+
+        } else {
+            wx.navigateTo({
+                url: '/pages/addgoods/addgoods',
+            })
+        }
     },
     // 商家社区
     gocommunity() {

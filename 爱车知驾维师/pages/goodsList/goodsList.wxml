@@ -27,12 +27,12 @@
             </view>
         </view>
     </view>
-  <view class='itembox' style='border:none;padding-bottom:0'>
-            <view class='fontSize-30 color2'>
-                <textarea value='{{orderMsg}}' bindinput='ontextareaChange' placeholder-class='textAreaCtyle' placeholder='订单备注:' placeholder-style>
-                </textarea>
-            </view>
+    <view class='itembox' style='border:none;padding-bottom:0'>
+        <view class='fontSize-30 color2'>
+            <textarea value='{{orderMsg}}' bindinput='ontextareaChange' placeholder-class='textAreaCtyle' placeholder='订单备注:' placeholder-style>
+            </textarea>
         </view>
+    </view>
 </view>
 <view class='purchase'>
     <view style='width:100%;' class='dpf'>

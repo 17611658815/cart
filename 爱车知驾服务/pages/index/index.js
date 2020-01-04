@@ -38,10 +38,10 @@ Page({
                 name: "来店服务",
                 path: ""
             },
-            {
-                name: "随行服务",
-                path: ""
-            },
+            // {
+            //     name: "随行服务",
+            //     path: ""
+            // },
             {
                 name: "附近店铺",
                 path: "/pages/nearby/nearby"
@@ -50,10 +50,10 @@ Page({
                 name: "活动推荐",
                 path: ""
             },
-            {
-                name: "车生活",
-                path: ""
-            },
+            // {
+            //     name: "车生活",
+            //     path: ""
+            // },
             {
                 name: "车朋圈",
                 path: ""
@@ -70,13 +70,21 @@ Page({
         iconArr: [], //评星
         diagnosisStar: 1,//默认一星
         evaluateCurrent: 0,//评价当前选中
-        authorizationShow:false,//展示授权框
+        authorizationShow:true,//展示授权框
+        // authorizationShow2:true,//展示授权框
         colorStyle:'#4EB113',
         fixTop:500,//据顶部距离
         fined:false,//定位
         scrollTop:0,
         // 标记点对象
-        markers : [],
+        markers: [{
+            iconPath: '',
+            id: 0,
+            longitude: '',
+            latitude: '',
+            width: 50,
+            height: 50,
+        }],
         imgArr: ['https://img.dodo.wiki/app/js1.png', 
         'https://img.dodo.wiki/app/js2.png', 
         'https://img.dodo.wiki/app/js3.png',
@@ -108,7 +116,11 @@ Page({
         area_id:0,
         playId:0,
         times:null,
-        jishi_info:{}
+        jishi_info:{},
+        list:[],//全部服务
+        share_source:0,//分享人id
+        goodsData:{},
+        sugData:[]
     },
     requestMsg(){
         wx.requestSubscribeMessage({
@@ -140,6 +152,7 @@ Page({
         let endTime = that.formatTime(new Date(),1)
         let userinfo = wx.getStorageSync('userinfo') || '';
         app.globalData.userinfo = wx.getStorageSync('userinfo') || '';
+        app.globalData.share_source = options.share_source || 0
         that.setData({
             iconArr:beas64,
             member_id: userinfo.id,
@@ -148,9 +161,10 @@ Page({
             endDay: endTime[0],
             date: startTime[0],
             time: startTime[1],
-            userinfo: userinfo
+            userinfo: userinfo,
+            share_source: options.share_source || 0
         })
-        // 
+       
         if (options.typeNum){
             that.setData({
                 typeNum: options.typeNum
@@ -163,8 +177,60 @@ Page({
             that.getOrderStatus(app.globalData.order_id)
         }
         that.getLocationMsg();
-        that.getAreaId()
+        that.getAreaId();
+        that.getRecommend();
+        that.getCarAdapterProduct()
         console.log(userinfo)
+    },
+    //顶部吸附效果
+    onShow: function () {
+        let that = this;
+        let userinfo = wx.getStorageSync('userinfo') || '';
+        wx.getStorage({
+            key: 'authorizationShow2',
+            success(res) {
+                that.setData({
+                    authorizationShow2: res.data
+                })
+            }
+        })
+        that.setData({
+            userinfo: userinfo,
+            member_id: userinfo.id,
+        })
+        console.log()
+        if (userinfo != "") {
+            that.isHaveCar(userinfo);
+        }
+        wx.createSelectorQuery().select('#list').boundingClientRect(function (rect) {
+            that.setData({
+                fixTop: rect.top
+            })
+        }).exec()
+    },
+    getRecommend() {
+        let that = this,
+            params = new Object();
+        params.appid = app.globalData.appid;
+        params.recommend_catid = 15;
+        app.net.$Api.getRecommend(params).then((res) => {
+            console.log(res)
+            that.setData({
+                list: res.data.data
+            })
+        })
+    },
+    // 获取汽车零件
+    getCarAdapterProduct() {
+        let that = this,
+            params = new Object();
+        params.appid = app.globalData.appid;
+        app.net.$Api.getCarAdapterProduct(params).then((res) => {
+            console.log(res)
+            that.setData({
+                goodsData: res.data
+            })
+        })
     },
     // 
     showService(){
@@ -274,14 +340,21 @@ Page({
             level: that.data.currentTab/1+1
         }
         app.net.$Api.getShopListByLocation(params).then((res) => {
+            console.log(res)
             res.data.forEach((item) => {
-                markers.push({
+                markers.unshift({
                     iconPath: that.data.imgArr[that.data.currentTab],
                     id: item.id,
                     latitude: item.lat,
                     longitude: item.lng,
                     width: 60,
                     height: 60,
+                    callout: {
+                        content: item.real_name,
+                        padding:5,
+                        display: 'BYCLICK',
+                        textAlign: 'center'
+                    }
                 })
             })
             that.setData({
@@ -289,24 +362,7 @@ Page({
             })
         })
     },
-    //顶部吸附效果
-    onShow: function () {
-        let that = this;
-        let userinfo = wx.getStorageSync('userinfo') || '';
-        that.setData({
-            userinfo: userinfo,
-            member_id: userinfo.id,
-        })
-        console.log()
-        if (userinfo!=""){
-            that.isHaveCar(userinfo);
-        }
-        wx.createSelectorQuery().select('#list').boundingClientRect(function (rect) {
-            that.setData({
-                fixTop: rect.top
-            })
-        }).exec()
-    },
+   
     onPageScroll: function (e) {
         var that = this
         if (that.data.fixTop < e.scrollTop) {
@@ -529,13 +585,16 @@ Page({
         this.setData({
             typeNum:0
         })
-        clearTimeout(that.data.times)
+        clearTimeout(this.data.times)
     },
     onbindfocus() {
         let that = this;
         if (!app.globalData.userinfo.id){
-            app.checkLogin();
-        }else if (that.data.isHaveCar==0){
+            wx.navigateTo({
+                url: '/pages/search/search?currentTab=' + that.data.currentTab + "&area_id=" + that.data.area_id,
+            })
+        }
+        if (that.data.isHaveCar==0){
             wx.navigateTo({
                 url: '/pages/uploadPic/uploadPic',
             })
@@ -566,6 +625,16 @@ Page({
                     console.log('用户点击取消')
                 }
             }
+        })
+    },
+    delmodel2(){
+        let that = this;
+        that.setData({
+            authorizationShow2: false
+        })
+        wx.setStorage({
+            key: 'authorizationShow2',
+            data: that.data.authorizationShow2,
         })
     },
     removeOther(){
@@ -658,6 +727,82 @@ Page({
             })
         }
 
+    },
+    onLocation(e) {
+        let that = this;
+        let  markers = [{
+            iconPath: '../../images/longitude.png',
+            id: 0,
+            longitude: e.detail.longitude,
+            latitude: e.detail.latitude,
+            width: 50,
+            height: 50,
+        }]
+        app.globalData.longitude = e.detail.longitude;
+        app.globalData.latitude = e.detail.latitude;
+        that.setData({
+            latitude: e.detail.latitude,
+            longitude: e.detail.longitude,
+            markers: markers,
+            sugData: [],
+        })
+        that.getMarkersList()
+    },
+    // 绑定input输入 
+    bindKeyInput: function (e) {
+        var that = this;
+        // 新建百度地图对象 
+        if (e.detail.value.length > 0) {
+            clearTimeout(that.data.illness_t);
+            that.data.illness_t = setTimeout(function () {
+                var BMap = new bmap.BMapWX({
+                    ak: app.globalData.ak
+                });
+                var fail = function (data) {
+                    console.log(data)
+                };
+                var success = function (data) {
+                    that.setData({
+                        sugData: data.result
+                    });
+                }
+                // 发起suggestion检索请求 
+                BMap.suggestion({
+                    query: e.detail.value,
+                    region: app.globalData.city,
+                    city_limit: true,
+                    fail: fail,
+                    success: success
+                });
+            }, 1000);
+        } else {
+            that.setData({
+                sugData: []
+            });
+        }
+
+    },
+    // 选择附近位置
+    selectAddres(res) {
+        let that = this;
+        let Res = res.currentTarget.dataset.location;
+        app.globalData.longitude = Res.lng;
+        app.globalData.latitude = Res.lat;
+        let  markers = [{
+            iconPath: '../../images/longitude.png',
+            id: 0,
+            longitude: Res.lng,
+            latitude: Res.lat,
+            width: 50,
+            height: 50,
+        }]
+        that.setData({
+            markers: markers,
+            latitude: Res.lat,//经度
+            longitude: Res.lng,//纬度
+            sugData: [],
+        })
+        that.getMarkersList()
     },
 
 })

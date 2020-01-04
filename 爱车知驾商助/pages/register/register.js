@@ -16,7 +16,8 @@ Page({
         sessionKey:'',
         text1:'未授权',
         text2:'未授权',
-        goodsName:''
+        goodsName:'',
+        phone:'',
     },
     /**
      * 生命周期函数--监听页面加载
@@ -27,7 +28,8 @@ Page({
         this.setData({
             sessionKey,
             member_id: userinfo.id,
-            city: app.globalData.city
+            city: app.globalData.city,
+            phone: userinfo.phone || ""
         })
         this.getShopInfo()
         this.getLocationMsg();
@@ -46,7 +48,7 @@ Page({
                         console.log(res)
                         app.globalData.longitude = res.longitude;
                         app.globalData.latitude = res.latitude;
-                        app.globalData.city = e.data.result.address_component.city
+                        app.globalData.city = e.data.result.address_component.city;
                         // that.setData({
                         //     city: e.data.result.address_component.city,//当前城市
                         //     address: e.data.result.address,//当前位置
@@ -65,7 +67,8 @@ Page({
             member_id: that.data.member_id,
         }
         app.net.$Api.getShopInfo(params).then((res) => {
-            this.setData({
+            console.log(res)
+            that.setData({
                 imgs1: res.data.data.aptitude_photos,
                 imgs2: res.data.data.work_photos,
                 imgs3: res.data.data.avatar,
@@ -78,7 +81,9 @@ Page({
                 text2:(res.data.data.subscribe_message['Fy899cypwva2oUVilULgO7BJp3z7IY4qI8Tkicnus2k'] 
                 != undefined && res.data.data.subscribe_message['5Bk34iK5EBCkW1-rDRwepXPdTfL3TgtipfMubCGvv40'] == 'accept') ? '已授权':'未授权',
             })
+            console.log(res.data.data.phone)
         })
+      
 
     },
     chooseImageTap: function (e) {
@@ -264,7 +269,12 @@ Page({
             app.net.$Api.analysisUserPhone(params).then((res) => {
                 var data = JSON.parse(res.data.data)
                 let phone = data.purePhoneNumber;
-                console.log(res)
+                let userinfo = wx.getStorageSync('userinfo');
+                userinfo.phone = data.purePhoneNumber;
+                wx.setStorage({
+                    key: 'userinfo',
+                    data: userinfo,
+                })
                 that.saveUserInfo(phone)
             })
         }
@@ -288,7 +298,43 @@ Page({
             avatar: that.data.new_img3,
             lat: app.globalData.latitude,
             lng: app.globalData.longitude,
-            phone: phone
+            phone: phone,
+            city:app.globalData.city
+
+        }
+        app.net.$Api.saveShopInfo(params).then((res) => {
+            console.log(res)
+            if(res.data.code==200){
+                wx.showModal({
+                    title: '温馨提示',
+                    content: '提交成功',
+                    showCancel: false,
+                    success: function () {
+                        wx.reLaunch({
+                            url: '/pages/index/index',
+                        })
+                    }
+
+                })
+            }
+        })
+
+    },
+    saveUserInfo2(){
+        let that = this;
+        let new_img1 = that.data.new_img1; //营业执照
+        let new_img2 = that.data.new_img2; //合照
+        let params = {
+            appid: app.globalData.appid,
+            member_id: that.data.member_id,
+            name: that.data.goodsName,
+            aptitude_photos: that.data.new_img1,
+            work_photos: that.data.new_img2,
+            avatar: that.data.new_img3,
+            lat: app.globalData.latitude,
+            lng: app.globalData.longitude,
+            phone: that.data.phone,
+            city: app.globalData.city
         }
         app.net.$Api.saveShopInfo(params).then((res) => {
             console.log(res)

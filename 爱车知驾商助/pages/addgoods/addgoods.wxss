@@ -5,7 +5,7 @@
     background: #ffffff;
 }
 .itembox{
-    padding: 34rpx 0;
+    height: 100rpx;
     border-bottom: 1rpx solid #e2e2e2;
 }
 .leaberleft{
@@ -19,9 +19,11 @@ input{
 }
 picker{
     flex: 1;
+   
 }
 .picker{
     width: 100%;
+     height: 100rpx;
       display: flex;
     align-items: center;
     justify-content: flex-end;

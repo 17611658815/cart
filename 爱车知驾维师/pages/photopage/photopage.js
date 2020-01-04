@@ -27,6 +27,8 @@ Page({
         type: "takePhoto",
         text1:'',
         text2:'',
+        img1:'',
+        phone:''
     },
     /**
     * 生命周期函数--监听页面加载
@@ -51,13 +53,14 @@ Page({
         this.setData({
             sessionKey,
             userid: userInfo.id,
-            oldidCard: userInfo.card_photos || "",
-            oldcertification: userInfo.aptitude_photos || "",
-            olddriving: userInfo.healthy_photos || "",
+            phone: userInfo.phone,
+            // oldidCard: userInfo.card_photos || "",
+            // oldcertification: userInfo.aptitude_photos || "",
+            // olddriving: userInfo.healthy_photos || "",
             avatar: userInfo.avatar || "",
             tempImagePath: userInfo.avatar || "",
-            certification: userInfo.aptitude_photos || "",
-            driving: userInfo.healthy_photos || "",
+            // certification: userInfo.aptitude_photos || "",
+            // driving: userInfo.healthy_photos || "",
             city: app.globalData.city,
             num: app.globalData.num
         })
@@ -100,26 +103,26 @@ Page({
             name: e.detail.value
         })
     },
-    getShopInfo() {
-        let that = this;
-        let params = {
-            appid: app.globalData.appid,
-            member_id: that.data.member_id,
-        }
-        app.net.$Api.getShopInfo(params).then((res) => {
-            this.setData({
-                imgs1: res.data.data.aptitude_photos,
-                imgs2: res.data.data.work_photos,
-                imgs3: res.data.data.avatar,
-                new_img1: res.data.data.aptitude_photos,
-                new_img2: res.data.data.work_photos,
-                new_img3: res.data.data.avatar,
-                goodsName: res.data.data.real_name,
+    // getShopInfo() {
+    //     let that = this;
+    //     let params = {
+    //         appid: app.globalData.appid,
+    //         member_id: that.data.member_id,
+    //     }
+    //     app.net.$Api.getShopInfo(params).then((res) => {
+    //         that.setData({
+    //             imgs1: res.data.data.aptitude_photos,
+    //             imgs2: res.data.data.work_photos,
+    //             imgs3: res.data.data.avatar,
+    //             new_img1: res.data.data.aptitude_photos,
+    //             new_img2: res.data.data.work_photos,
+    //             new_img3: res.data.data.avatar,
+    //             goodsName: res.data.data.real_name,
               
-            })
-        })
+    //         })
+    //     })
 
-    },
+    // },
     getUserInfo() {
         let that = this;
         let params = {
@@ -133,11 +136,11 @@ Page({
                 driving: res.data.user.healthy_photos,
                 idCard: res.data.user.card_photos, //身份证
                 certification: res.data.user.aptitude_photos,
-                oldidCard: res.data.user.card_photos,
-                oldcertification: res.data.user.aptitude_photos,
-                olddriving: res.data.user.healthy_photos,
+                // oldidCard: res.data.user.card_photos,
+                // oldcertification: res.data.user.aptitude_photos,
+                // olddriving: res.data.user.healthy_photos,
                 avatar: res.data.user.avatar,
-                name: res.data.user.name,
+                name: res.data.user.real_name,
                 text1: (res.data.user.subscribe_message['8T_Xni23AoLeZwG3r3T-iXIw3eTus12_FzLSV-EQPJQ'] != undefined && res.data.user.subscribe_message['8T_Xni23AoLeZwG3r3T-iXIw3eTus12_FzLSV-EQPJQ'] == 'accept') ? '已授权' : '未授权',
                 text2: (res.data.user.subscribe_message['IajJtRQNTx_f695jvXlM1Fa2qBAcW6nCA3Rny0KLZIg'] != undefined && res.data.user.subscribe_message['IajJtRQNTx_f695jvXlM1Fa2qBAcW6nCA3Rny0KLZIg'] == 'accept') ? '已授权' : '未授权',
             })
@@ -231,7 +234,8 @@ Page({
     // 拍照
     selfie(){
         this.setData({
-            device:true
+            device:true,
+            tempImagePath: ""
         })
     },
     // 重拍
@@ -267,7 +271,7 @@ Page({
     // 选取图片
     chooseWxImage: function (type, typeNum) {
         var that = this;
-        var tempFilePaths = that.data.tempFilePaths;
+        // var tempFilePaths = that.data.tempFilePaths;
         wx.chooseImage({
             count: 1,
             sizeType: ['original', 'compressed'],
@@ -275,8 +279,10 @@ Page({
             success: function (res) {
                 if (typeNum == 1) {
                     that.setData({
+                        img1: res.tempFilePaths[0],
                         oldidCard: res.tempFilePaths[0]
                     })
+                    console.log(that.data.oldidCard)
                     that.upImgs(res.tempFilePaths[0], 0, 1)
                 } else if (typeNum == 2) {
                     that.setData({
@@ -327,12 +333,18 @@ Page({
             console.log('拒绝')
             app.alert('拒绝授权将无法注册~')
         } else {
-            // app.net.$Api.analysisUserPhone(params).then((res) => {
-            //     var data = JSON.parse(res.data.data)
-            //     let phone = data.purePhoneNumber;
-            //     console.log(res)
-                that.saveUserInfo("")
-            // })
+            app.net.$Api.analysisUserPhone(params).then((res) => {
+                var data = JSON.parse(res.data.data)
+                let phone = data.purePhoneNumber;
+                let userinfo = wx.getStorageSync('userinfo');
+                userinfo.phone = data.purePhoneNumber;
+                wx.setStorage({
+                    key: 'userinfo',
+                    data: userinfo,
+                })
+                console.log(res)
+                that.saveUserInfo(phone)
+            })
         }
 
     },
@@ -342,6 +354,38 @@ Page({
             appid: app.globalData.appid,
             userid: that.data.userid,
             phone: phone,
+            identity: that.data.idCard,
+            aptitude: that.data.certification,
+            healthy_photos: that.data.driving,
+            avatar: that.data.avatar,
+            city: app.globalData.city,
+            name:that.data.name
+        }
+        app.net.$Api.saveUserInfo(params).then((res) => {
+            console.log(res)
+            if (res.data.code == 200) {
+                wx.showModal({
+                    title: '温馨提示',
+                    content: '提交成功',
+                    showCancel: false,
+                    success: function () {
+                        wx.reLaunch({
+                            url: '/pages/index/index',
+                        })
+                    }
+
+                })
+            } else if (res.data.code == 400) {
+                app.alert(res.data.msg)
+            }
+        })
+    },
+    saveUserInfo2() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            userid: that.data.userid,
+            phone: that.data.phone,
             identity: that.data.idCard,
             aptitude: that.data.certification,
             healthy_photos: that.data.driving,
@@ -388,6 +432,7 @@ Page({
                     that.setData({
                         idCard: data.url
                     })
+                    console.log(that.data.idCard)
                 } else if (type == 2) {
                     that.setData({
                         certification: data.url

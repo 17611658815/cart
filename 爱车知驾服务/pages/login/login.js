@@ -53,7 +53,8 @@ Page({
         let params = {
             appid: app.globalData.appid,
             userInfo: app.globalData.userInfo,
-            openid: openid
+            openid: openid,
+            share_source: app.globalData.share_source
         }
         console.log(app.globalData.userInfo)
         app.net.$Api.wxLogin(params).then((res) => {

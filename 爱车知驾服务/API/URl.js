@@ -109,5 +109,21 @@ export default class Url {
     static appraiseShopOrderUrl() {
         return Url.PATH + '/appraiseShopOrder';
     }
+    // 车主服务
+    static getRecommendUrl() {
+        return Url.PATH + '/getRecommend';
+    }
+    // 法律条款
+    static getContentListUrl() {
+        return Url.PATH + '/getContentList';
+    }
+    // 法律条款详情
+    static getContentInfoUrl() {
+        return Url.PATH + '/getContentInfo';
+    }
+    //  来店服务
+    static getCarAdapterProductUrl() {
+        return Url.PATH + '/getCarAdapterProduct';
+    }
   
 }

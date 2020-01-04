@@ -1,14 +1,14 @@
 <view class="container">
     <!-- 维师招募 -->
     <view class="headers">
-
+ <image style="width:100%;height:100%;" src='https://img.dodo.wiki/app/img10.jpg'></image>
     </view>
     <view class="list_item boxShadow" bindtap="goStechnician">
         <view class="fontSize-36">成为网约技师</view>
-        <view class="fontSize-26">有技术，独立解决车问题，时间灵活，订单有保障</view>
+        <view class="fontSize-26 marginTop">有技术，独立解决车问题，时间灵活，订单有保障</view>
     </view>
-    <view class="list_item boxShadow">
+    <view class="list_item boxShadow" bindtap="goStechnician">
         <view class="fontSize-36">无店入住</view>
-        <view class="fontSize-26">有技术，独立解决车问题，时间灵活，订单有保障</view>
+        <view class="fontSize-26 marginTop">有技术，独立解决车问题，时间灵活，订单有保障</view>
     </view>
 </view>

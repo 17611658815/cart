@@ -11,7 +11,7 @@
 </scroll-view>
 <view class='contens' wx:else>
     <view>
-         <image src='../../../images/nomsg-img.png'></image>
-         <view class='textCenter' style='margin-top:88rpx;font-size:28rpx;color:#666666'>暂无收益明细</view>
+        <image src='../../../images/nomsg-img.png'></image>
+        <view class='textCenter' style='margin-top:88rpx;font-size:28rpx;color:#666666'>暂无收益明细</view>
     </view>
 </view>

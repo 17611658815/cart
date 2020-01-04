@@ -4,21 +4,22 @@
         <view class="fontSize-26 color3 padding20">请确保身边已准备好一下材料,您的信息将严格保密</view>
     </view>
     <view class='itembox dpf width100'>
-        <input placeholder='请输入姓名' value="{{name}}" bindinput="nameInpt" type='tetx'></input>
+        <input placeholder='请输入姓名' value="{{name}}" bindinput="nameInpt" type='text'></input>
     </view>
+    <!-- <image src="{{img1}}"></image> -->
     <view class="photoList">
         <view class="dpfC" style='position: relative' data-type="1" bindtap="chooseImageTap">
-            <image src='{{oldidCard}}'></image>
+            <image src='{{oldidCard == "https://img.dodo.wiki/app/idCard.png" ? idCard : oldidCard}}'></image>
             <view class="marginTop10 fontSize-26 fontWeight6">身份证</view>
             <view class="clackup">点击上传</view>
         </view>
         <view class="dpfC" style='position: relative' data-type="3" bindtap="chooseImageTap">
-            <image src='{{olddriving}}'></image>
+            <image src='{{olddriving == "https://img.dodo.wiki/app/olddriving.jpg" ? driving : olddriving}}'></image>
             <view class="marginTop10 fontSize-26 fontWeight6">驾驶证</view>
             <view class="clackup">点击上传</view>
         </view>
         <view class="dpfC" style=' position: relative' data-type="2" bindtap="chooseImageTap">
-            <image src='{{oldcertification}}'></image>
+            <image src='{{oldcertification == "https://img.dodo.wiki/app/certification.jpg" ? certification : oldcertification}}'></image>
             <view class="marginTop10 fontSize-26 fontWeight6">维修技能证书</view>
             <view class="clackup">点击上传</view>
         </view>
@@ -54,8 +55,9 @@
             <button class="requestBtn" bindtap="requestMsg2"></button>
         </view>
     </view>
-        <!-- <button class="addBtn" open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber'>保存</button> -->
-        <button class="addBtn"  bindtap='getPhoneNumber'>保存</button>
+        <button class="addBtn" open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber' wx:if="{{phone == ''}}">保存</button>
+        <view class="addBtn" bindtap='saveUserInfo2' wx:else>保存</view>
+        <!-- <button class="addBtn"  bindtap='getPhoneNumber'>保存</button> -->
 </view>
 
 

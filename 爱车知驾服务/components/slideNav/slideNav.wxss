@@ -126,7 +126,7 @@
     border-top: 1rpx solid #e2e2e2;
     border-bottom: 1rpx solid #e2e2e2;
     font-size: 26rpx;
-    color: #999990;
+    color: #333333;
     padding: 30rpx 0rpx;
     margin-top: 20rpx;
     text-align: center;

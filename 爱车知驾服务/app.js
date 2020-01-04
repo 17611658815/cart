@@ -38,6 +38,7 @@ App({
         couponId:'',//优惠卷id
         NewTotal:'',//总价
         order_id:0,//总价
+        ak: "sQdSTWiqZ5943Yjz8naByOZ1OcpE7d0u"
 
     },
     loading: function (content) {

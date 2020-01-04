@@ -74,7 +74,7 @@
     </view>
     <view class="width100 dpfC" wx:else>
         <view class="noList dpfC">
-            <image mode="scaleToFill" style="width:400rpx;" src="../../images/icon/icon_15.jpg" />
+            <image mode="scaleToFill" style="width:300rpx;" src="../../images/icon/icon_15.jpg" />
             <view class="fontSize-28 color1 marginTop">{{ currentTab == 1 ? "暂无收藏":"暂无相关数据"}}</view>
         </view>
     </view>

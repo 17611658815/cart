@@ -118,5 +118,21 @@ export const api = {
     appraiseShopOrder: function (paramObj) {
         return Promise.post(Url.default.appraiseShopOrderUrl(), paramObj);
     },
+    // 车主服务列表
+    getRecommend: function (paramObj) {
+        return Promise.post(Url.default.getRecommendUrl(), paramObj);
+    },
+    // 法律条款
+    getContentList: function (paramObj) {
+        return Promise.post(Url.default.getContentListUrl(), paramObj);
+    },
+    // 法律条款详情
+    getContentInfo: function (paramObj) {
+        return Promise.post(Url.default.getContentInfoUrl(), paramObj);
+    },
+    // 来店服务
+    getCarAdapterProduct: function (paramObj) {
+        return Promise.post(Url.default.getCarAdapterProductUrl(), paramObj);
+    },
    
 }

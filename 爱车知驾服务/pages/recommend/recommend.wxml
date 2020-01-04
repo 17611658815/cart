@@ -8,8 +8,8 @@
         </view>
     </view>
     <!-- 滚动文字 -->
-    <view class="bgBox">
-       <image style="width:100%" mode="scaleToFill" src='https://img.dodo.wiki/app/img3.jpg'></image>
+    <view class="bgBox" wx:if='{{currentTab == 0}}'>
+        <image style="width:100%" mode="scaleToFill" catchtap="gotextPage" src='https://img.dodo.wiki/app/img3.jpg'></image>
         <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="3000">
             <block wx:for="{{msgList}}">
                 <navigator url="/pages/index/index?title={{item.url}}" open-type="navigate">
@@ -34,24 +34,62 @@
                         <image style="width:110rpx;" src="../../images/img25.jpg"></image>
                     </view>
                     <view>微信好友</view>
+                    <button open-type="share"></button>
                 </view>
-                <view class="shareItem">
+                <!-- <view class="shareItem">
                     <view>
                         <image src="../../images/img26.jpg"></image>
                     </view>
                     <view>面对面分享</view>
-                </view>
-                <view class="shareItem">
-                      <view>
+                </view> -->
+                <!-- <view class="shareItem">
+                    <view>
                         <image src="../../images/img27.jpg"></image>
                     </view>
                     <view>更多</view>
-                </view>
+                </view> -->
             </view>
             <view class="fontSize-22 color3 padding20">
                 赚钱攻略
             </view>
         </view>
         <view class="shareBox boxShadow"></view>
+    </view>
+    <view class="bgBox" wx:if='{{currentTab == 1}}'>
+        <view class="container bgFFFF">
+            <view class="cityBox">
+                <view class="dpf">
+                    北京市
+                </view>
+            </view>
+            <view class="imgBox boxShadowBtm">
+                <image style="width:100%" mode="scaleToFill" src='https://img.dodo.wiki/app/img4.jpg'></image>
+                <view>查看详细奖励规则 ></view>
+            </view>
+            <view class="width100 dpfC fontSize-36 fontWeight6 padding30">
+                我的邀请
+            </view>
+            <view class="dpfC width90 paddinglr">
+                <view class="width100 fontSize-26 color3">
+                    已邀请
+                    <text class="color6">2</text>人共获得奖金
+                </view>
+                <view class="width100 dpfb">
+                    <view>
+                        <text class="fontSize-36 color1 fontWeight6">700</text>
+                        <text class="fontSize-26 color1 fontWeight5">元</text>
+                    </view>
+                    <view class="dpf">
+                        <text class="fontSize-26 color3 marginRight">我的账户</text>
+                        <image class="icon_right" src='../../images/icon_right.png'></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <button open-type="share" class="footBtn dpfC" wx:if='{{currentTab == 1}}'>
+            <view>
+                马上邀请好友加盟
+            </view>
+        </button>
     </view>
 </view>

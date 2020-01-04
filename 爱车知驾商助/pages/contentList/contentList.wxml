@@ -1,5 +1,4 @@
 <view class="container">
-
    <view class='scroll-x-content'>
         <scroll-view scroll-x="true" class='scroll-x-box' scroll-with-animation="true" id="scroll-view" scroll-left="{{ scrollLeft }}" >
             <view class='scroll-x-content-item' bindtap='swatchTab' data-id="{{item.id}}" id="item-{{index}}" data-index="{{index}}" wx:for='{{catList}}' wx:key='index'>
@@ -21,5 +20,4 @@
             <!-- <view class="fontSize-28 color1 marginTop">暂无商品</view> -->
         </view>
     </view>
-
 </view>

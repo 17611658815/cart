@@ -40,12 +40,12 @@
             <view class="wire"></view>
         </view>
         <view class="partsList">
-            <view class="partsList_item" wx:for='{{3}}'>
-                <view style="text-align:left" class="color8 fontSize-22">轮胎</view>
-                <view style="text-align:center" class="color3 fontSize-22">规格，花纹，MT品牌</view>
-                <view style="text-align:right" class="color1 fontSize-22">米其林</view>
-                <view style="text-align:right" class="color1 fontSize-22">马牌</view>
-                <view style="text-align:right" class="color1 fontSize-22">倍耐力</view>
+            <view class="partsList_item" wx:for='{{goodsData}}'>
+                <view style="text-align:left" class="color8 fontSize-32">{{item.name}}</view>
+                <!-- <view style="text-align:center" class="color3 fontSize-22">规格，花纹，MT品牌</view> -->
+                <view style="text-align:right;margin-right:20rpx" class="color1 fontSize-28 marginTop10" wx:for='{{item.brands}}' wx:for-item="keys">{{keys}}</view>
+                <!-- <view style="text-align:right" class="color1 fontSize-22">马牌</view>
+                <view style="text-align:right" class="color1 fontSize-22">倍耐力</view> -->
             </view>
         </view>
     </view>

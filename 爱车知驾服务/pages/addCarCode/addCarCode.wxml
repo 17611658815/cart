@@ -4,6 +4,6 @@
         <view class='add'>
             <input placeholder-class="phcolor2" value='{{inpval}}' bindinput='addCode' placeholder='请添加您的车架号'></input>
         </view>
-        <button class='nextStep'  bindtap='addCodeMsg'>确定</button>
+        <button class='nextStep' bindtap='addCodeMsg'>确定</button>
     </view>
 </view>
