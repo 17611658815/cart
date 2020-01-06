@@ -70,7 +70,7 @@
     </view>
     <view class="layout_tool">
     <view class="padding30 fontSize-28"></view>
-        <view class="toolList">
+        <view class="toolList" bindtap="shareCode">
             <view class="toolList_item">
                 <view class="toolList_item_icon">
                       <image src="../../images/icon/icon_33.jpg"></image>
@@ -82,3 +82,8 @@
 </view>
 <image class="png5" src="../../images/5.png"></image>
 <!-- <bottomNav navbarData="2"></bottomNav> -->
+
+<view class="imgshade" bindtap="hideImg" wx:if='{{imageShow}}'>
+    <image mode="aspectFit" src="{{imgurl}}"></image>
+    <button catchtap="saveImg">保存相册分享好友</button>
+</view>

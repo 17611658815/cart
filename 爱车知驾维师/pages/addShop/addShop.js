@@ -36,7 +36,10 @@ Page({
     },
     selectShop(e) {
         let shopItem = e.currentTarget.dataset.item;
-        if (shopItem.status == 1){
+        if (shopItem.id == 0){
+            return
+        }
+        else if (shopItem.status == 1){
             app.alert('该店铺已关联~')
             return;
         }else{
@@ -69,20 +72,30 @@ Page({
             })
         })
     },
-    shopNameInpt(e) {
+     searchInpt(e) {
         let that = this,
-            shopName = e.detail.value,
+            searchVal = e.detail.value,
             params = new Object();
             params.appid = app.globalData.appid;
             params.member_id = that.data.member_id;
             params.name = e.detail.value;
+         let searchData = []
         if (e.detail.value.length > 0) {
             app.net.$Api.searchShop(params).then((res) => {
                 console.log(res)
-                let searchData = res.data.data
+                if (res.data.data.length>0){
+                     searchData = res.data.data
+                 
+                }else{
+                    searchData = [{
+                        id: "0",
+                        real_name: "未搜索到相关门店",
+                        status: 0,
+                    }]
+                }
                 that.setData({
-                    searchData,
-                    shopName
+                    searchData: searchData,
+                    searchVal: searchVal
                 })
             })
         } else if (e.detail.value == 0) { //如果val为空 清空列表
@@ -100,8 +113,12 @@ Page({
             params.shop_id = that.data.shop_id;
             params.money = that.data.shopPrice;
             params.msg = that.data.message;
-        if (that.data.shopName == '' || that.data.shopPrice == ""){
-            app.alert('请完善店铺信息~');
+        if (that.data.shopName == ''){
+            app.alert('请搜索相关店铺并选中~');
+            return;
+        }
+        if (that.data.shopPrice == ""){
+            app.alert('请输入场地费~');
             return;
         }
         app.net.$Api.saveJishiShop(params).then((res) => {

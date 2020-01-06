@@ -6,13 +6,13 @@ Page({
      * 页面的初始数据
      */
     data: {
-        oldidCard: 'https://img.dodo.wiki/app/idCard.png',
-        olddriving:'https://img.dodo.wiki/app/olddriving.jpg',
-        oldcertification: 'https://img.dodo.wiki/app/certification.jpg',
+        // oldidCard: 'https://img.dodo.wiki/app/idCard.png',
+        // olddriving:'https://img.dodo.wiki/app/olddriving.jpg',
+        // oldcertification: 'https://img.dodo.wiki/app/certification.jpg',
         isshade: true,
-        idCard: '', //身份证
-        certification: '',//资格证
-        driving: '',//驾驶证
+        idCard: 'https://img.dodo.wiki/app/idCard.png', //身份证
+        certification: 'https://img.dodo.wiki/app/certification.jpg',//资格证
+        driving: 'https://img.dodo.wiki/app/olddriving.jpg',//驾驶证
         avatar:'',//头像
         sessionKey: '',
         userid: 0,
@@ -21,7 +21,7 @@ Page({
         city: '',
         num: 0,
         device: false,
-        tempImagePath: "", //个人自拍
+        tempImagePath: "https://img.dodo.wiki/app/img11.jpg", //个人自拍
         camera: false,
         ctx: {},
         type: "takePhoto",
@@ -43,8 +43,14 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
-        this.initialize();
+    // onShow: function () {
+    //     console.log('onShow')
+    //     this.initialize();
+    // },
+    hideshade() {
+        this.setData({
+            isshade: false
+        })
     },
     //初始化方法
     initialize(){
@@ -58,7 +64,7 @@ Page({
             // oldcertification: userInfo.aptitude_photos || "",
             // olddriving: userInfo.healthy_photos || "",
             avatar: userInfo.avatar || "",
-            tempImagePath: userInfo.avatar || "",
+            tempImagePath: userInfo.avatar || "https://img.dodo.wiki/app/img11.jpg",
             // certification: userInfo.aptitude_photos || "",
             // driving: userInfo.healthy_photos || "",
             city: app.globalData.city,
@@ -235,13 +241,13 @@ Page({
     selfie(){
         this.setData({
             device:true,
-            tempImagePath: ""
+            tempImagePath: "https://img.dodo.wiki/app/img11.jpg"
         })
     },
     // 重拍
     delselfie() {
         this.setData({
-            tempImagePath: ""
+            tempImagePath: "https://img.dodo.wiki/app/img11.jpg"
         })
     },
     async confirmPic(){
@@ -277,24 +283,7 @@ Page({
             sizeType: ['original', 'compressed'],
             sourceType: [type],
             success: function (res) {
-                if (typeNum == 1) {
-                    that.setData({
-                        img1: res.tempFilePaths[0],
-                        oldidCard: res.tempFilePaths[0]
-                    })
-                    console.log(that.data.oldidCard)
-                    that.upImgs(res.tempFilePaths[0], 0, 1)
-                } else if (typeNum == 2) {
-                    that.setData({
-                        oldcertification: res.tempFilePaths[0]
-                    })
-                    that.upImgs(res.tempFilePaths[0], 0, 2)
-                } else if (typeNum == 3){
-                    that.setData({
-                        olddriving: res.tempFilePaths[0]
-                    })
-                    that.upImgs(res.tempFilePaths[0], 0, 3)
-                }
+                that.upImgs(res.tempFilePaths[0], 0, typeNum)
             }
         })
     },
@@ -309,24 +298,13 @@ Page({
             encryptedData: e.detail.encryptedData,
             iv: e.detail.iv,
         }
-        if (!app.globalData.hasInfo || !app.globalData.hasInfo.id) {
-            app.checkLogin();
-            return
-        }
+        
         if (that.data.name == "") {
             app.alert('请填写名称~');
             return
         }
-        if (idCard == "") {
-            app.alert('上传身份证~');
-            return
-        }
-        if (driving == "") {
-            app.alert('上传驾驶证~');
-            return
-        }
-        if (certification == "") {
-            app.alert('请上传职业资格证~');
+        if (idCard == "" && driving == "" && certification == "") {
+            app.alert('请上传证件信息~');
             return
         }
         if (e.detail.errMsg == 'getPhoneNumber:fail user deny') {
@@ -350,6 +328,7 @@ Page({
     },
     saveUserInfo(phone) {
         let that = this;
+        console.log(that.data)
         let params = {
             appid: app.globalData.appid,
             userid: that.data.userid,
@@ -359,7 +338,8 @@ Page({
             healthy_photos: that.data.driving,
             avatar: that.data.avatar,
             city: app.globalData.city,
-            name:that.data.name
+            name:that.data.name,
+            share_source:app.globalData.share_source
         }
         app.net.$Api.saveUserInfo(params).then((res) => {
             console.log(res)
@@ -382,6 +362,7 @@ Page({
     },
     saveUserInfo2() {
         let that = this;
+        console.log(that.data)
         let params = {
             appid: app.globalData.appid,
             userid: that.data.userid,
@@ -426,28 +407,35 @@ Page({
                 appid: app.globalData.appid,
             },
             success: function (res) {
+                console.log(type,res, that.data);
                 var data = JSON.parse(res.data)
-
-                if (type == 1) {
-                    that.setData({
-                        idCard: data.url
-                    })
-                    console.log(that.data.idCard)
-                } else if (type == 2) {
-                    that.setData({
-                        certification: data.url
-                    })
-                } else if (type == 3){
-                    that.setData({
-                        driving: data.url
-                    })
-                } else if (type == 4){
-                    that.setData({
-                        avatar: data.url
-                    })
+                if(data.code == 200){
+                    if (type == 1) {
+                        that.setData({
+                            idCard: data.url
+                        })
+                        console.log(that.data.idCard, type,439)
+                    } else if (type == 2) {
+                        that.setData({
+                            certification: data.url
+                        })
+                        console.log(that.data.certification, type, 444)
+                    } else if (type == 3) {
+                        that.setData({
+                            driving: data.url
+                        })
+                        console.log(that.data.driving, type, 449)
+                    } else if (type == 4) {
+                        that.setData({
+                            avatar: data.url
+                        })
+                        console.log(that.data.avatar, type, 454)
+                    }
+                }else{
+                    app.alert(res.data.msg)
                 }
                 wx.hideLoading()
-                console.log(that.data.idCard)
+                console.log(that.data,457)
             }
         })
     },

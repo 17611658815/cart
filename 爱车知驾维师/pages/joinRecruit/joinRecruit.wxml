@@ -3,4 +3,4 @@
 </view>
 <!-- 急救中心 滑出-->
 <import src="showModule.wxml"></import>
-<template is="Emergency" wx:if='{{isShow}}' data="{{isShow:isShow,selecEmergency:selecEmergency}}"></template>
+<template is="Emergency" wx:if='{{isShow}}' data="{{isShow:isShow,selecEmergency:selecEmergency,gojoinReq:gojoinReq}}"></template>

@@ -226,5 +226,9 @@ export default class Url {
     static ortherShopUrl() {
         return Url.PATH + '/ortherShop';
     };
+    // 获取二维码
+    static QRcodeUrl() {
+        return Url.PATH + '/QRcode';
+    };
 
 }

@@ -1,4 +1,4 @@
-<view class="container bgFFFF">
+<view class="container bgFFFF" bindtap="gophotopage">
     <view style='margin-top:50rpx' class="fontSize-55 fontWeight5">
         北京知驾网约维师招募
     </view>

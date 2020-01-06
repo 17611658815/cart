@@ -3,30 +3,31 @@
         <view class="fontSize-45 fontWeight6">注册需要材料</view>
         <view class="fontSize-26 color3 padding20">请确保身边已准备好一下材料,您的信息将严格保密</view>
     </view>
-    <view class='itembox dpf width100'>
-        <input placeholder='请输入姓名' value="{{name}}" bindinput="nameInpt" type='text'></input>
+    <view class='itembox dpf width100 borderBtm marginBtm'>
+        <text style="white-space: nowrap">姓名</text>
+        <input value="{{name}}" bindinput="nameInpt" type='text'></input>
     </view>
     <!-- <image src="{{img1}}"></image> -->
     <view class="photoList">
         <view class="dpfC" style='position: relative' data-type="1" bindtap="chooseImageTap">
-            <image src='{{oldidCard == "https://img.dodo.wiki/app/idCard.png" ? idCard : oldidCard}}'></image>
+            <image src='{{idCard}}'></image>
             <view class="marginTop10 fontSize-26 fontWeight6">身份证</view>
             <view class="clackup">点击上传</view>
         </view>
         <view class="dpfC" style='position: relative' data-type="3" bindtap="chooseImageTap">
-            <image src='{{olddriving == "https://img.dodo.wiki/app/olddriving.jpg" ? driving : olddriving}}'></image>
+            <image src='{{driving}}'></image>
             <view class="marginTop10 fontSize-26 fontWeight6">驾驶证</view>
             <view class="clackup">点击上传</view>
         </view>
         <view class="dpfC" style=' position: relative' data-type="2" bindtap="chooseImageTap">
-            <image src='{{oldcertification == "https://img.dodo.wiki/app/certification.jpg" ? certification : oldcertification}}'></image>
+            <image src='{{certification}}'></image>
             <view class="marginTop10 fontSize-26 fontWeight6">维修技能证书</view>
             <view class="clackup">点击上传</view>
         </view>
     </view>
     <view class="vlogBox dpf">
         <view class="vlog_border" bindtap="selfie">
-              <image class="cover_pic" src='{{tempImagePath}}'></image>
+            <image class="cover_pic" src='{{tempImagePath}}'></image>
             <image class="left_1" src="../../images/left_1.png"></image>
             <image class="left_2" src="../../images/left_2.png"></image>
             <image class="right_1" src="../../images/right_1.png"></image>
@@ -36,12 +37,13 @@
             个人头像实时拍摄
         </view>
     </view>
-        
- <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop20">
+
+    <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop20">
         <view class="layoutList_item width90 dpfb padding20" data-type="1">
             <view class="borderLeft">订单更新提示</view>
-               <view class="dpf color6">
-            <text>{{text1}}</text> <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
+            <view class="dpf color6">
+                <text>{{text1}}</text>
+                <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
             </view>
             <button class="requestBtn" bindtap="requestMsg1"></button>
         </view>
@@ -49,35 +51,51 @@
     <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop20">
         <view class="layoutList_item width90 dpfb padding20" data-type="1">
             <view class="borderLeft">新订单提示</view>
-               <view class="dpf color6">
-            <text>{{text2}}</text> <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
+            <view class="dpf color6">
+                <text>{{text2}}</text>
+                <image class="rightPic marginLeft" src='../../images/icon_right.png'></image>
             </view>
             <button class="requestBtn" bindtap="requestMsg2"></button>
         </view>
     </view>
-        <button class="addBtn" open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber' wx:if="{{phone == ''}}">保存</button>
-        <view class="addBtn" bindtap='saveUserInfo2' wx:else>保存</view>
-        <!-- <button class="addBtn"  bindtap='getPhoneNumber'>保存</button> -->
+    <button class="addBtn" open-type='getPhoneNumber' bindgetphonenumber='getPhoneNumber' wx:if="{{phone == ''}}">保存</button>
+    <view class="addBtn" bindtap='saveUserInfo2' wx:else>保存</view>
+    <!-- <button class="addBtn"  bindtap='getPhoneNumber'>保存</button> -->
 </view>
 
 
 
 <view class="view" wx:else>
-  <view class="window" wx:if='{{tempImagePath!=""}}'>
-    <image class="cover-9" src="{{tempImagePath}}" bindtap="img" wx:if="{{type=='takePhoto'}}"></image>
-    <view class="window-2">
-      <button bindtap="delselfie" type="primary" >重拍</button>
-      <button bindtap="confirmPic" type="primary" >完成</button>
+    <view class="window" wx:if='{{tempImagePath!="https://img.dodo.wiki/app/img11.jpg"}}'>
+        <image class="cover-9" src="{{tempImagePath}}" bindtap="img" wx:if="{{type=='takePhoto'}}"></image>
+        <view class="window-2">
+            <button bindtap="delselfie" type="primary">重拍</button>
+            <button bindtap="confirmPic" type="primary">完成</button>
+        </view>
     </view>
-  </view>
- 
-  <camera class="camera"  device-position="front" flash="off" wx:if='{{tempImagePath==""}}'>
-    <cover-view class="cover-1" bindtap="camera">
-      <cover-view class="cover-2">
-        <cover-view class="cover-5" wx:if="{{type=='startRecord'&&startRecord}}">{{time}}S</cover-view>
-      </cover-view>
-    </cover-view>
-    <cover-image class="cover-3" src="/images/xx2.png" style="width:60rpx;height:60rpx;" bindtap="close"></cover-image>
-    <cover-image class="cover-4" src="/images/zh.png" style="width:80rpx;height:60rpx;" bindtap="devicePosition"></cover-image>
-  </camera>
+
+    <camera class="camera" device-position="front" flash="off" wx:if='{{tempImagePath=="https://img.dodo.wiki/app/img11.jpg"}}'>
+        <cover-view class="cover-1" bindtap="camera">
+            <cover-view class="cover-2">
+                <cover-view class="cover-5" wx:if="{{type=='startRecord'&&startRecord}}">{{time}}S</cover-view>
+            </cover-view>
+        </cover-view>
+        <cover-image class="cover-3" src="/images/xx2.png" style="width:60rpx;height:60rpx;" bindtap="close"></cover-image>
+        <cover-image class="cover-4" src="/images/zh.png" style="width:80rpx;height:60rpx;" bindtap="devicePosition"></cover-image>
+    </camera>
+</view>
+
+<view class="shadeBox" wx:if='{{isshade}}'>
+    <view class="shadeBox_pic">
+        <image src='../../images/icon13.png'></image>
+    </view>
+    <view class="fontSize-36 fontWeight6">请提前准备好一下材料</view>
+    <view class="fontSize-36 fontWeight6">一次性完成资料上传</view>
+    <view style="margin-top:50rpx;" class="fontSize-32 color3 dpf">
+        <text class="marginRight">1.身份证</text>
+        <text>2.维修职业资格证</text>
+    </view>
+    <view class="shade_btn" bindtap="hideshade">
+        我准备好了
+    </view>
 </view>

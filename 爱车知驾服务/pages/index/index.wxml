@@ -164,7 +164,7 @@
     <view class="width100" wx:if='{{currentTab<=4}}'>
         <view class="mapBox dpfC">
             <!-- 搜索框 -->
-            <view class='home-content-search'>
+            <view class='home-content-search' wx:if='{{!isShadeShow && !slideNav}}'>
                 <image class='icon_search' src='../../images/icon_5.png'></image>
                 <input class="searchInput" type="text" bindinput="bindKeyInput" placeholder="小区 / 写字楼 / 学校等"></input>
             </view>

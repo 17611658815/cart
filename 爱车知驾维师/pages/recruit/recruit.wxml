@@ -2,8 +2,24 @@
     <view class="headerpic width100">
         <image mode="aspectFill" src="../../images/icon1.jpg"></image>
     </view>
-    <view class="serverList boxShadow" wx:for='{{6}}'>
+    <view class="serverList boxShadow" bindtap="gojoinRecruit">
         <view class="fontSize-36 fontWeight5">成为网约维师</view>
         <view class="fontSize-24 color3 marginTop10">有技术没独立解决车问题，时间灵活，订单有保障</view>
+    </view>
+    <view class="serverList boxShadow" bindtap="gojoinCity">
+        <view class="fontSize-36 fontWeight5">无店加入</view>
+        <view class="fontSize-24 color3 marginTop10">无店也能解决修车问题，做有店的生意，赚得更多</view>
+    </view>
+    <view class="serverList boxShadow" bindtap="goinvite">
+        <view class="fontSize-36 fontWeight5">做维师介绍人赚邀请奖</view>
+        <view class="fontSize-24 color3 marginTop10">天天邀天天赚，高额奖金等您拿</view>
+    </view>
+    <view class="serverList boxShadow" bindtap="goshopSign">
+        <view class="fontSize-36 fontWeight5">有店有维师加入</view>
+        <view class="fontSize-24 color3 marginTop10">在线接单，让您获得更多订单，提升收入</view>
+    </view>
+    <view class="serverList boxShadow" bindtap="gojoinCity">
+        <view class="fontSize-36 fontWeight5">全职维师</view>
+        <view class="fontSize-24 color3 marginTop10">挂证上岗，体面工作，丰厚薪资</view>
     </view>
 </view>

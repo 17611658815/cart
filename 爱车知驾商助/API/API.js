@@ -234,4 +234,8 @@ export const api = {
     ortherShop: function (paramObj) {
         return Promise.post(Url.default.ortherShopUrl(), paramObj);
     },
+    // 获取二维码
+    QRcode: function (paramObj) {
+        return Promise.post(Url.default.QRcodeUrl(), paramObj);
+    },
 }

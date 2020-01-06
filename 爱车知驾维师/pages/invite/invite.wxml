@@ -7,7 +7,7 @@
     </view>
     <view class="imgBox boxShadowBtm">
         <image mode="aspectFill" src="../../images/icon7.jpg"></image>
-        <view>查看详细奖励规则 ></view>
+        <view bindtap="gotextPage">查看详细奖励规则 ></view>
     </view>
     <view class="width100">
         <!-- 我的邀请 -->
@@ -16,14 +16,14 @@
     <view class="dpfC width90 paddinglr">
         <view class="width100 fontSize-26 color3">
             已邀请
-            <text class="color6">2</text>人共获得奖金
+            <text class="color6">{{num}}</text>人共获得奖金
         </view>
         <view class="width100 dpfb">
             <view>
-                <text class="fontSize-36 color1 fontWeight6">700</text>
+                <text class="fontSize-36 color1 fontWeight6">{{money}}</text>
                 <text class="fontSize-26 color1 fontWeight5">元</text>
             </view>
-            <view class="dpf">
+            <view class="dpf" bindtap="gowallet">
                 <text class="fontSize-26 color3 marginRight">我的账户</text>
                 <image class="icon_right" src='../../images/icon_right.png'></image>
             </view>
@@ -31,7 +31,7 @@
     </view>
 </view>
 <view class="footBtn dpfC">
-    <view>
+    <button open-type="share">
         马上邀请好友加盟
-    </view>
+   </button>
 </view>

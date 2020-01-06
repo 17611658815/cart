@@ -73,7 +73,7 @@
             </view>
             <view class='itembox dpf'>
                 <view class='leaberleft fontSize-30 color2'>
-                    <text>数量/容量:({{num}})</text>
+                    <text>单位:({{num}})</text>
                 </view>
                 <input value="{{goodsNum}}" bindinput="goodsNumInpt" type='number'></input>
             </view>
@@ -86,7 +86,7 @@
         </view>
     </view>
     <view class='btnBox'>
-        <view class="addBtn" bindtap="addGoodsItem">确认添加</view>
+        <button disabled="{{loading}}" class="addBtn" bindtap="addGoodsItem">确认添加</button>
     </view>
 
 </view>

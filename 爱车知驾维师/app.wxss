@@ -262,7 +262,7 @@ page{
     width: 90%;
     height: 100rpx;
     background-image: linear-gradient(#F9903F, #F35235);
-    border-radius: 20rpx;
+    border-radius: 10rpx;
     text-align: center;
     line-height: 100rpx;
     color: #ffffff;

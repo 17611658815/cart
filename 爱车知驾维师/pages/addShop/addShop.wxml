@@ -2,41 +2,41 @@
 <view class='container bgFFFF'>
     <view class='width100 dpfC marginTop'>
         <view class='width90'>
-              <view class='itembox dpf'>
-                <input placeholder='门店名称' value="{{shopName}}" bindinput="shopNameInpt" type='tetx'></input>
+            <view class='itembox dpfb'>
+                <view>搜索门店</view>
+                <input placeholder='搜索门店' value="{{searchVal}}" bindinput="searchInpt" type='text'></input>
             </view>
             <view class="goodsBox" wx:if='{{searchData.length>0}}'>
-            
-             <view class="otherMsg" wx:for='{{searchData}}' data-item='{{item}}' bindtap="checkdItem">
-                <!-- <view class="otherPic">
+
+                <view class="otherMsg" wx:for='{{searchData}}' data-item='{{item}}' bindtap="checkdItem">
+                    <!-- <view class="otherPic">
                     <image mode="scaleToFill" src="{{item.thumb}}" />
                 </view> -->
-                <view class="otherinfo"  data-item='{{item}}' bindtap="selectShop">
-                    <view class="fontSize-30 color1">{{item.real_name}}</view>
-                    <view class="fontSize-26 color3">{{item.status == 1 ? "已关联":"未关联"}}</view>
+                    <view class="otherinfo" data-item='{{item}}' bindtap="selectShop">
+                        <view class="fontSize-30 color1">{{item.real_name}}</view>
+                        <view class="fontSize-26 color3" wx:if='{{item.id!=0}}'>{{item.status == 1 ? "已关联":"未关联"}}</view>
+                    </view>
                 </view>
             </view>
+            <view class='itembox dpfb' wx:if='{{shopName!=""}}'>
+                <view>店铺名称</view>
+                <view>{{shopName}}</view>
             </view>
-           
-          
-            <view class='itembox dpf'>
+            
+
+
+            <view class='itembox dpfb'>
+                <view>场地费</view>
                 <input placeholder='场地费' value="{{shopPrice}}" bindinput="shopPriceInpt" type='number'></input>
             </view>
-            <view class='itembox' style='border:none;padding-bottom:0'>
-                <view class='fontSize-30 color2'>
-                    <textarea 
-                        value='{{message}}' 
-                        bindinput='ontextareaChange' 
-                        placeholder-class='textAreaCtyle' 
-                        placeholder='备注信息：' 
-                        placeholder-style>
+            <view class='itembox dpfC' style='border:none;padding-bottom:0'>
+                    <textarea value='{{message}}' bindinput='ontextareaChange' placeholder-class='textAreaCtyle' placeholder='备注信息：' placeholder-style>
                     </textarea>
-                </view>
             </view>
         </view>
     </view>
     <view class='btnBox'>
-         <view class="addBtn" bindtap="addShops">确认添加</view>
+        <view class="addBtn" bindtap="addShops">确认添加</view>
     </view>
 
 </view>

@@ -78,7 +78,7 @@ Page({
         scrollTop:0,
         // 标记点对象
         markers: [{
-            iconPath: '',
+            iconPath: '../../images/longitude.png',
             id: 0,
             longitude: '',
             latitude: '',
@@ -337,6 +337,8 @@ Page({
             lng: that.data.longitude,
             // lat: '39.905277252197266',
             // lng: '116.51362609863281',
+            // lat: '39.9905796984',
+            // lng: '116.3656844076',
             level: that.data.currentTab/1+1
         }
         app.net.$Api.getShopListByLocation(params).then((res) => {
@@ -350,10 +352,10 @@ Page({
                     width: 60,
                     height: 60,
                     callout: {
-                        content: item.real_name,
+                        content: item.member_info.name + "\n"+item.member_info.leve,
                         padding:5,
                         display: 'BYCLICK',
-                        textAlign: 'center'
+                        textAlign: 'left'
                     }
                 })
             })
@@ -435,6 +437,8 @@ Page({
                         app.globalData.latitude = res.latitude;
                         app.globalData.city = e.data.result.address_component.city
                         that.setData({
+                            "markers[0].longitude": res.longitude,
+                            "markers[0].latitude": res.latitude,
                             city: e.data.result.address_component.city,//当前城市
                             address: e.data.result.address,//当前位置
                             longitude: res.longitude,
@@ -474,8 +478,16 @@ Page({
         let that = this;
         let index = e.currentTarget.dataset.index;
         this.handleScroll(index);
+        let markers = [{
+            iconPath: '../../images/longitude.png',
+            id: 0,
+            longitude: that.data.longitude,
+            latitude: that.data.latitude,
+            width: 50,
+            height: 50,
+        }]
         that.setData({
-            markers:[],
+            markers: markers,
             isShadeShow:false,
             currentTab: index
         })

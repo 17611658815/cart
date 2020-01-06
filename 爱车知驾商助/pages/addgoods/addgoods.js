@@ -34,6 +34,8 @@ Page({
         goodsNum:'',//商品数量
         goodstype:'',//商品型号
         brandsArr:['请选择分类'],
+        loading:false,
+        goods_id:0,
     },
     /**
      * 生命周期函数--监听页面加载
@@ -197,6 +199,7 @@ Page({
                    }
                }
            })
+           console.log(res)
             that.setData({
                 typeid: res.data.data.typeid,
                 goodsName: res.data.data.name,
@@ -208,7 +211,8 @@ Page({
                 goodsNum: res.data.data.num,
                 typeid2: res.data.data.brand_id,
                 typeName: name1,
-                typeName2: name2
+                typeName2: name2,
+                goods_id: res.data.data.id,
             })
           
         })
@@ -285,7 +289,7 @@ Page({
         let params = {
             appid: app.globalData.appid,
             typeid: that.data.typeid,
-            // obj_id: that.data.obj_id,
+            id: that.data.goods_id,
             member_id: that.data.member_id,
             name: that.data.goodsName,
             price: that.data.newPrice,
@@ -323,7 +327,8 @@ Page({
             app.alert("请输入商品数量~！")
             return
         }
-        
+        app.loading('提交中')
+        that.setData({ loading:true})
         app.net.$Api.addShopGoods(params).then((res) => {
             if (res.data.code == 200){
                 wx.showToast({
@@ -331,6 +336,7 @@ Page({
                     icon: 'success',
                     duration: 2000,
                     success: function () {
+                        wx.hideLoading()
                         setTimeout(function () {
                             // that.setData({
                             //     typeName:'',
@@ -346,6 +352,8 @@ Page({
                             // })
                            wx.navigateBack({
                                detal:1
+                           },()=>{
+                               that.setData({ loading: false })
                            })
                         }, 2000)
                     }

@@ -8,8 +8,8 @@
             当前定位城市为北京，确定要注册成为该城市的网约维师吗？
         </view>
         <view class="contentBtn">
-            <view>重新选择</view>
-            <view>确认</view>
+            <view bindtap="gojoinReq">重新选择</view>
+            <view bindtap="gojoinReq">确认</view>
         </view>
     </view>
 </template>

@@ -106,8 +106,8 @@ Page({
             transfer_type: that.data.transfer_type,
             level: that.data.level,
             car_id: that.data.Carid,
-            // location: app.globalData.longitude + "," + app.globalData.latitude
-            location: "116.520616,39.911792"
+            location: app.globalData.longitude + "," + app.globalData.latitude
+            // location: "116.520616,39.911792"
         }
         
         app.loading('加载中')

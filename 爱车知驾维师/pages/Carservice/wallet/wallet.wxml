@@ -5,8 +5,8 @@
                 账户余额
             </view>
             <view>
-                <view class="fontSize-40 color1">￥0.00</view>
-                <view class="fontSize-28 color3">可用余额￥0.00</view>
+                <view class="fontSize-40 color1">￥{{money}}</view>
+                <view class="fontSize-28 color3">可用余额￥{{use}}</view>
             </view>
         </view>
     </view>
@@ -15,14 +15,14 @@
     </view>
     <view class="discount_layout">
         <view class="discount_layout_item">
-           <image src='../../../images/1.jpg'></image>
+           <image src='../../../images/icon_54.jpg'></image>
             <view class="dpfC">
                 <view class="fontSize-40 color1">0.00</view>
                 <view class="fontSize-28 color3">优惠卷</view>
             </view>
         </view>
         <view class="discount_layout_item">
-            <image src='../../../images/1.jpg'></image>
+            <image src='../../../images/icon_55.jpg'></image>
             <view class="dpfC">
                 <view class="fontSize-40 color1">0.00</view>
                 <view class="fontSize-28 color3">当前积分总计</view>
@@ -30,7 +30,7 @@
         </view>
     </view>
      <view style='margin-top:30rpx;' class="fontSize-28 color3 dpf">
-        <image class="marginRight10" style='width:30rpx;height:30rpx;' src='../../../images/1.jpg'></image>
+        <image class="marginRight10" style='width:30rpx;height:30rpx;' src='../../../images/icon_56.jpg'></image>
         规则说明
     </view>
 </view>

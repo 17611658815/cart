@@ -68,7 +68,7 @@ Page({
         if (!app.globalData.userInfo.id){
             app.checkLogin();
             
-        }else{
+        } else{
             wx.navigateTo({
                 url: '/pages/register/register',
             })
@@ -94,6 +94,7 @@ Page({
                     avatar: res.data.data.avatar
                 })
             }
+            console.log(res.data.data)
             // this.setData({
             //     name
             // })

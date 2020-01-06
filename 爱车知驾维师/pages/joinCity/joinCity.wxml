@@ -11,7 +11,8 @@
         </view> -->
     </view>
     <view class="selectCity boxShadowBtm">
-        北京市 <text class="icon_Bottom rotate"></text>
+        {{city}}
+        <!-- <text class="icon_Bottom rotate"></text> -->
     </view>
     <view class="layout_box dpfC boxShadowBtm">
         <view class="layout_box_1">
@@ -47,8 +48,8 @@
     </view>
 </view>
 
-<view class="footBtn dpfC">
+<view class="footBtn dpfC" bindtap="gojoinReq">
     <view>
-        加入北京市
+        加入{{city}}
     </view>
 </view>

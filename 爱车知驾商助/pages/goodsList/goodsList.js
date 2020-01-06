@@ -24,8 +24,16 @@ Page({
             currentTab: options.index,
             status: options.status,
         })
+        
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
         this.loadList()
     },
+
     loadList(){
         let that = this;
         let params = {
@@ -145,13 +153,6 @@ Page({
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
 
     },
 

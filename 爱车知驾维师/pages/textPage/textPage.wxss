@@ -1,0 +1,9 @@
+/* pages/textPage/textPage.wxss */
+.content{
+    width: 94%;
+    padding: 30rpx 3%;
+}
+.contentBox{
+
+    line-height: 60rpx;
+}

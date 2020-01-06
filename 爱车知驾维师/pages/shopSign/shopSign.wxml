@@ -2,7 +2,7 @@
     <view class="headerPic width100">
         <image mode="aspectFill" src="../../images/icon9.jpg"></image>
     </view>
-    <view class="applyBtn">
+    <view class="applyBtn" bindtap="goupPicregister">
         申请成为知驾商助店铺
     </view>
 </view>

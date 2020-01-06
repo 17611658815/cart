@@ -15,7 +15,7 @@
                 </view>
                 <view class="dpf">
                     <view class="fontSize-30 color1 btn1" bindtap="setGoodsStatus" data-id="{{item.id}}" data-status="3" wx:if='{{currentTab==1}}'>删除</view>
-                    <view class="fontSize-26 color3 btn2" bindtap="changeGoods" data-id="{{item.id}}" wx:if='{{currentTab==2 || currentTab==1}}'>修改</view>
+                    <view class="fontSize-26 color3 btn2" bindtap="changeGoods" data-id="{{item.id}}" wx:if='{{currentTab==2 || currentTab==1 || currentTab==0}}'>修改</view>
                     <view class="fontSize-26 color3 btn2" bindtap="setGoodsStatus" data-status="2" data-id="{{item.id}}" wx:if='{{currentTab==0}}'>下架</view>
                 </view>
             </view>

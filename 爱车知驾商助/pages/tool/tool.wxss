@@ -19,6 +19,7 @@ page{
     align-items: center;
     justify-content: center;
     margin-bottom: 20rpx;
+    position: relative;
 }
 .toolList_item_icon{
     width: 100rpx;
@@ -37,3 +38,22 @@ page{
     width: 300rpx;
     height: 300rpx;
 }
+.imgshade{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.imgshade button{
+    margin-top: 30rpx;
+   background-image: linear-gradient(#F9903F, #F35235);
+   color: #ffffff;
+   font-size: 26rpx;
+}
+

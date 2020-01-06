@@ -1,20 +1,54 @@
 // pages/invite/invite.js
+let app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        share_source:0,
+        userid:0,
+        money:"0:00",
+        num:0
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        let userInfo = wx.getStorageSync('userinfo') || {};
+        this.setData({
+            userid: userInfo.id,
+            userInfo: userInfo, 
+            share_source: userInfo.share_source
 
+        })
+        this.getInviteAward()
     },
-
+    getInviteAward(){
+        let that = this,
+            params = new Object();
+        params.appid = app.globalData.appid;
+        params.member_id = that.data.userid;
+        app.net.$Api.getInviteAward(params).then((res) => {
+            console.log(res)
+            that.setData({
+                money: res.data.money,
+                num: res.data.num,
+            })
+        })
+    },
+    gowallet(){
+        wx.navigateTo({
+            url: '/pages/Carservice/wallet/wallet',
+        })
+    },
+    gotextPage(e){
+        let id = 29;
+        wx.navigateTo({
+            url: '/pages/textPage/textPage?id=' + id,
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -61,6 +95,9 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+        return{
+            title:'知驾维师',
+            path: '/pages/index/index?share_source=' + this.data.share_source,
+        }
     }
 })

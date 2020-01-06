@@ -166,7 +166,6 @@ button::after{
     margin-left: 50rpx;
 }
 .scroll-x-item{
-    height: 165rpx;
     display: inline-block;
     position: relative;
 }

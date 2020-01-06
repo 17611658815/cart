@@ -14,7 +14,31 @@ Page({
     onLoad: function (options) {
 
     },
-
+    gojoinRecruit(){
+        wx.navigateTo({
+            url: '/pages/joinRecruit/joinRecruit',
+        })
+    },
+    gojoinCity(){
+        wx.navigateTo({
+            url: '/pages/joinCity/joinCity',
+        })
+    },
+    goinvite(){
+        wx.navigateTo({
+            url: '/pages/invite/invite',
+        })
+    },
+    goshopSign(){
+        wx.navigateTo({
+            url: '/pages/shopSign/shopSign',
+        })
+    },
+    gojoinRecruit() {
+        wx.navigateTo({
+            url: '/pages/joinRecruit/joinRecruit',
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

@@ -110,5 +110,17 @@ export const api = {
     setOrderFinish: function (paramObj) {
         return Promise.post(Url.default.setOrderFinishUrl(), paramObj);
     },
+    // 我的邀请
+    getInviteAward: function (paramObj) {
+        return Promise.post(Url.default.getInviteAwardUrl(), paramObj);
+    },
+    // 我的钱包
+    getAccountBalance: function (paramObj) {
+        return Promise.post(Url.default.getAccountBalanceUrl(), paramObj);
+    },
+    // 规则详情
+    getContentInfo: function (paramObj) {
+        return Promise.post(Url.default.getContentInfoUrl(), paramObj);
+    },
     
 }

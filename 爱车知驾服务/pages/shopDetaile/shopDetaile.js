@@ -1,7 +1,6 @@
 const app = getApp()
 Page({
     data: {
-
         id:0,
         top: 0,
         shopObj:{},
@@ -163,7 +162,9 @@ Page({
     // 去结算
     goGoodsList(){
         console.log(this.data.CarList)
-        if (JSON.stringify(this.data.CarList) == "{}") {
+        if (!app.globalData.userinfo.id) {
+            app.checkLogin()
+        } else if (JSON.stringify(this.data.CarList) == "{}") {
             app.alert("请选择购买的商品")
         }else{
             wx.navigateTo({
@@ -183,5 +184,14 @@ Page({
         wx.navigateTo({
             url: '/pages/addres/addres'
         });
+    },
+     /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+        return{
+            title:'知驾车服',
+            path: '/pages/shopDetaile/shopDetaile?id=' + that.data.id
+        }
     }
 });

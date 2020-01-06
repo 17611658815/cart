@@ -1,18 +1,46 @@
-// pages/Carservice/wallet/wallet.js
+// pages/invite/invite.js
+let app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-
+        userid: 0,
+        money: "0:00",
+        use: "0:00"
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        let userInfo = wx.getStorageSync('userinfo') || {};
+        this.setData({
+            userid: userInfo.id,
+            userInfo: userInfo,
+            share_source: userInfo.share_source
 
+        })
+        this.getAccountBalance()
+    },
+    getAccountBalance() {
+        let that = this,
+            params = new Object();
+        params.appid = app.globalData.appid;
+        params.member_id = that.data.userid;
+        app.net.$Api.getAccountBalance(params).then((res) => {
+            console.log(res)
+            that.setData({
+                money: res.data.money,
+                use: res.data.use,
+            })
+        })
+    },
+    gowallet() {
+        wx.navigateTo({
+            url: '/pages/Carservice/wallet/wallet',
+        })
     },
 
     /**
@@ -57,10 +85,4 @@ Page({
 
     },
 
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
 })

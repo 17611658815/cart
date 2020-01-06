@@ -8,7 +8,7 @@ Page({
         navList: ['首页', '知驾服务'],
         currentTab:0,
         userInfo: {},
-        hasInfo:1,
+        hasInfo:0,
         city: "",//当前城市
         address: "",//当前位置
         longitude: 0,
@@ -17,12 +17,14 @@ Page({
 
     },
     onLoad: function (options) {
+        app.globalData.share_source = options.share_source || 0
+    },
+    onShow(){
         let userInfo = wx.getStorageSync('userinfo') || {};
         this.setData({
             userid: userInfo.id,
             userInfo: userInfo
         })
-        app.globalData.share_source = options.share_source || 0
         this.getUserInfo()
     },
     
@@ -40,6 +42,7 @@ Page({
                 hasInfo: res.data.hasInfo,
                 hasInfoNum: res.data.hasInfo
             })
+            console.log(res.data.hasInfo)
         })
     },
     goCarservice(){
@@ -67,15 +70,34 @@ Page({
        
     },
     // 立即注册
-    gosign(){
-        wx.navigateTo({
-            url: '/pages/photopage/photopage',
-        })
+    gosign() {
+        if (!this.data.userid) {
+            app.checkLogin();
+        }else{
+            wx.navigateTo({
+                url: '/pages/photopage/photopage',
+            })
+        }
+        
     },
     gomessageList(){
         wx.navigateTo({
             url: '/pages/messageList/messageList',
         })
+    },
+    gowelcome(){
+        wx.navigateTo({
+            url: '/pages/welcome/welcome',
+        })
+    },
+    gorecruit(){
+        if (!this.data.userid) {
+            app.checkLogin();
+        } else {
+            wx.navigateTo({
+                url: '/pages/recruit/recruit',
+            })
+        }
     },
   //事件处理函数
   bindViewTap: function() {

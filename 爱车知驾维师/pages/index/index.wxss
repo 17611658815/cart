@@ -2,7 +2,6 @@
     width: 94%;
     height: 400rpx;
     background: #999999;
-    margin-top: 20rpx;
     border-radius: 10rpx;
     display: flex;
     flex-direction: column;
@@ -11,11 +10,21 @@
   
  
 }
+.headerBox2{
+    width: 94%;
+    height: 400rpx;
+    background: #ffffff;
+    border-radius: 10rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .loginBtn{
     width: 85%;
     height: 90rpx;
     background-image: linear-gradient(#F9903F, #F35235);
-    border-radius: 20rpx;
+    border-radius: 10rpx;
     color: #ffffff;
     text-align: center;
     line-height: 90rpx;
@@ -26,4 +35,9 @@
     height: 300rpx;
     padding-bottom: 10rpx;
     
+}
+swiper{
+    width: 94%;
+     height: 400rpx;
+     padding: 30rpx 0;
 }

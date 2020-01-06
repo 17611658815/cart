@@ -94,9 +94,17 @@ export default class Url {
     static jishiInsuranceUrl() {
         return Url.ART + '/jishiInsurance';
     }
-    // 立即加入保险
-    static setOrderFinishUrl() {
-        return Url.ART + '/setOrderFinish';
+    // 我的邀请
+    static getInviteAwardUrl() {
+        return Url.ART + '/getInviteAward';
+    }
+    // 我的钱包
+    static getAccountBalanceUrl() {
+        return Url.ART + '/getAccountBalance';
+    }
+    // 规则详情
+    static getContentInfoUrl() {
+        return Url.ART + '/getContentInfo';
     }
    
 }
