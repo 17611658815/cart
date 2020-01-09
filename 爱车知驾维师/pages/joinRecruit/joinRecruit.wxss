@@ -73,7 +73,7 @@
     height: 90rpx;
     text-align: center;
     line-height: 90rpx;
-    border-radius: 20rpx;
+    border-radius:10rpx;
     background: #525F7F;
     color: #ffffff;
 }
@@ -82,7 +82,7 @@
     height: 90rpx;
     text-align: center;
     line-height: 90rpx;
-    border-radius: 20rpx;
+    border-radius: 10rpx;
     background: #FD8137;
     color: #ffffff;
     margin-left: 10rpx;

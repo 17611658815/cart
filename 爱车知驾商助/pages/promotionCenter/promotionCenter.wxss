@@ -157,7 +157,7 @@
     width: 94%;
     padding: 0 3%;
 }
-/* 红包卡卷*/
+/* 冲减卷卡卷*/
 .typeList_1 .wrapper {
   display: flex;
   position: relative;

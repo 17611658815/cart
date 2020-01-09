@@ -35,7 +35,7 @@
                 <view class="toolList_item_icon">
                       <image src="../../images/icon/icon_28.jpg"></image>
                 </view>
-                <view class="marginTop10 fontSize-24 color3">红包</view>
+                <view class="marginTop10 fontSize-24 color3">冲减卷</view>
             </view>
             <view class="toolList_item" data-index="2" data-type='2' bindtap="goredPacketList"> 
                 <view class="toolList_item_icon">

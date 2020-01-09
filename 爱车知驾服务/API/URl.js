@@ -125,5 +125,9 @@ export default class Url {
     static getCarAdapterProductUrl() {
         return Url.PATH + '/getCarAdapterProduct';
     }
+    //  商品列表
+    static getGoodsListUrl() {
+        return Url.PATH + '/getGoodsList';
+    }
   
 }

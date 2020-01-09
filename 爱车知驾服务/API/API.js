@@ -134,5 +134,9 @@ export const api = {
     getCarAdapterProduct: function (paramObj) {
         return Promise.post(Url.default.getCarAdapterProductUrl(), paramObj);
     },
+    // 商品列表
+    getGoodsList: function (paramObj) {
+        return Promise.post(Url.default.getGoodsListUrl(), paramObj);
+    },
    
 }

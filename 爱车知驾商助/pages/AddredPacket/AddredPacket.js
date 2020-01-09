@@ -78,7 +78,7 @@ Page({
             timeName2: e.detail.value
         })
     },
-    // 提交红包
+    // 提交冲减卷
     addShopActivitie() {
         let that = this,
             params = new Object();

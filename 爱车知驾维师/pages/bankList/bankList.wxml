@@ -1,0 +1,23 @@
+<view class="container">
+    <navigator hover-class="none" url='/pages/addBank/addBank' class="fastTitleBoxs">
+        <text class="fastTitle">添加银行卡</text>
+        <text class="fastBtn" style="margin-left:10rpx;" bindtap="goAddredPacket">添加</text>
+    </navigator>
+    <view class="typeList" wx:if='{{bankList.length>0}}'>
+        <view class="wrapper boxShadow" wx:for="{{bankList}}">
+            <view class="banname">
+                {{item.bank_name}}
+            </view>
+            <view class="banNum">
+                {{item.code}}
+            </view>
+            <image bindtap="delBank" data-id="{{item.id}}" class="icon_colse" src="../../images/icon/icon_colse.png"></image>
+        </view>
+    </view>
+    <view class="width100 dpfC" wx:else>
+        <view class="noList dpfC">
+            <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+            <view class="fontSize-28 color1 marginTop">暂无添加银行卡</view>
+        </view>
+    </view>
+</view>

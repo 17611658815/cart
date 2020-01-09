@@ -17,6 +17,8 @@
         "pages/searchPage/searchPage",
         "pages/community/community",
         "pages/addshop/addshop",
+        "pages/schedule/schedule",
+        "pages/depositapply/depositapply",
         "pages/otherType/otherType",
         "pages/addgoods/addgoods",
         "pages/otherDetaile/otherDetaile",

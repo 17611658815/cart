@@ -5,6 +5,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        city:'',
         isShow:true
     },
 
@@ -12,11 +13,16 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        
     },
     gojoinReq(){
         wx.navigateTo({
             url: '/pages/joinReq/joinReq',
+        })
+    },
+    gosetAddress(){
+        wx.navigateTo({
+            url: '/pages/setAddress/setAddress',
         })
     },
     
@@ -31,7 +37,11 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        let city = wx.getStorageSync('city');
+        console.log(city,41)
+        this.setData({
+            city: city
+        })
     },
 
     /**

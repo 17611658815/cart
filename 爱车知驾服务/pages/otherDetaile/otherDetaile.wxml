@@ -104,7 +104,7 @@
        
     </view>
     <view class="container bgF marginTop">
-        <view class="width90 padStl padding30 ">
+        <view class="width90 padStl padding30">
             <!-- <view class="width100 dpfb marginTop" wx:for='{{otherObj.service}}'>
                 <text class="color3 fontSize-28">{{item.name}}</text>
                 <text class="color3 fontSize-28">{{item.price}}</text>

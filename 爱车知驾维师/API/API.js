@@ -122,5 +122,17 @@ export const api = {
     getContentInfo: function (paramObj) {
         return Promise.post(Url.default.getContentInfoUrl(), paramObj);
     },
+    // 维师故事
+    getRecommend: function (paramObj) {
+        return Promise.post(Url.default.getRecommendUrl(), paramObj);
+    },
+    // 常见问题
+    getContentList: function (paramObj) {
+        return Promise.post(Url.default.getContentListUrl(), paramObj);
+    },
+    // 添加提现记录
+    addCashLog: function (paramObj) {
+        return Promise.post(Url.default.addCashLogUrl(), paramObj);
+    },
     
 }

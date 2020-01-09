@@ -238,4 +238,12 @@ export const api = {
     QRcode: function (paramObj) {
         return Promise.post(Url.default.QRcodeUrl(), paramObj);
     },
+    // 可提现余额
+    getAccountBalance: function (paramObj) {
+        return Promise.post(Url.default.getAccountBalanceUrl(), paramObj);
+    },
+    // 添加提现记录
+    addCashLog: function (paramObj) {
+        return Promise.post(Url.default.addCashLogUrl(), paramObj);
+    },
 }

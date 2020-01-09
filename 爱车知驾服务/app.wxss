@@ -120,6 +120,9 @@
 .color9{
     color: #ffffff;
 }
+.color10{
+    color: #02A4C5;
+}
 /* 间距 */
 .paddinglr{
     padding: 20rpx 3%;
@@ -197,6 +200,7 @@
     height: 10rpx;
     background: #57BE80;
     border-radius: 50%;
+    
 }
 .dian_2{
     display: block;

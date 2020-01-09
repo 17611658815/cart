@@ -1,5 +1,11 @@
 //index.js
 //获取应用实例
+var touchStartX = 0;//触摸时的原点  
+var touchStartY = 0;//触摸时的原点  
+var time = 0;// 时间记录，用于滑动时且时间小于1s则执行左右滑动  
+var interval = "";// 记录/清理时间记录  
+var touchMoveX = 0; // x轴方向移动的距离
+var touchMoveY = 0; // y轴方向移动的距离
 const app = getApp()
 const bmap = require('../../utils/bmap-wx.min.js');
 const beas64 = require('beas64.js');
@@ -120,7 +126,10 @@ Page({
         list:[],//全部服务
         share_source:0,//分享人id
         goodsData:{},
-        sugData:[]
+        sugData:[],
+        list2:[],
+        list3:[],
+        nearerData:[]
     },
     requestMsg(){
         wx.requestSubscribeMessage({
@@ -146,22 +155,19 @@ Page({
         n = n.toString()
         return n[1] ? n : '0' + n
     },
-    onLoad: function (options) {
+   async onLoad (options) {
         let that = this;
         let startTime = that.formatTime(new Date(),2)
         let endTime = that.formatTime(new Date(),1)
-        let userinfo = wx.getStorageSync('userinfo') || '';
         app.globalData.userinfo = wx.getStorageSync('userinfo') || '';
         app.globalData.share_source = options.share_source || 0
         that.setData({
             iconArr:beas64,
-            member_id: userinfo.id,
             goodsId: options.id || '',
             day: startTime[0],
             endDay: endTime[0],
             date: startTime[0],
             time: startTime[1],
-            userinfo: userinfo,
             share_source: options.share_source || 0
         })
        
@@ -178,14 +184,22 @@ Page({
         }
         that.getLocationMsg();
         that.getAreaId();
-        that.getRecommend();
         that.getCarAdapterProduct()
-        console.log(userinfo)
+        let list = await app.getRecommend(15,0);
+        let list2 = await app.getRecommend(17,3);
+        let list3 = await app.getRecommend(18,4);
+        that.setData({
+            list,
+            list2,
+            list3,
+        })
+        // that.getRecommend()
     },
     //顶部吸附效果
     onShow: function () {
         let that = this;
         let userinfo = wx.getStorageSync('userinfo') || '';
+        app.globalData.userinfo = wx.getStorageSync('userinfo') || '';
         wx.getStorage({
             key: 'authorizationShow2',
             success(res) {
@@ -207,19 +221,9 @@ Page({
                 fixTop: rect.top
             })
         }).exec()
+        console.log(that.data.member_id)
     },
-    getRecommend() {
-        let that = this,
-            params = new Object();
-        params.appid = app.globalData.appid;
-        params.recommend_catid = 15;
-        app.net.$Api.getRecommend(params).then((res) => {
-            console.log(res)
-            that.setData({
-                list: res.data.data
-            })
-        })
-    },
+    
     // 获取汽车零件
     getCarAdapterProduct() {
         let that = this,
@@ -333,16 +337,15 @@ Page({
         let markers = that.data.markers;
         let params = {
             appid: app.globalData.appid,
-            lat: that.data.latitude,
-            lng: that.data.longitude,
-            // lat: '39.905277252197266',
-            // lng: '116.51362609863281',
-            // lat: '39.9905796984',
-            // lng: '116.3656844076',
+            // lat: that.data.latitude,
+            // lng: that.data.longitude,
+            lat: '39.9905796984',
+            lng: '116.3656844076',
             level: that.data.currentTab/1+1
         }
         app.net.$Api.getShopListByLocation(params).then((res) => {
             console.log(res)
+            let data = res.data
             res.data.forEach((item) => {
                 markers.unshift({
                     iconPath: that.data.imgArr[that.data.currentTab],
@@ -360,6 +363,7 @@ Page({
                 })
             })
             that.setData({
+               
                 markers: markers
             })
         })
@@ -445,6 +449,7 @@ Page({
                             latitude: res.latitude,
                         })
                         that.getMarkersList()
+                        that.getnearerList()
                     }
                 })
             }
@@ -592,6 +597,7 @@ Page({
             serveType: serveType
         })
     },
+    
     delmodel(){
         app.globalData.order_id = 0;
         this.setData({
@@ -600,11 +606,32 @@ Page({
         clearTimeout(this.data.times)
     },
     onbindfocus() {
+        console.log('1111')
         let that = this;
-        if (!app.globalData.userinfo.id){
+        if (!that.data.member_id) {
+            app.checkLogin()
+        }
+        if (that.data.isHaveCar==0){
+            wx.navigateTo({
+                url: '/pages/uploadPic/uploadPic',
+            })
+        } else if (that.data.isHaveCar == 1){
+            app.globalData.area_id = that.data.area_id
+            app.globalData.Carid = that.data.car_id
             wx.navigateTo({
                 url: '/pages/search/search?currentTab=' + that.data.currentTab + "&area_id=" + that.data.area_id,
             })
+        } else if (that.data.isHaveCar > 1){
+            this.setData({
+                carListShow: true
+            })
+        }
+    },
+    onbindfocus2() {
+        console.log('1111')
+        let that = this;
+        if (!that.data.member_id) {
+            app.checkLogin()
         }
         if (that.data.isHaveCar==0){
             wx.navigateTo({
@@ -816,5 +843,109 @@ Page({
         })
         that.getMarkersList()
     },
+    // 触摸开始事件  
+    touchStart: function (e) {
+        touchStartX = e.touches[0].pageX; // 获取触摸时的原点  
+        touchStartY = e.touches[0].pageY; // 获取触摸时的原点  
+        // 使用js计时器记录时间    
+        interval = setInterval(function () {
+            time++;
+        }, 100);
+    },
+    // 触摸移动事件  
+    touchMove: function (e) {
+        touchMoveX = e.touches[0].pageX;
+        touchMoveY = e.touches[0].pageY;
+    },
+    // 触摸结束事件  
+    touchEnd: function (e) {
+        var moveX = touchMoveX - touchStartX
+        var moveY = touchMoveY - touchStartY
+        if (Math.sign(moveX) == -1) {
+            moveX = moveX * -1
+        }
+        if (Math.sign(moveY) == -1) {
+            moveY = moveY * -1
+        }
+        if (moveX <= moveY) {// 上下
+            // 向上滑动
+            if (touchMoveY - touchStartY <= -30 && time < 10) {
+                console.log("向上滑动")
+                this.setData({
+                    emShow:true
+                })
+            }
+            // 向下滑动  
+            if (touchMoveY - touchStartY >= 30 && time < 10) {
+                console.log('向下滑动 ');
+                this.setData({
+                    emShow: false
+                })
+            }
+        } else {// 左右
+            // 向左滑动
+            if (touchMoveX - touchStartX <= -30 && time < 10) {
+                console.log("左滑页面")
+            }
+            // 向右滑动  
+            if (touchMoveX - touchStartX >= 30 && time < 10) {
+                console.log('向右滑动');
+            }
+        }
+        clearInterval(interval); // 清除setInterval  
+        time = 0;
+    },
+    // 
+    goList(e) {
+        let that = this;
+        let type = e.currentTarget.dataset.type;
+        wx.navigateTo({
+            url: '/pages/goodsListPage/goodsListPage?type=' + type,
+        })
+    },
+    getRecommend(e) {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            recommend_catid: 17
+        }
+        app.net.$Api.getRecommend(params).then((res) => {
+           console.log(res)
+
+        })
+    },
+    goodsItemList(e){
+        let brandid = e.currentTarget.dataset.brandid;
+        let typeid = e.currentTarget.dataset.typeid;
+        wx.navigateTo({
+            url: '/pages/goodsItemList/goodsItemList?brandid=' + brandid + "&typeid=" + typeid,
+        })
+        
+    },
+    goshopDetaile(e){
+        let id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '/pages/shopDetaile/shopDetaile?id='+id,
+        })
+    },
+    // 获取附近店铺
+    getnearerList() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            // lat: '39.905277252197266',
+            // lng: '116.51362609863281',
+            lat: app.globalData.latitude,
+            lng: app.globalData.longitude,
+        }
+        app.net.$Api.getShopListByLocation(params).then((res) => {
+           
+            that.setData({
+                nearerData: res.data,
+            })
+            console.log(that.data.nearerData,946)
+        })
+    },
+    
 
 })

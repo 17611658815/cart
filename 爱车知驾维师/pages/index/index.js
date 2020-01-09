@@ -4,48 +4,68 @@ const app = getApp()
 
 Page({
     data: {
-        userid:0,
+        userid: 0,
         navList: ['首页', '知驾服务'],
-        currentTab:0,
+        currentTab: 0,
         userInfo: {},
-        hasInfo:0,
+        hasInfo: 0,
         city: "",//当前城市
         address: "",//当前位置
         longitude: 0,
         latitude: 0,
-        hasInfoNum:0
+        hasInfoNum: 0,
+        contentList: [],
 
     },
     onLoad: function (options) {
-        app.globalData.share_source = options.share_source || 0
+        app.globalData.share_source = options.share_source || 0;
+        this.getContentList()
     },
-    onShow(){
+    async onShow() {
         let userInfo = wx.getStorageSync('userinfo') || {};
         this.setData({
             userid: userInfo.id,
             userInfo: userInfo
         })
-        this.getUserInfo()
+        const result = await this.getUserInfo();
+        console.log(33333)
     },
-    
+
     getUserInfo() {
         let that = this;
         let params = {
             appid: app.globalData.appid,
             userid: that.data.userid,
         }
-        app.net.$Api.getUserInfo(params).then((res) => {
-            console.log(res, 38)
-            app.globalData.hasInfo = res.data.user;
-            app.globalData.num = res.data.hasInfo
-            that.setData({
-                hasInfo: res.data.hasInfo,
-                hasInfoNum: res.data.hasInfo
+        return new Promise((resolve, reject) => {
+            app.net.$Api.getUserInfo(params).then((res) => {
+                console.log(res, 38)
+                app.globalData.hasInfo = res.data.user;
+                app.globalData.num = res.data.hasInfo
+                that.setData({
+                    hasInfo: res.data.hasInfo,
+                    hasInfoNum: res.data.hasInfo
+                })
+                resolve(res)
             })
-            console.log(res.data.hasInfo)
         })
     },
-    goCarservice(){
+    getContentList() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            content_catid: 23,
+            limit: 3
+        }
+        app.net.$Api.getContentList(params).then((res) => {
+            console.log(res, 56)
+            that.setData({
+                contentList: res.data.data
+            })
+            // console.log(res.data.hasInfo)
+        })
+    },
+    goCarservice() {
         wx.reLaunch({
             url: '/pages/Carservice/Carservice/Carservice',
         })
@@ -58,39 +78,39 @@ Page({
         })
     },
     gomaycenter() {
-        if (this.data.hasInfoNum == 0){
+        if (this.data.hasInfoNum == 0) {
             wx.navigateTo({
                 url: '/pages/photopage/photopage',
             })
-        }else{
+        } else {
             wx.navigateTo({
                 url: '/pages/Carservice/maycenter/maycenter',
             })
         }
-       
+
     },
     // 立即注册
     gosign() {
         if (!this.data.userid) {
             app.checkLogin();
-        }else{
+        } else {
             wx.navigateTo({
                 url: '/pages/photopage/photopage',
             })
         }
-        
+
     },
-    gomessageList(){
+    gomessageList() {
         wx.navigateTo({
             url: '/pages/messageList/messageList',
         })
     },
-    gowelcome(){
+    gowelcome() {
         wx.navigateTo({
             url: '/pages/welcome/welcome',
         })
     },
-    gorecruit(){
+    gorecruit() {
         if (!this.data.userid) {
             app.checkLogin();
         } else {
@@ -99,12 +119,18 @@ Page({
             })
         }
     },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  
- 
+    gotextPage(e) {
+        let id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '/pages/textPage/textPage?id=' + id,
+        })
+    },
+    //事件处理函数
+    bindViewTap: function () {
+        wx.navigateTo({
+            url: '../logs/logs'
+        })
+    },
+
+
 })

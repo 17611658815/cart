@@ -106,5 +106,17 @@ export default class Url {
     static getContentInfoUrl() {
         return Url.ART + '/getContentInfo';
     }
+    // 维师故事
+    static getRecommendUrl() {
+        return Url.ART + '/getRecommend';
+    }
+    // 常见问题
+    static getContentListUrl() {
+        return Url.ART + '/getContentList';
+    }
+    // 添加提现记录
+    static addCashLogUrl() {
+        return Url.ART + '/addCashLog';
+    };
    
 }

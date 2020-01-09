@@ -35,7 +35,9 @@
         "pages/couponList/couponList",
         "pages/noticeInfo/noticeInfo",
         "pages/evaluate/evaluate",
-        "pages/textPage/textPage"
+        "pages/textPage/textPage",
+        "pages/goodsListPage/goodsListPage",
+        "pages/goodsItemList/goodsItemList"
     ],
     "window": {
         "backgroundTextStyle": "light",

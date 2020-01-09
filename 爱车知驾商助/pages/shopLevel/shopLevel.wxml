@@ -6,8 +6,8 @@
                 <image src="../../images/7.jpg"></image>
             </view>
             <view class="listBox_item_center">
-                <view class="color1">发红包</view>
-                <view class="fontSize-24 color2">每发一次红包领取特权</view>
+                <view class="color1">发冲减卷</view>
+                <view class="fontSize-24 color2">每发一次冲减卷领取特权</view>
             </view>
             <view bindtap="goredPacketList" data-index="3" data-type='1' class="listBox_item_right" wx:if="{{!statusData[1] || statusData[1].status == 1}}">
                 去领取

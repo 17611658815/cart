@@ -1,10 +1,10 @@
 <view class="container">
-    <view class="loansNum">
+    <view class="loansNum" bindtap="godepositapply">
         <view class="dpf color1 fontSize-32">
             <view class="loansLogo">
                 <image src="../../images/icon/icon_34.jpg"></image>
             </view>
-            <view class="marginLeft">贷款总额</view>
+            <view class="marginLeft">货款总额</view>
             <image class="rightPic marginLeft" src='../../images/icon/icon_right.png'></image>
         </view>
         <view class="marginTop">
@@ -14,7 +14,7 @@
     </view>
     <view class="layoutList dpfC bgFFFF width100 marginTop">
         <navigator hover-class="none" url='/pages/loansList/loansList' class="layoutList_item width90 dpfb  borderBtm padding20">
-            <view>贷款明细</view>
+            <view>货款明细</view>
             <image class="rightPic" src='../../images/icon/icon_right.png'></image>
         </navigator>
        <navigator hover-class="none" url='/pages/bankList/bankList' class="layoutList_item width90 dpfb paddinglr bgFFFF">

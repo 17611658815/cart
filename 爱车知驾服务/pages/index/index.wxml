@@ -4,8 +4,9 @@
     <!-- <button bindtap="goShopApp">商户</button>
     <button bindtap="goStechnician">技师</button> -->
     <!-- 头部 -->
+    <view class="headerContent">
     <view class="headerBox width100 dpfC padding20">
-        <view class="headerBox width90 dpfb">
+        <view class="width90 dpfb">
             <view class="user_nav" bindtap="onshowslideNav">
                 <image src="../../images/user_icon.png"></image>
             </view>
@@ -160,11 +161,13 @@
             </view>
         </view>
     </view>
+    </view>
     <!-- map地图 -->
     <view class="width100" wx:if='{{currentTab<=4}}'>
         <view class="mapBox dpfC">
+            
             <!-- 搜索框 -->
-            <view class='home-content-search' wx:if='{{!isShadeShow && !slideNav}}'>
+            <view class='home-content-search' wx:if='{{!isShadeShow && !slideNav && !emShow}}'>
                 <image class='icon_search' src='../../images/icon_5.png'></image>
                 <input class="searchInput" type="text" bindinput="bindKeyInput" placeholder="小区 / 写字楼 / 学校等"></input>
             </view>
@@ -221,7 +224,10 @@
             </view> -->
         </view>
         <!-- 选择服务 -->
-        <view class="width100 dpfC moduleBox" wx:if='{{typeNum== 0}}'>
+        <view class="width100 dpfC moduleBox" wx:if='{{typeNum== 0}}'> 
+        <view class="upBox" wx:if='{{typeNum == 0}}' catchtap="selecEmergency">
+               <image src="../../images/down5.png"></image>
+            </view>
             <view class="width90 dpfC boxShadow padding30">
                 <view class="tabNav width90">
                     <view data-index="0" bindtap="servetab" class="{{ serveCurrent == 0 ? 'border':''}}">现在</view>
@@ -241,11 +247,12 @@
                     <view class="left_Box">
                         <text class="dian_2"></text>
                     </view>
-                    <view bindtap='onbindfocus' class="right_text fontSize-28 color2"> 您的车有什么问题
+                    <view catchtap="onbindfocus" class="right_text fontSize-28 color2"> 您的车有什么问题
                     </view>
                 </view>
             </view>
         </view>
+       
         <!-- 预约维师 -->
         <view class="width100 dpfC moduleBox" wx:if='{{typeNum== 1}}'>
             <view class="width90 dpfC boxShadow padding30">
@@ -424,7 +431,7 @@
 
 <!-- 急救中心 滑出-->
 <import src="emergency.wxml"></import>
-<template is="Emergency" wx:if='{{emShow}}' data="{{emShow:emShow,selecEmergency:selecEmergency}}"></template>
+<template is="Emergency" data="{{emShow:emShow,selecEmergency:selecEmergency,list2:list2,list3:list3,nearerData:nearerData}}"></template>
 <!-- 选择爱车 滑出-->
 <import src="carList.wxml"></import>
 <template is="carList" wx:if='{{carListShow}}' data="{{carListShow:carListShow,carList:carList,carindex:carindex,selectCar:selectCar,onhidesCarlist:onhidesCarlist,confirmCar:confirmCar}}"></template>

@@ -1,5 +1,5 @@
 <view class="container">
-    <view class="headerNum">
+    <view class="headerNum" bindtap="godepositapply">
         <view class="headerNum_layout">
             <view class="fontSize-32 color3">
                 账户余额

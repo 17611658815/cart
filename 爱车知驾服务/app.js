@@ -41,6 +41,21 @@ App({
         ak: "sQdSTWiqZ5943Yjz8naByOZ1OcpE7d0u"
 
     },
+    // 推荐位
+    getRecommend(id, limit) {
+        let that = this,
+            params = new Object();
+        params.appid = that.globalData.appid;
+        params.recommend_catid = id;
+        params.limit = limit;
+        return new Promise((resolve, reject) => {
+            that.net.$Api.getRecommend(params).then((res) => {
+                resolve(res.data.data)
+            })
+               
+        })
+        
+    },
     loading: function (content) {
         wx.showLoading({
             mask: true,

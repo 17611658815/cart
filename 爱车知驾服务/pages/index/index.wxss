@@ -5,7 +5,15 @@
     background: #fff;
     z-index: 10;
 }
-
+.headerContent{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+       z-index: 10;
+    
+}
 .user_nav image {
     width: 30rpx;
     height: 35rpx;
@@ -137,8 +145,10 @@
 
 .mapBox {
     width: 100%;
-    height: 1000rpx;
-    position: relative;
+    height: 80vh;
+    position: fixed;
+    left: 0;
+    top: 0;
 }
 
 .hint_msg {
@@ -268,6 +278,7 @@
     height: 90rpx;
     line-height: 90rpx;
     border-bottom: 1rpx solid #e2e2e2;
+    z-index: 9
 }
 
 /* 遮罩层 */
@@ -549,6 +560,7 @@
     width: 100%;
     height: 400rpx;
     background: #999999;
+    margin-top: 150rpx;
 }
 .serveList{
     width: 100%;
@@ -631,6 +643,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 100rpx;
 }
 .carife_list>view{
     width: 24%;
@@ -764,11 +777,35 @@ margin-bottom: 20rpx;
     font-size: 30rpx;
     color: #8f8f8f;
     position: absolute;
-    top: 30rpx;
+    top: 200rpx;
     z-index: 9999;
 
 }
-.home-content-search .icon_search {
+.home-content-search2 {
+    width: 90%;
+    height: 60rpx;
+    border-radius: 50rpx;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+    color: #8f8f8f;
+   
+
+}
+.searchBox{
+    width: 100%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30rpx 0;
+     position: absolute;
+    top: 0;
+    z-index: 9999;
+}
+ .icon_search {
     width: 40rpx;
     height: 40rpx;
     padding: 0 15rpx;
@@ -812,7 +849,7 @@ margin-bottom: 20rpx;
     flex-direction: column;
     overflow: auto;
     position: absolute;
-    top: 90rpx;
+    top: 270rpx;
     z-index: 99999;
     background: #ffffff;
 }
@@ -822,4 +859,28 @@ margin-bottom: 20rpx;
     font-size: 26rpx;
     color: #666666;
     border-bottom:1rpx dashed #666666;  
+}
+.homePageBox{
+    width: 100%;
+    height: 500rpx;
+    background: yellow;
+}
+.addfacility{
+    margin-top: 100rpx;
+}
+.upBox{
+    width: 100%;
+    height: 50rpx;
+    display: flex;
+    justify-content: center;
+    background: #ffffff;
+    position: relative;
+}
+.upBox image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50rpx;
+    height: 50rpx;
+     transform: translate(-50%,-50%)
 }

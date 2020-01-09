@@ -1,0 +1,28 @@
+<view class="container">
+    <!-- 手机列表 -->
+    <view class="width100 dpfC list_itemBox">
+        <view class='dpfC width90 padStl bgF'>
+            <view class="phoneList">
+                <view class="listBox" wx:if='{{listData.length>0}}'>
+                    <view class="listBox_item boxShadow" wx:for='{{listData}}' bindtap="goshopDetaile" data-id='{{item.shop_id}}'>
+                        <view class="listBox_item_img dpfC">
+                            <image mode="scaleToFill" src="{{item.thumb}}" />
+                        </view>
+                        <view class="phonePriceNum marginTop5">
+                            <text class="fontSize-20 color7">￥</text>
+                            <text class="fontSize-32 color7 fontWeight5">{{item.price}}</text>
+                            <text class="fontSize-22 color3">/元</text>
+                        </view>
+                        <view class="phoneName">{{item.name}}</view>
+                    </view>
+                </view>
+                <view class="width100 dpfC" wx:else>
+                    <view class="noList dpfC">
+                        <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+                        <view class="fontSize-28 color1 marginTop">暂无相关商品</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

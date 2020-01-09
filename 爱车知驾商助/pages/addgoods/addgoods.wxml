@@ -6,7 +6,7 @@
                 <view class='leaberleft fontSize-30 color2'>
                     <text>选择分类</text>
                 </view>
-                <picker bindchange="bindMultiPickerChange" value="{{index}}" range="{{array}}">
+                 <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
                     <view class="picker">
                         <text class='fontSize-30 color1'>{{typeName}}</text>
                         <image class='icon_right' src='../../images/icon/icon_right.png'></image>

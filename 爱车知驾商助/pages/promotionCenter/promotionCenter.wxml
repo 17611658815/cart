@@ -242,7 +242,7 @@
         <view class="width100 dpfC" wx:else>
             <view class="noList dpfC">
               <image mode="scaleToFill" style="width:400rpx;" src="../../images/aicheLogo.png" />
-                <view class="fontSize-28 color1 marginTop">暂无添加红包</view>
+                <view class="fontSize-28 color1 marginTop">暂无添加冲减卷</view>
             </view>
         </view>
     </view>

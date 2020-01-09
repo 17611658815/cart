@@ -44,7 +44,7 @@ export default class Url {
     }
     // 选择添加商品
     static getGoodsTypeUrl() {
-        return Url.PATH + '/getGoodsType';
+        return Url.PATH + '/getGoodsType2';
     }
     // 分类列表
     static getTypeGoodsUrl() {
@@ -229,6 +229,14 @@ export default class Url {
     // 获取二维码
     static QRcodeUrl() {
         return Url.PATH + '/QRcode';
+    };
+    // 可提现余额
+    static getAccountBalanceUrl() {
+        return Url.PATH + '/getAccountBalance';
+    };
+    // 添加提现记录
+    static addCashLogUrl() {
+        return Url.PATH + '/addCashLog';
     };
 
 }

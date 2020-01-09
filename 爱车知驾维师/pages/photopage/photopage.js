@@ -56,21 +56,17 @@ Page({
     initialize(){
         let sessionKey = wx.getStorageSync('session_key');
         let userInfo = wx.getStorageSync('userinfo');
+        let city = wx.getStorageSync('city') || "";
         this.setData({
             sessionKey,
             userid: userInfo.id,
             phone: userInfo.phone,
-            // oldidCard: userInfo.card_photos || "",
-            // oldcertification: userInfo.aptitude_photos || "",
-            // olddriving: userInfo.healthy_photos || "",
-            avatar: userInfo.avatar || "",
-            tempImagePath: userInfo.avatar || "https://img.dodo.wiki/app/img11.jpg",
-            // certification: userInfo.aptitude_photos || "",
-            // driving: userInfo.healthy_photos || "",
             city: app.globalData.city,
             num: app.globalData.num
         })
-        this.getLocationMsg();
+        if (city == ""){
+            this.getLocationMsg();
+        }
         this.setData({
             ctx: wx.createCameraContext()
         })
@@ -91,7 +87,10 @@ Page({
                         console.log(e, 39)
                         app.globalData.longitude = res.longitude;
                         app.globalData.latitude = res.latitude;
-                        app.globalData.city = e.data.result.address_component.city
+                        app.setStorage("longitude", res.longitude)
+                        app.setStorage("latitude", res.latitude)
+                        app.setStorage("city", e.data.result.address_component.city)
+                        app.globalData.city = e.data.result.address_component.city;
                         // app.globalData.id = e.data.result.address_component.city
                         // that.setData({
                         //     city: e.data.result.address_component.city,//当前城市
@@ -124,10 +123,8 @@ Page({
     //             new_img2: res.data.data.work_photos,
     //             new_img3: res.data.data.avatar,
     //             goodsName: res.data.data.real_name,
-              
     //         })
     //     })
-
     // },
     getUserInfo() {
         let that = this;
@@ -146,6 +143,7 @@ Page({
                 // oldcertification: res.data.user.aptitude_photos,
                 // olddriving: res.data.user.healthy_photos,
                 avatar: res.data.user.avatar,
+                tempImagePath: res.data.user.avatar,
                 name: res.data.user.real_name,
                 text1: (res.data.user.subscribe_message['8T_Xni23AoLeZwG3r3T-iXIw3eTus12_FzLSV-EQPJQ'] != undefined && res.data.user.subscribe_message['8T_Xni23AoLeZwG3r3T-iXIw3eTus12_FzLSV-EQPJQ'] == 'accept') ? '已授权' : '未授权',
                 text2: (res.data.user.subscribe_message['IajJtRQNTx_f695jvXlM1Fa2qBAcW6nCA3Rny0KLZIg'] != undefined && res.data.user.subscribe_message['IajJtRQNTx_f695jvXlM1Fa2qBAcW6nCA3Rny0KLZIg'] == 'accept') ? '已授权' : '未授权',
@@ -298,7 +296,6 @@ Page({
             encryptedData: e.detail.encryptedData,
             iv: e.detail.iv,
         }
-        
         if (that.data.name == "") {
             app.alert('请填写名称~');
             return

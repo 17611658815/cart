@@ -5,10 +5,10 @@
             请选择您要维保的城市
         </view>
         <view class="fontSize-32">
-            当前定位城市为北京，确定要注册成为该城市的网约维师吗？
+            当前选择城市为{{city}}，确定要注册成为该城市的网约维师吗？
         </view>
         <view class="contentBtn">
-            <view bindtap="gojoinReq">重新选择</view>
+            <view bindtap="gosetAddress">重新选择</view>
             <view bindtap="gojoinReq">确认</view>
         </view>
     </view>

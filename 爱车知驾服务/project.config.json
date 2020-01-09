@@ -18,7 +18,8 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"enhance": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.3",
@@ -332,6 +333,12 @@
 					"name": "pages/evaluate/evaluate",
 					"pathName": "pages/evaluate/evaluate",
 					"query": "id=213&type=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品列表",
+					"pathName": "pages/goodsListPage/goodsListPage",
 					"scene": null
 				}
 			]

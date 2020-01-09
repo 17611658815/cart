@@ -17,6 +17,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+   
 }
 .tabList .tetx{
     font-size: 24rpx;

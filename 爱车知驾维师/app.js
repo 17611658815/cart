@@ -2,7 +2,7 @@
 const Api = require('API/API.js');
 App({
     onLaunch: function () {
-        
+
         wx.getSystemInfo({
             success: (res) => {
                 console.log(res)
@@ -13,7 +13,7 @@ App({
         })
     },
     //检查登录
-    checkLogin:function(){
+    checkLogin: function () {
         let userInfo = wx.getStorageSync('userinfo') || '';
         if (userInfo == "") {
             wx.navigateTo({
@@ -49,4 +49,17 @@ App({
         })
         return this
     },
+    setTitle: function (content) {
+        wx.setNavigationBarTitle({
+            title: content
+        })
+    },
+    setStorage(key, data){
+        wx.setStorage({
+            key: key,
+            data: data,
+        })
+    }
+     
+
 })

@@ -1,0 +1,17 @@
+<view class="container">
+   <!-- 手机列表 -->
+  <view class="width100 dpfC list_itemBox">
+    <view class='dpfC width90 padStl bgF'>
+      <view class="phoneList">
+        <view class="listBox">
+          <view class="listBox_item boxShadow" wx:for='{{listData}}' bindtap="godsItemList" data-id='{{item.id}}'>
+            <view class="listBox_item_img dpfC">
+              <image mode="scaleToFill" src="{{item.img}}"/>
+            </view>
+            <view class="phoneName white_noWrap">{{item.name}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

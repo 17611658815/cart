@@ -7,7 +7,17 @@ Page({
      */
     data: {
         dataList: ['累计登录', '发帖', '评论', '获赞'],
-        typeListArr: [{
+        typeListArr: [
+            {
+                name: '钱包',
+                path: '/pages/Carservice/wallet/wallet',
+                icon: '../../../images/icon_58.png'
+            },
+            {
+                name: '我的银行卡',
+                path: '/pages/bankList/bankList',
+                icon: '../../../images/icon_59.png'
+            },{
                 name: '订单列表',
                 path: '/pages/otherList/otherList',
             icon: '../../../images/icon_37.png'

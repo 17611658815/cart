@@ -5,7 +5,7 @@
     <view class="navList width90">
         <navigator hover-class="none" url='/pages/activityList/activityList' class="{{currentTab==0 ? 'color1 navActive':'color3'}}">推广概况</navigator>
         <navigator hover-class="none" url='/pages/couponList/couponList' class="{{currentTab==1 ? 'color1 navActive':'color3'}}">赠优惠卷</navigator>
-        <navigator hover-class="none" url='/pages/redPacketList/redPacketList' class="{{currentTab==2 ? 'color1 navActive':'color3'}}">发红包</navigator>
+        <navigator hover-class="none" url='/pages/redPacketList/redPacketList' class="{{currentTab==2 ? 'color1 navActive':'color3'}}">发冲减卷</navigator>
     </view>
     <view class="typeList" wx:if='{{packetList.length>0}}'>
         <view class="wrapper" wx:for="{{packetList}}">
@@ -35,7 +35,7 @@
     <view class="width100 dpfC" wx:else>
         <view class="noList dpfC">
             <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
-            <view class="fontSize-28 color1 marginTop">暂无添加红包</view>
+            <view class="fontSize-28 color1 marginTop">暂无添加冲减卷</view>
         </view>
     </view>
 

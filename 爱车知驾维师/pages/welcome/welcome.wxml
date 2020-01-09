@@ -1,20 +1,19 @@
 <view class="container">
     <view class="tabList">
-        <view wx:for='{{3}}' data-index="{{index}}" bindtap="swatchTab" class="{{currentTab == index ? 'bgF49749':''}}">
-            <image src='../../images/10.png'></image>
+        <view wx:for='{{jishi_list}}' data-index="{{index}}" bindtap="swatchTab" class="{{currentTab == index ? 'bgF49749':''}}">
+            <image mode="aspectFill" src='{{item.data.pic2}}'></image>
             <view class="tetx">
-                湖南90后初级维修技师黄先生
+                {{item.data.title}}
             </view>
         </view>
     </view>
     <view class="technicalTxt">
         <view class="technicalTxt_pic">
-            <image mode="aspectFill" src="../../images/1.jpg"></image>
+            <image mode="aspectFill" src="{{jishi_list[currentTab].data.pic}}"></image>
         </view>
         <view class="technicalTxt_text">
-            <view class="fontSize-40 fontWeight5">上海兼职 “妈妈维师” 张女士</view>
-            <view style='line-height:40rpx;color:#000' class="fontSize-26 fontWeight5">年龄在18周岁以上，且必须有中华人民共和国劳动部和社会保障步统一印制，劳动部门或国务院有关不玩呢按规定办理和核发，至少含初级，中年龄在18周岁以上，且必须有中华人民共和国劳动部和社会保障步统一印制，劳动部门或国务院有关不玩呢按规定办理和核发，至少含初级，中</view>
-            <view style='line-height:40rpx;color:#000' class="fontSize-26 fontWeight5">年龄在18周岁以上，且必须有中华人民共和国劳动部和社会保障步统一印制，劳动部门或国务院有关不玩呢按规定办理和核发，至少含初级，中年龄在18周岁以上，且必须有中华人民共和国劳动部和社会保障步统一印制，劳动部门或国务院有关不玩呢按规定办理和核发，至少含初级，中</view>
+            <view class="fontSize-40 fontWeight5">{{jishi_list[currentTab].data.title}}</view>
+            <rich-text nodes="{{jishi_list[currentTab].data.desc}}" style='line-height:50rpx;color:#666;' class="fontSize-26 fontWeight5"></rich-text>
         </view>
     </view>
 </view>

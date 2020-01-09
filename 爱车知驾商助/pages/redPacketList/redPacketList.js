@@ -11,7 +11,7 @@ Page({
         packetList:[],
         on_off:false,
         currentTab: 2,//头部导航
-        navList: ['推广概况', '赠优惠卷', '发红包'],
+        navList: ['推广概况', '赠优惠卷', '发冲减卷'],
     },
 
     /**

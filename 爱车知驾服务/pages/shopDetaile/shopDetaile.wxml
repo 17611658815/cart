@@ -50,10 +50,10 @@
     <view class="width100 dpfC list_itemBox">
         <view class='dpfC width90 padStl bgF'>
             <view class="phoneList">
-                <view class="listBox">
+                <view class="listBox" wx:if='{{shopObj.goods[currentTab].items.length>0}}'>
                     <view class="listBox_item boxShadow" wx:for='{{shopObj.goods[currentTab].items}}' bindtap="goGoodsDetails" wx:key='key'>
                         <view class="listBox_item_img dpfC">
-                            <image mode="aspectFill" src="{{item.thumb}}" />
+                            <image mode="scaleToFill" src="{{item.thumb}}" />
                         </view>
                         <view class="phoneName">{{item.name}}</view>
                         <view class="phonePriceNum marginTop5">
@@ -62,6 +62,12 @@
                             <text class="fontSize-22 color3">元</text>
                         </view>
                         <image class="addCar" data-item='{{item}}' catchtap="addCar" src="../../images/addCar.png"></image>
+                    </view>
+                </view>
+                <view class="width100 dpfC" wx:else>
+                    <view class="noList dpfC">
+                        <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+                        <view class="fontSize-28 color1">暂无相关商品</view>
                     </view>
                 </view>
             </view>

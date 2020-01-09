@@ -1,0 +1,92 @@
+/* pages/bankList/bankList.wxss */
+/* pages/redPacketList/redPacketList.wxss */
+.typeList{
+    width: 94%;
+    padding: 0 3%;
+}
+/* 卡卷样式 */
+/* 这是第二个 */
+.wrapper {
+  display: flex;
+  width: 90%;
+  height: 340rpx;
+  margin-top: 30rpx;
+  background: #999999;
+  border-radius: 10rpx;
+  padding: 30rpx 5%;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #ffffff;
+  background: rgba(0, 0,0, .2);
+  position: relative;
+ 
+}
+.banname{
+    font-size: 36rpx;
+    font-weight: 500;
+}
+.banNum{
+    text-align: right;
+}
+/*  */
+.fastTitleBoxs{
+    width: 94%;
+    padding: 0 3%;
+    height: 88rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+}
+.fastTitle {
+    font-size: 27rpx;
+    color: #67A1FF;
+}
+.defeated .fastTitle{
+    width: 500rpx;
+}
+.defeated .fastBtn{
+     width: 136rpx;
+    height: 60rpx;
+    background: #6e9ff7;
+    color: #fff;
+    font-size: 28rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border-radius: 75rpx;
+}
+.defeated text{
+    display: block;
+}
+.fastBtn {
+    width: 136rpx;
+    height: 60rpx;
+    background: #67A1FF;
+    color: #fff;
+    font-size: 28rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border-radius: 75rpx;
+}
+
+.marginLefts{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 40rpx;
+    padding-left: 20rpx;
+}
+.marginLefts{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 40rpx;
+    padding-left: 20rpx;
+}
+.icon_colse{
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    top: 30rpx;
+    right: 30rpx;
+}   

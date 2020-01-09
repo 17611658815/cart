@@ -9,7 +9,7 @@ Page({
         dataTab: 0,//头部导航
         currentTab: 0,//头部导航
         type:0,
-        navList:['推广概况','发起活动','赠优惠卷','发红包'],
+        navList:['推广概况','发起活动','赠优惠卷','发冲减卷'],
         tabArr:['搜索推广数据','场景展示数据'],
         selectIndex1:0,
         selectIndex2:0,

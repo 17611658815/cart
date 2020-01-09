@@ -18,7 +18,8 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"enhance": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.8.3",
@@ -203,14 +204,14 @@
 				},
 				{
 					"id": -1,
-					"name": "红包列表",
+					"name": "冲减卷列表",
 					"pathName": "pages/redPacketList/redPacketList",
 					"query": "",
 					"scene": null
 				},
 				{
 					"id": 22,
-					"name": "添加红包",
+					"name": "添加冲减卷",
 					"pathName": "pages/AddredPacket/AddredPacket",
 					"query": "type=2",
 					"scene": null
@@ -289,6 +290,13 @@
 					"id": -1,
 					"name": "店长推荐",
 					"pathName": "pages/ortherShop/ortherShop",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "提现",
+					"pathName": "pages/depositapply/depositapply",
 					"scene": null
 				}
 			]
