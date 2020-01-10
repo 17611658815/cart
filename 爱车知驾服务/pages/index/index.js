@@ -1,11 +1,11 @@
 //index.js
 //获取应用实例
-var touchStartX = 0;//触摸时的原点  
-var touchStartY = 0;//触摸时的原点  
-var time = 0;// 时间记录，用于滑动时且时间小于1s则执行左右滑动  
-var interval = "";// 记录/清理时间记录  
-var touchMoveX = 0; // x轴方向移动的距离
-var touchMoveY = 0; // y轴方向移动的距离
+// var touchStartX = 0;//触摸时的原点  
+// var touchStartY = 0;//触摸时的原点  
+// var time = 0;// 时间记录，用于滑动时且时间小于1s则执行左右滑动  
+// var interval = "";// 记录/清理时间记录  
+// var touchMoveX = 0; // x轴方向移动的距离
+// var touchMoveY = 0; // y轴方向移动的距离
 const app = getApp()
 const bmap = require('../../utils/bmap-wx.min.js');
 const beas64 = require('beas64.js');
@@ -337,10 +337,10 @@ Page({
         let markers = that.data.markers;
         let params = {
             appid: app.globalData.appid,
-            // lat: that.data.latitude,
-            // lng: that.data.longitude,
-            lat: '39.9905796984',
-            lng: '116.3656844076',
+            lat: that.data.latitude,
+            lng: that.data.longitude,
+            // lat: '39.9905796984',
+            // lng: '116.3656844076',
             level: that.data.currentTab/1+1
         }
         app.net.$Api.getShopListByLocation(params).then((res) => {

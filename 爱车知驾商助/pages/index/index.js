@@ -86,7 +86,6 @@ Page({
         wx.navigateTo({
             url: '/pages/goodsList/goodsList?index=' + index + "&status=" + status,
         })
-
     },
     gomsgDetaile(e) {
         let id = e.currentTarget.dataset.id;

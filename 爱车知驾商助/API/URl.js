@@ -98,11 +98,11 @@ export default class Url {
     static getShopGoodsNumUrl() {
         return Url.PATH + '/getShopGoodsNum';
     }
-    // 红包-优惠卷-活动列表
+    // 冲减卷-优惠卷-活动列表
     static getShopActivitieUrl() {
         return Url.PATH + '/getShopActivitie';
     }
-    // 添加-红包-优惠卷-活动
+    // 添加-冲减卷-优惠卷-活动
     static addShopActivitieUrl() {
         return Url.PATH + '/addShopActivitie'; 
     }

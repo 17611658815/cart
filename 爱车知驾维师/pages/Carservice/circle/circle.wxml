@@ -22,42 +22,51 @@
         </view>
     </view>
     <view class="circle_Tab">
-        <view class="{{circleTabNum == index ? 'color8':''}}" wx:for='{{circle_Tab}}'>
+        <view bindtap="swatchTab" data-index='{{index}}' class="{{circleTabNum == index ? 'color8':''}}" wx:for='{{circle_Tab}}'>
             {{item}}
         </view>
     </view>
-    <view class="circle_content" wx:for='{{5}}'>
-        <view class="width100 dpfb">
+    <view class="width100" wx:if='{{magDataList.length>0}}'>
+    <view class="circle_content" wx:for='{{magDataList}}' catchtap="gomsgDetaile" data-id='{{item.id}}'>
+        <view class="width100 dpfb" >
             <view class="dpf">
-                <image class="userPic" src="../../../images/aicheLogo.png"></image>
-                <text class="fontSize-26 color3">知驾车服</text>
+                <image class="userPic" src="{{item.avatar}}" wx:if='{{item.member_id>0}}'></image>
+                <text class="fontSize-26 color3">{{item.title}}</text>
             </view>
-            <view class="fontSize-26 color3">07-15</view>
+            <view class="fontSize-26 color3">{{item.created}}</view>
         </view>
-        <view class="dpf padding20">
-            <view class="cover_title">
-                勇者无畏！知驾维工在事故现场孤战一线
+        <view style="display: flex;overflow: hidden;" class="padding20">
+            <view class="cover_title" style="overflow: hidden;">
+                {{item.desc}}
             </view>
-           <image class="cover_Image" src="../../../images/icon2.jpg"></image>
+           <image class="cover_Image" src="{{item.thumb}}"></image>
         </view>
         <view class="dpfb" >
             <view class="fontSize-26 color3">#今日话题</view>
             <view class="rightIconBob">
                 <view>
                     <image class="circle_content_icon" src="../../../images/icon_30.png"></image>
-                    <text>14千</text>
+                    <text>{{item.collection}}千</text>
                 </view>
                 <view>
-                     <image class="circle_content_icon" src="../../../images/icon_31.png"></image>
-                    <text>456</text>
+                     <image class="circle_content_icon" wx:if="{{item.is_zan > 0}}" catchtap="postingsZan" data-type='no' data-id='{{item.id}}' data-index='{{index}}' src="../../../images/zan.png"></image>
+                     <image class="circle_content_icon" src="../../../images/nozan.png" catchtap="postingsZan" data-type='yes' data-id='{{item.id}}' data-index='{{index}}' wx:else></image>
+                    <text>{{item.zan}}</text>
                 </view>
-                <view>
+                <view catchtap="gomsgDetaile" data-id='{{item.id}}'>
                      <image class="circle_content_icon" src="../../../images/icon_32.png"></image>
-                    <text>48</text>
+                    <text>{{item.comment}}</text>
                 </view>
             </view>
         </view>
     </view>
+    </view>
+    <view class="width100 dpfC" wx:else>
+    <view class="noList dpfC">
+        <!-- <image mode="scaleToFill" src="../../images/icon/order_empty.png" /> -->
+        <view style="margin-top:200rpx;" class="fontSize-28 color1 marginTop">暂无相关内容</view>
+    </view>
+</view>
 </view>
 <import src="../../../template/btnNab/btnNab.wxml"></import>
 <template is="btnNab" data='{{current:btnNavcurrent}}'></template>

@@ -118,5 +118,30 @@ export default class Url {
     static addCashLogUrl() {
         return Url.ART + '/addCashLog';
     };
+    // 维师圈
+    static getPostingsListUrl() {
+        return Url.ART + '/getPostingsList';
+    };
+    // 点赞
+    static postingsZanUrl() {
+        return Url.ART + '/postingsZan';
+    };
+    // 圈子内容详情
+    static postingsInfoUrl() {
+        return Url.ART + '/postingsInfo';
+    };
+    // 评论
+    static postingsCommentUrl() {
+        return Url.ART + '/postingsComment';
+    };
+   
+    // 提交评论
+    static addPostingsCommentUrl() {
+        return Url.ART + '/addPostingsComment';
+    };
+    // 点赞评论
+    static postingsCommentZanUrl() {
+        return Url.ART + '/postingsCommentZan';
+    };
    
 }

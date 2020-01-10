@@ -106,11 +106,11 @@ export const api = {
     getShopGoodsNum: function (paramObj) {
         return Promise.post(Url.default.getShopGoodsNumUrl(), paramObj);
     },
-    // 红包-优惠卷-活动列表
+    // 冲减卷-优惠卷-活动列表
     getShopActivitie: function (paramObj) {
         return Promise.post(Url.default.getShopActivitieUrl(), paramObj);
     },
-    // 添加-红包-优惠卷-活动列表
+    // 添加-冲减卷-优惠卷-活动列表
     addShopActivitie: function (paramObj) {
         return Promise.post(Url.default.addShopActivitieUrl(), paramObj);
     },

@@ -68,6 +68,8 @@ Page({
         if (!app.globalData.userInfo.id){
             app.checkLogin();
             
+        } else if (this.data.status == 1){
+            return
         } else{
             wx.navigateTo({
                 url: '/pages/register/register',

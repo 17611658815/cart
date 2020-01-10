@@ -134,5 +134,29 @@ export const api = {
     addCashLog: function (paramObj) {
         return Promise.post(Url.default.addCashLogUrl(), paramObj);
     },
+    // 维师圈
+    getPostingsList: function (paramObj) {
+        return Promise.post(Url.default.getPostingsListUrl(), paramObj);
+    },
+    // 点赞
+    postingsZan: function (paramObj) {
+        return Promise.post(Url.default.postingsZanUrl(), paramObj);
+    },
+    // 圈子内容详情
+    postingsInfo: function (paramObj) {
+        return Promise.post(Url.default.postingsInfoUrl(), paramObj);
+    },
+    // 评论
+    postingsComment: function (paramObj) {
+        return Promise.post(Url.default.postingsCommentUrl(), paramObj);
+    },
+    // 提交评论
+    addPostingsComment: function (paramObj) {
+        return Promise.post(Url.default.addPostingsCommentUrl(), paramObj);
+    },
+    // 点赞评论
+    postingsCommentZan: function (paramObj) {
+        return Promise.post(Url.default.postingsCommentZanUrl(), paramObj);
+    },
     
 }

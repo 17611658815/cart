@@ -875,6 +875,8 @@ margin-bottom: 20rpx;
     justify-content: center;
     background: #ffffff;
     position: relative;
+    padding-top: 30rpx;
+    margin-bottom: 10rpx;
 }
 .upBox image{
     position: absolute;
