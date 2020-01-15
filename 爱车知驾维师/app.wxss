@@ -103,13 +103,13 @@ page{
 }
 /* 字体颜色 */
 .color1 {
-    color: #333;
+    color: #252525;
 }
 .color2 {
-    color: #666;
+    color: #686868;
 }
 .color3 {
-    color: #999;
+    color: #848689;
 }
 .color4{
     color: #ffffff;
@@ -120,8 +120,8 @@ page{
 .color6{
     color: #F9903F;
 }
-.color8{
-    color: #FFA500;
+.color7{
+    color: #F18D00;
 }
 /* 间距 */
 .paddinglr{
@@ -176,7 +176,7 @@ page{
     -webkit-line-clamp: 2;
 }
 .borderBtm{
-    border-bottom: 2rpx solid #e2e2e2;
+    border-bottom: 2rpx solid #bfbfbf;
 }
 .boxShadow{
    box-shadow:-1rpx 2rpx 12rpx #CCCCCC;

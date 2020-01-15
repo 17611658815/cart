@@ -158,5 +158,25 @@ export const api = {
     postingsCommentZan: function (paramObj) {
         return Promise.post(Url.default.postingsCommentZanUrl(), paramObj);
     },
+    // 银行卡列表
+    getBankCardList: function (paramObj) {
+        return Promise.post(Url.default.getBankCardListUrl(), paramObj);
+    },
+    // 评论列表
+    getMyPostingsComment: function (paramObj) {
+        return Promise.post(Url.default.getMyPostingsCommentUrl(), paramObj);
+    },
+    // 发布文章
+    addPostings: function (paramObj) {
+        return Promise.post(Url.default.addPostingsUrl(), paramObj);
+    },
+    // 赞列表
+    getMyPostingsZan: function (paramObj) {
+        return Promise.post(Url.default.getMyPostingsZanUrl(), paramObj);
+    },
+    // 添加银行卡
+    addBankCard: function (paramObj) {
+        return Promise.post(Url.default.addBankCardUrl(), paramObj);
+    },
     
 }

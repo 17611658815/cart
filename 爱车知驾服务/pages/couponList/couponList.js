@@ -33,7 +33,6 @@ Page({
         wx.navigateBack({
             delta:1
         })
-
     },
     onShow: function () {
         this.loadList();

@@ -2,7 +2,8 @@
     <view class="width90 padding30 color3 fontSize-28">
         <!-- 已完成订单 -->
     </view>
-    <view class="width90 bgFFFF boxShadow dpfC padding30 marginBtm" data-id='{{item.id}}' data-type='{{item.type}}' data-status="{{item.status}}" bindtap="goDetaile" wx:for='{{otherList}}' wx:key='key'>
+    <view class="width90 bgFFFF boxShadow dpfC padding30 marginBtm" data-id='{{item.id}}' 
+    data-type='{{item.type}}' data-status="{{item.status}}" bindtap="goDetaile" wx:for='{{otherList}}' wx:key='key'>
         <view class="otheritem width90 dpfb fontSize-28">
            <view class="dpf">
                {{item.title}}
@@ -35,7 +36,7 @@
                     <text class="dian_2"></text>
                 </view>
                <view class="fontSize-28 width100 dpfb color3">
-                   <text>{{item.price}}元</text> 
+                   <text class="color10">{{item.price}}元</text> 
                    <text>{{statusArr[item.status]}}</text> 
                 </view>
            </view>

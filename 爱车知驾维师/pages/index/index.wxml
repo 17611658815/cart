@@ -10,14 +10,14 @@
 <view class="container">
     <swiper>
         <swiper-item class="headerBox" catchtap="gowelcome">
-            <view class="padding30 dpfC" >
+            <view class="padding30 dpfC">
                 <view class="fontSize-40 color4 fontWeight5">欢迎加入</view>
                 <view class="fontSize-26 color4">维保自由，收入稳定</view>
             </view>
             <view class="loginBtn" catchtap="gosign" wx:if='{{hasInfo==0}}'>立即注册，开始接单赚钱</view>
             <navigator hover-class="none" url="/pages/shopList/shopList" class="loginBtn" wx:if='{{hasInfo>0}}'> 关联门店，开始接单赚钱</navigator>
         </swiper-item>
-        <swiper-item class="headerBox2 boxShadow" >
+        <swiper-item class="headerBox2 boxShadow">
             <view class="padding30 dpfC">
                 <view class="fontSize-40 color1 fontWeight5">您已经选择无店加盟</view>
                 <view class="fontSize-40 color1 fontWeight5">完善信息即可成为知驾维师</view>

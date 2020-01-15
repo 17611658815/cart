@@ -19,8 +19,8 @@ page {
 }
 
 .active {
-    border-bottom: 5rpx solid #f27c1f;
-    color: #f27c1f;
+    border-bottom: 5rpx solid #00a4c5;
+    color: #00a4c5;
 }
 
 .city_icon {
@@ -61,7 +61,7 @@ page {
 .addBox{
     width: 120rpx;
     height: 120rpx;
-    background: #f27c1f;
+    background: #00a4c5;
     position: fixed;
     bottom: 50rpx;
     right: 30rpx;

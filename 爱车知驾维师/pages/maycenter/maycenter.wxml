@@ -1,0 +1,25 @@
+<view class="container">
+    <view class="headerBox" bindtap="gomaycenter">
+        <view class="user_avatar">
+            <image src="../../images/user.jpg"></image>
+        </view>
+        <view class="user_name">
+            <view></view>
+            <view>点击进入个人主页</view>
+        </view>
+    </view>
+    <view class="tab_box">
+        <navigator hover-class="none" url="/pages/Carservice/wallet/wallet" class="tab_box_item">
+            <view>
+                <image src='../../images/icon_60.jpg'></image>
+            </view>
+            <view>钱包</view>
+        </navigator>
+          <navigator hover-class="none" url="/pages/photopage/photopage" class="tab_box_item">
+            <view>
+                <image src='../../images/icon_61.jpg'></image>
+            </view>
+            <view>注册进度</view>
+         </navigator>
+    </view>
+</view>

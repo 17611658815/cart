@@ -13,8 +13,8 @@
     padding-bottom: 15rpx;
 }
 .navActive{
-    color: #FF7122;
-    border-bottom: 6rpx solid #FF7122;
+    color: #F18D00;
+    border-bottom: 6rpx solid #F18D00;
 }
 .mssageList{
     width: 90%;

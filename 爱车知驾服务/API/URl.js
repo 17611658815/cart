@@ -129,5 +129,9 @@ export default class Url {
     static getGoodsListUrl() {
         return Url.PATH + '/getGoodsList';
     }
-  
+    //  分享二维码
+    static QRcodeUrl() {
+        return Url.PATH + '/QRcode';
+    }
+
 }

@@ -127,9 +127,13 @@ Page({
 
     },
     gomessageList() {
-        wx.navigateTo({
-            url: '/pages/messageList/messageList',
-        })
+        if (!this.data.userid) {
+            app.checkLogin();
+        } else {
+            wx.navigateTo({
+                url: '/pages/messageList/messageList',
+            })
+        }
     },
     gowelcome() {
         wx.navigateTo({

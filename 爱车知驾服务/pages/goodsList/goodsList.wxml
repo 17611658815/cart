@@ -22,7 +22,7 @@
                         <view>
                             <view class='fontSize-32 color1 fontWeight5'>{{item.name}}</view>
                             <view class='fontSize-32 color1'>
-                                <text class='fontWeight5'>{{item.price}}</text>元</view>
+                                <text class='fontWeight5 color10'>{{item.price}}</text>元</view>
                         </view>
                         <view class='dpfb width100'>
                             <view class='fontSize-32 color1'>
@@ -39,7 +39,6 @@
             </view>
         </view>
     </view>
-
 </view>
 <view class='purchase'>
     <view style='width:100%;' class='dpf'>
@@ -49,7 +48,7 @@
             </view> -->
             <!-- <view data-index='{{index}}' bindtap='Checked' class='fontSize-30 color1 marginRight'>全选</view> -->
             <view class='fontSize-36 color1'>合计：</view>
-            <view class='fontSize-36 color4 fontWeight5'>{{total}}元</view>
+            <view class='fontSize-36 color10 fontWeight5'>{{total}}元</view>
         </view>
         <view class='purchase_btn' catchtap='goAddres' wx:if='{{flage}}'>立即购买</view>
         <view class='purchase_btn' catchtap='createOrder' wx:if='{{!flage}}'>立即购买</view>

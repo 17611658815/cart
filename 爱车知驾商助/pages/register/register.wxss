@@ -47,7 +47,15 @@ button::after{
 }
 input{
     width: 100%;
-    padding: 30rpx 20rpx;
     font-size: 30rpx;
     color: #333333;
+    text-align: right;
+}
+textarea{
+    width: 90%;
+    height: 200rpx;
+    border-radius: 10rpx;
+    background: #f8f8f8;
+    padding: 30rpx;
+    margin-top: 20rpx;
 }

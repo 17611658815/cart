@@ -1,7 +1,7 @@
 .navList{
     padding: 20rpx 3%  10rpx 3%;
     background: #ffffff;
-    border-bottom: 1rpx solid #e2e2e2;
+    border-bottom: 1rpx solid #bfbfbf;
     font-size: 28rpx;
     display: flex;
     justify-content: space-around;
@@ -14,7 +14,7 @@
     padding-bottom: 10rpx;
 }
 .navActive{
-    border-bottom: 5rpx solid #333333;
+    border-bottom: 5rpx solid #bfbfbf;
 }
 .icon_3{
     width: 150rpx;
@@ -79,12 +79,12 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    border-bottom: 1rpx solid #e2e2e2;
+    border-bottom: 1rpx solid #bfbfbf;
 }
 .list_item{
     width: 44%;
     height: 100rpx;
-    border: 1rpx solid #e2e2e2;
+    border: 1rpx solid #bfbfbf;
     border-bottom: none;
     padding: 20rpx;
 }

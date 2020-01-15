@@ -80,12 +80,18 @@
    display: flex;
   align-items: center;
 }
+.otherMsg .GPS{
+    width: 50rpx;
+    height: 50rpx;
+    margin-left: 30rpx;
+}
 .otherPic image{
   width: 200rpx;
   height: 200rpx;
 }
 .otherinfo{
     flex: 1;
+    height: 200rpx;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -189,7 +195,7 @@
     line-height: 60rpx;
     font-size: 28rpx;
     color: #333333;
-    border: 2rpx solid #8f8f8f;
+    border: 2rpx solid #BFBFBF;
     border-radius: 6rpx;
 }
 .btn_2{
@@ -198,12 +204,12 @@
     text-align: center;
     line-height: 60rpx;
     font-size: 28rpx;
-    color: #5994f7;
-    border: 2rpx solid #5994f7;
+    color: #F18D00;
+    border: 2rpx solid #F18D00;
     border-radius: 6rpx;
     position: relative;
     margin-left: 20rpx;
 }
 .carActive{
-    border: 2rpx solid #6E9FF7;
+    border: 2rpx solid #F18D00;
 }

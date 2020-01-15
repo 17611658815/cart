@@ -15,12 +15,14 @@
             </view>
         </view>
         <view class="carife_list width90">
-            <view wx:for='{{8}}'>
-
+            <view class="dpfC" wx:for='{{list4}}' bindtap="goDetaile" data-appid="{{item.data.appid}}" data-path="{{item.data.path}}">
+                <image style="width:80%;height:80%" src="{{item.data.pic}}"></image>
             </view>
         </view>
         <view class="carifePic_list width100">
-            <view wx:for='{{5}}'></view>
+            <view wx:for='{{list5}}' bindtap="goDetaile" data-appid="{{item.data.appid}}" data-path="{{item.data.path}}">
+                <image style="width:100%;height:100%" src='{{item.data.pic}}'></image>
+            </view> 
         </view>
     </view>
 </template>

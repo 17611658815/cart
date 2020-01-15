@@ -3,9 +3,9 @@
         <view class="otherstatus">
             <view class="titleBox width100 color1 fontSize-40 fontWeight5">
                <view class="titleBox" style="flex:1">{{itemData.title}}</view> 
-               <view wx:if='{{status == 1}}'>待支付</view> 
+               <view class="color3" wx:if='{{status == 1}}'>待支付</view> 
             </view>
-            <view class="fontSize-28 marginTop">{{itemData.created}}</view>
+            <view class="fontSize-28 marginTop color3">{{itemData.created}}</view>
         </view>
         <view class="otheraddresBox" wx:if='{{itemData.type == 2}}'>
             <view class="otheraddresBox_1">
@@ -24,7 +24,7 @@
                 <view class="otherinfo">
                     <view class="fontSize-30 color1">{{item.name}}</view>
                     <view class="fontSize-30 color3">数量:{{item.num}}</view>
-                     <view class="fontSize-30 color7">￥{{item.price}}元</view>
+                    <view class="fontSize-30 color10">￥{{item.price}}元</view>
                 </view>
             </view>
         </view>
@@ -35,7 +35,7 @@
                 </view> -->
                 <view class="width100 dpfb padding30 borderBtm">
                     <view class="fontSize-30 color1">{{kesy.name}}</view>
-                     <view class="fontSize-30 color7">￥{{kesy.price}}元</view>
+                    <view class="fontSize-30 color10">￥{{kesy.price}}元</view>
                 </view>
             </view>
         </view>
@@ -61,19 +61,19 @@
          <view class="width90 padStl padding30">
            <view class="width100 dpfb padding30 borderBtm" wx:if='{{itemData.parent_id == 0}}'>
                 <text class="color1 fontSize-32 fontWeight5">市场原价</text>
-                <text class="color7 fontSize-32 fontWeight5">￥{{itemData.original_price}}</text>
+                <text class="color10 fontSize-32 fontWeight5">￥{{itemData.original_price}}</text>
             </view>
             <view class="width100 dpfb padding30 borderBtm" wx:if='{{itemData.parent_id == 0}}'>
                 <text class="color1 fontSize-32 fontWeight5">应付</text>
-                <text class="color7 fontSize-32 fontWeight5">￥{{itemData.total_price}}</text>
+                <text class="color10 fontSize-32 fontWeight5">￥{{itemData.total_price}}</text>
             </view>
             <view class="width100 dpfb padding30 borderBtm">
                 <text class="color1 fontSize-32 fontWeight5">实付</text>
-                <text class="color7 fontSize-32 fontWeight5">￥{{itemData.price}}</text>
+                <text class="color10 fontSize-32 fontWeight5">￥{{itemData.price}}</text>
             </view>
             <view class="width100 dpfb padding30 borderBtm" wx:if='{{itemData.parent_id == 0}}'>
                 <text class="color1 fontSize-32 fontWeight5">节省</text>
-                <text class="color7 fontSize-32 fontWeight5">￥{{itemData.save_price}}</text>
+                <text class="color10 fontSize-32 fontWeight5">￥{{itemData.save_price}}</text>
             </view>
              <view class="width100 dpfb padding30 borderBtm">
                 <text class="color1 fontSize-28">订单编号</text>
@@ -85,15 +85,15 @@
             </view>
             <view class="width100 dpfb padding30 borderBtm" wx:if='{{itemData.logistics!=""}}'>
                 <text class="color1 fontSize-28">名流名称</text>
-                <text class="color1 fontSize-28">{{itemData.logistics}}</text>
+                <text class="color2 fontSize-28">{{itemData.logistics}}</text>
             </view>
             <view class="width100 dpfb padding30 borderBtm"  wx:if='{{itemData.logistics_num!=""}}'>
                 <text class="color1 fontSize-28">物流单号</text>
-                <text class="color1 fontSize-28">{{itemData.logistics_num}}</text>
+                <text class="color2 fontSize-28">{{itemData.logistics_num}}</text>
             </view>
             <view class="width100 dpfC padding30 borderBtm" wx:if='{{itemData.remark}}'>
                 <text class="width100 color1 fontSize-30 padding20">备注信息:</text>
-                <text class=" width100 color1 fontSize-30 padding20">{{itemData.remark}}</text>
+                <text class=" width100 color2 fontSize-30 padding20">{{itemData.remark}}</text>
             </view>
            <view class="width100 dpf" style="margin-top:50rpx;">
              <view catchtap='recallOther' class='btn_1' wx:if='{{itemData.status == 2 || itemData.status == 9}}'>取消订单</view>

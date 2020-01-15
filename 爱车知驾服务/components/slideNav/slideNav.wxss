@@ -51,7 +51,6 @@
 .userPic{
     width: 120rpx;
     height: 120rpx;
-    background: #999990;
     border-radius: 50%;
     margin: auto;
 }

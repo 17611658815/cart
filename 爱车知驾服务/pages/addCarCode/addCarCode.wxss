@@ -94,10 +94,10 @@
   height: 100rpx;
   line-height: 100rpx;
   color: #ffffff;
-  background: #6ea8f7;
+  background: #00a4c5;
   font-size: 34rpx;
   margin: 100rpx 0;
-  border-radius: 44px 44px 44px 44px;
+  border-radius: 10rpx;
   
 }
 .phcolor2{

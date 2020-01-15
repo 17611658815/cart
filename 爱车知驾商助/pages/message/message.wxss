@@ -90,7 +90,7 @@
     line-height: 80rpx;
     color: #ffffff;
     margin-top: 30rpx;
-    background-image: linear-gradient(#F9903F, #F35235);
+    background: #FF0000;
 }
 
 

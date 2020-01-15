@@ -17,7 +17,7 @@ page{
 }
 .navActive{
     color: #000000;
-    border-bottom: 5rpx solid #000000;
+    border-bottom: 5rpx solid #bfbfbf;
 }
 .mssageList{
     width: 90%;

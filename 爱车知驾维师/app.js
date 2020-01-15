@@ -24,6 +24,21 @@ App({
             })
         }
     },
+    // 推荐位
+    getRecommend(id, limit, recommend) {
+        let that = this,
+            params = new Object();
+        params.appid = that.globalData.appid;
+        params.recommend_catid = id;
+        params.limit = limit;
+        params.recommend = recommend;
+        return new Promise((resolve, reject) => {
+            that.net.$Api.getRecommend(params).then((res) => {
+                resolve(res.data.data)
+            })
+
+        })
+    },
     //挂载网络请求api
     net: {
         $Api: Api.api,

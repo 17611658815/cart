@@ -1,36 +1,34 @@
 <view class="container">
-    <view class="layout_tool" wx:for='{{3}}'>
-        <view class="padding30 fontSize-28">商品</view>
+    <view class="layout_tool">
+        <view class="padding30 fontSize-28">常用服务</view>
         <view class="toolList">
-            <view class="toolList_item">
+            <view class="toolList_item"  wx:for='{{list}}' bindtap="goDetaile" data-appid='{{item.data.appid}}' data-path='{{item.data.path}}'>
                 <view class="toolList_item_icon">
-                      <image src="../../images/icon/icon_24.jpg"></image>
+                      <image src="{{item.data.pic}}"></image>
                 </view>
-                <view class="marginTop10 fontSize-24 color3">车品体验</view>
+                <view class="marginTop10 fontSize-24 color3">{{item.data.title}}</view>
             </view>
-            <view class="toolList_item">
+        </view>
+    </view>
+    <view class="layout_tool">
+        <view class="padding30 fontSize-28">便捷工具</view>
+        <view class="toolList">
+            <view class="toolList_item"  wx:for='{{list2}}' bindtap="goDetaile" data-appid='{{item.data.appid}}' data-path='{{item.data.path}}'>
                 <view class="toolList_item_icon">
-                      <image src="../../images/icon/icon_25.jpg"></image>
+                      <image src="{{item.data.pic}}"></image>
                 </view>
-                <view class="marginTop10 fontSize-24 color3">服务体验</view>
+                <view class="marginTop10 fontSize-24 color3">{{item.data.title}}</view>
             </view>
-            <view class="toolList_item">
+        </view>
+    </view>
+    <view class="layout_tool">
+        <view class="padding30 fontSize-28">维师维权</view>
+        <view class="toolList">
+            <view class="toolList_item"  wx:for='{{list3}}' bindtap="goDetaile" data-appid='{{item.data.appid}}' data-path='{{item.data.path}}'>
                 <view class="toolList_item_icon">
-                      <image src="../../images/icon/icon_26.jpg"></image>
+                      <image src="{{item.data.pic}}"></image>
                 </view>
-                <view class="marginTop10 fontSize-24 color3">车品推荐</view>
-            </view>
-            <view class="toolList_item">
-                <view class="toolList_item_icon">
-                      <image src="../../images/icon/icon_27.jpg"></image>
-                </view>
-                <view class="marginTop10 fontSize-24 color3">店长推荐</view>
-            </view>
-            <view class="toolList_item">
-                <view class="toolList_item_icon">
-                      <image src="../../images/icon/icon_27.jpg"></image>
-                </view>
-                <view class="marginTop10 fontSize-24 color3">店长推荐</view>
+                <view class="marginTop10 fontSize-24 color3">{{item.data.title}}</view>
             </view>
         </view>
     </view>

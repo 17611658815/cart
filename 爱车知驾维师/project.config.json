@@ -327,6 +327,27 @@
 					"pathName": "pages/welcome/welcome",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "点击进去个人中心",
+					"pathName": "pages/maycenter/maycenter",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 40,
+					"name": "我的评论",
+					"pathName": "pages/Carservice/commentList/commentList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "技能证书报考",
+					"pathName": "pages/exam/exam",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

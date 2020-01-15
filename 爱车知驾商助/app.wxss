@@ -94,13 +94,13 @@ page{
 }
 /* 字体颜色 */
 .color1 {
-    color: #333;
+    color: #252525;
 }
 .color2 {
-    color: #666;
+    color: #686868;
 }
 .color3 {
-    color: #999;
+    color: #848689;
 }
 .color4 {
     color: #fa5454;

@@ -8,9 +8,9 @@
                 <view class="fontSize-34 color1 fontWeight5 dpf">
                     <image style="width:40rpx;height:40rpx;margin-right:20rpx;" src='../../images/checked.png'></image>{{serviceData.service[0].name}}
                 </view>
-                <view>
+                <!-- <view class="color10">
                 {{serverPrice}}元
-                </view>
+                </view> -->
                 <!-- <view bindtap="gocouponList">优惠卷</view> -->
             </view>
         </view>
@@ -21,11 +21,10 @@
             <view scroll-x="true" enable-flex='true' class='scroll-x-box'>
                 <view class="scroll-x-item" wx:for='{{item.brands}}' wx:for-item='itemData' wx:for-index='key' wx:key='key'>
                     <view class='radioBox' data-index='{{index}}' data-id="{{key}}" data-key="{{key}}" bindtap='SingChecked'>
-                        <image wx:if='{{itemData.goods[0].checked}}' src='../../images/inon_checked.png'></image>
+                        <image wx:if='{{itemData.goods[0].checked}}' src='../../images/checked.png'></image>
                         <image src='../../images/no_checked.png' wx:else></image>
                     </view>
-                    <view class='goods_content_item' wx:for='{{itemData.goods}}' wx:for-item='product' wx:for-index='k' wx:key='key'
-                    data-index='{{index}}' data-id="{{key}}" data-key="{{key}}" bindtap='SingChecked'>
+                    <view class='goods_content_item' wx:for='{{itemData.goods}}' wx:for-item='product' wx:for-index='k' wx:key='key' data-index='{{index}}' data-id="{{key}}" data-key="{{key}}" bindtap='SingChecked'>
                         <view class='itemright'>
                             <view class='dpfC'>
                                 <view class='leftImg'>
@@ -35,8 +34,9 @@
                                     <view>
                                         <view class='fontSize-26 color1 fontWeight5 white_noWrap'>{{product.name}}</view>
                                         <view class='fontSize-26 color1'>
-                                            <text class='fontWeight5 color7'>{{product.price}}</text>
-                                            <text class='fontWeight5 color1'>元</text>
+                                            <text class='fontWeight5 color10'>{{product.price}}</text>
+                                            <text class='fontWeight5 color2'>元</text>
+                                            *{{product.nums}}
                                         </view>
                                     </view>
                                 </view>
@@ -46,13 +46,15 @@
                 </view>
             </view>
         </view>
-        <view class="width90">3，更换工时服务费</view>
+    </view>
+    <view class="width90 marginTop dpfC bgFFFF padding30" wx:if="{{transfer_price[2]/1+serverPrice}}">
+        <view class="width90">更换工时服务费</view>
         <view style="width:70%" class="dpfb marginTop">
             <view style="padding-bottom:20rpx;" data-index='1' bindtap="changeServce" class="{{servetab==1 ? 'serveactive':''}}">来店:
-                <text class="color7">￥{{transfer_price[1]}}</text>
+                <text class="color10">￥{{transfer_price[1]/1+serverPrice}}</text>
             </view>
             <view style="padding-bottom:20rpx;" data-index='2' bindtap="changeServce" class="{{servetab==2 ? 'serveactive':''}}">取车:
-                <text class="color7">￥{{transfer_price[2]}}</text>
+                <text class="color10">￥{{transfer_price[2]/1+serverPrice}}</text>
             </view>
         </view>
     </view>
@@ -61,12 +63,11 @@
             <view class="partsNum_item_left">
                 <image style="width:40rpx;height:40rpx;" data-index="{{index}}" data-type='checked' bindtap="SonChecked" src='../../images/checked.png' wx:if='{{item.checked}}'></image>
                 <image style="width:40rpx;height:40rpx;" data-index="{{index}}" data-type='nochecked' bindtap="SonChecked" src='../../images/nochecked.png' wx:else></image>
-
             </view>
             <view class="partsNum_item_right flex_1">
                 <view class="marginLeft10 dpfb">
                     <text>{{item.name}}</text>
-                    <text>￥{{item.price}}</text>
+                    <text class="color10">￥{{item.price}}</text>
                 </view>
                 <!-- <view class="marginLeft10">50000km或6个月/次</view> -->
             </view>
@@ -75,6 +76,9 @@
 </view>
 
 <view class='purchase dpfC'>
+    <view class="msgBox">
+        知驾服务从点点滴滴专业为您省时，省钱
+    </view>
     <view style='width:95%;' class='dpf'>
         <view class='purchase_price dpf'>
             <view class="dpfC service">
@@ -83,16 +87,17 @@
                 <button open-type="contact"></button>
             </view>
             <view class="dpfC" style="flex:1">
-                <view class="purchase_text">合计:
-                    <text class="color7 fontWeight5 fontSize-36">￥{{NewTotal}}</text>
-                    <text class="color3 fontWeight5 fontSize-26" style="text-decoration:line-through">￥{{OldTotal}}</text>
+                <view class="purchase_text">
+                    <text class="color1 fontSize-28">本次保养最多仅需:</text>
+                    <text class="color10 fontWeight5 fontSize-36">￥{{NewTotal}}</text>
+                    <!-- <text class="color3 fontWeight5 fontSize-26" style="text-decoration:line-through">￥{{OldTotal}}</text> -->
                 </view>
-                <view>节省：{{economize}}元</view>
+                <view class="color1 fontSize-28">节省：{{economize}}元</view>
             </view>
         </view>
-         <view class='purchase_btn' catchtap='gocheckLogin' wx:if='{{!member_id}}'>去结算</view>
-        <button class='purchase_btn' open-type='getPhoneNumber' bindgetphonenumber='getUserPhone'  wx:elif='{{phone == ""}}'>去结算2</button> 
-         <view class='purchase_btn' catchtap='createServiceOrder' wx:else>去结算</view>
+        <view class='purchase_btn' catchtap='gocheckLogin' wx:if='{{!member_id}}'>去结算</view>
+        <button class='purchase_btn' open-type='getPhoneNumber' bindgetphonenumber='getUserPhone' wx:elif='{{phone == ""}}'>去结算2</button>
+        <view class='purchase_btn' catchtap='createServiceOrder' wx:else>去结算</view>
         <!-- <view class='purchase_btn' catchtap='createServiceOrder'>去结算</view> -->
     </view>
     <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>

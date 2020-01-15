@@ -31,7 +31,7 @@ page{
 }
 .technician_name text:nth-child(2){
     padding: 7rpx 10rpx;
-    background: #5994F7;
+    background: #ff0000;
     color: #ffffff;
     font-size: 24rpx;
     border-radius: 30rpx;
@@ -61,7 +61,7 @@ page{
 .technician_btn .btn_1{
     width: 100rpx;
     height: 50rpx;
-    background: #5994F7;
+    background: #ff0000;
     color: #ffffff;
     font-size: 23rpx;
     border-radius: 90rpx;

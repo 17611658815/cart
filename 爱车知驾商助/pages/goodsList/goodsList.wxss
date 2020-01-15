@@ -73,7 +73,7 @@ page{
 .navList{
     padding: 20rpx 3%  10rpx 3%;
     background: #ffffff;
-    border-bottom: 1rpx solid #e2e2e2;
+    border-bottom: 1rpx solid #bfbfbf;
     font-size: 28rpx;
     display: flex;
     justify-content: space-around;
@@ -83,7 +83,7 @@ page{
     padding-bottom: 10rpx;
 }
 .navActive{
-    border-bottom: 5rpx solid #333333;
+    border-bottom: 5rpx solid #bfbfbf;
 }
 
 .noList image{

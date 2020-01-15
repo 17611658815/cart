@@ -1,6 +1,6 @@
 page {
     background: #f8f8f8;
-    padding-bottom: 140rpx;
+    padding-bottom: 190rpx;
 }
 
 .header {
@@ -153,7 +153,6 @@ button::after{
     width: 90%;
     white-space: nowrap;
     display: flex;
-    padding-bottom: 50rpx;
     overflow-x: auto;
     /* position: relative; */
 }
@@ -191,5 +190,16 @@ button::after{
     height: 100%;
 }
 .serveactive{
-    border-bottom: 5rpx solid #fa5454
+    border-bottom: 5rpx solid #bfbfbf
+}
+.msgBox{
+    position: absolute;
+    top: -50rpx;
+    left: 0;
+    width: 100%;
+    background: #EBFDFE;
+    padding: 10rpx 0;
+    text-align: center;
+    font-size: 26rpx;
+    color: #00A5C5;
 }

@@ -6,21 +6,21 @@
     width: 94%;
     padding: 30rpx 3%;
     background: #ffffff;
-    border: 1rpx solid #e2e2e2;
+    border: 1rpx solid #bfbfbf;
     display: flex;
     align-items: center;
 }
 .left_add{
-    width: 100rpx;
-    height: 100rpx;
+    width: 80rpx;
+    height: 80rpx;
     background: #EDEDED;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .left_add image{
-    width: 60rpx;
-    height: 60rpx;
+    width: 50rpx;
+    height: 50rpx;
 }
 .right_textBox{
     flex: 1;
@@ -31,9 +31,17 @@
     height: 200rpx;
     background: #999999;
 }
+.Car_picBox image{
+    width: 100%;
+    height: 100%;
+}
 .NoopsycheList_item{
     width: 100%;
     height: 400rpx;
     background: #999999;
     margin-bottom: 20rpx;
+}
+.NoopsycheList_item image{
+    width: 100%;
+    height: 100%;
 }

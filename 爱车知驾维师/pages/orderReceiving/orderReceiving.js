@@ -165,6 +165,21 @@ Page({
             url: '/pages/index/index',
         })
     },
+    goMAP(e){
+        let location = e.currentTarget.dataset.location;
+        wx.navigateTo({
+            url: '/pages/MAP/MAP?location=' + location,
+        })
+    },
+    showMap: function (e) {
+        var location = e.currentTarget.dataset.location.split(",");
+        console.log(location)
+            wx.openLocation({
+                  latitude:  parseFloat(location[1]),
+                  longitude:  parseFloat(location[0]),
+                  scale:  18
+            }) 
+      },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

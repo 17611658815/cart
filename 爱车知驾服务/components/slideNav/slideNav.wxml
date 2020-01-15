@@ -1,7 +1,7 @@
 <view class='dpfC {{slideNav ? "selectItems-content-show":"selectItems-content-hide"}}' catchtouchmove='ture'>
     <view class="userInfo" wx:if='{{slideNav}}'>
         <view class="userPic marginTop">
-            <image src='{{userinfo.wx_avatar}}'></image>
+            <image src='{{userinfo.wx_avatar ? userinfo.wx_avatar : "../../images/user_icon.png"}}'></image>
         </view>
         <view class="marginTop">{{userinfo.wx_nick}}</view>
         <view class="marginTop fontSize-26">{{userinfo.name}}</view>
@@ -19,7 +19,7 @@
                 推荐有奖
             </navigator>
           <navigator url='/pages/join/join' hover-class='none' class="dpfC">
-               <image src='../../images/user_icon.png'></image>
+               <image src='../../images/1579056780.png'></image>
                 维师招募
             </navigator>
           <navigator url='/pages/shopLogin/shopLogin' hover-class='none' class="dpfC">

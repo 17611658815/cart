@@ -79,12 +79,16 @@ Page({
     },
     pushCashOut() {
         let that = this;
-        // if (parseInt(that.data.money) < parseInt(that.data.moneyNum)) {
-        //     app.alert('您当前可提现金额不足~')
-        //     return
-        // }
+        if (that.data.moneyNum == ""){
+            app.alert('请输入提现金额~')
+            return
+        }
+        if (parseInt(that.data.money) < parseInt(that.data.moneyNum)) {
+            app.alert('您当前可提现金额不足~')
+            return
+        }
         that.confirm()
-      /*   let params = {
+        let params = {
             appid: app.globalData.appid,
             member_id: that.data.member_id,
             money: that.data.moneyNum
@@ -117,7 +121,7 @@ Page({
                     showCancel: false,
                 })
             }
-        }) */
+        })
 
 
     },

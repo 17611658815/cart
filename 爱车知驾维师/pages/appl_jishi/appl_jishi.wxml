@@ -1,6 +1,6 @@
 <view class="container">
     <view class="picBox">
-        <image src="../../images/icon10.jpg"></image>
+          <image mode="scaleToFill" src='https://img.dodo.wiki/app/img37.jpg'></image>
     </view>
     <view class="dpfC width100">
         <view class='title'>

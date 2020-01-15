@@ -1,27 +1,27 @@
 <!-- 车载智能 -->
 <template name="carNoopsyche">
-    <view class="carNoopsyche_box dpfC">
+    <view class="carNoopsyche_box dpfC" bindtap="goDetaile" data-appid="{{list6[2].data.appid}}" data-path="{{list6[2].data.path}}">
         <view class="width90 paddinglr dpfb">
             <view class="fontSize-28 color3">车载数据设备</view>
             <view class="fontSize-28 color1">爱车爸爸助驾版
                 <image class="icon_right" src='../../images/icon_right.png'></image>
             </view>
         </view>
-        <view class="addfacility">
+        <view class="addfacility" bindtap="goDetaile" data-appid="{{list6[1].data.appid}}" data-path="{{list6[1].data.path}}">
             <view class="left_add">
                 <image src='../../images/add.png'></image>
             </view>
             <view class="right_textBox">
-                <view class="fontSize-40 color1 fontWeight6">添加知驾设备</view>
-                <view class="fontSize-28 color3">添加知驾设备后开始与车交流互动</view>
+                <view class="fontSize-36 color1 fontWeight6">添加知驾设备</view>
+                <view class="fontSize-22 color3">添加知驾设备后开始与车交流互动</view>
             </view>
         </view>
-        <view class="Car_picBox">
-
+        <view class="Car_picBox"  bindtap="goDetaile" data-appid="{{list6[0].data.appid}}" data-path="{{list6[0].data.path}}">
+             <image src="{{list6[0].data.pic}}"></image>
         </view>
         <view class="NoopsycheList marginTop width100 dpfC">
-            <view class="NoopsycheList_item" wx:for='{{5}}'>
-
+            <view class="NoopsycheList_item" wx:for='{{list7}}'>
+                <image src="{{item.data.pic}}"></image>
             </view>
         </view>
     </view>

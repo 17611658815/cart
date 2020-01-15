@@ -29,6 +29,7 @@ Page({
         }
         app.net.$Api.getContentInfo(params).then((res) => {
             console.log(res)
+            res.data.data.content = res.data.data.content.replace(/\<img/gi, '<img class="rich-img" ')
             that.setData({
                 content: res.data.data.content, 
                 title: res.data.data.title, 

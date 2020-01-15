@@ -36,12 +36,12 @@
                     <view>微信好友</view>
                     <button open-type="share"></button>
                 </view>
-                <!-- <view class="shareItem">
+                <view class="shareItem" bindtap="shareCode">
                     <view>
                         <image src="../../images/img26.jpg"></image>
                     </view>
                     <view>面对面分享</view>
-                </view> -->
+                </view>
                 <!-- <view class="shareItem">
                     <view>
                         <image src="../../images/img27.jpg"></image>
@@ -92,4 +92,14 @@
             </view>
         </button>
     </view>
+</view>
+
+
+<view class="imgshade" bindtap="closeImg" wx:if='{{imageShow}}'>
+    <image mode="aspectFit" src="{{imgurl}}"></image>
+    <button catchtap="closeImg">
+        <view style="background: #ffffff;height:80rpx;border-radius: 50%;" >
+        <image src="../../images/del.png"></image>
+        </view>
+    </button>
 </view>

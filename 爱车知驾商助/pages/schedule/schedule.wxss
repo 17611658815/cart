@@ -23,13 +23,13 @@ page{
 .progress_left view:nth-child(2){
     flex: 1;
     display: block;
-    border: 2rpx dashed #53a2ef;
+    border: 2rpx dashed #ff0000;
     margin-top: 3rpx;
 }
 .progress_left view:nth-child(4){
     flex: 1;
     display: block;
-    border: 2rpx dashed #999999;
+    border: 2rpx dashed #bfbfbf;
     margin-top: 3rpx;
 }
 .progress_left view:nth-child(3){
@@ -131,7 +131,7 @@ page{
 .noMsg-box-btn{
     width: 85%;
 height: 90rpx;
-background-image: linear-gradient(#F9903F, #F35235);
+background: #ff0000;
 border-radius: 10rpx;
 color: #ffffff;
 text-align: center;

@@ -138,7 +138,7 @@
 .shootbtn{
     width: 400rpx;
     height: 80rpx;
-    background: linear-gradient(to right,#FE5809 ,#FF8739);
+    background:#00a4c5 ;
     border-radius: 10rpx;
     text-align: center;
     line-height: 80rpx;

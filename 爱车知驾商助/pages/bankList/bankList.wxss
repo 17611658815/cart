@@ -40,7 +40,7 @@
 }
 .fastTitle {
     font-size: 27rpx;
-    color: #67A1FF;
+    color: #FF0000;
 }
 .defeated .fastTitle{
     width: 500rpx;
@@ -48,7 +48,7 @@
 .defeated .fastBtn{
      width: 136rpx;
     height: 60rpx;
-    background: #6e9ff7;
+    background: #FF0000;
     color: #fff;
     font-size: 28rpx;
     line-height: 60rpx;
@@ -61,7 +61,7 @@
 .fastBtn {
     width: 136rpx;
     height: 60rpx;
-    background: #67A1FF;
+    background: #FF0000;
     color: #fff;
     font-size: 28rpx;
     line-height: 60rpx;

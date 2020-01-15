@@ -1,6 +1,6 @@
 <view class="container bgFFFF">
     <view class="headerPic width100">
-        <image mode="aspectFill" src="../../images/icon9.jpg"></image>
+         <image  mode="aspectFill" src='https://img.dodo.wiki/app/img38.jpg'></image>
     </view>
     <view class="applyBtn" bindtap="goupPicregister">
         申请成为知驾商助店铺

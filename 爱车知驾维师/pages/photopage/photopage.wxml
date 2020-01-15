@@ -37,7 +37,6 @@
             个人头像实时拍摄
         </view>
     </view>
-
     <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop20">
         <view class="layoutList_item width90 dpfb padding20" data-type="1">
             <view class="borderLeft">订单更新提示</view>

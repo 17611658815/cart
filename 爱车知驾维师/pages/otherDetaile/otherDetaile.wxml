@@ -1,75 +1,92 @@
-    <view class="bgF orderContent dpfC" wx:for='{{otherObj}}' wx:key='key'>
-        <view class="dpfb orderTitle">
-            <text>{{item.title}}</text>
-            <image class="icon_right" src='../../images/icon_right.png'></image>
-        </view>
-        <view class="container">
-            <view class="otherlistBox">
-                <view class="otherMsg" wx:for='{{item.goods}}' wx:for-item="items">
-                    <view class="otherPic">
-                        <image mode="scaleToFill" src="{{items.thumb}}" />
-                    </view>
-                    <view class="otherinfo">
-                        <view class="fontSize-30 color1">{{items.name}}</view>
-                    </view>
+<view class="bgF orderContent dpfC" wx:for='{{otherObj}}' wx:key='key'>
+    <view class="dpfb orderTitle">
+        <text>{{item.title}}</text>
+        <image class="icon_right" src='../../images/icon_right.png'></image>
+    </view>
+    <view class="width100 dpfC">
+        <view class="otherlistBox">
+            <view class="otherMsg" wx:for='{{item.goods}}' wx:for-item="items">
+                <view class="otherPic">
+                    <image mode="scaleToFill" src="{{items.thumb}}" />
                 </view>
-                
+                <view class="otherinfo">
+                    <view class="fontSize-30 color1">{{items.name}}</view>
+                    <view class="fontSize-28 color2">数量{{items.num}}</view>
+                    <view class="fontSize-30 color7">{{items.price}}元</view>
+                </view>
             </view>
-             <view class="otherlistBox" wx:if='{{item.service.length>0}}'>
+        </view>
+        <view class="otherlistBox" wx:if='{{item.service.length>0}}'>
             <view class="otherMsg" wx:for='{{item.service}}' wx:for-item="serviceItem">
-                    <view class="width100 dpfb padding30 borderBtm">
-                        <view class="fontSize-30 color1">{{serviceItem.name}}</view>
-                        <view class="fontSize-30 color7">￥{{serviceItem.price}}元</view>
-                    </view>
+                <view class="width100 dpfb padding30 borderBtm">
+                    <view class="fontSize-30 color1">{{serviceItem.name}}</view>
+                    <view class="fontSize-30 color7">￥{{serviceItem.price}}元</view>
                 </view>
-                 </view>
-        </view>
-        <view class="width90 padStl padding30">
-           <view class="width100 dpfb padding30">
-                <text class="color1 fontSize-32 fontWeight5">总价</text>
-                <text class="color7 fontSize-32 fontWeight5">￥{{item.total_price}}</text>
             </view>
         </view>
-        <view class="width90" wx:if='{{item.content.length>0}}'>维修进度</view>
-        <view class="width90 marginTop20 borderBtm" wx:for='{{item.content}}' wx:for-item='itemData'>
-         <view class="maegin20">
+        <view class="otherlistBox" wx:if="{{item.transfer_type == 2}}" data-location='{{item.location}}' bindtap="showMap">
+            <view class="otherMsg dpfb">
+                    <view class="fontSize-30 color1">上门取车费用 
+                    <image class="GPS" src="../../images/GPS.png"></image> </view>
+                    <!-- <view class="fontSize-30 color3">数量:{{item.num}}</view>-->
+                     <view class="fontSize-30 color7">￥{{item.transfer_price}}元</view> 
+            </view>
+        </view>
+         <!-- <view class="otherlistBox" wx:if='{{item.service.length>0}}'>
+            <view class="otherMsg" wx:for='{{item.service}}' wx:for-item="serviceItem">
+                <view class="width100 dpfb padding30 borderBtm">
+                    <view class="fontSize-30 color1">{{serviceItem.name}}</view>
+                    <view class="fontSize-30 color7">￥{{serviceItem.price}}元</view>
+                </view>
+            </view>
+        </view> -->
+    </view>
+    <view class="width90 padStl padding30">
+        <view class="width100 dpfb padding30">
+            <text class="color1 fontSize-32 fontWeight5">总价</text>
+            <text class="color7 fontSize-32 fontWeight5">￥{{item.total_price}}</text>
+        </view>
+    </view>
+    <view class="width90" wx:if='{{item.content.length>0}}'>维修进度</view>
+    <view class="width90 marginTop20 borderBtm" wx:for='{{item.content}}' wx:for-item='itemData'>
+        <view class="maegin20">
             {{itemData.created}}
-            </view>
-            <view class="maegin20">
+        </view>
+        <view class="maegin20">
             {{itemData.content}}
-            </view>
-            <scroll-view scroll-x="true" class='vip_welfare'>
-                <view class='vip_welfare_content'>
-                    <view wx:for='{{itemData.img}}' data-type='1' data-src="{{item}}" data-item='{{itemData}}' bindtap="play" wx:for-item='itemData_2'>
-                        <image class="imgPic" src="{{itemData_2}}"></image>
-                    </view>
-                    <view wx:for='{{itemData.video}}' data-type='2' data-index='{{itemData_1_index}}' data-src="{{itemData_1}}" data-item='{{itemData}}' bindtap="play" wx:for-item='itemData_1' wx:for-index='itemData_1_index'>
-                        <image class="imgPic" src="../../images/play_bg.png"></image>
-                    </view>
-                </view>
-            </scroll-view>
         </view>
-        <view class="container bgF marginTop">
-            <view class="width90 padStl padding30">
-                <view class="width100 dpfb borderBtm padding20">
-                    <text class="color3 fontSize-28">订单编号</text>
-                    <text class="color3 fontSize-28">{{item.order_sn}}</text>
+        <scroll-view scroll-x="true" class='vip_welfare'>
+            <view class='vip_welfare_content'>
+                <view wx:for='{{itemData.img}}' data-type='1' data-src="{{item}}" data-item='{{itemData}}' bindtap="play" wx:for-item='itemData_2'>
+                    <image class="imgPic" src="{{itemData_2}}"></image>
                 </view>
-                <view class="width100 dpfb padding20 borderBtm">
-                    <text class="color3 fontSize-28">下单日期</text>
-                    <text class="color3 fontSize-28">{{item.created}}</text>
+                <view wx:for='{{itemData.video}}' data-type='2' data-index='{{itemData_1_index}}' data-src="{{itemData_1}}" data-item='{{itemData}}' bindtap="play" wx:for-item='itemData_1' wx:for-index='itemData_1_index'>
+                    <image class="imgPic" src="../../images/play_bg.png"></image>
                 </view>
-              
             </view>
+        </scroll-view>
+    </view>
+    <view class="width100 dpfC bgF marginTop">
+        <view class="width90 padStl padding30">
+            <view class="width100 dpfb borderBtm padding20">
+                <text class="color3 fontSize-28">订单编号</text>
+                <text class="color3 fontSize-28">{{item.order_sn}}</text>
+            </view>
+            <view class="width100 dpfb padding20 borderBtm">
+                <text class="color3 fontSize-28">下单日期</text>
+                <text class="color3 fontSize-28">{{item.created}}</text>
+            </view>
+
         </view>
-      
     </view>
-    <view class="width90 paddinglr marginTop dpf marginTop20">
-        <view catchtap='gotechnicianService' class='btn_2'  wx:if="{{otherObj[0].parent_id == 0 && otherObj[0].status == 3}}">生成新订单</view>
-        <view catchtap='goUpImg' class='btn_1 marginLeft' wx:if='{{otherObj[0].status == 3 && otherObj[0].parent_id == 0}}'>上传素材</view>
-        <view catchtap='finishService' class='btn_3 marginLeft' wx:if='{{otherObj[0].status == 3 && otherObj[0].parent_id == 0}}'>完成服务</view>
-    </view>
- <video id='video' wx:if="{{videoPlay}}" bindended="bindended" bindplay='bindplay' autoplay="{{isplay}}" src="{{videoPath}}" style="width:100%;height:{{autoHeight}}px;">
-                    </video>
-  <view class='videoBox' wx:if='{{videoPlay}}' catchtap="closeVideo">
-    </view>
+
+</view>
+<view class="width90 paddinglr marginTop dpf marginTop20">
+    <view catchtap='gotechnicianService' class='btn_2' wx:if="{{otherObj[0].parent_id == 0 && otherObj[0].status == 3}}">生成新订单</view>
+    <view catchtap='goUpImg' class='btn_1 marginLeft' wx:if='{{otherObj[0].status == 3 && otherObj[0].parent_id == 0}}'>上传素材</view>
+    <view catchtap='finishService' class='btn_3 marginLeft' wx:if='{{otherObj[0].status == 3 && otherObj[0].parent_id == 0}}'>完成服务</view>
+</view>
+<video id='video' wx:if="{{videoPlay}}" bindended="bindended" bindplay='bindplay' autoplay="{{isplay}}" src="{{videoPath}}" style="width:100%;height:{{autoHeight}}px;">
+</video>
+<view class='videoBox' wx:if='{{videoPlay}}' catchtap="closeVideo">
+</view>

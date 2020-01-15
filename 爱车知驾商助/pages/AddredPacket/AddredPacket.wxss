@@ -91,13 +91,13 @@ textarea{
 .addBtn{
     width: 600rpx;
     height: 100rpx;
-    border-radius: 50rpx;
+    border-radius: 10rpx;
     text-align: center;
     line-height: 100rpx;
     color: #ffffff;
     margin-top: 30rpx;
     margin: auto;
-    background-image: linear-gradient(#F9903F, #F9903F);
+    background:#FF0000;
 }
 .goodsBox{
     width: 100%;

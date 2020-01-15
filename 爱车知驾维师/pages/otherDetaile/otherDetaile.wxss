@@ -215,8 +215,8 @@
     text-align: center;
     line-height: 60rpx;
     font-size: 28rpx;
-    color: #1AA034;
-    border: 2rpx solid #1AA034;
+    color: #F18D00;
+    border: 2rpx solid #F18D00;
     border-radius: 6rpx;
     position: relative;
     /* margin-left: 20rpx; */
@@ -292,4 +292,9 @@ swiper{
     left: 50%;
     transform: translate(-50%,-50%);
      z-index: 999;
+}
+.otherMsg .GPS{
+    width: 50rpx;
+    height: 50rpx;
+    margin-left: 30rpx;
 }

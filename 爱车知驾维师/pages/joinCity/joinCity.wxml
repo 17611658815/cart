@@ -1,6 +1,6 @@
 <view class="container">
     <view class="headerpic width100">
-        <image mode="aspectFill" src="../../images/icon2.jpg"></image>
+        <image mode="scaleToFill" src='https://img.dodo.wiki/app/img36.jpg'></image>
         <!-- <view class="title">
            <view>加 入 知 驾 网 约 维 师</view> 
            <view>

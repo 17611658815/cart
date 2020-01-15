@@ -4,9 +4,9 @@
 <view class="container">
     <view class="typeList" wx:if='{{packetList.length>0}}'>
         <view class="wrapper" wx:for="{{packetList}}" bindtap="selctcoupon" 
-        data-couponType='{{item.youhui_type}}'
-        data-couponvalue='{{item.value}}'
-        data-couponId='{{item.id}}'>
+                data-couponType='{{item.youhui_type}}'
+                data-couponvalue='{{item.value}}'
+                data-couponId='{{item.id}}'>
             <view class="left">
                 <view class="marginLefts">
                     <view class="fontSize-36" wx:if='{{item.youhui_type==1}}'>

@@ -14,7 +14,6 @@
             </view>
         </view>
         <view class="videoList_box padding20">
-
             <navigator hover-class="none" url="/pages/textPage/textPage?id={{item.id}}" class="videoList_box_item" data-id='{{item.id}}' wx:for='{{list1}}'>
                 <text class="marginLeft">{{item.title}}</text>
             </navigator>

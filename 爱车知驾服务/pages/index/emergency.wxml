@@ -1,136 +1,163 @@
 <template name="Emergency">
-    <view class='emergency-shade' catchtap='selecEmergency' wx:if='{{emShow}}' catchtouchmove='ture'></view>
-    <view class="emergency-contentHide {{emShow ? 'emergency-contentShow':'emergency-contentHide'}}">
+    <!-- <view class='emergency-shade' catchtap='selecEmergency' wx:if='{{emShow}}' catchtouchmove='ture'></view> -->
+    <!-- <view class="emergency-contentHide {{emShow ? 'emergency-contentShow':''}}"> -->
+    <view class="emergency-contentShow">
         <view class="emergency-contentShow_box" style="width:100%">
-            <view style="width:100%">
-            <view class="searchBox">
-                <view class="down4" bindtap="selecEmergency">
-                    <image src="../../images/down4.png"></image>
-                </view>
-                <view class='home-content-search2'  bindtap='onbindfocus2' style="background:#F3F3F3">
-                    <image class='icon_search' src='../../images/icon_5.png'></image>
-                    <view class="searchInput" type="text" placeholder="您的车有什么问题">您的车有什么问题</view>
-                </view>
+        <view class="hint_msg width90 dpfb boxShadow" bindtap="goDetaile" data-appid="" data-path="{{list8[0].data.path}}">
+            <view class="hint_icon dpf">
+                <image src="../../images/hint_icon.png"></image>
             </view>
-            <view class="emergency-tag fontSize-26 padding30">
-                <navigator hover-class="none" url='/pages/nearby/nearby'>周边明星店铺</navigator>
-                <view bindtap="goodsItemList" data-brandid='{{item.data.brandid}}' data-typeid="{{item.data.typeid}}" wx:for='{{list2}}'>{{item.data.title}}</view>
+            <view class="hint_text fontSize-26 color2">
+                {{list8[0].data.title}}
             </view>
-            <swiper class="swiper">
-                <swiper-item>
-                    <image style="width:100%;height:100%;" mode="scaleToFill" src='https://img.dodo.wiki/app/img12.png'></image>
-                </swiper-item>
-            </swiper>
-            <view class="nav1List">
-                <view class="dpfC" bindtap="goList" data-type="1">
-                    <view class="bg-img" style="background-image: url(https://img.dodo.wiki/app/nav1.png)"></view>
-                    <view class="marginTop10">保养</view>
-                </view>
-                <view class="dpfC" bindtap="goList" data-type="2">
-                    <view class="bg-img" style="background-image: url(https://img.dodo.wiki/app/nav2.png)"></view>
-                    <view class="marginTop10">易耗</view>
-                </view>
-                <view class="dpfC" bindtap="goList" data-type="3">
-                    <view class="bg-img" style="background-image: url(https://img.dodo.wiki/app/nav3.png)"></view>
-                    <view class="marginTop10">维修</view>
-                </view>
-                <view class="dpfC" bindtap="goList" data-type="4">
-                    <view class="bg-img" style="background-image: url(https://img.dodo.wiki/app/nav4.png)"></view>
-                    <view class="marginTop10">事故</view>
-                </view>
-                <view class="dpfC" bindtap='onbindfocus2'>
-                    <view class="bg-img" style="background-image: url(https://img.dodo.wiki/app/nav5.png)"></view>
-                    <view class="marginTop10">服务</view>
-                </view>
+            <view class="hint_btn">
+                查看详情
             </view>
-            <view class="nav2List">
-                <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=26" class="dpfC nav2List_item">
-                    <image src='https://img.dodo.wiki/app/nav6.png'></image>
-                    <view class="marginTop10">养护美容</view>
-                </navigator>
-                 <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=34" class="dpfC nav2List_item">
-                    <image src='https://img.dodo.wiki/app/nav7.png'></image>
-                    <view class="marginTop10">防盗安全</view>
-                  </navigator>
-                 <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=37" class="dpfC nav2List_item">
-                    <image src='https://img.dodo.wiki/app/nav8.png'></image>
-                    <view class="marginTop10">车载影音</view>
-                </navigator>
-                <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=47" class="dpfC nav2List_item">
-                    <image src='https://img.dodo.wiki/app/nav9.png'></image>
-                    <view class="marginTop10">内饰香水</view>
-                </navigator>
-                 <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=41" class="dpfC nav2List_item">
-                    <image src='https://img.dodo.wiki/app/nav10.png'></image>
-                    <view class="marginTop10">外饰功能</view>
-                </navigator>
-                 <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=42" class="dpfC nav2List_item">
-                    <image src='https://img.dodo.wiki/app/nav11.png'></image>
-                    <view class="marginTop10">车用电器</view>
-                </navigator>
-                <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=43" class="dpfC nav2List_item">
-                    <image src='https://img.dodo.wiki/app/nav12.png'></image>
-                    <view class="marginTop10">户外用品</view>
-                </navigator>
-                 <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=44" class="dpfC nav2List_item">
-                    <image src='https://img.dodo.wiki/app/nav13.png'></image>
-                    <view class="marginTop10">改装用品</view>
-                </navigator>
-                <navigator hover-class="none" url="" class="dpfC nav2List_item">
-                    <image src='https://img.dodo.wiki/app/nav14.png'></image>
-                    <view class="marginTop10">保险加油</view>
-                </navigator>
-                <view bindtap='onbindfocus2' class="dpfC nav2List_item">
-                    <image src='https://img.dodo.wiki/app/nav15.png'></image>
-                    <view class="marginTop10">全部服务</view>
+        </view>
+            <image catchtap="delJijiu" class="img36" src='../../images/img36.png'></image>
+            <view style="width:100%" class="dpfC">
+                <view class="width100 dpfC boxShadow padding30 marginTop pushbill bgFFFF">
+                    <view class="tabNav width100">
+                        <view data-index="0" bindtap="servetab" class="{{ serveCurrent == 0 ? 'border':''}}">现在</view>
+                        <view data-index="1" bindtap="servetab" class="{{ serveCurrent == 1 ? 'border':''}}">预约</view>
+                        <view data-index="2" bindtap="servetab" class="{{ serveCurrent == 2 ? 'border':''}}">代叫</view>
+                        <view data-index="3" bindtap="servetab" class="color7 fontWeight5 {{ serveCurrent == 3 ? 'borderRed':''}}">急叫</view>
+                    </view>
+                    <view class="address dpf width90 marginTop padding20">
+                        <view class="left_Box">
+                            <text class="dian_1"></text>
+                        </view>
+                        <view class="right_text fontSize-28 color2">
+                            {{address}}
+                        </view>
+                    </view>
+                    <view class="problem dpf width90">
+                        <view class="left_Box">
+                            <text class="dian_2"></text>
+                        </view>
+                        <view catchtap="onbindfocus" class="right_text fontSize-28" style="color:#bfbfbf"> 您的车有什么问题
+                        </view>
+                    </view>
                 </view>
-            </view>
-            <view class="Emergency_title">
-                <view>周边技师</view>
-                <!-- <image src="https://img.dodo.wiki/app/img13.png"></image> -->
-            </view>
-            <view class="jishi_box" bindtap="selecEmergency">
-                <view class="dpfC">
-                    <image src="https://img.dodo.wiki/app/img14.png"></image>
-                    <view> 免费咨询车疑惑</view>
+                <view class="emergency-tag fontSize-26 padding30 bgFFFF boxShadow">
+                    <navigator hover-class="none" url='/pages/nearby/nearby'>周边明星店铺</navigator>
+                    <view bindtap="goodsItemList" data-brandid='{{item.data.brandid}}' data-typeid="{{item.data.typeid}}" wx:for='{{list2}}'>{{item.data.title}}</view>
                 </view>
-                <view class="dpfC">
-                    <image src="https://img.dodo.wiki/app/img15.png"></image>
-                    <view> 绑定成专职服务</view>
+                <swiper class="swiper boxShadow" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' indicator-active-color="#ffffff" autoplay="true" circular='true' duration="1000" interval="5000">
+                    <swiper-item wx:for='{{banner}}' bindtap="goDetaile" data-appid="" data-path="{{item.data.path}}">
+                        <image style="width:100%;height:100%;" mode="scaleToFill" src='{{item.data.pic}}'></image>
+                    </swiper-item>
+                </swiper>
+                <view class="nav1List">
+                    <view class="dpfC" bindtap="goList" data-type="1">
+                        <view class="bg-img" style="background-image: url(https://img.dodo.wiki/app/nav1.png)"></view>
+                        <view class="marginTop10">保养</view>
+                    </view>
+                    <view class="dpfC" bindtap="goList" data-type="2">
+                        <view class="bg-img" style="background-image: url(https://img.dodo.wiki/app/nav2.png)"></view>
+                        <view class="marginTop10">易耗</view>
+                    </view>
+                    <view class="dpfC" bindtap="goList" data-type="3">
+                        <view class="bg-img" style="background-image: url(https://img.dodo.wiki/app/nav3.png)"></view>
+                        <view class="marginTop10">维修</view>
+                    </view>
+                    <view class="dpfC" bindtap="goList" data-type="4">
+                        <view class="bg-img" style="background-image: url(https://img.dodo.wiki/app/nav4.png)"></view>
+                        <view class="marginTop10">事故</view>
+                    </view>
+                    <view class="dpfC" bindtap='onbindfocus2'>
+                        <view class="bg-img" style="background-image: url(https://img.dodo.wiki/app/nav5.png)"></view>
+                        <view class="marginTop10">服务</view>
+                    </view>
                 </view>
-            </view>
-            <view class="Emergency_goodsBox">
-                <view class="dpfC" bindtap="goshopDetaile" data-id='{{item.data.shopid}}' wx:for='{{list3}}'>
-                    <view class="width100 fontWeight5">{{item.data.title}}</view>
-                    <view class="width100 fontSize-22 color10">{{item.data.desc}}</view>
-                    <image src="{{item.data.pic}}"></image>
+                <view class="nav2List">
+                    <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=26" class="dpfC nav2List_item">
+                        <image src='https://img.dodo.wiki/app/nav6.png'></image>
+                        <view class="marginTop10">养护美容</view>
+                    </navigator>
+                    <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=34" class="dpfC nav2List_item">
+                        <image src='https://img.dodo.wiki/app/nav7.png'></image>
+                        <view class="marginTop10">防盗安全</view>
+                    </navigator>
+                    <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=37" class="dpfC nav2List_item">
+                        <image src='https://img.dodo.wiki/app/nav8.png'></image>
+                        <view class="marginTop10">车载影音</view>
+                    </navigator>
+                    <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=47" class="dpfC nav2List_item">
+                        <image src='https://img.dodo.wiki/app/nav9.png'></image>
+                        <view class="marginTop10">内饰香水</view>
+                    </navigator>
+                    <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=41" class="dpfC nav2List_item">
+                        <image src='https://img.dodo.wiki/app/nav10.png'></image>
+                        <view class="marginTop10">外饰功能</view>
+                    </navigator>
+                    <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=42" class="dpfC nav2List_item">
+                        <image src='https://img.dodo.wiki/app/nav11.png'></image>
+                        <view class="marginTop10">车用电器</view>
+                    </navigator>
+                    <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=43" class="dpfC nav2List_item">
+                        <image src='https://img.dodo.wiki/app/nav12.png'></image>
+                        <view class="marginTop10">户外用品</view>
+                    </navigator>
+                    <navigator hover-class="none" url="/pages/goodsItemList/goodsItemList?typeid=44" class="dpfC nav2List_item">
+                        <image src='https://img.dodo.wiki/app/nav13.png'></image>
+                        <view class="marginTop10">改装用品</view>
+                    </navigator>
+                    <navigator hover-class="none" url="" class="dpfC nav2List_item">
+                        <image src='https://img.dodo.wiki/app/nav14.png'></image>
+                        <view class="marginTop10">保险加油</view>
+                    </navigator>
+                    <view bindtap='onbindfocus2' class="dpfC nav2List_item">
+                        <image src='https://img.dodo.wiki/app/nav15.png'></image>
+                        <view class="marginTop10">全部服务</view>
+                    </view>
                 </view>
-            </view>
+                <view class="Emergency_title">
+                    <view>周边技师</view>
+                    <!-- <image src="https://img.dodo.wiki/app/img13.png"></image> -->
+                </view>
+                <view class="jishi_box boxShadow" bindtap="goTop">
+                    <view class="dpfC">
+                        <image src="https://img.dodo.wiki/app/img14.png"></image>
+                        <view> 免费咨询车疑惑</view>
+                    </view>
+                    <view class="dpfC">
+                        <image src="https://img.dodo.wiki/app/img15.png"></image>
+                        <view> 绑定成专职服务</view>
+                    </view>
+                </view>
+                <view class="Emergency_goodsBox boxShadow">
+                    <view class="dpfC" bindtap="goshopDetaile" data-id='{{item.data.shopid}}' wx:for='{{list3}}'>
+                        <view class="width100 fontWeight5">{{item.data.title}}</view>
+                        <view class="width100 fontSize-22 color10">{{item.data.desc}}</view>
+                        <image src="{{item.data.pic}}"></image>
+                    </view>
+                </view>
 
-            <view class="Emergency_shopTitle" wx:if='{{nearerData.length>0}}'>
-                <view>附近店铺</view>
-                <view>用户好评</view>
-            </view>
-            <view class="Emergency_shopList">
-                <view class="Emergency_shopList_item" bindtap="goshopDetaile" data-id='{{item.id}}' wx:for='{{nearerData}}'>
-                    <view class="Emergency_shopList_item_left">
-                        <image src="{{item.avatar}}"></image>
-                    </view>
-                    <view class="Emergency_shopList_item_right">
-                        <view class="fontWeight5 fontSize-28">{{item.real_name}}认定维师{{item.jishi_num}}人</view>
-                        <view class="dpf">
-                            <image src='../../images/xing.png'></image>
-                            <text class="marginRight" style='color:#02A4C5;font-size:40rpx;'>{{item.source}}</text>
-                            <text class="color3 fontSize-22 marginRight">月接单{{item.order_num}}</text>
-                            <text class="color3 fontSize-22 marginRight">好评{{item.good_order}}</text>
-                            <text class="color3 fontSize-22 marginRight">{{item.distance}}m</text>
+                <view class="Emergency_shopTitle" wx:if="{{nearerData.length!=0}}">
+                    <view>附近店铺</view>
+                    <view>用户好评</view>
+                </view>
+                <view class="Emergency_shopList width100 boxShadow">
+                    <view class="Emergency_shopList_item" bindtap="goshopDetaile" data-id='{{item.id}}' wx:for='{{nearerData}}'>
+                        <view class="Emergency_shopList_item_left">
+                            <image src="{{item.avatar}}"></image>
                         </view>
-                        <view class="color3 fontSize-22 white_noWrap">
-                            核心服务,轮胎,四轮定位,润滑油
+                        <view class="Emergency_shopList_item_right">
+                            <view class="fontWeight5 fontSize-28">{{item.real_name}} 认定维师{{item.jishi_num}}人</view>
+                            <view class="dpf">
+                                <image src='../../images/xing.png'></image>
+                                <text class="marin_right" style='color:#02A4C5;font-size:40rpx;'>{{item.source}}</text>
+                                <text class="color3 fontSize-22 marin_right">月接单{{item.order_num}}</text>
+                                <text class="color3 fontSize-22 marin_right">好评{{item.good_order}}</text>
+                                <text class="color3 fontSize-22 marin_right">{{item.distance}}km</text>
+                            </view>
+                            <view class="color3 fontSize-22 white_noWrap" wx:if='{{item.shop_service!=""}}'>
+                                {{item.shop_service}}
+                            </view>
                         </view>
                     </view>
                 </view>
-            </view>
             </view>
         </view>
     </view>

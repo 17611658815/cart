@@ -1,0 +1,23 @@
+<view class="container">
+    <view class="commentList" wx:if='{{CommentList.length>0}}'>
+       <navigator url='/pages/msgDetaile/msgDetaile?id={{item.postings_id}}' class="commentList-item" wx:for='{{CommentList}}'>
+            <view class="dpf fontSize-32">
+                <!-- <image src="../../../images/icon_33.png"></image> -->
+                <view class="color1">{{item.member.name}}：评论了</view>
+                <view class="color2 marginLeft">《{{item.postings.title}}》</view>
+            </view>
+            <view class="color3 fontSize-28 padding20">
+               {{item.content}}
+            </view>
+            <view class="color3 fontSize-22">
+               {{item.created}}
+            </view>
+        </navigator>
+    </view>
+     <view class="width100 dpfC" wx:else>
+        <view class="noList dpfC">
+            <image mode="scaleToFill" src="../../images/icon/order_empty.png" />
+            <view class="fontSize-28 color1 marginTop">暂无相关评论</view>
+        </view>
+    </view>
+</view>

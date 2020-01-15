@@ -1,0 +1,24 @@
+<view class="container">
+    <view class="headerBox">
+        <view class="width90 padding30 dpfb ">
+           <view class="color4 fontSize-26 titleName">
+              <text>汽车维修工职业技能证书</text>  
+              <text></text>  
+           </view> 
+            <view class="color4 fontSize-28">
+                {{city}}
+            </view>
+        </view>
+
+        <view class="level_box">
+            <image mode="scaleToFill" src='https://img.dodo.wiki/app/img39.jpg'></image>
+            <view>
+                马上报考
+            </view>
+        </view>
+        <view class="level_pic boxShadow">
+             <image wx:for='{{2}}' src='https://img.dodo.wiki/app/img39.jpg'></image>
+        </view>
+    </view>
+
+</view>

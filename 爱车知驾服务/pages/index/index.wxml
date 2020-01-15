@@ -4,27 +4,28 @@
     <!-- <button bindtap="goShopApp">商户</button>
     <button bindtap="goStechnician">技师</button> -->
     <!-- 头部 -->
-    <view class="headerContent">
+    <!-- <view class="headerContent"> -->
     <view class="headerBox width100 dpfC padding20">
         <view class="width90 dpfb">
             <view class="user_nav" bindtap="onshowslideNav">
-                <image src="../../images/user_icon.png"></image>
+                <image class="user_icon" src="../../images/user_icon.png" wx:if='{{member_id == 0}}'></image>
+                <image class="user_icon" src="{{userinfo.wx_avatar}}" wx:else></image>
             </view>
             <view class="addres">
                 <text class="fontSize-30 color2 marginRight10">{{city}}</text>
             </view>
             <view class="dpf">
-                <!-- <view class="mssage_icon_box">
-                    <image src="../../images/mssage_icon.png"></image>
-                </view> -->
-                <view class="scan_box" bindtap="goMessageList">
-                    <image src="../../images/mssage_icon.png"></image>
+                <view class="mssage_icon_box" bindtap="goMessageList">
+                <image src="../../images/mssage_icon.png"></image>
+                </view>
+                <view class="scan_box" bindtap="scanCode">
+                     <image src="../../images/scan_icon.png"></image>
                 </view>
             </view>
         </view>
     </view>
     <!-- 导航-->
-    <view class='scroll-x-content {{fined ? "fix-news":""}}' id="list">
+    <view class='scroll-x-content' id="list">
         <scroll-view scroll-x="true" class='scroll-x-box' scroll-with-animation="true" id="scroll-view" scroll-left="{{ scrollLeft }}">
             <view class='scroll-x-content-item' bindtap='swatchTab' data-id="{{item.id}}" id="item-{{index}}" data-index="{{index}}" wx:for='{{navArr}}' wx:key='index'>
                 <view class="dpfC">
@@ -78,8 +79,8 @@
                         </view>
                     </view>
                 </view>
-                <view class="server_item_item dpfC">
-                    <view hover-class='none' url='{{item.path}}'>
+                <view class="server_item_item dpfC" bindtap='swatchTab' data-id="4" id="item-4" data-index="4">
+                    <view hover-class='none'>
                         <view class="server_item_logo">
                             <image src='../../images/img5.png'></image>
                         </view>
@@ -88,8 +89,8 @@
                         </view>
                     </view>
                 </view>
-                <view class="server_item_item dpfC">
-                    <view hover-class='none' url='{{item.path}}'>
+                <view class="server_item_item dpfC" bindtap='swatchTab' data-id="5" id="item-5" data-index="5">
+                    <view hover-class='none'>
                         <view class="server_item_logo">
                             <image src='../../images/img6.png'></image>
                         </view>
@@ -118,18 +119,8 @@
                         </view>
                     </navigator>
                 </view>
-                <view class="server_item_item dpfC">
-                    <view hover-class='none' url='{{item.path}}'>
-                        <view class="server_item_logo">
-                            <image src='../../images/img9.png'></image>
-                        </view>
-                        <view class="color3 fontSize-26 marginTop">
-                            活动推荐
-                        </view>
-                    </view>
-                </view>
-                <!-- <view class="server_item_item dpfC">
-                    <view hover-class='none' url='{{item.path}}'>
+                 <view class="server_item_item dpfC" bindtap='swatchTab' data-id="7" id="item-7" data-index="7">
+                    <view hover-class='none'>
                          <view class="server_item_logo">
                             <image src='../../images/img10.png'></image>
                         </view>
@@ -137,8 +128,19 @@
                         车生活
                         </view>
                     </view>
-                </view> -->
-                <view class="server_item_item dpfC">
+                </view>
+                <view class="server_item_item dpfC" bindtap='swatchTab' data-id="8" id="item-8" data-index="8">
+                    <view hover-class='none'>
+                        <view class="server_item_logo">
+                            <image src='../../images/img9.png'></image>
+                        </view>
+                        <view class="color3 fontSize-26 marginTop">
+                            车载智能
+                        </view>
+                    </view>
+                </view>
+               
+                <view class="server_item_item dpfC" bindtap='swatchTab' data-id="1" id="item-1" data-index="1">
                     <view hover-class='none'>
                         <view class="server_item_logo">
                             <image src='../../images/img11.png'></image>
@@ -148,7 +150,7 @@
                         </view>
                     </view>
                 </view>
-                <view class="server_item_item dpfC">
+                <view class="server_item_item dpfC" bindtap='swatchTab' data-id="1" id="item-1" data-index="1">
                     <view hover-class='none'>
                         <view class="server_item_logo">
                             <image src='../../images/img12.png'></image>
@@ -161,32 +163,25 @@
             </view>
         </view>
     </view>
-    </view>
+    <!-- </view> -->
     <!-- map地图 -->
-    <view class="width100" wx:if='{{currentTab<=4}}'>
+    <view class="width100" wx:if='{{currentTab<=4 || currentTab==6 || currentTab==9 || currentTab==10 }}'>
         <view class="mapBox dpfC">
-            
+            <!-- 喇叭消息 -->
+            <image class="img37" catchtap="govideoPage" src='../../images/img37.png'></image>
+            <!-- 急救中心 -->
+           
             <!-- 搜索框 -->
-            <view class='home-content-search' wx:if='{{!isShadeShow && !slideNav && !emShow}}'>
+            <view class='home-content-search' wx:if='{{!isShadeShow && !slideNav && !emShow && isScroll}}'>
                 <image class='icon_search' src='../../images/icon_5.png'></image>
                 <input class="searchInput" type="text" bindinput="bindKeyInput" placeholder="小区 / 写字楼 / 学校等"></input>
             </view>
             <view class="sug_info width100" wx:if='{{sugData.length>0}}'>
                 <text bindtap="selectAddres" data-location="{{item.location}}" wx:for='{{sugData}}' wx:key='key'>{{item.name}}</text>
             </view>
-            <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" controls="{{controls}}" markers="{{markers}}" polyline="{{polyline}}" enable-zoom='{{iszoom}}' bindtap='onLocation' enable-scroll='{{isscroll}}' show-location style="width: 100%; height: 100%;"></map>
+            <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" controls="{{controls}}" markers="{{markers}}" polyline="{{polyline}}" enable-zoom='{{iszoom}}' enable-scroll='{{isScroll}}' bindtap='onLocation' show-location style="width: 100%; height: {{mapHeight}};"></map>
             <!-- 提示信息 -->
-            <!-- <view class="hint_msg width90 dpfb padding20 boxShadow" wx:if='{{typeNum== 0}}'>
-                <view class="hint_icon dpf">
-                    <image src="../../images/hint_icon.png"></image>
-                </view>
-                <view class="hint_text fontSize-26 color2">
-                    2019年知驾车服,免费六项车体检查
-                </view>
-                <view class="hint_btn">
-                    查看详情
-                </view>
-            </view> -->
+           
             <!-- 服务结束导航列表 -->
             <view class="finishListBox padding20 boxShadow" wx:if='{{typeNum== 4}}'>
                 <view class="width90 dpf">
@@ -224,60 +219,35 @@
             </view> -->
         </view>
         <!-- 选择服务 -->
-        <view class="width100 dpfC moduleBox" wx:if='{{typeNum== 0}}'> 
-        <view class="upBox" wx:if='{{typeNum == 0}}' catchtap="selecEmergency">
-               <image src="../../images/down5.png"></image>
-            </view>
-            <view class="width90 dpfC boxShadow padding30">
-                <view class="tabNav width90">
-                    <view data-index="0" bindtap="servetab" class="{{ serveCurrent == 0 ? 'border':''}}">现在</view>
-                    <view data-index="1" bindtap="servetab" class="{{ serveCurrent == 1 ? 'border':''}}">预约</view>
-                    <view data-index="2" bindtap="servetab" class="{{ serveCurrent == 2 ? 'border':''}}">代叫</view>
-                    <view data-index="3" bindtap="servetab" class="color7 {{ serveCurrent == 3 ? 'borderRed':''}}">急叫</view>
-                </view>
-                <view class="address dpf width90 marginTop padding20">
-                    <view class="left_Box">
-                        <text class="dian_1"></text>
-                    </view>
-                    <view class="right_text fontSize-28 color2">
-                        {{address}}
-                    </view>
-                </view>
-                <view class="problem dpf width90">
-                    <view class="left_Box">
-                        <text class="dian_2"></text>
-                    </view>
-                    <view catchtap="onbindfocus" class="right_text fontSize-28 color2"> 您的车有什么问题
-                    </view>
-                </view>
-            </view>
+        <view class="width100 dpfC moduleBox2" style="margin-top:{{topNum}}" wx:if='{{typeNum== 0}}'>
+            <template is="Emergency" data="{{serveCurrent:serveCurrent,address:address,emShow:emShow,selecEmergency:selecEmergency,list2:list2,list3:list3,nearerData:nearerData,banner:banner,list8:list8}}"></template>
         </view>
-       
+
         <!-- 预约维师 -->
         <view class="width100 dpfC moduleBox" wx:if='{{typeNum== 1}}'>
             <view class="width90 dpfC boxShadow padding30">
                 <view class="width100 dpf borderBtm type1" style="margin-bottom:5rpx;}">
                     <view class="serveType {{serveType == 0 ? 'serverTypeActive':''}}" data-index='0' bindtap="serveType">
-                        <view class="color1 fontSize-32">来店</view>
+                        <view class="fontSize-32 {{serveType == 0 ? 'color1':'color3'}}">来店</view>
                         <view class="marginTop serveLogo">
                             <image src="{{serveType==0 ? '../../images/img18.jpg':'../../images/img19.jpg'}}"></image>
                         </view>
-                        <view class="marginTop fontSize-26">预估
-                            <text class="color1 fontSize-36 fontWeight6">{{num1}}</text>元</view>
+                        <view class="marginTop fontSize-26 {{serveType == 0 ? 'color1':'color3'}}">预估
+                            <text class="fontSize-36 fontWeight6">{{num1}}</text>元</view>
                     </view>
                     <view class="serveType {{serveType == 1 ? 'serverTypeActive':''}}" data-index='1' bindtap="serveType">
-                        <view class="color1 fontSize-32">取车</view>
+                        <view class="fontSize-32 {{serveType == 1 ? 'color1':'color3'}}">取车</view>
                         <view class="marginTop serveLogo">
                             <image src="{{serveType==1 ? '../../images/img18.jpg':'../../images/img19.jpg'}}"></image>
                         </view>
-                        <view class="marginTop fontSize-26">预估
-                            <text class="color1 fontSize-36 fontWeight6">{{num2}}</text>元
+                        <view class="marginTop fontSize-26 {{serveType == 1 ? 'color1':'color3'}}">预估
+                            <text class="fontSize-36 fontWeight6">{{num2}}</text>元
                         </view>
                     </view>
                     <image class="delBox" catchtap="delmodel" src="../../images/icon_colse.png"></image>
                 </view>
+                <!-- 预约时间 -->
                 <view class="slectTime width100 dpf padding20 fontSize-26 color1">
-                    <!-- 预约时间 -->
                     <view>
                         <view>
                             <view bindtap="showSleTime" class="picker" wx:if='{{dateTime == ""}}'>
@@ -418,10 +388,10 @@
     <template is="recommended" wx:if='{{currentTab == 5}}' data="{{goodsData:goodsData}}"></template>
     <!-- 车生活 -->
     <import src="carife.wxml"></import>
-    <template is="carife" wx:if='{{currentTab == 7}}' data=""></template>
+    <template is="carife" wx:if='{{currentTab == 7}}' data="{{list4:list4,list5:list5}}"></template>
     <!-- 车载智能 -->
     <import src="carNoopsyche.wxml"></import>
-    <template is="carNoopsyche" wx:if='{{currentTab == 8}}' data=""></template>
+    <template is="carNoopsyche" wx:if='{{currentTab == 8}}' data="{{list6:list6,list7:list7}}"></template>
 </view>
 <!-- 侧滑个人中心 -->
 <view class='shade_1' wx:if='{{slideNav}}' catchtap='onhideslideNav' catchtouchmove='ture'></view>
@@ -431,7 +401,10 @@
 
 <!-- 急救中心 滑出-->
 <import src="emergency.wxml"></import>
-<template is="Emergency" data="{{emShow:emShow,selecEmergency:selecEmergency,list2:list2,list3:list3,nearerData:nearerData}}"></template>
+
+<import src="JJIuZhongXin.wxml"></import>
+<template is="JJIuZhongXin" wx:if='{{emShow2}}' data='{{emShow2:emShow2}}'></template>
+
 <!-- 选择爱车 滑出-->
 <import src="carList.wxml"></import>
 <template is="carList" wx:if='{{carListShow}}' data="{{carListShow:carListShow,carList:carList,carindex:carindex,selectCar:selectCar,onhidesCarlist:onhidesCarlist,confirmCar:confirmCar}}"></template>

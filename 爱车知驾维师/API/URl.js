@@ -143,5 +143,25 @@ export default class Url {
     static postingsCommentZanUrl() {
         return Url.ART + '/postingsCommentZan';
     };
+    // 获取银行卡列表
+    static getBankCardListUrl() {
+        return Url.ART + '/getBankCardList';
+    };
+    // 获取评论列表
+    static getMyPostingsCommentUrl() {
+        return Url.ART + '/getMyPostingsComment';
+    };
+    // 发布文章
+    static addPostingsUrl() {
+        return Url.ART + '/addPostings';
+    };
+    // 赞列表
+    static getMyPostingsZanUrl() {
+        return Url.ART + '/getMyPostingsZan';
+    };
+    // 添加银行卡
+    static addBankCardUrl() {
+        return Url.ART + '/addBankCard';
+    };
    
 }

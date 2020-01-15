@@ -55,7 +55,7 @@ page{
     line-height: 98rpx;
     color: #ffffff;
     font-size: 32rpx;
-    background: #F27C1F;
+    background: #00a4c5;
 }
 .empty_box{
     margin-top: 248rpx;

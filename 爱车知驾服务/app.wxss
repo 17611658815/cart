@@ -1,6 +1,7 @@
 /* 技师列表 */
 /* @import "pages/index/slideNav.wxss"; */
  @import "pages/index/emergency.wxss"; 
+ @import "pages/index/JJIuZhongXin.wxss"; 
  @import "pages/index/authorization.wxss"; 
  @import "pages/index/carNoopsyche.wxss"; 
  @import "pages/index/carList.wxss"; 
@@ -94,13 +95,13 @@
 }
 /* 字体颜色 */
 .color1 {
-    color: #333;
+    color: #252525;
 }
 .color2 {
-    color: #666;
+    color: #686868;
 }
 .color3 {
-    color: #999;
+    color: #848689;
 }
 .color4 {
     color: #fa5454;
@@ -121,7 +122,10 @@
     color: #ffffff;
 }
 .color10{
-    color: #02A4C5;
+    color: #00a4c5;
+}
+.bg00a4c5{
+    background: #00a4c5;
 }
 /* 间距 */
 .paddinglr{
@@ -174,9 +178,6 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
 }
-.borderBtm{
-    border-bottom: 1rpx solid #e2e2e2;
-}
 
 .userPic{
     width: 60rpx;
@@ -192,7 +193,7 @@
 
 }
 .borderBtm{
-    border-bottom: 2rpx solid #e2e2e2;
+    border-bottom: 2rpx solid #bfbfbf;
 }
 .dian_1{
     display: block;

@@ -1,7 +1,8 @@
 <view class="{{isIphoneX ? 'paddingBtm180':'paddingBtm90'}}">
     <view class="container">
         <view class='cleaningDetails-header'>
-            <swiper class="swiper" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' indicator-active-color="#62DAD1" circular='true' duration="1000" interval="5000">
+            <swiper class="swiper" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' 
+            indicator-active-color="#62DAD1" circular='true' duration="1000" interval="5000">
                 <swiper-item wx:for='{{shopObj.banner}}' wx:key='key'>
                     <image mode="scaleToFill" src='{{item}}'></image>
                 </swiper-item>
@@ -57,8 +58,8 @@
                         </view>
                         <view class="phoneName">{{item.name}}</view>
                         <view class="phonePriceNum marginTop5">
-                            <text class="fontSize-20 color7">￥</text>
-                            <text class="fontSize-32 color7 fontWeight5">{{item.price}}</text>
+                            <text class="fontSize-20 color10">￥</text>
+                            <text class="fontSize-32 color10 fontWeight5">{{item.price}}</text>
                             <text class="fontSize-22 color3">元</text>
                         </view>
                         <image class="addCar" data-item='{{item}}' catchtap="addCar" src="../../images/addCar.png"></image>
@@ -88,11 +89,11 @@
                 </view> -->
                 <view class="total fontSize-36">
                     合计:
-                    <text class="color7 fontWeight5">{{total}}</text> 元
+                    <text class="color10 fontWeight5">{{total}}</text> 元
                 </view>
             </view>
             <view class='addCartBox-box-right'>
-                <view bindtap='goGoodsList' style="background: #F27C1F;color:#ffffff">去购物车结算</view>
+                <view bindtap='goGoodsList' style="background: #00a4c5;color:#ffffff">去购物车结算</view>
             </view>
         </view>
         <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>

@@ -20,8 +20,8 @@ page{
 }
 
 .active {
-    color: #ea944f;
-    border-bottom: 5rpx solid #ea944f;
+    color: #00a4c5;
+    border-bottom: 5rpx solid #00a4c5;
 }
 
 

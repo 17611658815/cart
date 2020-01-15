@@ -1,25 +1,66 @@
 // pages/Carservice/Carservice.js
+let app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        userid:0,
+        list:[],
+        list2:[],
         navList: ['首页', '知驾服务'],
         currentTab:1,
         btnNavcurrent:0,
     },
-
+    /**
+        * 生命周期函数--监听页面显示
+        */
+    async onShow () {
+        let userInfo = wx.getStorageSync('userinfo') || {};
+        let list = await app.getRecommend(0, 0, "7,8,9,10,11,12,13,14,15");
+        let list2 = await app.getRecommend(0, 0, "16,17");
+        console.log(list)
+        this.setData({
+            list,
+            list2,
+            userid: userInfo.id,
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
-
+    async onLoad (options) {
+        
+    },
+    goDetaile(e){
+        let path = e.currentTarget.dataset.path;
+        let appid = e.currentTarget.dataset.appid;
+        if (appid!=""){
+            wx.navigateToMiniProgram({
+                appId: appid,
+                path: path,
+                extraData: {},
+                envVersion: 'release',
+                success(res) {
+                    // 打开成功
+                    console.log('打开了')
+                }
+            })
+        }else{
+            wx.navigateTo({
+                url: path,
+            })
+        }
     },
     gomessageList() {
-        wx.navigateTo({
-            url: '/pages/messageList/messageList',
-        })
+        if (!this.data.userid) {
+            app.checkLogin();
+        } else {
+            wx.navigateTo({
+                url: '/pages/messageList/messageList',
+            })
+        }
     },
     // 导航tab切换
     goIndex(e) {
@@ -49,12 +90,7 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
+   
 
     /**
      * 生命周期函数--监听页面隐藏

@@ -1,10 +1,15 @@
 // pages/recommend/recommend.js
+let app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        imageShow:false,
+        imgCode:0,
+        imgurl:'',
+        member_id:0,
         share_source:0,
         currentTab:0,
         msgList: [
@@ -13,10 +18,45 @@ Page({
             { url: "url", title: "北大教工合唱团出国演出遇尴尬:被要求给他人伴唱" }
         ],
     },
+
     swatchTab(e) {
         let index = e.currentTarget.dataset.index;
         this.setData({
             currentTab: index
+        })
+    },
+    QRcode() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            member_id: that.data.member_id,
+        }
+        app.net.$Api.QRcode(params).then((res) => {
+            console.log(res)
+            if (res.data.code == 200) {
+                that.setData({
+                    imgurl: res.data.url
+                })
+            }
+            that.setData({
+                imgCode: res.data.code
+            })
+        })
+    },
+    shareCode() {
+        let that = this;
+        if (that.data.imgCode !=200){
+            app.alert('二维码生成失败')
+        }else{
+            that.setData({
+                imageShow: true
+            })
+        }
+    },
+    closeImg(){
+        let that = this;
+        that.setData({
+            imageShow: false
         })
     },
     gotextPage(){
@@ -25,13 +65,25 @@ Page({
         })
     },
     /**
-     * 生命周期函数--监听页面加载
+     * 生命周期函数--监听页面显示
      */
-    onLoad: function (options) {
+    onShow: function () {
         let userinfo = wx.getStorageSync('userinfo') || '';
         this.setData({
             share_source: userinfo.share_source,
+            member_id: userinfo.id
         })
+        if (!this.data.member_id) {
+            app.checkLogin()
+        }else{
+            this.QRcode()
+        }
+    },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        
     },
 
     /**
@@ -41,12 +93,7 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
+    
 
     /**
      * 生命周期函数--监听页面隐藏

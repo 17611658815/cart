@@ -4,6 +4,8 @@
     padding: 30rpx 3%;
 }
 .contentBox{
-
     line-height: 60rpx;
+}
+.rich-img{
+    width: 100%;
 }

@@ -34,7 +34,7 @@
 .footBtn>view{
     width: 90%;
     height: 100rpx;
-    background-image: linear-gradient(#F9903F, #F35235);
+    background:#00a4c5;
     border-radius: 10rpx;
     text-align: center;
     line-height: 100rpx;

@@ -1,0 +1,92 @@
+<template name="JJIuZhongXin">
+    <view class='emergency-shade2' catchtap='delJijiu' catchtouchmove='ture'></view>
+    <view class="{{emShow2 ? 'emergency-contentShow2':'emergency-contentHide2'}}" catchtouchmove='ture'>
+        <image class="delImg" catchtap='delJijiu' src="../../images/icon_colse.png"></image>
+        <view class="dpfC width85">
+            <view class="width100 dpf" style="margin-top:60rpx">
+                <view class="fontSize-45 color1 fontWeight6" style="margin-right:30rpx;">车急救中心</view>
+                <view class="fontSize-28 color3">更多
+                    <image class="icon_right_2" src='../../images/icon_right.png'></image>
+                </view>
+            </view>
+            <view class="width100 dpf" style="padding:80rpx 0;">
+                <view class="dpfC" style="flex:1;position:relative">
+                    <view class="dpfC" style="width:150rpx;height:150rpx;border-radius:50%;">
+                        <image class="icon_Emergency" src="../../images/share_icon1.png"></image>
+                    </view>
+                    <view class="marginTop fontSize-36 color1 fontWeight5">服务分享</view>
+                    <button open-type="share" class="shereBtn"></button>
+                </view>
+                <view class="dpfC" style="flex:1">
+                    <view class="dpfC" style="width:150rpx;height:150rpx;;border-radius:50%;">
+                        <image class="icon_Emergency" src="../../images/clock_icon.png"></image>
+                    </view>
+                    <view class="marginTop fontSize-36 color1 fontWeight5">急呼服务</view>
+                </view>
+            </view>
+            <view class="width100 dpfC" style="padding:80rpx 0;">
+                <view class="dpfb width100 padding20">
+                    <view class="dpf">
+                        <view class="iconBox">
+                            <image src="../../images/img40.png"></image>
+                        </view>
+                        <view class="fontSize-30 color2 marginLeft">专属维师</view>
+                    </view>
+
+                    <view class='dpf'>
+                        <text class="fontSize-22 color3">已经设置</text>
+                        <image class="icon_right_2" src="../../images/icon_right.png"></image>
+                    </view>
+                </view>
+                <!-- view class="dpfb width100 padding20">
+                    <view class="dpf left">
+                        <view class="iconBox">
+                            <image src="../../images/img41.png"></image>
+                        </view>
+                        <view class="fontSize-30 color2 marginLeft">实时位置保护</view>
+                    </view>
+                    <text class="tagBox">已经设置</text>
+                    <view class='dpf'>
+                        <image class="icon_right_2" src="../../images/icon_right.png"></image>
+                    </view>
+                </view> -->
+                <view class="dpfb width100 padding20">
+                    <view class="dpf left">
+                        <view class="iconBox">
+                            <image src="../../images/img42.png"></image>
+                        </view>
+                        <view class="fontSize-30 color2 marginLeft">服务</view>
+                    </view>
+                    <text class="tagBox">已经设置</text>
+                    <view class='dpf'>
+                        <image class="icon_right_2" src="../../images/icon_right.png"></image>
+                    </view>
+                </view>
+                <!-- <view class="dpfb width100 padding20">
+                    <view class="dpf left">
+                        <view class="iconBox">
+                            <image src="../../images/img39.png"></image>
+                        </view>
+                        <view class="fontSize-30 color2 marginLeft">隐私号码保护</view>
+                    </view>
+                    <text class="tagBox">保护中</text>
+                    <view class='dpf'>
+                        <image class="icon_right_2" src="../../images/icon_right.png"></image>
+                    </view>
+                </view>
+                <view class="dpfb width100 padding20">
+                    <view class="dpf left">
+                        <view class="iconBox">
+                            <image src="../../images/img39.png"></image>
+                        </view>
+                        <view class="fontSize-30 color2 marginLeft">车急救中心</view>
+                    </view>
+                    <text class="tagBox">首次订单后生效</text>
+                    <view class='dpf'>
+                        <image class="icon_right_2" src="../../images/icon_right.png"></image>
+                    </view>
+                </view> -->
+            </view>
+        </view>
+    </view>
+</template>

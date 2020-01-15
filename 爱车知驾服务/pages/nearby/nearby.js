@@ -34,10 +34,10 @@ Page({
         let that = this;
         let params = {
             appid: app.globalData.appid,
-            // lat: '39.905277252197266',
-            // lng: '116.51362609863281',
-            lat: app.globalData.latitude,
-            lng: app.globalData.longitude,
+            lat: '39.905277252197266',
+            lng: '116.51362609863281',
+            // lat: app.globalData.latitude,
+            // lng: app.globalData.longitude,
         }
         app.loading('加载中')
         app.net.$Api.getShopListByLocation(params).then((res) => {

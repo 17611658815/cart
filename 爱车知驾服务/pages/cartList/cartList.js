@@ -440,15 +440,15 @@ Page({
            
             if(res.data.code == 200){
 
-                wx.showModal({
-                    title: '温馨提示',
-                    content: '提交成功',
-                    showCancel: false,
-                    success: function () {
+                // wx.showModal({
+                //     title: '温馨提示',
+                //     content: '提交成功',
+                //     showCancel: false,
+                //     success: function () {
                         that.createServiceOrder()
-                    }
+                    // }
 
-                })
+                // })
             }
         })
     }

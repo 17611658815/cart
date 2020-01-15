@@ -118,7 +118,6 @@ Page({
     gonoticeInfo(e) {
         let id = e.currentTarget.dataset.id;
         let path = e.currentTarget.dataset.path;
-        console.log(id, path)
         if (path) {
             console.log('1')
             this.noticeRead(id, path)

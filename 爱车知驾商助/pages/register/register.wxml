@@ -4,12 +4,18 @@
     </view>
     <view class="width100 bgFFFF dpfC padding30">
         <view class="width90 dpf">{{city}}
-            <!-- <text class="icon_Bottom marginLeft"></text> -->
         </view>
     </view>
     <view class='width90 paddinglr bgFFFF'>
-        <view class='dpf'>
+        <view class='dpfb'>
+            <view class="color1" style=" white-space:nowrap;font-size:30rpx;">店铺名称</view>
             <input placeholder='店铺名称' value="{{goodsName}}" bindinput="goodsNameInpt" type='text'></input>
+        </view>
+    </view>
+    <view class='width90 paddinglr bgFFFF'>
+        <view class="color1" style=" white-space:nowrap;font-size:30rpx;">核心服务</view>
+        <view class='dpf'>
+            <textarea placeholder='请输入店铺主要服务项目...' value="{{shop_service}}" bindinput="serviceInpt" ></textarea>
         </view>
     </view>
     <view class="layoutList dpfC bgFFFF fontSize-28 width100 marginTop">

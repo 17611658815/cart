@@ -248,12 +248,12 @@
     </view>
 </view>
 
-<view class="fastTitleBoxs" style="color: #6e9ff7;" catchtap="goAddredPacket" data-index="3" wx:if="{{currentTab ==1}}">
+<view class="fastTitleBoxs" style="color: #FF0000;" catchtap="goAddredPacket" data-index="3" wx:if="{{currentTab ==1}}">
     发起
 </view>
-<view class="fastTitleBoxs" style="color: #E7402E;" catchtap="goAddredPacket" data-index="2" wx:if="{{currentTab ==2}}">
+<view class="fastTitleBoxs" style="color: #FF0000;" catchtap="goAddredPacket" data-index="2" wx:if="{{currentTab ==2}}">
     添加
 </view>
-<view class="fastTitleBoxs" style="color: #F9903F;" catchtap="goAddredPacket" data-index="1" wx:if="{{currentTab ==3}}">
+<view class="fastTitleBoxs" style="color: #FF0000;" catchtap="goAddredPacket" data-index="1" wx:if="{{currentTab ==3}}">
     添加
 </view>

@@ -1,0 +1,25 @@
+<view class="contBox">
+    <!-- 头部 -->
+    <!-- <view class='dpfC width90'>
+        <view class='home-content-header dpf'>
+            <view style='flex:1;' bindtap="goMapPage">
+                <view class='dpf fontSize-32 color1'>
+                    <view class="picker">
+                        {{city}}
+                    </view>
+                </view>
+            </view>
+            <view class='home-content-search'>
+                <image class='icon_search' src='../../images/icon/icon_search.png'></image>
+                <input class="searchInput" type="text" bindinput="bindKeyInput" placeholder="小区 / 写字楼 / 学校等"></input>
+            </view>
+        </view>
+
+        <view class="sug_info width100" bindtap="selectAddres" data-location="{{item.location}}" wx:for='{{sugData}}' wx:key='key'>
+            <text>{{item.name}}</text>
+        </view>
+    </view> -->
+        <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14"  markers="{{markers}}" bindtap='onLocation' polyline="{{polyline}}" show-location style="width: 100%; height:{{windowH}}px;"></map>
+        
+ <button class="addBtn" bindtap="saveShopInfo">保存</button>
+</view>

@@ -52,11 +52,11 @@ textarea{
 .addBtn{
     width: 600rpx;
     height: 100rpx;
-    border-radius: 50rpx;
+    border-radius: 10rpx;
     text-align: center;
     line-height: 100rpx;
     color: #ffffff;
     margin: auto;
-    background-image: linear-gradient(#F9903F, #F35235);
+    background:#FF0000 ;
     margin-top: 50rpx;
 }

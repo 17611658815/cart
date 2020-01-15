@@ -88,7 +88,7 @@ page{
 .noMsg-box-btn{
     width: 85%;
 height: 90rpx;
-background-image: linear-gradient(#F9903F, #F35235);
+background: #ff0000;
 border-radius: 10rpx;
 color: #ffffff;
 text-align: center;

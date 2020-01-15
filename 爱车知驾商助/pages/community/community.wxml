@@ -81,5 +81,5 @@
 </view>
 
 <navigator class="icon_42Box" hover-class="none" url="/pages/addMsg/addMsg">
-    <image src='../../images/icon/icon_42.jpg'></image>
+    <image src='../../images/icon/icon_42.png'></image>
 </navigator>

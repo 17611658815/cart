@@ -1,5 +1,7 @@
 <view class="container" wx:if='{{otherListLength>0}}'>
-    <view class="width90 bgFFFF boxShadow dpfC padding30 marginTop20" data-id='{{item.id}}' data-type='{{item.type}}' data-status="{{item.status}}" bindtap="goDetaile" wx:for='{{otherList}}' wx:key='key'>
+    <view class="width90 bgFFFF boxShadow dpfC padding30 marginTop20" data-id='{{item.id}}' 
+    data-type='{{item.type}}' data-status="{{item.status}}" 
+    bindtap="goDetaile" wx:for='{{otherList}}' wx:key='key'>
         <!-- <view class="otheritem width90 dpfb fontSize-28">
            <view class="color3">
                 <text wx:if='{{item.status == 0}}'>未支付</text>

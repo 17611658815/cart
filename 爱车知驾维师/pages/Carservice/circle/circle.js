@@ -11,7 +11,7 @@ Page({
         navList: ['首页', '知驾服务'],
         currentTab: 1,//顶部切换
         btnNavcurrent: 1,//底部切换
-        circle_Nav: [{ name: '我的', icon: '' }, { name: '排行榜', icon: '' },{ name: '技能证书', icon: '' }],
+        circle_Nav: [{ name: '我的', icon: '' }, { name: '排行榜', icon: '',  },{ name: '技能证书', icon: '' }],
         circle_Tab:['本地推荐','最新','全国热点','知驾随行'],
         circleTabNum:0,//内容切换,
         magDataList:[],
@@ -55,6 +55,11 @@ Page({
         let id = e.currentTarget.dataset.id;
         wx.navigateTo({
             url: '/pages/msgDetaile/msgDetaile?id=' + id,
+        })
+    },
+    gomayCenter(){
+        wx.navigateTo({
+            url: '/pages/maycenter/maycenter',
         })
     },
     /**
@@ -110,10 +115,15 @@ Page({
         })
         this.getPostingsList()
     },
+    
     gomessageList() {
-        wx.navigateTo({
-            url: '/pages/messageList/messageList',
-        })
+        if (!this.data.member_id) {
+            app.checkLogin();
+        } else {
+            wx.navigateTo({
+                url: '/pages/messageList/messageList',
+            })
+        }
     },
     // 导航tab切换
     goIndex(e) {

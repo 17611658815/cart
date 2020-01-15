@@ -28,7 +28,7 @@ Page({
             }
             , {
                 name: '历史动态',
-                path: '',
+                path: '/pages/Carservice/msgCenter/msgCenter',
                 icon: '../../../images/mayList_1.png'
             }, {
                 name: '接单设置',
@@ -41,7 +41,7 @@ Page({
                 icon: '../../../images/mayList_2.png'
             }, {
                 name: '消息中心',
-                path: '/pages/Carservice/msgCenter/msgCenter',
+                path: '/pages/messageList/messageList',
                 icon: '../../../images/mayList_3.png'
             }
         ],

@@ -18,6 +18,7 @@ Page({
         text2:'未授权',
         goodsName:'',
         phone:'',
+        shop_service:'',
     },
     /**
      * 生命周期函数--监听页面加载
@@ -49,12 +50,12 @@ Page({
                         app.globalData.longitude = res.longitude;
                         app.globalData.latitude = res.latitude;
                         app.globalData.city = e.data.result.address_component.city;
-                        // that.setData({
-                        //     city: e.data.result.address_component.city,//当前城市
-                        //     address: e.data.result.address,//当前位置
-                        //     longitude: res.longitude,
-                        //     latitude: res.latitude,
-                        // })
+                        that.setData({
+                            city: e.data.result.address_component.city,//当前城市
+                            // address: e.data.result.address,//当前位置
+                            // longitude: res.longitude,
+                            // latitude: res.latitude,
+                        })
                     }
                 })
             }
@@ -76,6 +77,7 @@ Page({
                 new_img2: res.data.data.work_photos,
                 new_img3: res.data.data.avatar,
                 goodsName: res.data.data.real_name,
+                shop_service: res.data.data.shop_service,
                 text1:(res.data.data.subscribe_message['5Bk34iK5EBCkW1-rDRwepXPdTfL3TgtipfMubCGvv40'] 
                 != undefined && res.data.data.subscribe_message['5Bk34iK5EBCkW1-rDRwepXPdTfL3TgtipfMubCGvv40'] == 'accept') ? '已授权':'未授权',
                 text2:(res.data.data.subscribe_message['Fy899cypwva2oUVilULgO7BJp3z7IY4qI8Tkicnus2k'] 
@@ -285,6 +287,11 @@ Page({
             goodsName:e.detail.value 
         })
     },
+    serviceInpt(e){
+        this.setData({
+            shop_service: e.detail.value
+        })
+    },
     saveUserInfo(phone){
         let that = this;
         let new_img1 = that.data.new_img1; //营业执照
@@ -299,7 +306,8 @@ Page({
             lat: app.globalData.latitude,
             lng: app.globalData.longitude,
             phone: phone,
-            city:app.globalData.city
+            city:app.globalData.city,
+            shop_service: that.data.shop_service
 
         }
         app.net.$Api.saveShopInfo(params).then((res) => {
@@ -334,7 +342,8 @@ Page({
             lat: app.globalData.latitude,
             lng: app.globalData.longitude,
             phone: that.data.phone,
-            city: app.globalData.city
+            city: app.globalData.city,
+            shop_service: that.data.shop_service
         }
         app.net.$Api.saveShopInfo(params).then((res) => {
             console.log(res)

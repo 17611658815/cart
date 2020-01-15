@@ -1,0 +1,53 @@
+/* pages/exam/exam.wxss */
+.headerBox{
+    width: 100%;
+    height: 500rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     background: linear-gradient(to bottom, #5B96FC 50%,#ffffff 100%);
+}
+.titleName{
+    display: flex;
+    flex-direction: column;
+}
+.titleName text{
+    display: block;
+}
+.titleName text:nth-child(2){
+    width: 200rpx;
+    height: 5rpx;
+    background: #ffffff;
+    margin-top: 10rpx;
+}
+.level_box{
+    width: 94%;
+    
+}
+.level_box image{
+    width: 100%;
+}
+.level_box view{
+    width: 150rpx;
+    padding: 30rpx 20rpx;
+    background: #45484D;
+    color: #ffffff;
+    font-size: 26rpx;
+    text-align: center;
+    border-radius: 90rpx;
+    margin-top: 20rpx;
+}
+.level_pic{
+    width: 94%;
+    padding: 30rpx 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50rpx;
+}
+.level_pic image{
+    width: 48%;
+    height: 200rpx;
+}
+.level_pic image:nth-child(2n){
+    margin-left: 4%;
+}

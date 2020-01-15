@@ -26,7 +26,6 @@ Page({
         this.setData({
             member_id: userInfo.id,
         })
-        
     },
     /**
      * 生命周期函数--监听页面显示

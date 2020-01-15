@@ -1,0 +1,21 @@
+
+.commentList{
+    width: 94%;
+    padding: 0 3%;
+    background: #ffffff;
+}
+.commentList-item{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 30rpx 0;
+    border-bottom: 2rpx solid #e2e2e2;
+    
+}
+.commentList-item image{
+    width: 50rpx;
+    height: 50rpx;
+}
+.commentList{
+    
+}
