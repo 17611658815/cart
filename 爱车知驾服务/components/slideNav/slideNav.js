@@ -31,7 +31,7 @@ Component({
             name: "钱包",
             icon: "../../images/wallet_icon.png"
         }, {
-            path: "",
+             path: "/pages/mayService/mayService",
             name: "我的客服",
             icon: "../../images/kefu_icon.png"
         }, {

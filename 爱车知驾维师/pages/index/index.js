@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
     data: {
-        userid: 0,
+        member_id: 0,
         navList: ['首页', '知驾服务'],
         currentTab: 0,
         userInfo: {},
@@ -25,11 +25,12 @@ Page({
     async onShow() {
         let userInfo = wx.getStorageSync('userinfo') || {};
         this.setData({
-            userid: userInfo.id,
+            member_id: userInfo.id,
             userInfo: userInfo
         })
         const result = await this.getUserInfo();
         console.log(33333)
+        this.checkAssessOrder()
     },
     //获取当前位置
     getLocationMsg() {
@@ -61,7 +62,7 @@ Page({
         let that = this;
         let params = {
             appid: app.globalData.appid,
-            userid: that.data.userid,
+            userid: that.data.member_id,
         }
         return new Promise((resolve, reject) => {
             app.net.$Api.getUserInfo(params).then((res) => {
@@ -91,6 +92,29 @@ Page({
             // console.log(res.data.hasInfo)
         })
     },
+    // 订单状态
+    checkAssessOrder(){
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            member_id: that.data.member_id,
+        }
+        app.net.$Api.checkAssessOrder(params).then((res) => {
+            console.log(res, 102)
+            if(res.data.data.id){
+                wx.showModal({
+                    title: '温馨提示',
+                    content: res.data.msg,
+                    showCancel: false,
+                    success:function(){
+                        wx.navigateTo({
+                            url: '/pages/otherDetaile/otherDetaile?id=' + res.data.data.id,
+                        })
+                    }
+                })
+            }
+        })
+    },
     goCarservice() {
         wx.reLaunch({
             url: '/pages/Carservice/Carservice/Carservice',
@@ -117,7 +141,7 @@ Page({
     },
     // 立即注册
     gosign() {
-        if (!this.data.userid) {
+        if (!this.data.member_id) {
             app.checkLogin();
         } else {
             wx.navigateTo({
@@ -127,7 +151,7 @@ Page({
 
     },
     gomessageList() {
-        if (!this.data.userid) {
+        if (!this.data.member_id) {
             app.checkLogin();
         } else {
             wx.navigateTo({
@@ -141,7 +165,7 @@ Page({
         })
     },
     gorecruit() {
-        if (!this.data.userid) {
+        if (!this.data.member_id) {
             app.checkLogin();
         } else {
             wx.navigateTo({

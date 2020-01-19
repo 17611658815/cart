@@ -178,5 +178,9 @@ export const api = {
     addBankCard: function (paramObj) {
         return Promise.post(Url.default.addBankCardUrl(), paramObj);
     },
+    // 订单完成状态
+    checkAssessOrder: function (paramObj) {
+        return Promise.post(Url.default.checkAssessOrderUrl(), paramObj);
+    },
     
 }

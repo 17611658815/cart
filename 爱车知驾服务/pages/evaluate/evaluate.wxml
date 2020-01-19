@@ -40,21 +40,25 @@
       <textarea class="input db" value="{{message}}" placeholder="详细描述您的问题或建议,我们将及时跟进解决" placeholder-class="phcolor" bindinput="savemessage"></textarea>
     </view>
     </view>
-    <view class="width100 dpfC marginTop">
+    <view class="width100 dpfC marginTop" wx:if='{{type==1}}'>
         <view class="width90 dpf boxShadow padding30">
-            <view class="dpfC" style="flex:1">
-                <view style="width:80rpx;height:80rpx; border-radius:50%; background: #999999"></view>
-                <view class="fontSize-26 color3 marginTop10">分享领红包</view>
-            </view>
-            <view class="dpfC" style="flex:1">
-                <view style="width:80rpx;height:80rpx; border-radius:50%; background: #999999"></view>
-                <view class="fontSize-26 color3 marginTop10">质量体验官</view>
-            </view>
-        </view>
+                    <view class="dpfC" style="flex:1;position:relative">
+                        <view class="dpfC" style="width:80rpx;height:80rpx; border-radius:50%; background: #FFD7C1">
+                            <image style="width:40rpx;height:40rpx;" src="../../images/img43.jpg"></image>
+                        </view>
+                        <view class="fontSize-26 color3 marginTop10">分享领红包</view>
+                        <button open-type="share" style=" position: absolute;top:0;left:0;width:100%;height:100%; background: none"></button>
+                    </view>
+                    <view class="dpfC" style="flex:1">
+                        <view class="dpfC" style="width:80rpx;height:80rpx; border-radius:50%; background: #FFD7C1">
+                         <image style="width:40rpx;height:40rpx;" src="../../images/img44.jpg"></image></view>
+                        <view class="fontSize-26 color3 marginTop10">专属技师</view>
+                    </view>
+                </view>
     </view>
     <view class="width100 dpfC marginTop">
         <view class="width90 boxShadow dpfC" style="padding-bottom:20rpx;">
-            <view class="width90 questionList">
+            <view class="width90 questionList" wx:if='{{type==1}}'>
                 <view class="questionitem">我丢了东西</view>
                 <view class="questionitem">我的费用问题</view>
                 <view class="questionitem">对维修工不满意</view>

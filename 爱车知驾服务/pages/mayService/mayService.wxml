@@ -1,24 +1,25 @@
 <view class="container">
     <view class="latelyOther">
-        <view class="dpfb color9 fontSize-26">
+        <navigator class="dpfb color9 fontSize-26" hover-class="none" url="/pages/other/other">
             <view>最近订单</view>
             <view>全部 ></view>
-        </view>
+        </navigator>
         <view class="width100 bgFFFF dpfC padding30 marginTop marginBtm" style="border-radius:5rpx">
-            <view class="otheritem width90 dpfb fontSize-28">
+            <!--  <view class="otheritem width90 dpfb fontSize-28">
                 <view class="dpf">
                     <text>单车</text>
                     <text class="tagBox">优享</text>
                     <text class="tagBox">代叫</text>
                 </view>
-            </view>
-            <view class="width90 fontSize-28 marginTop">
+            </view> -->
+            <view class="width90 fontSize-28 marginTop" bindtap="goDetaile" data-id='{{latestOrder.id}}' data-status='{{latestOrder.status}}'>
                 <view class="dpf">
                     <view class="left_Box">
                         <image class="time_icon" src="../../images/time_icon.png"></image>
                     </view>
-                    <view class="fontSize-28 color3">
-                        今天7:26
+                    <view class="fontSize-28 color3 dpfb width100">
+                        <text>{{latestOrder.created}}</text>
+                        <text>{{statusArr[latestOrder.status]}}</text>
                     </view>
                 </view>
                 <view class="dpf padding20">
@@ -26,7 +27,7 @@
                         <text class="dian_1"></text>
                     </view>
                     <view class="fontSize-28 color3">
-                        林业大学挪车
+                        {{latestOrder.title}}
                     </view>
                 </view>
                 <view class="dpf">
@@ -34,7 +35,7 @@
                         <text class="dian_2"></text>
                     </view>
                     <view class="fontSize-28 color3">
-                        停车场（出入口）
+                        {{latestOrder.total_price}}元
                     </view>
                 </view>
             </view>
@@ -43,23 +44,49 @@
     <view class="hotissue">
         <view class="question_box">
             <view class="question_box_left">
-                <view class="dpfC" wx:for='{{3}}'>
-                    <image src='../../images/1570861870.jpg'></image>
+                <view class="dpfC">
+                    <image src='../../images/img45.png'></image>
                     <view class="marginTop10">热点关注</view>
                 </view>
             </view>
             <view class="question_box_right">
-                <view wx:for='{{6}}'>
-                    预约维修车如何退款
+                <view wx:for='{{msgList_1}}' bindtap="gotextPage" data-id='{{item.id}}'>
+                    {{item.title}}
+                </view>
+            </view>
+        </view>
+        <view class="question_box">
+            <view class="question_box_left">
+                <view class="dpfC">
+                    <image src='../../images/img46.png'></image>
+                    <view class="marginTop10">取消与退款</view>
+                </view>
+            </view>
+            <view class="question_box_right">
+                <view wx:for='{{msgList_2}}' bindtap="gotextPage" data-id='{{item.id}}'>
+                    {{item.title}}
+                </view>
+            </view>
+        </view>
+        <view class="question_box">
+            <view class="question_box_left">
+                <view class="dpfC">
+                    <image src='../../images/img47.png'></image>
+                    <view class="marginTop10">异议</view>
+                </view>
+            </view>
+            <view class="question_box_right">
+                <view wx:for='{{msgList_3}}' bindtap="gotextPage" data-id='{{item.id}}'>
+                    {{item.title}}
                 </view>
             </view>
         </view>
         <view class="dpfb blacklist">
             <text class="fontSize-26 color2">我的黑名单</text>
-              <image class="icon_right" src='../../images/icon_right.png'></image>
+            <image class="icon_right" src='../../images/icon_right.png'></image>
         </view>
     </view>
     <view class="recommend">
-        <view wx:for='{{8}}'>猜您想问</view>
+        <view wx:for='{{msgList_4}}' bindtap="gotextPage" data-id='{{item.id}}'> {{item.title}}</view>
     </view>
 </view>

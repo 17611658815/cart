@@ -1,91 +1,136 @@
-<view class="{{isIphoneX ? 'paddingBtm180':'paddingBtm90'}}" wx:if='{{!refuse}}'>
-    <view class="container">
-        <view class="otherstatus">
-            <view class="dpf color1 fontSize-40 fontWeight5">
-                <text wx:if='{{status == 1}}'>待支付</text> </view>
-            <view class="color1 fontSize-28">{{otherObj.created}}</view>
-        </view>
-        <view class="otheraddresBox">
-            <view class="otheraddresBox_1">
-                <text>{{otherObj.receiver}}</text>
-                <text>{{otherObj.mobile}}</text>
-            </view>
-            <view class="otheraddresBox_2 dpf">
-                {{otherObj.address}}
-            </view>
-        </view>
-        <view class="otherlistBox bgFFFF" wx:for='{{otherObj.goods}}' wx:key='key'>
-            <view class="otherMsg">
+<view class="bgF orderContent dpfC" wx:for='{{otherObj}}' wx:key='key'>
+    <view class="dpfb orderTitle">
+        <text>{{item.title}}</text>
+        <image class="icon_right" src='../../images/icon_right.png'></image>
+    </view>
+    <view class="width100 dpfC">
+        <view class="otherlistBox">
+            <view class="otherMsg" wx:for='{{item.goods}}' wx:for-item="items">
                 <view class="otherPic">
-                    <image mode="scaleToFill" src="{{item.thumb}}" />
+                    <image mode="scaleToFill" src="{{items.thumb}}" />
                 </view>
                 <view class="otherinfo">
-                    <view class="fontSize-30 color1">{{item.name}}</view>
-                    <view class="fontSize-30 color3">数量:{{item.num}}</view>
-                    <view class="fontSize-30 color9">￥{{item.price}}元</view>
+                    <view class="fontSize-30 color1">{{items.name}}</view>
+                    <view class="fontSize-28 color2">数量{{items.num}}</view>
+                    <view class="fontSize-30 color7">{{items.price}}元</view>
                 </view>
             </view>
         </view>
-    </view>
-    <view class="container bgFFFF marginTop borderBtm" wx:if='{{otherObj.remark!=""}}'>
-        <!-- <view class="width90 padStl">
-            <view class="width100 dpfb">
-                <text class="color3 fontSize-28">每日租金</text>
-                <text class="color3 fontSize-28">￥50</text>
+        <view class="otherlistBox" wx:if='{{item.service.length>0}}'>
+            <view class="otherMsg" wx:for='{{item.service}}' wx:for-item="serviceItem">
+                <view class="width100 dpfb padding30 borderBtm">
+                    <view class="fontSize-30 color1">{{serviceItem.name}}</view>
+                    <view class="fontSize-30 color7">￥{{serviceItem.price}}元</view>
+                </view>
             </view>
-            <view class="width100 dpfb padding30">
-                <text class="color3 fontSize-28">租期</text>
-                <text class="color3 fontSize-28">￥28</text>
+        </view>
+        <view class="otherlistBox" wx:if="{{item.transfer_type == 2}}" data-location='{{item.location}}' bindtap="showMap">
+            <view class="otherMsg dpfb">
+                <view class="fontSize-30 color1">上门取车费用
+                    <image class="GPS" src="../../images/GPS.png"></image>
+                </view>
+                <!-- <view class="fontSize-30 color3">数量:{{item.num}}</view>-->
+                <view class="fontSize-30 color7">￥{{item.transfer_price}}元</view>
             </view>
-            <view class="width100 dpfb">
-                <text class="color1 fontSize-28">结算方式</text>
-                <text class="color1 fontSize-28">按月支付</text>
-            </view>
-            <view class="width100 dpfb padding30">
-                <text class="color1 fontSize-28">手机意外败仗服务费298元</text>
-                <text class="color1 fontSize-28">￥298.00</text>
+        </view>
+        <!-- <view class="otherlistBox" wx:if='{{item.service.length>0}}'>
+            <view class="otherMsg" wx:for='{{item.service}}' wx:for-item="serviceItem">
+                <view class="width100 dpfb padding30 borderBtm">
+                    <view class="fontSize-30 color1">{{serviceItem.name}}</view>
+                    <view class="fontSize-30 color7">￥{{serviceItem.price}}元</view>
+                </view>
             </view>
         </view> -->
-        <view class="buy_txt">
-            {{otherObj.remark}}
+    </view>
+    <view class="width90 padStl padding30">
+        <view class="width100 dpfb padding30">
+            <text class="color1 fontSize-32 fontWeight5">总价</text>
+            <text class="color7 fontSize-32 fontWeight5">￥{{item.total_price}}</text>
         </view>
     </view>
-    <view class="container bgFFFF">
+    <view class="width90" wx:if='{{item.content.length>0}}'>维修进度</view>
+    <view class="width90 marginTop20 borderBtm" wx:for='{{item.content}}' wx:for-item='itemData'>
+        <view class="maegin20">
+            {{itemData.created}}
+        </view>
+        <view class="maegin20">
+            {{itemData.content}}
+        </view>
+        <scroll-view scroll-x="true" class='vip_welfare'>
+            <view class='vip_welfare_content'>
+                <view wx:for='{{itemData.img}}' data-type='1' data-src="{{item}}" data-item='{{itemData}}' bindtap="play" wx:for-item='itemData_2'>
+                    <image class="imgPic" src="{{itemData_2}}"></image>
+                </view>
+                <view wx:for='{{itemData.video}}' data-type='2' data-index='{{itemData_1_index}}' data-src="{{itemData_1}}" data-item='{{itemData}}' bindtap="play" wx:for-item='itemData_1' wx:for-index='itemData_1_index'>
+                    <image class="imgPic" src="../../images/play_bg.png"></image>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="width100 dpfC bgF marginTop">
         <view class="width90 padStl padding30">
-            <view class="width100 dpfb">
-                <text class="color1 fontSize-32 fontWeight5">合计</text>
-                <text class="color9 fontSize-32 fontWeight5">￥{{otherObj.price}}</text>
+            <view class="width100 dpfb borderBtm padding20" bindtap="makePhoneCall" data-phone='{{item.user.phone}}' wx:if='{{item.status !=12}}'>
+                <text class="color3 fontSize-28">用户电话</text>
+                <text class="color3 fontSize-28">{{item.user.phone}}</text>
             </view>
-        </view>
-    </view>
-    <view class="container bgFFFF">
-        <view class="width90 padStl padding30 ">
-            <view class="width100 dpfb">
+            <view class="width100 dpfb borderBtm padding20">
                 <text class="color3 fontSize-28">订单编号</text>
-                <text class="color3 fontSize-28">{{otherObj.order_sn}}</text>
+                <text class="color3 fontSize-28">{{item.order_sn}}</text>
             </view>
-            <view class="width100 dpfb marginTop">
+            <view class="width100 dpfb padding20 borderBtm">
                 <text class="color3 fontSize-28">下单日期</text>
-                <text class="color3 fontSize-28">{{otherObj.created}}</text>
+                <text class="color3 fontSize-28">{{item.created}}</text>
             </view>
-            <view class="width100 dpf" style='margin-top:50rpx;'>
-                <!-- <view catchtap='recallOther' class='btn_1'>取消订单</view> -->
-                <view catchtap='setOrderSend' class='btn_2' wx:if="{{otherObj.status == 9}}">发货</view>
-                <view catchtap='setOrderRefund' class='btn_2' wx:if="{{otherObj.status == 5}}">退款</view>
-                <view catchtap='refuseRefund' class='btn_1' wx:if="{{otherObj.status == 5}}">拒绝退款</view>
+
+        </view>
+        <view class="width90 dpfb bgF padding20" wx:if='{{item.status == 12}}'>
+            <view class="fontSize-32 fontWeight5">
+                服务评分
+            </view>
+            <view class='starBox'>
+
+                <view class='star_item'>
+                    <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:for-item='star1' style='background:url({{ item.score_jishi >= star1 ? iconArr1[1] : iconArr1[0]}}) no-repeat center center/6.7vw 6.7vw;'></view>
+                </view>
+            </view>
+        </view>
+        <view class="width90 dpfb bgF padding20" wx:if='{{item.status == 12}}'>
+            <view class="fontSize-32 fontWeight5">
+                场地评分
+            </view>
+            <view class='starBox'>
+                <view class='star_item'>
+                    <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:for-item='star1' style='background:url({{item.score_shop >= star1 ? iconArr2[1] : iconArr2[0]}}) no-repeat center center/6.7vw 6.7vw;'></view>
+                </view>
+            </view>
+        </view>
+        <view class="width90 dpfb bgF padding20" wx:if='{{item.status == 12}}'>
+            <view class="fontSize-32 fontWeight5">
+                综合评分
+            </view>
+            <view class='starBox'>
+                <view class='star_item'>
+                    <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:for-item='star1' style='background:url({{item.score >= star1 ? iconArr3[1] : iconArr3[0]}}) no-repeat center center/6.7vw 6.7vw;'></view>
+                </view>
+            </view>
+        </view>
+        <view class="width90 dpfC bgF padding20" wx:if='{{item.score_content!=""}}'>
+            <view class="width100 fontSize-32 fontWeight5">
+                用户评论：
+            </view>
+            <view class='width100 padding20'>
+                {{item.score_content}}
             </view>
         </view>
     </view>
-</view>
 
-<!--pages/feedback/feedback.wxml-->
-<view class="container bgFFFF minheight" wx:if='{{refuse}}'>
-  <view class="areaBox">
-    <view class="inputBox">
-      <textarea class="input db" placeholder="请输入拒绝退款的理由~" value="{{message}}" placeholder-class="phcolor" bindinput="savemessage"></textarea>
-    </view>
-  </view>
-  <view class="submit" bindtap="setOrderNoRefund">
-    提交
-  </view>
+</view>
+<view class="width90 paddinglr marginTop dpf marginTop20">
+    <view catchtap='setOrderSend' class='btn_2' wx:if="{{otherObj[0].status == 9}}">发货</view>
+    <view catchtap='setOrderRefund' class='btn_2' wx:if="{{otherObj[0].status == 5}}">退款</view>
+    <view catchtap='refuseRefund' class='btn_1' wx:if="{{otherObj[0].status == 5}}">拒绝退款</view>
+</view>
+<video id='video' wx:if="{{videoPlay}}" bindended="bindended" bindplay='bindplay' autoplay="{{isplay}}" src="{{videoPath}}" style="width:100%;height:{{autoHeight}}px;">
+</video>
+<view class='videoBox' wx:if='{{videoPlay}}' catchtap="closeVideo">
 </view>

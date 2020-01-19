@@ -1,11 +1,20 @@
 /* pages/textPage/textPage.wxss */
 .content{
-    width: 94%;
-    padding: 30rpx 3%;
+    width: 100%;
+    padding: 30rpx 0;
 }
 .contentBox{
-    line-height: 60rpx;
+    line-height: 40rpx;
 }
 .rich-img{
+    width: 100%;
+}
+.rich-p{
+   text-indent: 2em;
+   font-size:26rpx;
+   color: #252525; 
+   padding: 20rpx 10%;
+}
+video{
     width: 100%;
 }

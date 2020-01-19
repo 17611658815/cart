@@ -26,13 +26,14 @@
         </view>
         <view class="otherlistBox" wx:if="{{item.transfer_type == 2}}" data-location='{{item.location}}' bindtap="showMap">
             <view class="otherMsg dpfb">
-                    <view class="fontSize-30 color1">上门取车费用 
-                    <image class="GPS" src="../../images/GPS.png"></image> </view>
-                    <!-- <view class="fontSize-30 color3">数量:{{item.num}}</view>-->
-                     <view class="fontSize-30 color7">￥{{item.transfer_price}}元</view> 
+                <view class="fontSize-30 color1">上门取车费用
+                    <image class="GPS" src="../../images/GPS.png"></image>
+                </view>
+                <!-- <view class="fontSize-30 color3">数量:{{item.num}}</view>-->
+                <view class="fontSize-30 color7">￥{{item.transfer_price}}元</view>
             </view>
         </view>
-         <!-- <view class="otherlistBox" wx:if='{{item.service.length>0}}'>
+        <!-- <view class="otherlistBox" wx:if='{{item.service.length>0}}'>
             <view class="otherMsg" wx:for='{{item.service}}' wx:for-item="serviceItem">
                 <view class="width100 dpfb padding30 borderBtm">
                     <view class="fontSize-30 color1">{{serviceItem.name}}</view>
@@ -68,6 +69,10 @@
     </view>
     <view class="width100 dpfC bgF marginTop">
         <view class="width90 padStl padding30">
+            <view class="width100 dpfb borderBtm padding20" bindtap="makePhoneCall" data-phone='{{item.user.phone}}' wx:if='{{item.status !=12}}'>
+                <text class="color3 fontSize-28">用户电话</text>
+                <text class="color3 fontSize-28">{{item.user.phone}}</text>
+            </view>
             <view class="width100 dpfb borderBtm padding20">
                 <text class="color3 fontSize-28">订单编号</text>
                 <text class="color3 fontSize-28">{{item.order_sn}}</text>
@@ -77,6 +82,45 @@
                 <text class="color3 fontSize-28">{{item.created}}</text>
             </view>
 
+        </view>
+        <view class="width90 dpfb bgF padding20" wx:if='{{item.status == 12}}'>
+            <view class="fontSize-32 fontWeight5">
+                服务评分
+            </view>
+            <view class='starBox'>
+
+                <view class='star_item'>
+                    <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:for-item='star1' style='background:url({{ item.score_jishi >= star1 ? iconArr1[1] : iconArr1[0]}}) no-repeat center center/6.7vw 6.7vw;'></view>
+                </view>
+            </view>
+        </view>
+        <view class="width90 dpfb bgF padding20" wx:if='{{item.status == 12}}'>
+            <view class="fontSize-32 fontWeight5">
+                场地评分
+            </view>
+            <view class='starBox'>
+                <view class='star_item'>
+                    <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:for-item='star1' style='background:url({{item.score_shop >= star1 ? iconArr2[1] : iconArr2[0]}}) no-repeat center center/6.7vw 6.7vw;'></view>
+                </view>
+            </view>
+        </view>
+        <view class="width90 dpfb bgF padding20" wx:if='{{item.status == 12}}'>
+            <view class="fontSize-32 fontWeight5">
+                综合评分
+            </view>
+            <view class='starBox'>
+                <view class='star_item'>
+                    <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:for-item='star1' style='background:url({{item.score >= star1 ? iconArr3[1] : iconArr3[0]}}) no-repeat center center/6.7vw 6.7vw;'></view>
+                </view>
+            </view>
+        </view>
+        <view class="width90 dpfC bgF padding20" wx:if='{{item.score_content!=""}}'>
+            <view class="width100 fontSize-32 fontWeight5">
+                用户评论：
+            </view>
+            <view class='width100 padding20'>
+                 {{item.score_content}}
+            </view>
         </view>
     </view>
 

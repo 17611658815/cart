@@ -1,4 +1,4 @@
-// pages/otherDetaile/otherDetaile.js
+const beas64 = require('beas64.js');
 const app = getApp()
 var prevV = wx.createVideoContext('video');
 Page({
@@ -18,8 +18,13 @@ Page({
         isplay:false,
         videoInde:0,
         order_id:0,
-        videoPath:''
-      
+        videoPath:'',
+        iconArr1: [], //评星
+        iconArr2: [], //评星
+        iconArr3: [], //评星
+        diagnosisStar1:3,
+        diagnosisStar2:0,
+        diagnosisStar3:0,
     },
 
     /**
@@ -38,7 +43,10 @@ Page({
         that.setData({
             id: options.id,
             member_id: userinfo.id,
-            status: options.status
+            status: options.status,
+            iconArr1: beas64, //评星
+            iconArr2: beas64, //评星
+            iconArr3: beas64, //评星
         })
         
     },
@@ -61,7 +69,8 @@ Page({
             console.log(res)
             that.setData({
                 otherObj:res.data.data,
-                order_id: res.data.data[0].id
+                order_id: res.data.data[0].id,
+                // diagnosisStar1:
             })
             wx.hideLoading()
         })
@@ -174,6 +183,14 @@ Page({
             scale: 18
         })
     },
+    makePhoneCall(e){
+        console.log(e)
+        let phone = e.currentTarget.dataset.phone
+        wx.makePhoneCall({
+            phoneNumber: phone //仅为示例，并非真实的电话号码
+        })
+    },
+   
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

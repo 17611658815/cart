@@ -298,3 +298,20 @@ swiper{
     height: 50rpx;
     margin-left: 30rpx;
 }
+
+
+.starBox {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.rui-star {
+    display: inline-block;
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.rui-star:nth-child(n+1) {
+    margin-left: 30rpx;
+}

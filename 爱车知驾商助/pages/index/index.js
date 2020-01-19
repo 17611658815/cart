@@ -30,6 +30,7 @@ Page({
             isIphoneX: app.globalData.isIphoneX
         })
         this.getShopHomeData()
+        this.checkAssessOrder()
     },
     //获取当前位置
     getLocationMsg() {
@@ -83,9 +84,13 @@ Page({
         let index = e.currentTarget.dataset.index;
         let status = e.currentTarget.dataset.status;
         console.log(index, status)
-        wx.navigateTo({
-            url: '/pages/goodsList/goodsList?index=' + index + "&status=" + status,
-        })
+        if (!this.data.member_id) {
+            app.checkLogin();
+        }else{
+            wx.navigateTo({
+                url: '/pages/goodsList/goodsList?index=' + index + "&status=" + status,
+            })
+        }
     },
     gomsgDetaile(e) {
         let id = e.currentTarget.dataset.id;
@@ -107,24 +112,34 @@ Page({
         })
     }, */
     godataCenter() {
-        wx.navigateTo({
-            url: '/pages/dataCenter/dataCenter',
-        })
+        if (!this.data.member_id) {
+            app.checkLogin();
+        }else{
+            wx.navigateTo({
+                url: '/pages/dataCenter/dataCenter',
+            })
+        }
+       
     },
     // 订单管理
     gootherType(e) {
         let status = e.currentTarget.dataset.status;
         let currenttab = e.currentTarget.dataset.currenttab;
         console.log(e)
-        wx.navigateTo({
-            url: '/pages/otherType/otherType?status=' + status + '&currentTab=' + currenttab,
-        })
+        if (!this.data.member_id) {
+            app.checkLogin();
+        }else{
+            wx.navigateTo({
+                url: '/pages/otherType/otherType?status=' + status + '&currentTab=' + currenttab,
+            })
+        }
+       
     },
     // 订单管理
     goaddgoods() {
-        if (!app.globalData.userInfo.id) {
+        console.log(this.data.member_id)
+        if (!this.data.member_id) {
             app.checkLogin();
-
         } else {
             wx.navigateTo({
                 url: '/pages/addgoods/addgoods',
@@ -133,14 +148,23 @@ Page({
     },
     // 商家社区
     gocommunity() {
-        wx.navigateTo({
-            url: '/pages/community/community',
-        })
+        if (!this.data.member_id) {
+            app.checkLogin();
+        }else{
+            wx.navigateTo({
+                url: '/pages/community/community',
+            })
+        }
+       
     },
     goOrderList(){
-        wx.navigateTo({
-            url: '/pages/orderList/orderList',
-        })
+        if (!this.data.member_id) {
+            app.checkLogin();
+        }else{
+            wx.navigateTo({
+                url: '/pages/orderList/orderList',
+            })
+        }
     },
     // 获取首页图片
     // getindexImg() {
@@ -158,5 +182,28 @@ Page({
             userInfo: e.detail.userInfo,
             hasUserInfo: true
         })
-    }
+    },
+    // 订单状态
+    checkAssessOrder() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            member_id: that.data.member_id,
+        }
+        app.net.$Api.checkAssessOrder(params).then((res) => {
+            console.log(res, 102)
+            if (res.data.data.id) {
+                wx.showModal({
+                    title: '温馨提示',
+                    content: res.data.msg,
+                    showCancel: false,
+                    success: function () {
+                        wx.navigateTo({
+                            url: '/pages/otherDetaile/otherDetaile?id=' + res.data.data.id,
+                        })
+                    }
+                })
+            }
+        })
+    },
 })

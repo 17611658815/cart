@@ -118,7 +118,6 @@ Page({
             message: e.detail.value
         })
     },
-    // https://api.dodo.wiki/appInterface/consumer/appraiseServiceOrder/?appid=8&id=216&score_jishi=1&score_shop=2&score=3
     submit1(){
         let that = this;
         console.log('1')
@@ -218,10 +217,10 @@ Page({
 
     },
 
-    /**
-     * 用户点击右上角分享
-     */
     onShareAppMessage: function () {
-
+        return {
+            title: '知驾车服',
+            path: '/pages/index/index'
+        }
     }
 })

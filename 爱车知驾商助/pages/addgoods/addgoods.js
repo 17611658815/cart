@@ -263,7 +263,6 @@ Page({
                 }
                 if (isbreak) { break; }
             }
-            console.log(name1)
             console.log(res)
             that.setData({
                 typeid: res.data.data.typeid,

@@ -12,7 +12,6 @@
             <view class="width100 padding30 fontSize-32 dpfb">
                 <text>{{shopObj.real_name}}</text>
                 <navigator hover-class="none" url='/pages/activityList/activityList'>店铺活动</navigator>
-
             </view>
             <!-- <view class="width100">
                 <text class="fontSize-26">日租金</text>

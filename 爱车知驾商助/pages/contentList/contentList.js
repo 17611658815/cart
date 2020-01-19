@@ -66,7 +66,6 @@ Page({
                     on_off:true
                 })
             }
-           
         })
     },
     /**

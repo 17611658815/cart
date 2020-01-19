@@ -15,11 +15,13 @@
     width: 100%;
     background: #fff;
     z-index: 10;
+   
+    
 }
 
 .user_nav .user_icon {
-    width: 70rpx;
-    height: 70rpx;
+    width: 50rpx;
+    height: 50rpx;
     border-radius: 50%;
 }
 
@@ -158,11 +160,13 @@
 .mapBox {
     width: 100%;
     /* height: 100vh; */
+   
+}
+.fixed{
     position: fixed;
     left: 0;
     top: 0;
 }
-
 .hint_msg {
     width: 96%;
     background: #fff;
@@ -532,10 +536,11 @@
     align-content: center;
     justify-content: center;
     position: absolute;
-    bottom: -6%;
+    top: -75rpx;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 100rpx;
+    padding: 20rpx 0;
 }
 
 .finishListBox>view {
@@ -823,7 +828,7 @@
     font-size: 30rpx;
     color: #8f8f8f;
     position: absolute;
-    top: 230rpx;
+    top: 185rpx;
     left: 5%;
     z-index: 9;
 }
@@ -947,7 +952,7 @@
     width: 120rpx;
     height: 120rpx;
     position: absolute;
-    top: 210rpx;
+    top: 150rpx;
     right: 30rpx;
     z-index: 9;
 }
@@ -979,4 +984,35 @@
 
 button::after {
     border: none;
+   
+}
+
+
+.inputBox{
+  width: 690rpx;
+  height: 325rpx;
+  background: #F5F7F8;
+  border-radius: 8rpx;
+  margin: 0 auto 40rpx;
+}
+.input{
+ width: 85%;
+ padding: 40rpx 40rpx 40rpx 40rpx;
+  height: 245rpx;
+  margin: auto;
+  font-size: 28rpx;
+  color: #333333;
+  text-align: justify;
+}
+.phcolor{
+  font-size: 28rpx;
+  line-height: 100rpx;
+  color: #999999;
+  
+
+}
+.starmodule{
+    background: #ffffff;
+    z-index: 10;
+    position: relative;
 }

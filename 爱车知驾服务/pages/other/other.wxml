@@ -9,7 +9,7 @@
                {{item.title}}
            </view>
            <view class="color3">
-                <text wx:if='{{item.status == 0}}'>未支付</text>
+                <!-- <text wx:if='{{item.status == 0}}'>未支付</text> -->
                <!-- <text wx:if='{{item.status == 1 && }}'>已完成</text>   -->
                <image class="icon_right" src='../../images/icon_right.png'></image>
            </view>

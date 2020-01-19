@@ -1,11 +1,5 @@
 //index.js
 //获取应用实例
-var touchStartX = 0; //触摸时的原点  
-var touchStartY = 0; //触摸时的原点  
-var time = 0; // 时间记录，用于滑动时且时间小于1s则执行左右滑动  
-var interval = ""; // 记录/清理时间记录  
-var touchMoveX = 0; // x轴方向移动的距离
-var touchMoveY = 0; // y轴方向移动的距离
 const app = getApp()
 const bmap = require('../../utils/bmap-wx.min.js');
 const beas64 = require('beas64.js');
@@ -140,13 +134,19 @@ Page({
         isScroll: true,
         topNum:"53vh",
         mapHeight:'70vh',
-        banner:[]
-    },
-    requestMsg() {
-        wx.requestSubscribeMessage({
-            tmplIds: ['F8TezMCsMq0qdlv-Wm9hGkDGRNyZPKu1PaYo7h8tOvY'],
-            success(res) {}
-        })
+        banner:[],
+        // 评论
+        iconArr1: [], //评星
+        iconArr2: [], //评星
+        iconArr3: [], //评星
+        diagnosisStar1: 1,//服务评星
+        diagnosisStar2: 1,//场地评星
+        diagnosisStar3: 1,//综合评星
+        evaluateCurrent1: 0,//评价当前选中
+        evaluateCurrent2: 0,//评价当前选中
+        evaluateCurrent3: 0,//评价当前选中
+        message: "",
+        OrderTypeData:{}
     },
     formatTime(date, type) {
         var year = date.getFullYear();
@@ -218,24 +218,10 @@ Page({
         })
         console.log(list8,209)
     },
-    /* getSystemInfo(){
-        wx.getSystemInfo({
-            success: (res) => {
-                let ww = res.windowWidth,
-                    wh = res.windowHeight,
-                    imgWidth = ww * 0.48,
-                    scrollH = wh;
-                this.setData({
-                    scrollH: scrollH,
-                    imgWidth: imgWidth,
-                    height: app.globalData.height,
-
-                });
-    }, */
     getSysdata:function() {    
         var that = this;    
         if  (app.globalData.window  !=  undefined){ 
-            that.data.window  =   [app.globalData.window.windowWidth,  app.globalData.window.windowHeight];      
+            that.data.window  =  [app.globalData.window.windowWidth,  app.globalData.window.windowHeight];      
             wx.createSelectorQuery().select('.pushbill').boundingClientRect(function (res)  {          
                 // that.data.writesize  =   [res.width,  res.height];  
                 let topNum = res.height
@@ -251,7 +237,6 @@ Page({
             app.getSysdata(that.getSysdata);    
         }  
     },
-    //顶部吸附效果
     onShow: function() {
         let that = this;
         let userinfo = wx.getStorageSync('userinfo') || '';
@@ -267,15 +252,14 @@ Page({
         that.setData({
             userinfo: userinfo,
             member_id: userinfo.id,
+            iconArr1: beas64, //评星
+            iconArr2: beas64, //评星
+            iconArr3: beas64, //评星
         })
         if (userinfo != "") {
             that.isHaveCar(userinfo);
         }
-        wx.createSelectorQuery().select('#list').boundingClientRect(function(rect) {
-            that.setData({
-                fixTop: rect.top
-            })
-        }).exec()
+        that.checkAssessOrder()
         console.log(that.data.member_id)
     },
 
@@ -451,33 +435,6 @@ Page({
             that.onLoad();
         }, 1500);
     },
-    // 获取点击的星位
-    getStar(e) {
-        let that = this;
-        let star = e.currentTarget.dataset.star;
-        switch (star) {
-            case 1:
-                that.data.diagnosistext = '很差'
-                break;
-            case 2:
-                that.data.diagnosistext = '差'
-                break;
-            case 3:
-                that.data.diagnosistext = '一般'
-                break;
-            case 4:
-                that.data.diagnosistext = '很好'
-                break;
-            case 5:
-                that.data.diagnosistext = '优秀'
-                break;
-        }
-        that.setData({
-            diagnosisStar: star,
-            diagnosistext: that.data.diagnosistext
-        });
-    },
-
     //获取当前位置
     getLocationMsg() {
         let that = this;
@@ -684,7 +641,7 @@ Page({
             app.globalData.area_id = that.data.area_id
             app.globalData.Carid = that.data.car_id
             wx.navigateTo({
-                url: '/pages/search/search?currentTab=' + that.data.currentTab + "&area_id=" + that.data.area_id,
+                url: '/pages/classList/classList?currentTab=' + that.data.currentTab + "&area_id=" + that.data.area_id,
             })
         } else if (that.data.isHaveCar > 1) {
             this.setData({
@@ -925,67 +882,7 @@ Page({
         that.changeOnLocation()
         that.getMarkersList()
     },
-    // 触摸开始事件  
-    touchStart: function(e) {
-        touchStartX = e.touches[0].pageX; // 获取触摸时的原点  
-        touchStartY = e.touches[0].pageY; // 获取触摸时的原点  
-        // 使用js计时器记录时间    
-        interval = setInterval(function() {
-            time++;
-        }, 100);
-    },
-    /*     // 触摸移动事件  
-        touchMove: function (e) {
-            touchMoveX = e.touches[0].pageX;
-            touchMoveY = e.touches[0].pageY;
-        }, */
-    // 触摸结束事件  
-    touchEnd: function(e) {
-        var moveX = touchMoveX - touchStartX
-        var moveY = touchMoveY - touchStartY
-        if (Math.sign(moveX) == -1) {
-            moveX = moveX * -1
-        }
-        if (Math.sign(moveY) == -1) {
-            moveY = moveY * -1
-        }
-        if (moveX <= moveY) { // 上下
-            // 向上滑动
-            if (touchMoveY - touchStartY <= -30 && time < 10) {
-                console.log("向上滑动")
-                this.setData({
-                    emShow: true
-                })
-            }
-            // 向下滑动  
-            if (touchMoveY - touchStartY >= 30 && time < 10) {
-                console.log('向下滑动 ');
-                this.setData({
-                    emShow: false
-                })
-            }
-        } else { // 左右
-            // 向左滑动
-            if (touchMoveX - touchStartX <= -30 && time < 10) {
-                console.log("左滑页面")
-            }
-            // 向右滑动  
-            if (touchMoveX - touchStartX >= 30 && time < 10) {
-                console.log('向右滑动');
-            }
-        }
-        clearInterval(interval); // 清除setInterval  
-        time = 0;
-    },
-    // 
-    //开始拖拽   
-    touchmove: function(e) {
-        var that = this;
-        var position = [e.touches[0].pageX - that.data.writesize[0] / 2, e.touches[0].pageY - that.data.writesize[1] / 2 - this.data.scrolltop];
-        that.setData({
-            write: position
-        });
-    },
+
     goList(e) {
         let that = this;
         let type = e.currentTarget.dataset.type;
@@ -1106,6 +1003,167 @@ Page({
     govideoPage(){
         wx.navigateTo({
             url: '/pages/videoPage/videoPage',
+        })
+    },
+    // 评论
+    // 服务平稳
+    getStar1(e) {
+        let that = this;
+        let star = e.currentTarget.dataset.star;
+        switch (star) {
+            case 1:
+                that.data.diagnosistext = '很差'
+                break;
+            case 2:
+                that.data.diagnosistext = '差'
+                break;
+            case 3:
+                that.data.diagnosistext = '一般'
+                break;
+            case 4:
+                that.data.diagnosistext = '很好'
+                break;
+            case 5:
+                that.data.diagnosistext = '优秀'
+                break;
+        }
+        that.setData({
+            diagnosisStar1: star,
+        });
+        console.log(that.data.diagnosisStar1)
+    },
+    // 场地平稳
+    getStar2(e) {
+        let that = this;
+        let star = e.currentTarget.dataset.star;
+        switch (star) {
+            case 1:
+                that.data.diagnosistext = '很差'
+                break;
+            case 2:
+                that.data.diagnosistext = '差'
+                break;
+            case 3:
+                that.data.diagnosistext = '一般'
+                break;
+            case 4:
+                that.data.diagnosistext = '很好'
+                break;
+            case 5:
+                that.data.diagnosistext = '优秀'
+                break;
+        }
+        that.setData({
+            diagnosisStar2: star,
+        });
+        console.log(that.data.diagnosisStar2)
+    },
+    // 场地平稳
+    getStar3(e) {
+        let that = this;
+        let star = e.currentTarget.dataset.star;
+        switch (star) {
+            case 1:
+                that.data.diagnosistext = '很差'
+                break;
+            case 2:
+                that.data.diagnosistext = '差'
+                break;
+            case 3:
+                that.data.diagnosistext = '一般'
+                break;
+            case 4:
+                that.data.diagnosistext = '很好'
+                break;
+            case 5:
+                that.data.diagnosistext = '优秀'
+                break;
+        }
+        that.setData({
+            diagnosisStar3: star,
+        });
+        console.log(that.data.diagnosisStar3)
+    },
+    savemessage: function (e) {
+        var that = this;
+        that.setData({
+            message: e.detail.value
+        })
+    },
+    // https://api.dodo.wiki/appInterface/consumer/appraiseServiceOrder/?appid=8&id=216&score_jishi=1&score_shop=2&score=3
+    submit1() {
+        let that = this;
+        console.log('1')
+        let params = {
+            appid: app.globalData.appid,
+            id: that.data.OrderTypeData.id,
+            score_jishi: that.data.diagnosisStar1,
+            score_shop: that.data.diagnosisStar2,
+            score: that.data.diagnosisStar3,
+            score_content: that.data.message
+        }
+        app.net.$Api.appraiseServiceOrder(params).then((res) => {
+            console.log(res, 199)
+            if (res.data.code == 200) {
+                wx.showToast({
+                    title: res.data.message,
+                    icon: 'success',
+                    duration: 2000,
+                    success: function () {
+                        setTimeout(function () {
+                          that.setData({
+                              typeNum:0
+                          })
+                            that.goTop()
+                        }, 2000)
+                    }
+                })
+            }
+        })
+    },
+    submit2() {
+        let that = this;
+        console.log('2')
+        let params = {
+            appid: app.globalData.appid,
+            id: that.data.OrderTypeData.id,
+            score: that.data.diagnosisStar3,
+            score_content: that.data.message
+        }
+        app.net.$Api.appraiseShopOrder(params).then((res) => {
+            console.log(res)
+            if (res.data.code == 200) {
+                wx.showToast({
+                    title: res.data.message,
+                    icon: 'success',
+                    duration: 2000,
+                    success: function () {
+                        setTimeout(function () {
+                            that.setData({
+                                typeNum: 0
+                            })
+                            that.goTop()
+                        }, 2000)
+                    }
+                })
+            }
+        })
+    },
+    // 获取订单状态
+    checkAssessOrder(){
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            member_id: that.data.member_id,
+        }
+        app.net.$Api.checkAssessOrder(params).then((res) => {
+            console.log(res,1163)
+            if (res.data.data.id){
+                that.setData({
+                    typeNum: 4,
+                    OrderTypeData: res.data.data
+                })
+            }
         })
     },
     /**

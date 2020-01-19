@@ -84,13 +84,35 @@ Page({
             }
         })
     },
-    removeOther() {
+    gorefundOrder(e){
+        let id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '/pages/refundOrder/refundOrder?id=' + this.data.id,
+        })
+    }
+   /*  refund(e) {
+        let that = this;
+        wx.showModal({
+            title: '温馨提示',
+            content: '确定取消订单吗？',
+            success(res) {
+                if (res.confirm) {
+                    console.log('用户点击确定')
+                    that.refundOrder()
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+            }
+        })
+    },
+    refundOrder() {
         let that = this;
         let params = {
             appid: app.globalData.appid,
-            id: that.data.id
+            id: that.data.id,
+            remark: remark
         }
-        app.net.$Api.cancelOrder(params).then((res) => {
+        app.net.$Api.refundOrder(params).then((res) => {
             if(res.data.code == 200){
                 wx.showToast({
                     title: '取消成功',
@@ -100,6 +122,31 @@ Page({
                         setTimeout(function () {
                             wx.navigateBack({
                                 delte:1
+                            })
+                        }, 2000)
+                    }
+                })
+            }
+
+        })
+    }, */
+    ,
+    backMoney(){
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            id: that.data.id
+        }
+        app.net.$Api.cancelOrder(params).then((res) => {
+            if (res.data.code == 200) {
+                wx.showToast({
+                    title: '申请成功',
+                    icon: 'success',
+                    duration: 2000,
+                    success: function () {
+                        setTimeout(function () {
+                            wx.navigateBack({
+                                delte: 1
                             })
                         }, 2000)
                     }
@@ -123,20 +170,20 @@ Page({
                 signType: res.data.signType,
                 paySign: res.data.paySign,
                 success(res) {
-                        wx.requestSubscribeMessage({
-                            tmplIds: ['F8TezMCsMq0qdlv-Wm9hGkDGRNyZPKu1PaYo7h8tOvY'],
-                            success(r) {
-                                console.log(r)
-                            },
-                            fail() {
+                    wx.requestSubscribeMessage({
+                        tmplIds: ['F8TezMCsMq0qdlv-Wm9hGkDGRNyZPKu1PaYo7h8tOvY'],
+                        success(r) {
+                            console.log(r)
+                        },
+                        fail() {
 
-                            },
-                            complete() {
-                                wx.reLaunch({
-                                    url: '/pages/index/index',
-                                })
-                            }
-                        })
+                        },
+                        complete() {
+                            wx.reLaunch({
+                                url: '/pages/index/index',
+                            })
+                        }
+                    })
                 },
                 fail(res) { }
             })
@@ -199,6 +246,13 @@ Page({
         console.log(id)
         wx.navigateTo({
             url: '/pages/evaluate/evaluate?id=' + id + "&type=" + type,
+        })
+    },
+    makePhoneCall(e) {
+        console.log(e)
+        let phone = e.currentTarget.dataset.phone
+        wx.makePhoneCall({
+            phoneNumber: phone //仅为示例，并非真实的电话号码
         })
     },
     /**

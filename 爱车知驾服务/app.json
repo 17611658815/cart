@@ -37,7 +37,9 @@
         "pages/evaluate/evaluate",
         "pages/textPage/textPage",
         "pages/goodsListPage/goodsListPage",
-        "pages/goodsItemList/goodsItemList"
+        "pages/goodsItemList/goodsItemList",
+        "pages/classList/classList",
+        "pages/refundOrder/refundOrder"
     ],
     "window": {
         "backgroundTextStyle": "light",

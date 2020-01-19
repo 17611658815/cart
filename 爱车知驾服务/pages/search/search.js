@@ -11,6 +11,7 @@ Page({
         searchList:[],
         keyword:'',
         level:0,
+        typeid:0,
     },
     /**
      * 生命周期函数--监听页面加载
@@ -21,6 +22,7 @@ Page({
             area_id: options.area_id,
             Carid: options.Carid,
             level: options.currentTab/1+1,
+            typeid: options.typeid || 0
         })
         this.getGoodsList()
     },
@@ -28,6 +30,7 @@ Page({
         let that = this;
         let params = {
             appid: app.globalData.appid,
+            typeid: that.data.typeid,
             keyword: that.data.keyword,
         }
         app.net.$Api.serviceList(params).then((res) => {

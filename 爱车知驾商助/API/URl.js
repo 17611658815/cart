@@ -28,7 +28,7 @@ export default class Url {
     }
     // 订单详情
     static orderDetailUrl() {
-        return Url.PATH + '/orderDetail';
+        return Url.PATH + '/getOrderInfo';
     }
     // 订单退款
     static setOrderRefundUrl() {
@@ -237,6 +237,10 @@ export default class Url {
     // 添加提现记录
     static addCashLogUrl() {
         return Url.PATH + '/addCashLog';
+    };
+    // 订单状态
+    static checkAssessOrderUrl() {
+        return Url.PATH + '/checkAssessOrder';
     };
 
 }

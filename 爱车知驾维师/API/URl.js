@@ -163,5 +163,13 @@ export default class Url {
     static addBankCardUrl() {
         return Url.ART + '/addBankCard';
     };
+    // 完成订单
+    static setOrderFinishUrl() {
+        return Url.ART + '/setOrderFinish';
+    };
+    // 订单完成状态
+    static checkAssessOrderUrl() {
+        return Url.ART + '/checkAssessOrder';
+    };
    
 }

@@ -85,6 +85,10 @@ export default class Url {
     static cancelOrderUrl() {
         return Url.PATH + '/cancelOrder';
     };
+    // 申请退货
+    static refundOrderUrl() {
+        return Url.PATH + '/refundOrder';
+    };
     // 子订单支付
     static paySubOrderUrl() {
         return Url.PATH + '/paySubOrder';
@@ -132,6 +136,18 @@ export default class Url {
     //  分享二维码
     static QRcodeUrl() {
         return Url.PATH + '/QRcode';
+    }
+    //  获取订单状态
+    static checkAssessOrderUrl() {
+        return Url.PATH + '/checkAssessOrder';
+    }
+    //  服务分类
+    static getCatTreeDataUrl() {
+        return Url.PATH + '/getCatTreeData';
+    }
+    //  客服文案
+    static getLatestOrderUrl() {
+        return Url.PATH + '/getLatestOrder';
     }
 
 }

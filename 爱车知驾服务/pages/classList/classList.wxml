@@ -1,0 +1,17 @@
+<view class="search_Box" bindtap="gosearch">
+    <view class="inputStyle" value="{{searchVal}}" bindinput="onSearch" placeholder="">输入或说出您的爱车服务需求</view>
+</view>
+<view class="layoutBox">
+    <view class="layoutBox-left">
+        <view class="layoutBox-left-content" wx:for='{{list}}' >
+            <view class="layoutBox-left-content-title">基础服务</view>
+            <view class="layoutBox-left-content-item {{key == sonTab && index == pareTab ? 'active':''}}"  bindtap="swatchTab" data-index='{{index}}' data-sonindex="{{key}}" wx:for='{{item}}' wx:for-item='k' wx:for-index='key'>{{k.name}}</view>
+        </view>
+    </view>
+    <view class="layoutBox-right">
+        <view class="layoutBox-right-content" wx:for='{{sonList}}'>
+            <view class="layoutBox-right-title" bindtap="goDetailes" data-path='{{item.path}}'>{{item.name}}</view>
+            <view class="layoutBox-right-item" wx:if='{{item.son}}' bindtap="goDetailes" data-path='{{son.path}}' wx:for='{{item.son}}' wx:for-item='son'>{{son.name}}</view>
+        </view>
+    </view>
+</view>

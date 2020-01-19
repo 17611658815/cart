@@ -96,7 +96,7 @@
             </view>
         </view>
         <view class='purchase_btn' catchtap='gocheckLogin' wx:if='{{!member_id}}'>去结算</view>
-        <button class='purchase_btn' open-type='getPhoneNumber' bindgetphonenumber='getUserPhone' wx:elif='{{phone == ""}}'>去结算2</button>
+        <button class='purchase_btn' open-type='getPhoneNumber' bindgetphonenumber='getUserPhone' wx:elif='{{phone == ""}}'>去结算</button>
         <view class='purchase_btn' catchtap='createServiceOrder' wx:else>去结算</view>
         <!-- <view class='purchase_btn' catchtap='createServiceOrder'>去结算</view> -->
     </view>

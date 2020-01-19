@@ -94,6 +94,10 @@ export const api = {
     cancelOrder: function(paramObj) {
         return Promise.post(Url.default.cancelOrderUrl(), paramObj);
     },
+    // 申请退货
+    refundOrder: function(paramObj) {
+        return Promise.post(Url.default.refundOrderUrl(), paramObj);
+    },
     // 子订单支付
     paySubOrder: function(paramObj) {
         return Promise.post(Url.default.paySubOrderUrl(), paramObj);
@@ -141,6 +145,18 @@ export const api = {
     // 分享二维码
     QRcode: function(paramObj) {
         return Promise.post(Url.default.QRcodeUrl(), paramObj);
+    },
+    // 获取订单状态
+    checkAssessOrder: function(paramObj) {
+        return Promise.post(Url.default.checkAssessOrderUrl(), paramObj);
+    },
+    // 服务分类
+    getCatTreeData: function(paramObj) {
+        return Promise.post(Url.default.getCatTreeDataUrl(), paramObj);
+    },
+    // 客服文案
+    getLatestOrder: function(paramObj) {
+        return Promise.post(Url.default.getLatestOrderUrl(), paramObj);
     },
 
 }

@@ -9,6 +9,7 @@ Page({
         id: 0,
         content:'',
         title:"",
+        shipin:'',
     },
 
     /**
@@ -29,8 +30,10 @@ Page({
         }
         app.net.$Api.getContentInfo(params).then((res) => {
             console.log(res)
-            res.data.data.content = res.data.data.content.replace(/\<img/gi, '<img class="rich-img" ')
+            // res.data.data.content = res.data.data.content.replace(/\<img/gi, '<img class="rich-img" ')
+            // res.data.data.content = res.data.data.content.replace(/\<img/gi, '<img class="rich-img" ')
             that.setData({
+                shipin: res.data.data.shipin, 
                 content: res.data.data.content, 
                 title: res.data.data.title, 
             })

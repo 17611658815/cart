@@ -46,9 +46,14 @@ Page({
         })
     },
     goaddgoods(){
-        wx.navigateTo({
-            url: '/pages/addgoods/addgoods',
-        })
+        if (!this.data.member_id) {
+            app.checkLogin();
+        }else{
+            wx.navigateTo({
+                url: '/pages/addgoods/addgoods',
+            })
+        }
+        
     },
     // 获取分类
     messagePower() {

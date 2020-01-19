@@ -7,7 +7,7 @@ const Url = require('URl.js')
 export const api = {
     /**
      * @param paramObj
-     * @returns {Promise}
+     * @returns {Promise}f
      */
 
     // 获取openid
@@ -245,5 +245,9 @@ export const api = {
     // 添加提现记录
     addCashLog: function (paramObj) {
         return Promise.post(Url.default.addCashLogUrl(), paramObj);
+    },
+    // 订单状态
+    checkAssessOrder: function (paramObj) {
+        return Promise.post(Url.default.checkAssessOrderUrl(), paramObj);
     },
 }

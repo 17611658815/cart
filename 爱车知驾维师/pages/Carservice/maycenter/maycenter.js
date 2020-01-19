@@ -49,7 +49,8 @@ Page({
         real_name: "",
         level: '',
         member_id:0,
-        numMsg:{}
+        numMsg:{},
+        status:0,
     },
 
     /**
@@ -80,7 +81,7 @@ Page({
         let that = this;
         let params = {
             appid: app.globalData.appid,
-            userid: that.data.member_id,
+            member_id: that.data.member_id,
         }
         app.net.$Api.getUserInfo(params).then((res) => {
             console.log(res, 38)
@@ -89,6 +90,7 @@ Page({
                 avatar: res.data.user.avatar,
                 real_name: res.data.user.real_name || "",
                 level: res.data.user.level || "",
+                status: res.data.user.status || 0,
             })
             console.log(that.data.avatar)
         })
@@ -116,6 +118,8 @@ Page({
     goupPicregister() {
         if (!this.data.member_id){
             app.checkLogin();
+        } else if (this.data.status == 1){
+            return
         }else{
             wx.navigateTo({
                 url: '/pages/photopage/photopage',

@@ -1,0 +1,59 @@
+/* page/order/pages/newAddress/newAddress.wxss */
+page{
+    background: #f8f8f8;
+}
+.addresBox{
+    width: 100%;
+    background: #ffffff;
+}
+.itembox{
+    padding: 34rpx 0;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+.leaberleft{
+    min-width: 150rpx;
+}
+input{
+    flex: 1;
+    font-size: 30rpx;
+    
+    color: #333333;
+}
+picker{
+    flex: 1;
+}
+.picker{
+    width: 100%;
+    text-align: right;
+}
+textarea{
+    width: 100%;
+    height: 100rpx;
+    color: #333333;
+}
+.default{
+    padding: 30rpx 0;
+}
+.default image{
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 10rpx;
+}
+.textAreaCtyle{
+    text-align: left;
+}
+.btnBox{
+    width: 90%;
+    margin: auto;
+    margin-top: 100rpx;
+}
+.btnStyle {
+    width: 100%;
+    height: 98rpx;
+    text-align: center;
+    line-height: 98rpx;
+    background: #5994f7;
+    color: #fff;
+    font-size: 34rpx;
+    border-radius: 5rpx;
+}
