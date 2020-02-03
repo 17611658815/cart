@@ -1,21 +1,26 @@
 /* pages/classList/classList.wxss */
-.layoutBox{
+page{
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.layoutBox{
+    width: 100%;
+    flex: 1;
     display: flex;
     position: relative;
 }
 .layoutBox-left{
     width: 260rpx;
-    height: 100vh;
+     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     overflow: auto
 }
 .layoutBox-right{
     flex: 1;
-    height: 100vh;
+    height: 100%;
     padding: 30rpx;
     background: #E5E4E4;
     overflow: auto
@@ -27,16 +32,17 @@
 .layoutBox-left-content-title{
     width: 100%;
     text-align: center;
-    padding: 40rpx 0;
+    padding: 27rpx 0;
     background: #ffffff;
-    font-size: 40rpx;
+    font-size: 35rpx;
     font-weight: 600
 }
 .layoutBox-left-content-item{
     width: 60%;
-    padding: 20rpx 20%;
+    padding: 12rpx 20%;
     text-align: right; 
     background: #ffffff;
+    font-size: 33rpx;
 }
 .layoutBox-right-title{
     padding: 30rpx 0;
@@ -51,6 +57,7 @@
 }
 .search_Box{
     width: 100%;
+    /* height: 5%; */
     display: flex;
     justify-content: center;
     padding: 20rpx 0;

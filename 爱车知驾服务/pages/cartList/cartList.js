@@ -37,17 +37,28 @@ Page({
     onLoad: function(options) {
         console.log(options)
         let userinfo = wx.getStorageSync('userinfo') || '';
-        this.setData({
+        let setData = {
             isIphoneX: app.globalData.isIphoneX,
             member_id: userinfo.id,
             Carid: app.globalData.Carid,
             serviceId: options.serviceId,
-            transfer_type: options.serveType / 1 + 1,
-            level: options.level / 1 + 1,
+            // transfer_type: options.serveType / 1 + 1,
+            // level: options.level / 1 + 1,
             appointment_date: options.time,
-            servetab: options.serveType / 1 + 1,
+            // servetab: options.serveType / 1 + 1,
             phone: userinfo.phone || ""
-        })
+        };
+        if (options.serveType!=undefined){
+            setData.transfer_type = options.serveType / 1 + 1;
+            setData.servetab = options.serveType / 1 + 1;
+        }
+        if (options.level != undefined) {
+            setData.level = options.level / 1 + 1;
+        }
+        if (options.time != undefined) {
+            setData.appointment_date = options.time;
+        }
+        this.setData(setData)
         console.log(userinfo.id)
         this.getAreaId();
         

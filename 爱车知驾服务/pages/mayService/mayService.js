@@ -25,7 +25,7 @@ Page({
         let msgList_1 = await this.getContentList(32, 2);
         let msgList_2 = await this.getContentList(33, 2);
         let msgList_3 = await this.getContentList(34, 2);
-        let msgList_4 = await this.getContentList(35, 2);
+        let msgList_4 = await this.getContentList(35,0);
         console.log(msgList_1)
         this.setData({
             member_id: this.data.member_id,

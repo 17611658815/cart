@@ -17,6 +17,8 @@ Page({
             { url: "url", title: "交了20多年的国内漫游费将取消 你能省多少话费？" },
             { url: "url", title: "北大教工合唱团出国演出遇尴尬:被要求给他人伴唱" }
         ],
+        money:0,
+        num:0
     },
 
     swatchTab(e) {
@@ -83,11 +85,27 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        let userinfo = wx.getStorageSync('userinfo') || '';
         this.setData({
+            member_id: userinfo.id,
             currentTab: options.currentTab || 0
         })
+        this.getMyInvite()
     },
-
+    getMyInvite(){
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            member_id: that.data.member_id
+        }
+        app.net.$Api.getMyInvite(params).then((res) => {
+           console.log(res)
+           that.setData({
+               money: res.data.money,
+               num: res.data.num,
+           })
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

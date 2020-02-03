@@ -39,6 +39,20 @@ App({
 
         })
     },
+    // 获取消息未读数量
+    getUnreadMsgNum(id) {
+        let that = this,
+            params = new Object();
+        params.appid = that.globalData.appid;
+        params.member_id = id;
+        return new Promise((resolve, reject) => {
+            that.net.$Api.getUnreadMsgNum(params).then((res) => {
+                console.log(res)
+                resolve(res.data)
+            })
+
+        })
+    },
     //挂载网络请求api
     net: {
         $Api: Api.api,

@@ -10,15 +10,18 @@ Page({
         navList: ['首页', '知驾服务'],
         currentTab: 1,
         btnNavcurrent: 2,
+        msgNum:0
     },
     /**
     * 生命周期函数--监听页面显示
     */
-    onShow: function () {
+    async onShow() {
         let userInfo = wx.getStorageSync('userinfo') || {};
+        let msgNum = await app.getUnreadMsgNum(userInfo.id);
         this.setData({
             member_id: userInfo.id,
-            userInfo: userInfo
+            userInfo: userInfo,
+            msgNum: msgNum.num
         })
     },
     /**

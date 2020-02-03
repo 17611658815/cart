@@ -2,7 +2,7 @@ page{
     background: #f5f5f5;
 }
 .navList{
-    padding: 0 3%;
+    padding: 0rpx 3%;
     background: #ffffff;
     border-bottom: 1rpx solid #BFBFBF;
     font-size: 28rpx;
@@ -14,7 +14,7 @@ page{
     z-index: 99;
 }
 .navList>view{
-    padding-bottom: 15rpx;
+    padding:20rpx 0;
 }
 .navActive{
     color: #00a4c5;
@@ -30,11 +30,13 @@ page{
 }
 .videoList_item{
     width: 90%;
+    margin-top: 30rpx;
 }
 .videoList_item_pic{
     width: 100%;
     height: 400rpx;
     position: relative;
+    
 }
 .Listplay{
     width: 100rpx;
@@ -69,8 +71,8 @@ page{
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
     margin-right: 20rpx;
 
 }

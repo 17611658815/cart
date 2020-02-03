@@ -158,5 +158,9 @@ export const api = {
     getLatestOrder: function(paramObj) {
         return Promise.post(Url.default.getLatestOrderUrl(), paramObj);
     },
+    // 我的邀请
+    getMyInvite: function(paramObj) {
+        return Promise.post(Url.default.getMyInviteUrl(), paramObj);
+    },
 
 }

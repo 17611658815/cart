@@ -23,7 +23,7 @@
                         <view data-index="2" bindtap="servetab" class="{{ serveCurrent == 2 ? 'border':''}}">代叫</view>
                         <view data-index="3" bindtap="servetab" class="color7 fontWeight5 {{ serveCurrent == 3 ? 'borderRed':''}}">急叫</view>
                     </view>
-                    <view class="address dpf width90 marginTop padding20">
+                    <view class="address dpf width90 marginTop">
                         <view class="left_Box">
                             <text class="dian_1"></text>
                         </view>
@@ -51,19 +51,19 @@
                 <view class="nav1List">
                     <view class="dpfC" bindtap="goList" data-type="1">
                         <view class="bg-img" style="background-image: url(https://img.dodo.wiki/app/nav1.png)"></view>
-                        <view class="marginTop10">保养</view>
+                        <view class="marginTop10">正常保养</view>
                     </view>
                     <view class="dpfC" bindtap="goList" data-type="2">
                         <view class="bg-img" style="background-image: url(https://img.dodo.wiki/app/nav2.png)"></view>
-                        <view class="marginTop10">易耗</view>
+                        <view class="marginTop10">易损更换</view>
                     </view>
                     <view class="dpfC" bindtap="goList" data-type="3">
                         <view class="bg-img" style="background-image: url(https://img.dodo.wiki/app/nav3.png)"></view>
-                        <view class="marginTop10">维修</view>
+                        <view class="marginTop10">维修安装</view>
                     </view>
                     <view class="dpfC" bindtap="goList" data-type="4">
                         <view class="bg-img" style="background-image: url(https://img.dodo.wiki/app/nav4.png)"></view>
-                        <view class="marginTop10">事故</view>
+                        <view class="marginTop10">事故配件</view>
                     </view>
                     <view class="dpfC" bindtap='onbindfocus2'>
                         <view class="bg-img" style="background-image: url(https://img.dodo.wiki/app/nav5.png)"></view>

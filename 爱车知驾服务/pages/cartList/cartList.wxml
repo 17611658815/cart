@@ -34,7 +34,7 @@
                                     <view>
                                         <view class='fontSize-26 color1 fontWeight5 white_noWrap'>{{product.name}}</view>
                                         <view class='fontSize-26 color1'>
-                                            <text class='fontWeight5 color10'>{{product.price}}</text>
+                                            <text class='fontWeight5 color1'>{{product.price}}</text>
                                             <text class='fontWeight5 color2'>元</text>
                                             *{{product.nums}}
                                         </view>
@@ -48,26 +48,37 @@
         </view>
     </view>
     <view class="width90 marginTop dpfC bgFFFF padding30" wx:if="{{transfer_price[2]/1+serverPrice}}">
-        <view class="width90">更换工时服务费</view>
+        <view class="width90" style="color:#bfbfbf">更换工时服务费</view>
         <view style="width:70%" class="dpfb marginTop">
             <view style="padding-bottom:20rpx;" data-index='1' bindtap="changeServce" class="{{servetab==1 ? 'serveactive':''}}">来店:
-                <text class="color10">￥{{transfer_price[1]/1+serverPrice}}</text>
+                <text class="color1">￥{{transfer_price[1]/1+serverPrice}}</text>
             </view>
             <view style="padding-bottom:20rpx;" data-index='2' bindtap="changeServce" class="{{servetab==2 ? 'serveactive':''}}">取车:
-                <text class="color10">￥{{transfer_price[2]/1+serverPrice}}</text>
+                <text class="color1">￥{{transfer_price[2]/1+serverPrice}}</text>
             </view>
         </view>
     </view>
     <view class="partsNum width90 marginTop dpfC bgFFFF" wx:for='{{serviceData.sub_service}}' wx:key='key'>
-        <view class="partsNum_item padding30">
+        <view class="partsNum_item" style="padding:15rpx;" wx:if='{{item.checked}}' data-index="{{index}}" data-type='checked' bindtap="SonChecked">
             <view class="partsNum_item_left">
-                <image style="width:40rpx;height:40rpx;" data-index="{{index}}" data-type='checked' bindtap="SonChecked" src='../../images/checked.png' wx:if='{{item.checked}}'></image>
-                <image style="width:40rpx;height:40rpx;" data-index="{{index}}" data-type='nochecked' bindtap="SonChecked" src='../../images/nochecked.png' wx:else></image>
+                <image style="width:40rpx;height:40rpx;" src='../../images/checked.png'></image>
             </view>
             <view class="partsNum_item_right flex_1">
                 <view class="marginLeft10 dpfb">
                     <text>{{item.name}}</text>
-                    <text class="color10">￥{{item.price}}</text>
+                    <text class="color1 fontWeight5">￥{{item.price}}</text>
+                </view>
+                <!-- <view class="marginLeft10">50000km或6个月/次</view> -->
+            </view>
+        </view>
+        <view class="partsNum_item" style="padding:15rpx;" wx:else  data-index="{{index}}" data-type='nochecked' bindtap="SonChecked">
+            <view class="partsNum_item_left">
+                <image style="width:40rpx;height:40rpx;" src='../../images/nochecked.png'></image>
+            </view>
+            <view class="partsNum_item_right flex_1">
+                <view class="marginLeft10 dpfb">
+                    <text>{{item.name}}</text>
+                    <text class="color1 fontWeight5">￥{{item.price}}</text>
                 </view>
                 <!-- <view class="marginLeft10">50000km或6个月/次</view> -->
             </view>
@@ -89,7 +100,7 @@
             <view class="dpfC" style="flex:1">
                 <view class="purchase_text">
                     <text class="color1 fontSize-28">本次保养最多仅需:</text>
-                    <text class="color10 fontWeight5 fontSize-36">￥{{NewTotal}}</text>
+                    <text class="color1 fontWeight5 fontSize-36">￥{{NewTotal}}</text>
                     <!-- <text class="color3 fontWeight5 fontSize-26" style="text-decoration:line-through">￥{{OldTotal}}</text> -->
                 </view>
                 <view class="color1 fontSize-28">节省：{{economize}}元</view>

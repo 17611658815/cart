@@ -15,6 +15,7 @@ Page({
         latitude: 0,
         hasInfoNum: 0,
         contentList: [],
+        msgNum:0
 
     },
     onLoad: function (options) {
@@ -29,8 +30,12 @@ Page({
             userInfo: userInfo
         })
         const result = await this.getUserInfo();
-        console.log(33333)
+        const msgNum = await app.getUnreadMsgNum(userInfo.id);
+        console.log(msgNum)
         this.checkAssessOrder()
+        this.setData({
+            msgNum: msgNum.num 
+        })
     },
     //获取当前位置
     getLocationMsg() {

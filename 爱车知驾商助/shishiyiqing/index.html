@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>新型冠状病毒疫情通报【实时更新】-聚通达</title>
+		<meta name="keywords" content="新型冠状病毒疫情,新型冠状病毒, 新型冠状病毒疫情通报" />
+		<meta name="description" content="聚通达为您提供新型冠状病毒实时疫情通报，实时了解新型冠状病毒最新确诊病例、疑似病例、痊愈人数、死亡人数等最新数据。聚通达愿与祖国共同抗击新型冠状病毒疫情，中国加油！" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="./css/public.css" />
+		<link rel="stylesheet" href="./css/index.css">
+	</head>
+	<body>
+		<div id="app">
+			<!-- banner start-->
+			<div class="banner"></div>
+			<!-- banner end -->
+			<!-- 国内疫情数据 start-->
+			<div class="plagueData">
+				<h1>
+					<span>国内疫情数据</span>
+					<span>截至{{totalObj.modifyTime}}</span>
+				</h1>
+				<ul>
+					<li>
+						<span>确诊</span>
+						<span style="color: #E10001;">{{totalObj.confirmedCount}}</span>
+					</li>
+					<li>
+						<span>疑似</span>
+						<span style="color: #F5A623;">{{totalObj.suspectedCount}}</span>
+					</li>
+					<li>
+						<span>治愈</span>
+						<span style="color: #10ADB5;">{{totalObj.curedCount}}</span>
+					</li>
+					<li>
+						<span>死亡</span>
+						<span style="color: #0F153F;">{{totalObj.deadCount}}</span>
+					</li>
+				</ul>
+			</div>
+			<!-- 国内疫情数据 end-->
+			<!-- tab导航切换 start-->
+			<div class="tab">
+				<div :class="tabTrue == 1 ? 'tabTrue' : ''" @click="changeTab(1)">疫情动态</div>
+				<div :class="tabTrue == 2 ? 'tabTrue' : ''" @click="changeTab(2)">实时播报</div>
+				<div :class="tabTrue == 3 ? 'tabTrue' : ''" @click="changeTab(3)">防疫知识</div>
+			</div>
+			<!-- tab导航切换 end-->
+			<!-- 疫情动态 start-->
+			<div class="dynamic">
+				<div class="map">
+					<div id="echarts"></div>
+					<!-- <div class="overseas">
+						<ul>
+							<li>海外确认病例:</li>
+							<li>泰国14例，美国5例</li>
+							<li>新加坡7例，澳大利亚5例</li>
+							<li>日本4例，韩国4例</li>
+							<li>马来西亚4例，法国3例</li>
+							<li>加拿大2例，越南2例</li>
+							<li>尼泊尔1例，德国1例</li>
+						</ul>
+					</div> -->
+				</div>
+				<div class="city">
+					<div v-for="(item,index) in cityYiqing" :key="index">
+						<h1 :class="index%2 == 0 ? '':'oddNum' ">
+							<span>{{item.region}}</span>
+							<div>
+								<span>确诊{{item.diagnosis}}例</span>
+								<span>，治愈{{item.cure}}例</span>
+								<span>，死亡{{item.death}}例</span>
+							</div>
+						</h1>
+					</div>
+				</div>
+			</div>
+			<!-- 疫情动态 end-->
+			<!-- 实时播报 start-->
+			<div class="realTime">
+				<h1>
+					<span>实时播报</span>
+				</h1>
+				<div>
+					<div v-for="(item,index) in newsList" :key="index" @click="href(item.url)">
+						<h2>
+							<span>{{item.adding_time}}</span>
+						</h2>
+						<div>
+							<h3>{{item.title}}</h3>
+							<p>{{item.content}}</p>
+							<span>来源：{{item.source}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 实时播报 end -->
+			<!-- 防疫知识 start-->
+			<div class="knowledge">
+				<h1>
+					<span>防疫知识</span>
+				</h1>
+				<div>
+					<img src="./img/knowledge.jpg">
+				</div>
+				<p>为了您的健康，请勤洗手，出门一定要带口罩</p>
+			</div>
+			<!-- 防疫知识 end-->
+		</div>
+	</body>
+	<script src="./js/public.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="./js/echarts.min.js"></script>
+	<script src="./js/jquery-1.11.1.min.js"></script>
+	<script src="./js/china.js"></script>
+	<script src="./js/util.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/index.js" type="text/javascript" charset="utf-8"></script>
+</html>

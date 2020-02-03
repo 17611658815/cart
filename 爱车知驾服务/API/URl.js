@@ -149,5 +149,9 @@ export default class Url {
     static getLatestOrderUrl() {
         return Url.PATH + '/getLatestOrder';
     }
+    //  我邀请的人数
+    static getMyInviteUrl() {
+        return Url.PATH + '/getMyInvite';
+    }
 
 }

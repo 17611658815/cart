@@ -5,6 +5,7 @@
             <view bindtap="goIndex" data-index='{{index}}' class="{{currentTab==0 ? 'color4 navActive':'color4'}}">首页</view>
             <view data-index='{{index}}' class="{{currentTab==1 ? 'color4 navActive':'color4'}}">知驾车服</view>
         </view>
+        <view class="iconNum" wx:if="{{msgNum!=0}}">{{msgNum}}</view>
         <image bindtap="gomessageList" class="mag_pic" src="../../../images/1.png"></image>
     </view>
     <view class="circle_Nav width90 dpf">

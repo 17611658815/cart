@@ -1,7 +1,6 @@
 /* pages/textPage/textPage.wxss */
 .content{
     width: 100%;
-    padding: 30rpx 0;
 }
 .contentBox{
     line-height: 40rpx;
@@ -17,4 +16,5 @@
 }
 video{
     width: 100%;
+    background: #ffffff;
 }

@@ -171,5 +171,9 @@ export default class Url {
     static checkAssessOrderUrl() {
         return Url.ART + '/checkAssessOrder';
     };
+    // 获取消息未读
+    static getUnreadMsgNumUrl() {
+        return Url.ART + '/getUnreadMsgNum';
+    };
    
 }

@@ -43,9 +43,9 @@
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
+        "navigationBarBackgroundColor": "#00a4c5",
         "navigationBarTitleText": "知驾车服",
-        "navigationBarTextStyle": "black"
+        "navigationBarTextStyle": "white"
     },
     "navigateToMiniProgramAppIdList": [
         "wxd74f8d61561db250",

@@ -21,12 +21,21 @@ Page({
         })
         this.noticeList()
     },
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+        this.data.page = 1;
+        this.data.msgList = [];
+        this.data.on_off = false;
+        this.noticeList()
+    },
     onLoad: function (options) {
         let userInfo = wx.getStorageSync('userinfo');
         this.setData({
             member_id: userInfo.id,
         })
-        this.noticeList()
+       
     },
     noticeList() {
         let that = this;
@@ -93,12 +102,7 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
+    
 
     /**
      * 生命周期函数--监听页面隐藏

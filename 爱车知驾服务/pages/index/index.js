@@ -32,6 +32,10 @@ Page({
                 path: ""
             },
             {
+                name: "高级技师",
+                path: ""
+            },
+            {
                 name: "到家服务",
                 path: ""
             },
@@ -492,6 +496,7 @@ Page({
     swatchTab(e) {
         let that = this;
         let index = e.currentTarget.dataset.index;
+        console.log(index)
         this.handleScroll(index);
         let markers = [{
             iconPath: '../../images/longitude.png',
@@ -510,12 +515,12 @@ Page({
             scrollTop: 0,
             duration: 300
         });
-        if (index == 6){
+        if (index == 7){
             wx.navigateTo({
                 url: '/pages/nearby/nearby',
             })
         }
-        if (that.data.currentTab < 4) {
+        if (that.data.currentTab < 5) {
             that.getMarkersList()
         }
     },

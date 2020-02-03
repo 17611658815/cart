@@ -182,5 +182,9 @@ export const api = {
     checkAssessOrder: function (paramObj) {
         return Promise.post(Url.default.checkAssessOrderUrl(), paramObj);
     },
+    // 获取消息未读
+    getUnreadMsgNum: function (paramObj) {
+        return Promise.post(Url.default.getUnreadMsgNumUrl(), paramObj);
+    },
     
 }

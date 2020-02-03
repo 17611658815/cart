@@ -65,6 +65,5 @@ page{
     display: flex;
     justify-content: space-between;
     font-size: 28rpx;
-    color: #666666;
-    border-bottom: 1rpx solid #e2e2e2;
+    border-bottom: 1rpx solid #bfbfbf;
 }

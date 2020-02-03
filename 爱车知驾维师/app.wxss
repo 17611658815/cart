@@ -187,6 +187,10 @@ page{
 .boxShadowTop{
     box-shadow:2rpx -5rpx 5rpx #e2e2e2
 }
+.boxShadow2{
+   box-shadow:-1rpx 2rpx 12rpx #999999;
+
+}
 /* box-shadow:1px 3px 5px #333333 */
 .icon_right{
     width: 10rpx;
@@ -219,6 +223,20 @@ page{
     align-items: center;
     justify-content: space-between;
     background: #586383;
+    position: relative;
+}
+.iconNum{
+    width: 25rpx;
+    height: 25rpx;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 25rpx;
+    font-size: 20rpx;
+    background: red;
+    color: #ffffff;
+    position: absolute;
+    top: 20rpx;
+    right: 20rpx;
 }
 .user_pic{
     width: 40rpx;

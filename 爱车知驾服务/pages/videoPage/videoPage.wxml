@@ -3,26 +3,42 @@
     <view class="navList width90">
         <view bindtap="swatchTab" data-index='{{index}}' class="{{currentTab==index ? 'color1 navActive':'color3'}}" wx:for='{{navList}}' wx:key='key'>{{item}}</view>
     </view>
-    <view class="videoList">
-        <view class="videoList_item">
-            <view class="videoList_item_pic">
-                <image style="width:100%;height:400rpx;" mode="scaleToFill" src='https://img.dodo.wiki/app/img6.jpg'></image>
-                <image class="Listplay" src="../../images/Listplay.png"></image>
-                <view class="title">1分钟了解我的维修保养费</view>
+    <view class="videoList" wx:if='{{contentList.length>0}}'>
+        <view class="videoList_item" bindtap="gotextPage" data-id="{{item.id}}" wx:for='{{contentList}}'>
+            <view class="videoList_item_pic" wx:if='{{item.shipin!=""}}'>
+                <image style="width:100%;height:400rpx;" mode="scaleToFill" src='{{item.thumb}}'></image>
+                <!-- <image class="Listplay" src="../../images/Listplay.png"></image> -->
+                <view class="title">{{item.title}}</view>
             </view>
-            <view class="videoList_item_content">
+            <view class="videoList_item_content" wx:if='{{item.shipin=="" && item.thumb!=""}}'>
                 <view class="fontSize-32 color1 fontWeight5">
-                    排队时间是如何预估的?
+                    {{item.title}}
                 </view>
                 <view class="videoList_item_content_text width100 marginTop">
                     <view>
-                        1分钟了解我的维修保养费1分钟了解我的维修保养费1分钟了解我的维修保养费
+                        {{item.description}}
                     </view>
                     <view>
                         <image src="https://img.dodo.wiki/app/img6.jpg"></image>
                     </view>
                 </view>
             </view>
+            <view class="videoList_item_content" wx:if='{{item.shipin=="" && item.thumb==""}}'>
+                <view class="fontSize-32 color1 fontWeight5">
+                    {{item.title}}
+                </view>
+                <view class="videoList_item_content_text width100 marginTop">
+                    <view>
+                        {{item.description}}
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view wx:else>
+        <view class='noGzdoctor'>
+            <image src='../../images/mayGz.png'></image>
+            <view style="text-align: center">暂无相关内容~</view>
         </view>
     </view>
 </view>

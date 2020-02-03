@@ -87,6 +87,6 @@
         </view>
     </view>
     <view class="recommend">
-        <view wx:for='{{msgList_4}}' bindtap="gotextPage" data-id='{{item.id}}'> {{item.title}}</view>
+        <view wx:for='{{msgList_4}}' class="color3" bindtap="gotextPage" data-id='{{item.id}}'> {{item.title}}</view>
     </view>
 </view>

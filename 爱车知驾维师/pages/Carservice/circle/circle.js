@@ -16,6 +16,7 @@ Page({
         circleTabNum:0,//内容切换,
         magDataList:[],
         no_off:false,
+        msgNum:0
 
     },
     /**
@@ -65,10 +66,15 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
+    async onShow() {
+        let userInfo = wx.getStorageSync('userinfo') || {};
         this.data.page = 1;
         this.data.magDataList = [];
-        this.getPostingsList()
+        this.getPostingsList();
+        let msgNum = await app.getUnreadMsgNum(userInfo.id);
+        this.setData({
+            msgNum: msgNum.num
+        })
     },
     /**
      * 页面上拉触底事件的处理函数

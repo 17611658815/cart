@@ -32,11 +32,10 @@
                         </view>
                         <view class="fontSize-30 color2 marginLeft">专属维师</view>
                     </view>
-
-                    <view class='dpf'>
-                        <text class="fontSize-22 color3">已经设置</text>
+                    <navigator url="/pages/videoPage/videoPage" hover-class="none" class='dpf'>
+                        <!-- <text class="fontSize-22 color3">已经设置</text> -->
                         <image class="icon_right_2" src="../../images/icon_right.png"></image>
-                    </view>
+                    </navigator>
                 </view>
                 <!-- view class="dpfb width100 padding20">
                     <view class="dpf left">
@@ -50,18 +49,19 @@
                         <image class="icon_right_2" src="../../images/icon_right.png"></image>
                     </view>
                 </view> -->
-                <view class="dpfb width100 padding20">
+                <navigator url="/pages/videoPage/videoPage" hover-class="none" class="dpfb width100 padding20">
                     <view class="dpf left">
                         <view class="iconBox">
                             <image src="../../images/img42.png"></image>
                         </view>
                         <view class="fontSize-30 color2 marginLeft">服务</view>
                     </view>
-                    <text class="tagBox">已经设置</text>
-                    <view class='dpf'>
+                    <!-- <text class="tagBox">已经设置</text> -->
+                    <view url="/pages/videoPage/videoPage" hover-class="none" class='dpf'>
+                        <!-- <text class="fontSize-22 color3">已经设置</text> -->
                         <image class="icon_right_2" src="../../images/icon_right.png"></image>
                     </view>
-                </view>
+                </navigator>
                 <!-- <view class="dpfb width100 padding20">
                     <view class="dpf left">
                         <view class="iconBox">

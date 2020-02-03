@@ -828,7 +828,7 @@
     font-size: 30rpx;
     color: #8f8f8f;
     position: absolute;
-    top: 185rpx;
+    top: 200rpx;
     left: 5%;
     z-index: 9;
 }
@@ -892,7 +892,7 @@
 }
 
 .padding20 {
-    padding: 10rpx 0 30rpx 0;
+    /* padding: 10rpx 0 30rpx 0; */
 }
 
 .nearbyaddres {
@@ -952,7 +952,7 @@
     width: 120rpx;
     height: 120rpx;
     position: absolute;
-    top: 150rpx;
+    top: 180rpx;
     right: 30rpx;
     z-index: 9;
 }

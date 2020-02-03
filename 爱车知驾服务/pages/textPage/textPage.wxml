@@ -1,8 +1,9 @@
 <view class="container">
     <view class="content">
         <view class="width100 padding30 fontSize-40 fontWeight5 color1" style="text-align:center" wx:if='{{title!=""}}'>{{title}}</view>
+        <video object-fit='cover' wx:if='{{shipin!="" }}' src="{{shipin}}"></video>
         <view class="width100 fontSize-36 color2 contentBox" wx:for='{{content}}'>
-            <video wx:if='{{item.src!=undefined && item.src!="" }}' src="{{item.src}}"></video>
+            <video object-fit='cover' wx:if='{{item.src!=undefined && item.src!="" }}' src="{{item.src}}"></video>
             <rich-text nodes="{{item}}" bindtap="tap" wx:else></rich-text>
         </view>
     </view>

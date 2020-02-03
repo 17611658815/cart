@@ -12,6 +12,7 @@ Page({
         navList: ['首页', '知驾服务'],
         currentTab:1,
         btnNavcurrent:0,
+        msgNum:0
     },
     /**
         * 生命周期函数--监听页面显示
@@ -20,11 +21,13 @@ Page({
         let userInfo = wx.getStorageSync('userinfo') || {};
         let list = await app.getRecommend(0, 0, "7,8,9,10,11,12,13,14,15");
         let list2 = await app.getRecommend(0, 0, "16,17");
+        let msgNum = await app.getUnreadMsgNum(userInfo.id);
         console.log(list)
         this.setData({
             list,
             list2,
             userid: userInfo.id,
+            msgNum: msgNum.num
         })
     },
     /**
