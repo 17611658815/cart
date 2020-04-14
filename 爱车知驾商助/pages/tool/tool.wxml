@@ -1,68 +1,68 @@
 <view class="container">
     <view class="layout_tool">
-        <view class="padding30 fontSize-28">商品</view>
+        <view class="padding30 fontSize-28">拓客</view>
         <view class="toolList">
             <navigator hover-class="none" url='/pages/activityList/activityList' class="toolList_item">
                 <view class="toolList_item_icon">
-                      <image src="../../images/icon/icon_24.jpg"></image>
+                      <image src="https://img.dodo.wiki/app/icon_24.png"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">发起活动</view>
             </navigator>
             <navigator hover-class="none" url='/pages/shopScoreList/shopScoreList' class="toolList_item"> 
                 <view class="toolList_item_icon">
-                      <image src="../../images/icon/icon_25.jpg"></image>
+                      <image src="https://img.dodo.wiki/app/icon_25.png"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">服务体验</view>
              </navigator>
             <navigator hover-class="none" url='/pages/ortherShopAct/ortherShopAct' class="toolList_item"> 
                 <view class="toolList_item_icon">
-                      <image src="../../images/icon/icon_26.jpg"></image>
+                      <image src="https://img.dodo.wiki/app/icon_26.png"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">车品推荐</view>
             </navigator>
             <navigator hover-class="none" url='/pages/ortherShop/ortherShop' class="toolList_item"> 
                 <view class="toolList_item_icon"> 
-                      <image src="../../images/icon/icon_27.jpg"></image>
+                      <image src="https://img.dodo.wiki/app/icon_27.png"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">店长推荐</view>
             </navigator>
         </view>
     </view>
     <view class="layout_tool">
-        <view class="padding30 fontSize-28">营销</view>
+        <view class="padding30 fontSize-28">引客</view>
         <view class="toolList">
             <view class="toolList_item"  data-index="3" data-type='1' bindtap="goredPacketList">
                 <view class="toolList_item_icon">
-                      <image src="../../images/icon/icon_28.jpg"></image>
+                      <image src="https://img.dodo.wiki/app/icon_28.png"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">冲减卷</view>
             </view>
             <view class="toolList_item" data-index="2" data-type='2' bindtap="goredPacketList"> 
                 <view class="toolList_item_icon">
-                      <image src="../../images/icon/icon_29.jpg"></image>
+                      <image src="https://img.dodo.wiki/app/icon_29.png"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">优惠卷</view>
             </view>
             <view class="toolList_item" data-index="1" data-type='3' bindtap="goredPacketList">
                 <view class="toolList_item_icon">
-                      <image src="../../images/icon/icon_30.jpg"></image>
+                      <image src="https://img.dodo.wiki/app/icon_30.png"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">活动营销</view>
             </view>
         </view>
     </view>
     <view class="layout_tool">
-        <view class="padding30 fontSize-28">长期</view>
+        <view class="padding30 fontSize-28">留客</view>
         <view class="toolList">
             <view class="toolList_item">
                 <view class="toolList_item_icon">
-                      <image src="../../images/icon/icon_31.jpg"></image>
+                      <image src="https://img.dodo.wiki/app/icon_31.png"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">绑定车辆</view>
             </view>
             <view class="toolList_item" bindtap="gotechnicianList">
                 <view class="toolList_item_icon">
-                      <image src="../../images/icon/icon_32.jpg"></image>
+                      <image src="https://img.dodo.wiki/app/icon_32.png"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">绑定技师</view>
             </view>
@@ -72,15 +72,15 @@
     <view class="padding30 fontSize-28"></view>
         <view class="toolList" bindtap="shareCode">
             <view class="toolList_item">
-                <view class="toolList_item_icon">
-                      <image src="../../images/icon/icon_33.jpg"></image>
+                <view class="toolList_item_icon" style="width:140rpx">
+                      <image src="https://img.dodo.wiki/app/icon_33.png"></image>
                 </view>
                 <view class="marginTop10 fontSize-24 color3">分享二维码</view>
             </view>
         </view>
     </view>
 </view>
-<image class="png5" src="../../images/5.png"></image>
+<image class="png5" src="https://img.dodo.wiki/app/home.png"></image>
 <!-- <bottomNav navbarData="2"></bottomNav> -->
 
 <view class="imgshade" bindtap="hideImg" wx:if='{{imageShow}}'>

@@ -4,13 +4,16 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
 		"coverView": true,
 		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -18,8 +21,7 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		},
-		"enhance": true
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.9.5",
@@ -353,6 +355,34 @@
 					"id": -1,
 					"name": "分类菜单",
 					"pathName": "pages/classList/classList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "排行",
+					"pathName": "pages/seniority/seniority",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "排行2",
+					"pathName": "pages/seniorityList/seniorityList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 45,
+					"name": "排行3",
+					"pathName": "pages/seniority2/seniority2",
+					"query": "obj_type_id=237& brand_id=354",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品评价",
+					"pathName": "pages/comment2/comment2",
 					"query": "",
 					"scene": null
 				}

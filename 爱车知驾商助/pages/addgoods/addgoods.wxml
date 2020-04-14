@@ -13,7 +13,7 @@
                     </view>
                 </picker>
             </view>
-            <view class='itembox dpf'>
+            <!-- <view class='itembox dpf'>
                 <view class='leaberleft fontSize-30 color2'>
                     <text>选择品牌</text>
                 </view>
@@ -23,14 +23,14 @@
                         <image class='icon_right' src='../../images/icon/icon_right.png'></image>
                     </view>
                 </picker>
-            </view>
+            </view> 
             <view class='itembox dpf'>
                 <view class='leaberleft fontSize-30 color2'>
                     <text>商品名称</text>
                 </view>
                 <input value="{{goodsName}}" bindinput="goodsNameInpt" type='text'></input>
-            </view>
-            <view class='fontSize-30 padding30' style="color:#808080">
+            </view>-->
+            <!-- <view class='fontSize-30 padding30' style="color:#808080">
                 上传图片
             </view>
             <view class="btnBox">
@@ -47,18 +47,18 @@
                         </view>
                     </view>
                 </view>
-            </view>
-            <!-- <view class="goodsBox" wx:if='{{newGoodsList.length>0}}'>
+            </view> -->
+            <view class="goodsBox" wx:if='{{newGoodsList.length>0}}'>
                 <view class="otherMsg" wx:for='{{newGoodsList}}' data-item='{{item}}' bindtap="checkdItem">
                     <view class="otherPic">
                         <image mode="scaleToFill" src="{{item.thumb}}" />
                     </view>
                     <view class="otherinfo">
-                        <view class="fontSize-30 color1">{{item.name}}</view>
-                        <view class="fontSize-26 color3">{{item.brand_name}}</view>
+                        <view class="fontSize-30 color1">({{item.brand_name}}){{item.name}}</view>
+                        <view class="fontSize-26 color3">{{item.attr}}</view>
                     </view>
                 </view>
-            </view> -->
+            </view>
             <view class='itembox dpf'>
                 <view class='leaberleft fontSize-30 color2'>
                     <text>商品原价</text>
@@ -71,18 +71,18 @@
                 </view>
                 <input value="{{newPrice}}" bindinput="newPriceInpt" type='number'></input>
             </view>
-            <view class='itembox dpf'>
+            <!-- <view class='itembox dpf'>
                 <view class='leaberleft fontSize-30 color2'>
                     <text>单位:({{num}})</text>
                 </view>
                 <input value="{{goodsNum}}" bindinput="goodsNumInpt" type='number'></input>
-            </view>
+            </view> 
             <view class='itembox dpf'>
                 <view class='leaberleft fontSize-30 color2'>
                     <text>商品型号</text>
                 </view>
                 <input value="{{goodstype}}" bindinput="goodstypeInpt" type='text'></input>
-            </view>
+            </view>-->
         </view>
     </view>
     <view class='btnBox'>

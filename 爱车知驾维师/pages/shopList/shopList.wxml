@@ -16,7 +16,7 @@
                     <!-- <text>在线咨询</text> -->
                 </view>
                 <view class='technician_title fontSize28 color1'>
-                   场地费:{{item.money}}元
+                   场地费:{{item.money}}元/时
                 </view>
                 <!-- 0 待确认 1 已经确认 2 门店已拒绝 -->
                 <view class='technician_num fontSize-24 color2'>

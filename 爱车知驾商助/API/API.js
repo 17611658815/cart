@@ -250,4 +250,8 @@ export const api = {
     checkAssessOrder: function (paramObj) {
         return Promise.post(Url.default.checkAssessOrderUrl(), paramObj);
     },
+    // 订单状态
+    getRotationData: function (paramObj) {
+        return Promise.post(Url.default.getRotationDataUrl(), paramObj);
+    },
 }

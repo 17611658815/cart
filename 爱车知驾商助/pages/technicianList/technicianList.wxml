@@ -11,7 +11,7 @@
                     <text>{{item.level}}</text>
                 </view>
                 <view class='technician_title fontSize28 color1'>
-                    <view>场地费:{{item.money}}元</view>
+                    <view>场地费:{{item.money}}元/时</view>
                 </view>
                 <view class='technician_num fontSize-28 color2'>
                     <text style='margin-right:20rpx;'>{{statusArr[item.status]}}</text>
@@ -27,7 +27,7 @@
 </view>
 <view class="width100 dpfC" wx:else>
     <view class="noList dpfC">
-        <image mode="scaleToFill" src="../../images/icon/icon_15.jpg" />
+        <image mode="scaleToFill" src="https://img.dodo.wiki/app/icon_15.jpg" />
         <view class="fontSize-28 color1 marginTop">暂无关联技师</view>
     </view>
 </view>

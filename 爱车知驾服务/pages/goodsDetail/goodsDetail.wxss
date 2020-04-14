@@ -1,0 +1,10 @@
+/* pages/goodsDetail/goodsDetail.wxss */
+image{
+    width: 100%;
+    height: 700rpx;
+
+}
+.container view{
+    width: 90%;
+    padding: 15rpx 5%;
+}

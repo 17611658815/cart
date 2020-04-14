@@ -14,21 +14,22 @@ page {
 }
 .goods_content {
     width: 94%;
-    padding: 0 3% 30rpx 3%;
+    padding: 30rpx 3% 30rpx 3%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-bottom: 1rpx solid #e2e2e2;
 }
 
 .radioBox {
-    width: 30rpx;
-    height: 30rpx;
+    width: 50rpx;
+    height: 50rpx;
     /* border: 2rpx solid #999; */
     border-radius: 50%;
     position: absolute;
     top: 5rpx;
-    left: 20rpx;
+    left: 0
 }
 
 .radioBox image {
@@ -41,8 +42,9 @@ page {
 }
 
 .leftImg {
-    width: 125rpx;
+    width: 160rpx;
     border-radius: 6rpx;
+    margin: 20rpx 0;
 }
 
 .leftImg image {
@@ -150,7 +152,7 @@ button::after{
 }
 
 .scroll-x-box {
-    width: 90%;
+    width: 93%;
     white-space: nowrap;
     display: flex;
     overflow-x: auto;
@@ -162,7 +164,7 @@ button::after{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 50rpx;
+    margin-left: 65rpx;
 }
 .scroll-x-item{
     display: inline-block;
@@ -202,4 +204,72 @@ button::after{
     text-align: center;
     font-size: 26rpx;
     color: #00A5C5;
+}
+.scroll-x-item-goods{
+    width: 165rpx;
+    height: 270rpx;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20rpx;
+}
+.scroll-x-item-left{
+     width: 165rpx;
+    height: 270rpx;
+    margin-right: 20rpx;
+    margin-left: 30rpx;
+}
+.cl1{
+    background: #F15154;
+    height: 300rpx;
+}
+.cl2{
+    background: #A7C607;
+}
+.cl3{
+    background: #00A4C5;
+}
+
+.scroll-x-item-goods-title{
+    width: 100%;
+    background: #72CEFB;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28rpx;
+
+}
+.scroll-x-item-goods-name{
+    flex: 1;
+    padding: 0 20rpx;
+    margin-top: 20rpx;
+    display: flex;
+    align-items: center;
+}
+.scroll-x-item-goods-name>view{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    color: #00A5C5;
+    font-size: 35rpx;
+    font-weight: 600;
+    justify-content: center;
+    border-bottom: 1rpx solid #e2e2e2;
+}
+.scroll-x-item-goods-server{
+    width: 80%;
+    height: 80%;
+    padding: 0 20rpx;
+     margin-top: 20rpx;
+      display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.scroll-x-item-goods-server>view{
+     width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 35rpx;
+    font-weight: 600;
+    border-bottom: 1rpx solid #e2e2e2;
 }

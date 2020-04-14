@@ -1,0 +1,123 @@
+<view class="container">
+    <view class="headers">
+        <view class="headers-pic">
+            <view>汽车{{goosData.obj_type.name}}</view>
+            <view>{{goosData.obj_type.brand_title}}</view>
+            <text>已有{{goosData.obj_type.follow}}人关注</text>
+        </view>
+        <!-- <image class="headers-pic" src="../../images/1583566805(1).png"></image> -->
+        <view class="headers-item">
+            <!-- <view>数据来源</view> -->
+            <view class="headers-item-text">
+                <view class="headers-item-text-left">
+                    <view wx:if='{{!kailong}}'>
+                        <view style="color:#ffffff">{{goosData.brandTitle}}</view>
+                        <view style="color:#f8f8f8">{{goosData.titleDescription}}</view>
+                        <view style="color:#f8f8f8">{{goosData.updateTime}}</view>
+                    </view>
+                    <view wx:else>
+                        <view style="color:#ffffff">{{goosData.brandTitle}}</view>
+                        <view style="color:#f8f8f8">{{goosData.titleDescription}}</view>
+                        <view style="color:#f8f8f8">{{goosData.updateTime}}</view>
+                    </view>
+                    <view bindtap="setkailong" class="{{!kailong ? 'kailong1':'kailong2'}}"></view>
+                </view>
+                <view>
+                    <image src="{{goosData.obj_type.thumb}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+    <scroll-view scroll-x="true" class='scroll-x-box' scroll-with-animation="true" id="scroll-view" scroll-left="{{ scrollLeft }}">
+        <view class='scroll-x-content-item' bindtap='swatchTab' data-id="{{item.id}}" id="item-{{index}}" data-index="" wx:key='index'>
+            <view class="dpfC">
+                <text class='{{currentTab == 0? "active0":"defaultColor"}}'>品牌综合榜</text>
+            </view>
+        </view>
+    </scroll-view>
+    <view class="goodsList dpfC">
+        <view class="goodsList-item" wx:for='{{goosData.brandsList}}' data-id="{{item.id}}" bindtap="goPinpaiDetaile">
+            <view class="goodsList-item-title dpfb">
+                <view class="left dpf">
+                    <view class="left-img">
+                        <image src='../../images/paihang.png'></image>
+                        <view>{{index+1}}</view>
+                    </view>
+                    <view class="left-name">
+                        <view>{{item.name}}</view>
+                        <view class='star_item'>
+                            <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:for-item='itemData' bindtap='getStar2' data-star='{{itemData}}' style='background:url({{ item.pingfen >= itemData ? iconArr[1] : iconArr[0]}}) no-repeat center center/3.5vw 3.5vw;'></view>
+                        </view>
+                    </view>
+                </view>
+                <view class="right" bindtap="copyShow">
+                    <view>{{item.taokouling}}</view>
+                </view>
+            </view>
+            <view class="goodsList-item-text">
+                <view>
+                    <image src="{{item.thumb}}"></image>
+                </view>
+                <view>
+                    {{item.desc}}
+                </view>
+            </view>
+            <!-- <view scroll-x='true' enable-flex class="scroll-view-x">
+                <view class="phoneList">
+                    <view class="listBox">
+                        <view class="listBox_item boxShadow" wx:for='{{5}}' bindtap="godsItemList" data-id='{{item.id}}'>
+                            <view class="listBox_item_img dpfC">
+                                <image mode="scaleToFill" src="https://img.dodo.wiki/upload/20200105//15782213148501.jpg" />
+                            </view>
+                            <view class="phoneName white_noWrap">机油</view>
+                            <view class="phonenNum dpfb">
+                                <text>机油机油</text>
+                                <text>20元</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view> -->
+            <view class="goodsList-item-bottm">
+                展开旗下热门机油 点击展开 >
+            </view>
+        </view>
+    </view>
+    <view class="jiangtang">
+        汽车知识讲堂
+        <!-- <image  style="width:100%;height:100rpx;" src="../../images/1582885436(1).jpg"></image> -->
+    </view>
+    <view class="ketangList dpfC">
+        <view class="ketangList-item dpf" wx:for='{{goosData.relContent}}'>
+            <view class="ketangList-item-left">
+                <view class="ketangList-item-left-title">
+                    <view class="title_tag1" wx:if='{{index == 0}}'>1</view>
+                    <view class="title_tag2" wx:if='{{index == 1}}'>2</view>
+                    <view class="title_tag3" wx:if='{{index == 2}}'>3</view>
+                    {{item.title}}
+                    <!-- <view class="title_tag2">2</view>
+                    <view class="title_tag3">3</view> -->
+                </view>
+                <view class="ketangList-item-left-tag dpf" wx:for='{{item.objTypes}}' wx:for-item='k' >
+                    <!-- <view>润滑</view>
+                    <view>润滑</view>
+                    <view>润滑</view>
+                    <view style="border:none">润滑</view> -->
+                    <view>{{k.name}}</view>
+                </view>
+            </view>
+            <view class="ketangList-item-right">
+                <image src='https://img.dodo.wiki/upload/20200105//15782213148501.jpg'></image>
+            </view>
+        </view>
+    </view>
+    <view class="xiangguan">
+        相关品牌
+    </view>
+    <view class="xiangguanList">
+        <view class="xiangguanList-item dpfC" wx:for='{{goosData.otherBrandList}}' data-id="{{item.id}}" bindtap="goPinpaiDetaile">
+            <image src='{{item.thumb}}'></image>
+            <view>{{item.name}}</view>
+        </view>
+    </view>
+</view>

@@ -23,12 +23,17 @@ Page({
         let that = this;
         let params = {
             appid: app.globalData.appid,
+            member_id:95,
+            location:"116.486509,39.90424",
+            area_id:38,
+            level:1,
+            cateId:236
         }
         app.net.$Api.getCatTreeData(params).then((res) => {
             console.log(res)
             that.setData({
                 list:res.data.data,
-                sonList: res.data.data[0][0].son,
+                sonList: res.data.data[0].son[0].son,
             })
         })
     },
@@ -47,11 +52,13 @@ Page({
         this.setData({
             pareTab: index,
             sonTab: sonindex,
-            sonList: list[index][sonindex].son,
+            sonList: list[index].son[sonindex].son,
         })
+        console.log(list[index].son[sonindex].son)
     },
     goDetailes(e){
         let path = e.currentTarget.dataset.path;
+        console.log(path)
         console.log(e)
         wx.navigateTo({
             url: path,

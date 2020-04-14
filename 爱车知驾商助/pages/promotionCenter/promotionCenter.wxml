@@ -161,7 +161,7 @@
     </view>
     <view class="width100 dpfC" wx:else>
         <view class="noList dpfC">
-           <image mode="scaleToFill" style="width:400rpx;" src="../../images/aicheLogo.png" />
+           <image mode="scaleToFill" style="width:400rpx;" src="https://img.dodo.wiki/app/aicheLogo.png" />
             <view class="fontSize-28 color1 marginTop">暂无相关活动</view>
         </view>
     </view>
@@ -213,7 +213,7 @@
         </view>
         <view class="width100 dpfC" wx:else>
             <view class="noList dpfC">
-               <image mode="scaleToFill" style="width:400rpx;" src="../../images/aicheLogo.png" />
+               <image mode="scaleToFill" style="width:400rpx;" src="https://img.dodo.wiki/app/aicheLogo.png" />
                 <view class="fontSize-28 color1 marginTop">暂无相关优惠卷</view>
             </view>
         </view>
@@ -224,7 +224,7 @@
                 <view class="left">
                     <view class="marginLeft dpf">
                         <view class="ticket_icon">
-                            <image src="../../images/icon/icon_44.png"></image>
+                            <image src="https://img.dodo.wiki/app/icon_44.png"></image>
                         </view>
                         <view class="fontSize-36">
                             {{item.value}}元
@@ -241,7 +241,7 @@
         </view>
         <view class="width100 dpfC" wx:else>
             <view class="noList dpfC">
-              <image mode="scaleToFill" style="width:400rpx;" src="../../images/aicheLogo.png" />
+              <image mode="scaleToFill" style="width:400rpx;" src="https://img.dodo.wiki/app/aicheLogo.png" />
                 <view class="fontSize-28 color1 marginTop">暂无添加冲减卷</view>
             </view>
         </view>

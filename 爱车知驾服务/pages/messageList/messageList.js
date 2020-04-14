@@ -27,6 +27,7 @@ Page({
             member_id: userInfo.id,
         })
     },
+
     /**
      * 生命周期函数--监听页面显示
      */
@@ -71,13 +72,16 @@ Page({
             })
         })
     },
+     trim(s) {
+        var f = arguments[1] != undefined ? "\\" + arguments[1] : "\s";
+        return s.replace(new RegExp("(^[" + f + "]*)|([" + f + "]*$)", "g"), "");
+    },
     gonoticeInfo(e) {
         let id = e.currentTarget.dataset.id;
         let path = e.currentTarget.dataset.path;
-        console.log(id)
+        path = this.trim(path,'/')
         if (path) {
-            this.noticeRead(id, path)
-
+            this.noticeRead(id, '/'+path)
         } else {
             wx.navigateTo({
                 url: '/pages/noticeInfo/noticeInfo?id=' + id,

@@ -61,7 +61,7 @@
                     <text>{{item.zan}}</text>
                 </view>
                 <view class="dpf">
-                    <image wx:if="{{item.is_collection > 0}}" bindtap="postingsCollection" data-type='no' data-id='{{item.id}}' data-index='{{index}}' src='../../images/icon/icon_48.png'></image>
+                    <image wx:if="{{item.is_collection > 0}}" bindtap="postingsCollection" data-type='no' data-id='{{item.id}}' data-index='{{index}}' src='https://img.dodo.wiki/app/icon_48.png'></image>
                     <image wx:else src='../../images/icon/icon_8.png' bindtap="postingsCollection" data-type='yes' data-id='{{item.id}}' data-index='{{index}}'></image>
                     <text>{{item.collection}}</text>
                 </view>
@@ -74,12 +74,12 @@
     </view>
     <view class="width100 dpfC" wx:else>
         <view class="noList dpfC">
-            <image mode="scaleToFill" style="width:300rpx;" src="../../images/icon/icon_15.jpg" />
+            <image mode="scaleToFill" style="width:300rpx;" src="https://img.dodo.wiki/app/icon_15.jpg" />
             <view class="fontSize-28 color1 marginTop">{{ currentTab == 1 ? "暂无收藏":"暂无相关数据"}}</view>
         </view>
     </view>
 </view>
 
 <navigator class="icon_42Box" hover-class="none" url="/pages/addMsg/addMsg">
-    <image src='../../images/icon/icon_42.png'></image>
+    <image src='https://img.dodo.wiki/app/icon_42.png'></image>
 </navigator>

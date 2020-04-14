@@ -42,6 +42,7 @@ Page({
             []
         ],
         multiIndex: [0, 0, 0],
+        id:0
     },
     /**
      * 生命周期函数--监听页面加载
@@ -55,11 +56,12 @@ Page({
         let getGoodsType = await that.getGoodsType()
         if (options.id) {
             that.setData({
-                obj_id: options.id
+                id: options.id,
+                obj_id: options.obj_id,
             })
             that.getShopGoods()
         }
-
+        console.log(options)
     },
     // 选取图片
     chooseImageTap: function() {
@@ -234,7 +236,7 @@ Page({
         let params = {
             appid: app.globalData.appid,
             member_id: that.data.member_id,
-            id: that.data.obj_id
+            id: that.data.id
         };
         console.log(that.data.obj_id)
         app.net.$Api.getShopGoods(params).then((res) => {
@@ -289,10 +291,15 @@ Page({
             typeid: id
         };
         app.net.$Api.getTypeGoods(params).then((res) => {
-            that.setData({
-                goodsList: res.data.data,
-                newGoodsList: res.data.data
-            })
+            if (res.data.data.length == 0){
+                app.alert('您选择的分类暂无商品')
+            }else{
+                that.setData({
+                    goodsList: res.data.data,
+                    newGoodsList: res.data.data
+                })
+            }
+            
         })
     },
     // picker-确定事件
@@ -303,18 +310,19 @@ Page({
         let list = that.data.list;
         let multiIndex = that.data.multiIndex;
         console.log(list)
-        this.data.brandsArr = []
-        list[multiIndex[0]].son[multiIndex[1]].son[multiIndex[2]].brands.forEach(item => {
-            this.data.brandsArr.push(item.name)
-        })
-        this.setData({
+        that.data.brandsArr = []
+        // list[multiIndex[0]].son[multiIndex[1]].son[multiIndex[2]].forEach(item => {
+        //     that.data.brandsArr.push(item.name)
+        // })
+        that.setData({
             typeName: list[multiIndex[0]].son[multiIndex[1]].son[multiIndex[2]].name,
             typeid: list[multiIndex[0]].son[multiIndex[1]].son[multiIndex[2]].id,
-            brandsArr: this.data.brandsArr,
+            brandsArr: that.data.brandsArr,
             num: list[multiIndex[0]].son[multiIndex[1]].son[multiIndex[2]].unit == "" ? "个" : list[multiIndex[0]].son[multiIndex[1]].son[multiIndex[2]].unit
         })
-        console.log(this.data.brandsArr)
-        this.getTypeGoods(this.data.typeid)
+        console.log(that.data.brandsArr)
+        that.getTypeGoods(that.data.typeid)
+        // this.getTypeGoods(8)
     },
     // 选择品牌
     bindMultiPickerChange2: function(e) {
@@ -323,11 +331,12 @@ Page({
         let index = e.detail.value;
         let list = this.data.brandsArr;
         let multiIndex = that.data.multiIndex;
+      
         this.setData({
             typeName2: list[index],
-            typeid2: this.data.list[multiIndex[0]].son[multiIndex[1]].son[multiIndex[2]].brands[index].id
-        })
-        console.log(this.data.list[multiIndex[0]].son[multiIndex[1]].son[multiIndex[2]].brands[index].id)
+            // typeid2: that.data.list[multiIndex[0]].son[multiIndex[1]].son[multiIndex[2]].brands[index].id
+        }) 
+        console.log(that.data.list[multiIndex[0]].son[multiIndex[1]].son[multiIndex[2]])
     },
     // goodsNameInpt(e){
     //     console.log(e)
@@ -357,31 +366,21 @@ Page({
         let that = this;
         let params = {
             appid: app.globalData.appid,
-            typeid: that.data.typeid,
-            id: that.data.goods_id,
-            member_id: that.data.member_id,
-            name: that.data.goodsName,
-            price: that.data.newPrice,
-            original_price: that.data.oldPrice,
-            thumb: that.data.newimg,
-            model: that.data.goodstype,
-            num: that.data.goodsNum,
-            brand_id: that.data.typeid2
+            obj_id: that.data.obj_id, //商品模板id
+            id: that.data.id, //商品模板id
+            typeid: that.data.typeid, //分类id
+            // id: that.data.goods_id,
+            member_id: that.data.member_id, //店铺id
+            // name: that.data.goodsName,
+            price: that.data.newPrice, //现价
+            original_price: that.data.oldPrice, //原价
+            // thumb: that.data.newimg,
+            // model: that.data.goodstype,
+            // num: that.data.goodsNum,
+            // brand_id: that.data.typeid2
         };
         if (that.data.typeName == "") {
             app.alert("请选择分类~！")
-            return
-        }
-        if (that.data.typeName2 == "") {
-            app.alert("请选择品牌~！")
-            return
-        }
-        if (that.data.goodsName == "") {
-            app.alert("请输入商品名称~！")
-            return
-        }
-        if (that.data.newimg == "") {
-            app.alert("请上传商品头像~！")
             return
         }
         if (that.data.newPrice == "") {
@@ -390,10 +389,6 @@ Page({
         }
         if (that.data.original_price == "") {
             app.alert("请输入商品原价~！")
-            return
-        }
-        if (that.data.goodsNum == "") {
-            app.alert("请输入商品数量~！")
             return
         }
         app.loading('提交中')
@@ -406,7 +401,7 @@ Page({
                     title: '添加成功',
                     icon: 'success',
                     duration: 2000,
-                    success: function() {
+                    success: function() {66
                         wx.hideLoading()
                         setTimeout(function() {
                             // that.setData({

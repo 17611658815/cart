@@ -39,7 +39,13 @@
         "pages/goodsListPage/goodsListPage",
         "pages/goodsItemList/goodsItemList",
         "pages/classList/classList",
-        "pages/refundOrder/refundOrder"
+        "pages/refundOrder/refundOrder",
+        "pages/seniority/seniority",
+        "pages/seniorityList/seniorityList",
+        "pages/seniority2",
+        "pages/seniority2/seniority2",
+        "pages/goodsDetail/goodsDetail",
+        "pages/comment2/comment2"
     ],
     "window": {
         "backgroundTextStyle": "light",

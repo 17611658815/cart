@@ -136,8 +136,9 @@ Page({
     // 修改商品信息
     changeGoods(e){
         let id = e.currentTarget.dataset.id;
+        let obj_id = e.currentTarget.dataset.obj_id;
         wx.navigateTo({
-            url: '/pages/addgoods/addgoods?id='+id,
+            url: '/pages/addgoods/addgoods?id=' + id + "&obj_id=" + obj_id,
         })
     },
     /**

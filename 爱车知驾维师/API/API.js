@@ -186,5 +186,13 @@ export const api = {
     getUnreadMsgNum: function (paramObj) {
         return Promise.post(Url.default.getUnreadMsgNumUrl(), paramObj);
     },
+    // 获取消息未读
+    getAreaId: function (paramObj) {
+        return Promise.post(Url.default.getAreaIdUrl(), paramObj);
+    },
+    // 轮播图片
+    getRotationData: function (paramObj) {
+        return Promise.post(Url.default.getRotationDataUrl(), paramObj);
+    },
     
 }

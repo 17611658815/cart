@@ -11,19 +11,19 @@ Page({
         goodsNum:0,
         msgArr:[{
             title:'重要通知',
-            icon:'../../images/icon/icon_11.jpg',
+            icon:'https://img.dodo.wiki/app/icon_11.jpg',
             path:''
         }, {
             title: '订单通知',
-                icon: '../../images/icon/icon_12.jpg',
+                icon: 'https://img.dodo.wiki/app/icon_12.jpg',
             path: ''
         }, {
             title: '店铺通知',
-                icon: '../../images/icon/icon_13.jpg',
+                icon: 'https://img.dodo.wiki/app/icon_13.jpg',
             path: ''
         }, {
             title: '其他通知',
-                icon: '../../images/icon/icon_14.jpg',
+                icon: 'https://img.dodo.wiki/app/icon_14.jpg',
             path: ''
         }],
         msgList:[]

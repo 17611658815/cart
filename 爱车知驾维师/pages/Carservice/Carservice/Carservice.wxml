@@ -11,8 +11,8 @@
     <!-- 轮播图部分 -->
     <view class='width90 padding30'>
         <swiper class="swiper width100" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' indicator-active-color="#ffffff" autoplay="true" circular='true' duration="1000" interval="5000">
-            <swiper-item wx:for='{{3}}'>
-                <image class="swiper_IMG" mode="aspectFill" src="../../../images/icon11.jpg"></image>
+            <swiper-item wx:for='{{banner}}' data-path='{{item.data.url}}' bindtap='goDetaile'>
+                <image class="swiper_IMG" mode="aspectFill" src="{{item.thumb}}"></image>
             </swiper-item>
         </swiper>
     </view>

@@ -20,15 +20,28 @@
 }
 
 .user_nav .user_icon {
-    width: 50rpx;
-    height: 50rpx;
+    width: 60rpx;
+    height: 60rpx;
     border-radius: 50%;
 }
 
 .mssage_icon_box {
     margin-right: 30rpx;
+    position: relative;
 }
-
+.mssage_icon_box>view{
+    position: absolute;
+    right: -6rpx;
+    top: -6rpx;
+    background: red;
+    color: #fff;
+    width: 20rpx;
+    height: 20rpx;
+    text-align: center;
+    line-height: 20rpx;
+    border-radius: 50%;
+    font-size: 18rpx;
+}
 .mssage_icon_box image {
     width: 35rpx;
     height: 35rpx;
@@ -80,6 +93,13 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.addres image{
+    width: 50rpx;
+    height: 50rpx;
 }
 
 /* 滑动导航 */

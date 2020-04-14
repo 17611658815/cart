@@ -20,14 +20,14 @@
         <view class="dpfb" wx:for='{{msgList}}'>
             <view class="fontSize-28 color1 fontWeight5">{{index+1}}.{{item.keyword}}</view>
             <view class="fontSize-22 color3 fontWeight5">
-            <image src='../../images/icon/icon_45.jpg' wx:if="{{index==0}}"></image>
-            <image src='../../images/icon/icon_46.jpg' wx:if="{{index==1}}"></image>
-            <image src='../../images/icon/icon_47.png' wx:if="{{index==2}}"></image> 人气:{{item.num}}</view>
+            <image src='https://img.dodo.wiki/app/icon_45.jpg' wx:if="{{index==0}}"></image>
+            <image src='https://img.dodo.wiki/app/icon_46.jpg' wx:if="{{index==1}}"></image>
+            <image src='https://img.dodo.wiki/app/icon_47.png' wx:if="{{index==2}}"></image> 人气:{{item.num}}</view>
         </view>
     </view>
      <view class="width100 dpfC" wx:else>
             <view class="noList dpfC">
-                <image mode="scaleToFill" src="../../images/icon/icon_15.jpg" />
+                <image mode="scaleToFill" src="https://img.dodo.wiki/app/icon_15.jpg" />
                 <view class="fontSize-28 color1 marginTop">暂无数据</view>
             </view>
         </view>

@@ -23,7 +23,7 @@
     </view>
     <view class="width100 dpfC" wx:else>
         <view class="noList dpfC">
-            <image mode="scaleToFill" src="../../images/icon/icon_43.jpg" />
+            <image mode="scaleToFill" src="https://img.dodo.wiki/app/icon_43.jpg" />
             <view class="fontSize-28 color1 marginTop">暂无相关消息</view>
         </view>
     </view>

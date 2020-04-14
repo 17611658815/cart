@@ -15,7 +15,13 @@ Page({
         latitude: 0,
         hasInfoNum: 0,
         contentList: [],
-        msgNum:0
+        msgNum:0,
+        cityObj: {
+            city: "",
+            district: "",
+            province: "",
+        },
+        area_id:0
 
     },
     onLoad: function (options) {
@@ -37,6 +43,21 @@ Page({
             msgNum: msgNum.num 
         })
     },
+    // 获取区域id
+    getAreaId() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            name: that.data.cityObj
+        }
+        app.net.$Api.getAreaId(params).then((res) => {
+            app.globalData.area_id = res.data.id;
+            that.setData({
+                area_id: res.data.id
+            })
+            console.log(res, 199)
+        })
+    },
     //获取当前位置
     getLocationMsg() {
         let that = this;
@@ -52,12 +73,21 @@ Page({
                         app.globalData.longitude = res.longitude;
                         app.globalData.latitude = res.latitude;
                         app.globalData.city = e.data.result.address_component.city
+                        app.globalData.cityObj = {
+                            city: e.data.result.address_component.city,
+                            district: e.data.result.address_component.district,
+                            province: e.data.result.address_component.province,
+                        }
                         that.setData({
+                            'cityObj.city': e.data.result.address_component.city, //当前城市
+                            'cityObj.district': e.data.result.address_component.district, //当前区
+                            'cityObj.province': e.data.result.address_component.province, //国家
                             city: e.data.result.address_component.city,//当前城市
                             address: e.data.result.address,//当前位置
                             longitude: res.longitude,
                             latitude: res.latitude,
                         })
+                        that.getAreaId()
                     }
                 })
             }

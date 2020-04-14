@@ -1,7 +1,7 @@
 <view class="bgF orderContent dpfC" wx:for='{{otherObj}}' wx:key='key'>
     <view class="dpfb orderTitle">
         <text>{{item.title}}</text>
-        <image class="icon_right" src='../../images/icon_right.png'></image>
+        <!-- <image class="icon_right" src='../../images/icon_right.png'></image> -->
     </view>
     <view class="width100 dpfC">
         <view class="otherlistBox">
@@ -10,7 +10,7 @@
                     <image mode="scaleToFill" src="{{items.thumb}}" />
                 </view>
                 <view class="otherinfo">
-                    <view class="fontSize-30 color1">{{items.name}}</view>
+                    <view class="fontSize-30 color1">({{items.brand}}){{items.name}}</view>
                     <view class="fontSize-28 color2">数量{{items.num}}</view>
                     <view class="fontSize-30 color7">{{items.price}}元</view>
                 </view>

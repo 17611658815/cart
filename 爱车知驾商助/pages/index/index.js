@@ -11,7 +11,8 @@ Page({
         list:'',//帖子
         msgNum:0,
         isIphoneX:false,
-        member_id:0
+        member_id:0,
+        banner:[]
     },
     onLoad: function (options) {
         app.globalData.share_source = options.share_source || 0
@@ -22,6 +23,26 @@ Page({
     onbindcontact(e){
         console.log(e, 27)
     },
+    goDetaile(e) {
+        let path = e.currentTarget.dataset.path;
+        let appid = e.currentTarget.dataset.appid;
+        if (appid != "") {
+            wx.navigateToMiniProgram({
+                appId: appid,
+                path: path,
+                extraData: {},
+                envVersion: 'release',
+                success(res) {
+                    // 打开成功
+                    console.log('打开了')
+                }
+            })
+        } else if (path) {
+            wx.navigateTo({
+                url: path,
+            })
+        }
+    },
     onShow(){
         let userInfo = wx.getStorageSync('userinfo') || '';
         app.globalData.userInfo = userInfo
@@ -31,6 +52,21 @@ Page({
         })
         this.getShopHomeData()
         this.checkAssessOrder()
+        this.getRotationData()
+    },
+    getRotationData() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            area_id: app.globalData.area_id,
+            id: 3,
+        }
+        app.net.$Api.getRotationData(params).then((res) => {
+            that.setData({
+                banner: res.data.list
+            })
+            console.log(res.data.list, 1213)
+        })
     },
     //获取当前位置
     getLocationMsg() {

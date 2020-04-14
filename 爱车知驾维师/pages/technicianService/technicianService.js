@@ -16,15 +16,15 @@ Page({
     },
 
     onLoad(options) {
-        wx.removeStorage({
-            key: 'CarList',
-            success: function(res) {},
-        })
-        let CarList = wx.getStorageSync('CarList') || {};
+        // wx.removeStorage({
+        //     key: 'CarList',
+        //     success: function(res) {},
+        // })
+        // let CarList = wx.getStorageSync('CarList') || {};
         this.setData({
             isIphoneX: app.globalData.isIphoneX,
             id: options.id,
-            CarList: CarList,
+            // CarList: CarList,
             order_id: options.order_id,
             // order_id:
         })
@@ -40,7 +40,8 @@ Page({
             keyword: that.data.searchMsg1,
             order_id: that.data.order_id,
             page: 1,
-            type: 1
+            type: 1,
+            area_id: app.globalData.area_id
         }
         app.net.$Api.getGoodsService(params).then((res) => {
             console.log(res)
@@ -56,7 +57,8 @@ Page({
             keyword: that.data.searchMsg1,
             order_id: that.data.order_id,
             page: 1,
-            type: 2
+            type: 2,
+            area_id: app.globalData.area_id
         }
         app.net.$Api.getGoodsService(params).then((res) => {
             console.log(res)
@@ -183,11 +185,16 @@ Page({
         this.setData({
             CarList: CarList,
             total: total.toFixed(2)
+        },()=>{
+            wx.showToast({
+                title: '添加成功',
+                duration:1500
+            })
         })
-        wx.setStorage({
-            key: 'CarList',
-            data: CarList,
-        })
+        // wx.setStorage({
+        //     key: 'CarList',
+        //     data: CarList,
+        // })
 
     },
     checked(e) {
@@ -242,7 +249,7 @@ Page({
     },
     // 去结算
     goGoodsList() {
-        console.log(this.data.CarList)
+        app.globalData.CarList = this.data.CarList
         if (JSON.stringify(this.data.CarList) == "{}") {
             app.alert("请选择购买的商品")
         } else {
@@ -263,5 +270,11 @@ Page({
         my.navigateTo({
             url: '/pages/addres/addres'
         });
-    }
+    },
+     /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+     
+    },
 });

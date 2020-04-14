@@ -1,0 +1,10 @@
+<view class="container">
+                    <image src='{{goodsData.thumb}}'></image>
+                    <view class='fontSize-36 fontWeight5'>
+                    {{goodsData.name}}
+                    </view>
+                    <view class='fontSize-32 fontWeight5 color7'>
+                   价格{{goodsData.price}}
+                    </view>
+
+</view>

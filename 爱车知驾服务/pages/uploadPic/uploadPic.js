@@ -227,7 +227,7 @@ Page({
                     duration: 2000,
                     success: function () {
                         setTimeout(function () {
-                            wx.navigateTo({
+                            wx.reLaunch({
                                 url: '/pages/index/index',
                             })
                         }, 2000)

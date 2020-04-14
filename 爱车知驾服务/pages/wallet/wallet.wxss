@@ -17,7 +17,6 @@ page{
 }
 .listitem{
     padding: 30rpx  0;
-
     border-bottom: 1rpx solid #e2e2e2;
 }
 

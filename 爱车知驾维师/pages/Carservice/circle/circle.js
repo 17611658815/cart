@@ -92,7 +92,7 @@ Page({
             member_id: that.data.member_id,
             page: that.data.page,
             type: that.data.circleTabNum/1+1,
-            city: app.globalData.city
+            city: app.globalData.area_id
         }
         return new Promise((resolve, reject) => {
             app.net.$Api.getPostingsList(params).then((res) => {

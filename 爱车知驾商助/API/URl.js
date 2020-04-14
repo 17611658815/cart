@@ -1,6 +1,6 @@
 export default class Url {
-    static USER = "https://api.dodo.wiki/appInterface/user"
-    static PATH = "https://api.dodo.wiki/appInterface/shop"
+    static USER = "https://api.icarbb.cn/appInterface/user"
+    static PATH = "https://api.icarbb.cn/appInterface/shop"
 
     // 获取openid
     static getOpenIdUrl() {
@@ -241,6 +241,10 @@ export default class Url {
     // 订单状态
     static checkAssessOrderUrl() {
         return Url.PATH + '/checkAssessOrder';
+    };
+    // 轮播图片
+    static getRotationDataUrl() {
+        return Url.PATH + '/getRotationData';
     };
 
 }

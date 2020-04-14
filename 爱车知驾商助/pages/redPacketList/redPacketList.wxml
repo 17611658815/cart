@@ -12,7 +12,7 @@
             <view class="left">
                 <view class="marginLeft dpf">
                     <view class="ticket_icon">
-                        <image src="../../images/icon/icon_44.png"></image>
+                        <image src="https://img.dodo.wiki/app/icon_44.png"></image>
                     </view>
                     <view class="fontSize-36">
                         {{item.value}}元

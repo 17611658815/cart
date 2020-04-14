@@ -48,7 +48,7 @@
             <view class="rightIconBob">
                 <view>
                     <image class="circle_content_icon" src="../../../images/icon_30.png"></image>
-                    <text>{{item.collection}}</text>
+                    <text>{{item.pv}}</text>
                 </view>
                 <view>
                      <image class="circle_content_icon" wx:if="{{item.is_zan > 0}}" catchtap="postingsZan" data-type='no' data-id='{{item.id}}' data-index='{{index}}' src="../../../images/zan.png"></image>

@@ -6,11 +6,13 @@
                 <image class="user_icon" src="{{userinfo.wx_avatar}}" wx:else></image>
             </view>
             <view class="addres">
+            <image src="../../images/1586332671(1).jpg"></image>
                 <text class="fontSize-30 color2 marginRight10">{{city}}</text>
             </view>
             <view class="dpf">
                 <view class="mssage_icon_box" bindtap="goMessageList">
                     <image src="../../images/mssage_icon.png"></image>
+                    <view wx:if='{{messageTag>0}}'>{{messageTag}}</view>
                 </view>
                 <view class="scan_box" bindtap="scanCode">
                     <image src="../../images/scan_icon.png"></image>
@@ -228,7 +230,7 @@
                         </picker>
                     </view>
                 </view>
-                <view class="makeBtn" bindtap="gocartList">
+                <view class="makeBtn" bindtap="onbindfocus">
                     预约维师
                 </view>
             </view>
@@ -269,17 +271,17 @@
                 <view class="width90 dpf padding20 sherec_ontainer">
                     <view class="dpfC shereBox fontSize-20">
                         <image src="../../images/police_icon.png"></image>
-                        <text class="marginTop10">122报警</text>
+                        <text class="marginTop10">服务进度</text>
                     </view>
                     <view class="dpfC shereBox fontSize-20 borderLeft" bindtap="recallOther">
                         <image src="../../images/del2_icon.png"></image>
                         <text class="marginTop10">取消订单</text>
                     </view>
-                    <view class="dpfC shereBox fontSize-20 borderLeft">
+                    <!-- <view class="dpfC shereBox fontSize-20 borderLeft">
                         <image src="../../images/mssage_icon.png"></image>
                         <text class="marginTop10">发消息</text>
-                    </view>
-                    <view class="dpfC shereBox fontSize-20 borderLeft">
+                    </view> -->
+                    <view class="dpfC shereBox fontSize-20 borderLeft" bindtap="makePhoneCall" data-phone='{{jishi_info.phone}}'>
                         <image src="../../images/phone_icon.png"></image>
                         <text class="marginTop10">打电话</text>
                     </view>
@@ -300,33 +302,33 @@
             <view class="finishListBox boxShadow" wx:if='{{typeNum== 4}}'>
                 <view class="width90 dpf">
                     <view class="dpfC">
-                        <view class="fontSize-22 color2">张技师</view>
-                        <view class="fontSize-26 fontWeight5 color2">161.00元</view>
+                        <view class="fontSize-22 color2">{{member_info.name}}</view>
+                        <view class="fontSize-26 fontWeight5 color2">{{priceNumber}}元</view>
                     </view>
                     <view class="dpfC">
                         <image src="../../images/police_icon.png"></image>
                         <view class="fontSize-22 color2">122报警</view>
                     </view>
-                    <view class="dpfC" bindtap="redPacket">
+                    <!-- <view class="dpfC" bindtap="redPacket">
                         <image src="../../images/redpacket_icon.png"></image>
                         <view class="fontSize-22 color2">感谢红包</view>
-                    </view>
-                    <view class="dpfC">
+                    </view> -->
+                    <view class="dpfC" bindtap="makePhoneCall" data-phone='{{member_info.phone}}'>
                         <image src="../../images/phone_icon.png"></image>
                         <view class="fontSize-22 color2">打电话</view>
                     </view>
-                    <view class="dpfC">
+                    <!-- <view class="dpfC">
                         <image src="../../images/invoice_icon.png"></image>
                         <view class="fontSize-22 color2">开发票</view>
-                    </view>
-                    <view class="dpfC">
+                    </view> -->
+                    <!-- <view class="dpfC">
                         <image src="../../images/down3_icon.png"></image>
-                    </view>
+                    </view> -->
                 </view>
             </view>
                 <view class="width90 bgFFFF dpfC boxShadow padding30" wx:if='{{OrderTypeData.type==1}}'>
                     <view class="width90 fontSize-32 fontWeight5">
-                        服务评分
+                        您的评价会让维师做的更好
                         <!-- <text class="leaber_1">匿名</text> -->
                     </view>
                     <!-- 评星 -->
@@ -338,7 +340,7 @@
                 </view>
                 <view class="width90 bgFFFF dpfC boxShadow padding30" wx:if='{{OrderTypeData.type==1}}'>
                     <view class="width90 fontSize-32 fontWeight5">
-                        场地评分
+                        场地环境满意
                         <!-- <text class="leaber_1">匿名</text> -->
                     </view>
                     <!-- 评星 -->
@@ -350,7 +352,7 @@
                 </view>
                 <view class="width90 bgFFFF dpfC boxShadow padding30">
                     <view class="width90 fontSize-32 fontWeight5">
-                        {{type == 1 ? "综合评分":"评分"}}
+                        商品满意
                         <!-- <text class="leaber_1">匿名</text> -->
                     </view>
                     <!-- 评星 -->
@@ -370,13 +372,16 @@
                         <view class="dpfC" style="width:80rpx;height:80rpx; border-radius:50%; background: #FFD7C1">
                             <image style="width:40rpx;height:40rpx;" src="../../images/img43.jpg"></image>
                         </view>
-                        <view class="fontSize-26 color3 marginTop10">分享领红包</view>
+                        <view class="fontSize-26 color3 marginTop10">分享给好友</view>
                         <button open-type="share" style=" position: absolute;top:0;left:0;width:100%;height:100%; background: none"></button>
                     </view>
                     <view class="dpfC" style="flex:1">
                         <view class="dpfC" style="width:80rpx;height:80rpx; border-radius:50%; background: #FFD7C1">
                          <image style="width:40rpx;height:40rpx;" src="../../images/img44.jpg"></image></view>
-                        <view class="fontSize-26 color3 marginTop10">专属技师</view>
+                        <view class="fontSize-26 color3 marginTop10">
+                            <view> 将这个技师绑定</view>
+                            <view> 为爱车专职技师</view> 
+                        </view>
                     </view>
                 </view>
             </view>

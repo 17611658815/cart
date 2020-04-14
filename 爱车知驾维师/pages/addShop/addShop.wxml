@@ -23,7 +23,7 @@
                 <view>{{shopName}}</view>
             </view>
             <view class='itembox dpfb'>
-                <view>场地费</view>
+                <view>场地费(每小时)元</view>
                 <input placeholder='场地费' value="{{shopPrice}}" bindinput="shopPriceInpt" type='number'></input>
             </view>
             <view class='itembox dpfC' style='border:none;padding-bottom:0'>

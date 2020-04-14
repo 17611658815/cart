@@ -10,19 +10,19 @@
                     <image mode="scaleToFill" src="{{item.thumb}}" />
                 </view>
                 <view class="otherinfo">
-                    <view class="fontSize-30 color1">{{item.name}}</view>
+                    <view class="fontSize-30 color1">({{item.attr.brand}}){{item.name}}/{{item.attr.info}}</view>
                     <view class="fontSize-26 color3">现价:{{item.price}} 原价:{{item.original_price}}</view>
                 </view>
                 <view class="dpf">
                     <view class="fontSize-30 color1 btn1" bindtap="setGoodsStatus" data-id="{{item.id}}" data-status="3" wx:if='{{currentTab==1}}'>删除</view>
-                    <view class="fontSize-26 color3 btn2" bindtap="changeGoods" data-id="{{item.id}}" wx:if='{{currentTab==2 || currentTab==1 || currentTab==0}}'>修改</view>
+                    <view class="fontSize-26 color3 btn2" bindtap="changeGoods" data-id="{{item.id}}" data-obj_id="{{item.obj_id}}" wx:if='{{currentTab==2 || currentTab==1 || currentTab==0}}'>修改</view>
                     <view class="fontSize-26 color3 btn2" bindtap="setGoodsStatus" data-status="2" data-id="{{item.id}}" wx:if='{{currentTab==0}}'>下架</view>
                 </view>
             </view>
         </view>
         <view class="width100 dpfC" wx:else>
             <view class="noList dpfC">
-                <image mode="scaleToFill" src="../../images/icon/icon_15.jpg" />
+                <image mode="scaleToFill" src="https://img.dodo.wiki/app/icon_15.jpg" />
                 <!-- <view class="fontSize-28 color1 marginTop">暂无商品</view> -->
             </view>
         </view>

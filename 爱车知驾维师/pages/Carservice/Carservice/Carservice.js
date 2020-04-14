@@ -12,7 +12,8 @@ Page({
         navList: ['首页', '知驾服务'],
         currentTab:1,
         btnNavcurrent:0,
-        msgNum:0
+        msgNum:0,
+        banner:[],
     },
     /**
         * 生命周期函数--监听页面显示
@@ -34,7 +35,21 @@ Page({
      * 生命周期函数--监听页面加载
      */
     async onLoad (options) {
-        
+        this.getRotationData()
+    },
+    getRotationData() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            area_id: app.globalData.area_id,
+            id: 2,
+        }
+        app.net.$Api.getRotationData(params).then((res) => {
+            that.setData({
+                banner: res.data.list
+            })
+            console.log(res.data.list, 1213)
+        })
     },
     goDetaile(e){
         let path = e.currentTarget.dataset.path;
@@ -50,7 +65,7 @@ Page({
                     console.log('打开了')
                 }
             })
-        }else{
+        } else if (path){
             wx.navigateTo({
                 url: path,
             })

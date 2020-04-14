@@ -16,7 +16,7 @@
     </view>
     <view class="width100 dpfC" wx:else>
         <view class="noList dpfC">
-            <image mode="scaleToFill" style="width: 300rpx; margin-top: 300rpx;" src="../../images/icon/icon_15.jpg" />
+            <image mode="scaleToFill" style="width: 300rpx; margin-top: 300rpx;" src="https://img.dodo.wiki/app/icon_15.jpg" />
             <!-- <view class="fontSize-28 color1 marginTop">暂无商品</view> -->
         </view>
     </view>

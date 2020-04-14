@@ -26,6 +26,7 @@ Page({
             member_id: userinfo.id
         })
         this.getShopInfo()
+        this.visitLog()
         // this.sumTotal(CarList)
     },
     sumTotal(CarList){
@@ -54,6 +55,19 @@ Page({
                 shopObj:res.data
             })
             wx.hideLoading()
+        })
+    },
+    // 获取附近店铺
+    visitLog() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            type: 1,
+            userid: that.data.member_id,
+            shop_id: that.data.id,
+        }
+        app.net.$Api.visitLog(params).then((res) => {
+            console.log(res)
         })
     },
     handleScroll(selectedId) {

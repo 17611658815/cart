@@ -1,7 +1,7 @@
 export default class Url {
-    static USER = "https://api.dodo.wiki/appInterface/user"
-    static PATH = "https://api.dodo.wiki/appInterface/consumer"
-    static ART = "https://api.dodo.wiki/appInterface/artificer"
+    static USER = "https://api.icarbb.cn/appInterface/user"
+    static PATH = "https://api.icarbb.cn/appInterface/consumer"
+    static ART = "https://api.icarbb.cn/appInterface/artificer"
     // 获取openid
     static getOpenIdUrl() {
         return Url.USER + '/getOpenid';
@@ -174,6 +174,14 @@ export default class Url {
     // 获取消息未读
     static getUnreadMsgNumUrl() {
         return Url.ART + '/getUnreadMsgNum';
+    };
+    // 区域id
+    static getAreaIdUrl() {
+        return Url.PATH + '/getAreaId';
+    };
+    // 轮播图片
+    static getRotationDataUrl() {
+        return Url.PATH + '/getRotationData';
     };
    
 }

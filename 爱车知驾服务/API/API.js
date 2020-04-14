@@ -162,5 +162,44 @@ export const api = {
     getMyInvite: function(paramObj) {
         return Promise.post(Url.default.getMyInviteUrl(), paramObj);
     },
+    // 商品排行
+    objTypeRank: function(paramObj) {
+        return Promise.post(Url.default.objTypeRankUrl(), paramObj);
+    },
+    // 品牌详情
+    brand: function (paramObj) {
+        return Promise.post(Url.default.brandUrl(), paramObj);
+    },
+    // 品牌详情
+    brandObjTypeDetailAjax: function (paramObj) {
+        return Promise.post(Url.default.brandObjTypeDetailAjaxUrl(), paramObj);
+    },
+    brandObjType: function (paramObj) {
+        return Promise.post(Url.default.brandObjTypeUrl(), paramObj);
+    },
+    brandObjTypeDetail: function (paramObj) {
+        return Promise.post(Url.default.brandObjTypeDetailUrl(), paramObj);
+    },
+    goodsDetail: function (paramObj) {
+        return Promise.post(Url.default.goodsDetailUrl(), paramObj);
+    },
+    addBrandCommnet: function (paramObj) {
+        return Promise.post(Url.default.addBrandCommnetUrl(), paramObj);
+    },
+    getBrandCommnetAjax: function (paramObj) {
+        return Promise.post(Url.default.getBrandCommnetAjaxUrl(), paramObj);
+    },
+    showCateDetail: function (paramObj) {
+        return Promise.post(Url.default.showCateDetailUrl(), paramObj);
+    },
+    getRotationData: function (paramObj) {
+        return Promise.post(Url.default.getRotationDataUrl(), paramObj);
+    },
+    getUnreadMsgNum: function (paramObj) {
+        return Promise.post(Url.default.getUnreadMsgNumUrl(), paramObj);
+    },
+    visitLog: function (paramObj) {
+        return Promise.post(Url.default.visitLogUrl(), paramObj);
+    },
 
 }

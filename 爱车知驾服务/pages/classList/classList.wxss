@@ -21,7 +21,6 @@ page{
 .layoutBox-right{
     flex: 1;
     height: 100%;
-    padding: 30rpx;
     background: #E5E4E4;
     overflow: auto
 }
@@ -45,12 +44,23 @@ page{
     font-size: 33rpx;
 }
 .layoutBox-right-title{
-    padding: 30rpx 0;
-    font-size: 32rpx;
-    font-weight: 500;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px 0 10px;
 }
 .layoutBox-right-item{
-    padding:  30rpx 0 30rpx 120rpx;
+    width: 100rpx;
+    margin: 20rpx 10rpx;
+    /* padding:  30rpx 0 30rpx 120rpx; */
+}
+.layoutBox-right-item text{
+    text-align: center;
+    width: 100%;
+}
+.layoutBox-right-item image{
+    width: 60rpx;
+    height: 60rpx;
 }
 .active{
     background: #E5E4E4
@@ -75,4 +85,11 @@ page{
 .inputStyle{
     font-size: 32rpx;
     color: #B1ACAC;
+}
+.layoutBox-right-content{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    
+    /* padding-left: 30rpx; */
 }

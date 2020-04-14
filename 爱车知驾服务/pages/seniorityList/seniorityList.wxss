@@ -1,0 +1,306 @@
+/* pages/seniorityList/seniorityList.wxss */
+page{
+    background: #f8f8f8;
+}
+.herdertab{
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 1rpx solid #e2e2e2;
+    background: #ffffff;
+}
+.herdertab view{
+    padding: 30rpx 0;
+    color: #686868;
+}
+.actice{
+    color: #00A4C5 !important;
+    border-bottom: 5rpx solid #00A4C5;
+}
+.goodsList{
+    width: 100%;
+}
+.goodsList view{
+    width: 90%;
+    padding: 30rpx 5%;
+    color: #00A4C5;
+}
+.xiangguan{
+    width: 90%;
+    padding: 30rpx 5%;
+    font-size: 30rpx;
+}
+.xiangguanList{
+    width: 90%;
+    padding: 0 5% 0 5%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30rpx 0;
+}
+.xiangguanList-item{
+    width: 33%;
+}
+.xiangguanList-item image{
+    width:80%;
+    height: 150rpx;
+}
+
+.goodsPic{
+    width: 100%;
+    height: 400rpx;
+}
+.goodsPic image{
+    width: 100%;
+    height: 100%;
+}
+.goodsMsg{
+    width: 90%;
+    padding: 30rpx 5%;
+    background: #ffffff
+}
+.goodsMsg:nth-child(2n){
+    background: #D9D9D9;
+    border: 1rpx solid #e2e2e2;
+}
+.goodstext{
+    width: 90%;
+    height: 152rpx;
+    padding: 30rpx 5%;
+   font-size: 28rpx;
+    color: #666666;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    line-height: 44rpx;
+    background: #ffffff
+}
+
+.goodstext2{
+     width: 90%;
+    padding: 30rpx 5%;
+   font-size: 28rpx;
+    color: #666666;
+      background: #ffffff
+}
+.viewMore{
+    width: 90%;
+    padding: 20rpx 0;
+    border: 2rpx solid #e2e2e2;
+    font-size: 26rpx;
+    text-align: center;
+    margin: 20rpx 0;
+    color: 666666;
+      background: #ffffff
+}
+.goodsTitle{
+    width: 90%;
+    padding: 30rpx 5%;
+    margin: 20rpx 0;
+      background: #ffffff
+}
+
+.nav {
+    width: 100%;
+    height: 78rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: #f7f7f7;
+    white-space: nowrap;
+    display: flex;
+    background: #fff;
+    border-bottom: 1rpx solid #e2e2e2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 999;
+}
+
+.nav::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-item {
+    flex-shrink: 0;
+    -webkit-box-flex: 0;
+    flex-grow: 0;
+    height: 78rpx;
+    text-align: center;
+    position: relative;
+    font-size: 26rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30rpx;
+}
+
+.nav-item.active {
+    color: cornflowerblue;
+    border-bottom: 2px solid cornflowerblue;
+}
+
+.tab-box {
+    height: 480px !important;
+    background: #fff;
+    box-sizing: border-box;
+}
+
+.tab-content {
+    overflow-y: auto;
+}
+
+.active {
+    font-size: 28rpx;
+    color: #000;
+    font-weight: 500;
+}
+
+.solider {
+    width: 100%;
+    height: 6rpx;
+    background: #e5ce53;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* 手机列表 */
+
+
+.phoneList {
+    width: 100%;
+    padding-bottom: 30rpx;
+}
+
+.listBox {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.listBox_item {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 35rpx;
+    position: relative;
+    padding: 30rpx;
+}
+
+.listBox_item_img {
+    width: 100%;
+}
+
+.listBox_item_img image {
+    width: 300rpx;
+    height: 300rpx;
+}
+
+.phone_img image {
+    width: 100%;
+    height: 300rpx;
+}
+
+.phoneName {
+    flex: 1;
+    font-size: 32rpx;
+    color: #333;
+    background: #fff;
+    margin-top: 20rpx;
+}
+.phonenNum{
+     margin-top: 20rpx;
+}
+.phonenNum text:nth-child(1){
+    color: #666666;
+    font-size: 24rpx;
+}
+.phonenNum text:nth-child(2){
+    color: red;
+    font-size: 28rpx;
+}
+.tagBox {
+    padding: 5rpx 15rpx 5rpx 10rpx;
+    background: #fd3f3f;
+    color: #fff;
+    position: absolute;
+    top: 20rpx;
+    left: 0;
+    font-size: 22rpx;
+    border-radius: 0 90rpx 90rpx 0;
+}
+
+.fix-news {
+    position: fixed;
+    top: 0;
+    z-index: 999999;
+}
+
+.comment{
+    width: 100%;
+}
+.comment-item{
+    width: 90%;
+    padding: 30rpx 5%;
+    display: flex;
+}
+.comment-item-left image{
+    width: 60rpx;
+    height: 60rpx;
+}
+.comment-item-right{
+    margin-left: 20rpx;
+}
+.goodsTitle-left{
+    display: flex;
+}
+.goodsTitle-left view{
+    margin-right: 20rpx;
+}
+
+
+.comment_tite2{
+     width: 90%;
+    padding: 30rpx 5%;
+}
+
+.star_item{
+    display: flex;
+    margin-top: 5rpx;
+}
+.starBox {
+    width: 500rpx;
+    display: flex;
+    text-align: center;
+     white-space:nowrap;
+
+}
+
+.rui-star {
+    display: inline-block;
+    width: 35rpx;
+    height: 35rpx;
+}
+
+.rui-star:nth-child(n+1) {
+    margin-left: 5rpx;
+}
+.comment_titel{
+    width: 90%;
+    padding: 30rpx 5%;
+    display: flex;
+    justify-content: space-between;
+    background: #ffffff;
+    border-bottom: 1rpx solid #e2e2e2
+}
+.comment_titel view{
+    padding: 5rpx 10rpx;
+    font-size: 28rpx;
+    color: #00A4C5;
+    border-radius: 10rpx;
+    border: 1rpx solid #00A4C5;
+}

@@ -10,24 +10,24 @@ Page({
         typeListArr: [{
                 name: '店铺等级',
                 path: '/pages/shopLevel/shopLevel',
-                icon: '../../images/icon/icon_16.jpg'
+                icon: 'https://img.dodo.wiki/app/icon_16.png'
             },
             {
                 name: '账户资金',
                 path: '/pages/shopWallet/shopWallet',
-                icon: '../../images/icon/icon_17.jpg'
+                icon: 'https://img.dodo.wiki/app/icon_17.png'
             }, {
-                name: '舍友圈',
+                name: '商友圈',
                 path: '/pages/community/community',
-                icon: '../../images/icon/icon_18.jpg'
+                icon: 'https://img.dodo.wiki/app/icon_18.png'
             }, {
                 name: '维修技师',
                 path: '/pages/technicianList/technicianList',
-                icon: '../../images/icon/icon_19.jpg'
+                icon: 'https://img.dodo.wiki/app/icon_19.png'
             }, {
                 name: '系统消息',
                 path: '/pages/messageList/messageList',
-                icon: '../../images/icon/icon_23.png'
+                icon: 'https://img.dodo.wiki/app/icon_23.png'
             }, {
                 name: '商家客服',
                 path: '/pages/shopService/shopService',
@@ -35,7 +35,7 @@ Page({
             }, {
                 name: '设置',
                 path: '/pages/setMsg/setMsg',
-                icon: '../../images/icon/icon_22.jpg'
+                icon: 'https://img.dodo.wiki/app/icon_22.png'
             }
         ],
         name: '',

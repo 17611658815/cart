@@ -7,6 +7,12 @@ Page({
     data: {
         userInfo: {},
         city: '', //当前城市
+        cityObj:{
+            city: "",
+        district: "",
+            province : "",
+        },
+        
         address: '', //当前位置
         emShow: false, //急救中心模块
         emShow2: false, //急救中心模块
@@ -76,7 +82,7 @@ Page({
         diagnosisStar: 1, //默认一星
         evaluateCurrent: 0, //评价当前选中
         authorizationShow: true, //展示授权框
-        // authorizationShow2:true,//展示授权框
+        authorizationShow2:false,//展示授权框
         colorStyle: '#4EB113',
         fixTop: 500, //据顶部距离
         fined: false, //定位
@@ -103,8 +109,8 @@ Page({
         member_id: 0,
         isHaveCar: 0,
         service: {}, //来店 取车 计算
-        num1: 0, //来店
-        num2: 0, //取车
+        num1: 50, //来店
+        num2: 100, //取车
         technician: ['初级技师', '中级技师', '高级技师', '技师维师'],
         technicianName: '选择维师',
         technicianinde: 0, //级别id
@@ -150,7 +156,9 @@ Page({
         evaluateCurrent2: 0,//评价当前选中
         evaluateCurrent3: 0,//评价当前选中
         message: "",
-        OrderTypeData:{}
+        OrderTypeData:{},
+        messageTag:0,
+        member_info:{}
     },
     formatTime(date, type) {
         var year = date.getFullYear();
@@ -198,17 +206,18 @@ Page({
         }
         that.getSysdata()
         that.getLocationMsg();
-        that.getAreaId();
+       
         that.getCarAdapterProduct()
-        let list8 = await app.getRecommend(24, 1);
-        let list = await app.getRecommend(15, 0);
+        that.getRotationData()
+        let list  = await app.getRecommend(15, 0);
         let list2 = await app.getRecommend(17, 3);
         let list3 = await app.getRecommend(18, 4);
         let list4 = await app.getRecommend(19, 0);
         let list5 = await app.getRecommend(20, 0);
         let list6 = await app.getRecommend(21, 0);
         let list7 = await app.getRecommend(22, 0);
-        let banner = await app.getRecommend(23, 0);
+        let list8 = await app.getRecommend(24, 1);
+        // let banner = await app.getRecommend(23, 0);
         that.setData({
             list,
             list2,
@@ -218,7 +227,6 @@ Page({
             list6,
             list7,
             list8,
-            banner
         })
         console.log(list8,209)
     },
@@ -243,6 +251,7 @@ Page({
     },
     onShow: function() {
         let that = this;
+        console.log(1111)
         let userinfo = wx.getStorageSync('userinfo') || '';
         app.globalData.userinfo = wx.getStorageSync('userinfo') || '';
         wx.getStorage({
@@ -263,6 +272,7 @@ Page({
         if (userinfo != "") {
             that.isHaveCar(userinfo);
         }
+        that.getUnreadMsgNum()
         that.checkAssessOrder()
         console.log(that.data.member_id)
     },
@@ -284,50 +294,59 @@ Page({
         let that = this;
         let serveType = that.data.serveType;
         let currentTab = that.data.currentTab;
-        let params = {
-            appid: app.globalData.appid,
-            id: that.data.goodsId
-        }
-        app.net.$Api.showService(params).then((res) => {
-            let service = res.data;
-            let num1 = service.price[currentTab + 1][0] / 1 + service.service.price / 1
-            let num2 = service.price[currentTab + 1][1] / 1 + service.service.price / 1
-            that.setData({
+        that.setData({
                 typeNum: 1,
-                service: service,
-                num1: num1,
-                num2: num2,
-                serviceId: service.service.id
+                // service: service,
+                num1: 50,
+                num2: 100,
+                // serviceId: service.service.id
             })
-            console.log(that.data.service)
-        })
+        // let params = {
+        //     appid: app.globalData.appid,
+        //     id: that.data.goodsId
+        // }
+        // app.net.$Api.showService(params).then((res) => {
+        //     let service = res.data;
+        //     let num1 = service.price[currentTab + 1][0] / 1 + service.service.price / 1
+        //     let num2 = service.price[currentTab + 1][1] / 1 + service.service.price / 1
+        //     that.setData({
+        //         typeNum: 1,
+        //         service: service,
+        //         num1: num1,
+        //         num2: num2,
+        //         serviceId: service.service.id
+        //     })
+        //     console.log(that.data.service)
+        // })
     },
     // 获取订单状态
     getOrderStatus(id) {
         let that = this;
         let params = {
             appid: app.globalData.appid,
-            id: app.globalData.order_id
+            id: id
         }
         app.net.$Api.getOrderStatus(params).then((res) => {
             console.log(res)
             clearTimeout(that.data.times)
-            if (res.data.status > 2) {
+            if (res.data.status <= 2) {
+                that.data.times = setTimeout(() => {
+                    that.getOrderStatus(app.globalData.order_id)
+                    console.log(that.data.times)
+                }, 3000)
+            } else if (res.data.status == 3) {
                 that.setData({
                     typeNum: 3,
                     jishi_info: res.data.member_info
                 })
                 app.globalData.order_id = 0;
-
-            } else {
-                // that.setData({
-                //     typeNum: 2,
-                // })
-                that.data.times = setTimeout(() => {
-                    that.getOrderStatus(app.globalData.order_id)
-                    console.log(that.data.times)
-                }, 3000)
-            }
+            } else if (res.data.status == 4){
+                that.setData({
+                    typeNum: 4,
+                    priceNumber: res.data.price,
+                    member_info: res.data.member_info,
+                })
+            } 
         })
     },
     open() {
@@ -363,7 +382,7 @@ Page({
         let that = this;
         let params = {
             appid: app.globalData.appid,
-            name: that.data.city
+            name: that.data.cityObj
         }
         app.net.$Api.getAreaId(params).then((res) => {
             app.globalData.area = res.data.id;
@@ -450,11 +469,19 @@ Page({
                 wx.request({
                     url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + res.latitude + ',' + res.longitude + '&key=UYFBZ-ANUWW-Y7GRO-OURNR-G5L7O-PHFMD',
                     success: function(e) {
-                        console.log(res)
+                        console.log(e)
                         app.globalData.longitude = res.longitude;
                         app.globalData.latitude = res.latitude;
                         app.globalData.city = e.data.result.address_component.city
+                        app.globalData.cityObj ={
+                            city: e.data.result.address_component.city,
+                            district: e.data.result.address_component.district,
+                            province: e.data.result.address_component.province,
+                        }
                         that.setData({
+                            'cityObj.city': e.data.result.address_component.city, //当前城市
+                            'cityObj.district': e.data.result.address_component.district, //当前区
+                            'cityObj.province': e.data.result.address_component.province, //国家
                             "markers[0].longitude": res.longitude,
                             "markers[0].latitude": res.latitude,
                             city: e.data.result.address_component.city, //当前城市
@@ -464,6 +491,7 @@ Page({
                         })
                         that.getMarkersList()
                         that.getnearerList()
+                        that.getAreaId();
                     }
                 })
             }
@@ -496,8 +524,7 @@ Page({
     swatchTab(e) {
         let that = this;
         let index = e.currentTarget.dataset.index;
-        console.log(index)
-        this.handleScroll(index);
+        that.handleScroll(index);
         let markers = [{
             iconPath: '../../images/longitude.png',
             id: 0,
@@ -516,9 +543,9 @@ Page({
             duration: 300
         });
         if (index == 7){
-            wx.navigateTo({
-                url: '/pages/nearby/nearby',
-            })
+            // wx.navigateTo({
+            //     url: '/pages/nearby/nearby',
+            // })
         }
         if (that.data.currentTab < 5) {
             that.getMarkersList()
@@ -537,14 +564,14 @@ Page({
         let serveType = that.data.serveType;
         let service = that.data.service;
         let index = e.detail.value;
-        let num1 = service.price[index / 1 + 1][0] / 1 + service.service.price / 1
-        let num2 = service.price[index / 1 + 1][1] / 1 + service.service.price / 1
+        // let num1 = service.price[index / 1 + 1][0] / 1 + service.service.price / 1
+        // let num2 = service.price[index / 1 + 1][1] / 1 + service.service.price / 1
         this.setData({
             technicianName: that.data.technician[index], //技师名字
             technicianinde: index / 1 + 1,
             currentTab: index,
-            num1: num1,
-            num2: num2
+            num1:50,
+            num2: 100
         })
     },
     // 选择时间
@@ -574,9 +601,13 @@ Page({
         })
     },
     onshowslideNav() {
-        this.setData({
-            slideNav: true,
-        })
+        if (!this.data.member_id) {
+            app.checkLogin()
+        }else{
+            this.setData({
+                slideNav: true,
+            })
+        }
     },
     onhideslideNav() {
         this.setData({
@@ -638,7 +669,7 @@ Page({
         if (!that.data.member_id) {
             app.checkLogin()
         }
-        if (that.data.isHaveCar == 0) {
+       else if (that.data.isHaveCar == 0) {
             wx.navigateTo({
                 url: '/pages/uploadPic/uploadPic',
             })
@@ -654,13 +685,14 @@ Page({
             })
         }
     },
+
     onbindfocus2() {
         console.log('1111')
         let that = this;
         if (!that.data.member_id) {
             app.checkLogin()
         }
-        if (that.data.isHaveCar == 0) {
+        else if (that.data.isHaveCar == 0) {
             wx.navigateTo({
                 url: '/pages/uploadPic/uploadPic',
             })
@@ -668,7 +700,7 @@ Page({
             app.globalData.area_id = that.data.area_id
             app.globalData.Carid = that.data.car_id
             wx.navigateTo({
-                url: '/pages/search/search?currentTab=' + that.data.currentTab + "&area_id=" + that.data.area_id,
+                url: '/pages/classList/classList?currentTab=' + that.data.currentTab + "&area_id=" + that.data.area_id,
             })
         } else if (that.data.isHaveCar > 1) {
             this.setData({
@@ -682,7 +714,7 @@ Page({
         // let data = e.currentTarget.dataset.item;
         wx.showModal({
             title: '温馨提示',
-            content: '确定取消订单吗？',
+            content: '确定取消订单吗？如取消订单，系统只能返回80%订单金额',
             success(res) {
                 if (res.confirm) {
                     console.log('用户点击确定')
@@ -736,9 +768,13 @@ Page({
         })
     },
     goMessageList() {
-        wx.navigateTo({
-            url: '/pages/messageList/messageList',
-        })
+        if (!this.data.member_id) {
+            app.checkLogin()
+        }else{
+            wx.navigateTo({
+                url: '/pages/messageList/messageList',
+            })
+        }
     },
     // 急救中心
     selecEmergency() {
@@ -965,8 +1001,9 @@ Page({
     },
     goDetaile(e) {
         console.log(e)
-        let path = e.currentTarget.dataset.path;
+        let path = e.currentTarget.dataset.url;
         let appid = e.currentTarget.dataset.appid;
+        let id = e.currentTarget.dataset.id;
         if (appid != "") {
             wx.navigateToMiniProgram({
                 appId: appid,
@@ -978,7 +1015,7 @@ Page({
                     console.log('打开了')
                 }
             })
-        } else {
+        } else if (path) {
             wx.navigateTo({
                 url: path,
             })
@@ -1163,14 +1200,54 @@ Page({
         }
         app.net.$Api.checkAssessOrder(params).then((res) => {
             console.log(res,1163)
+           
             if (res.data.data.id){
+                that.getOrderStatus(res.data.data.id)
                 that.setData({
-                    typeNum: 4,
+                   
                     OrderTypeData: res.data.data
                 })
             }
         })
     },
+    toService(){
+        this.setData({
+            typeNum: 1
+        })
+    },
+    getRotationData(){
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            area_id: that.data.area_id,
+            id: 1,
+        }
+        app.net.$Api.getRotationData(params).then((res) => {
+            that.setData({
+                banner:res.data.list
+            })
+            console.log(res.data.list,1213)
+        })
+    },
+    getUnreadMsgNum(){
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            member_id: that.data.member_id,
+        }
+        app.net.$Api.getUnreadMsgNum(params).then((res) => {
+            that.setData({
+                messageTag: res.data.num
+            })
+        })
+    },
+    makePhoneCall(e){
+        let phone = e.currentTarget.dataset.phone;
+        wx.makePhoneCall({
+            phoneNumber: phone //仅为示例，并非真实的电话号码
+        })
+    },
+    
     /**
     * 用户点击右上角分享
     */

@@ -2,40 +2,60 @@
     <view class="header">
         <image mode="scaleToFill" src='https://img.dodo.wiki/app/banner1.jpg'></image>
     </view>
-    <view class='goods_content width100 padding30 bgFFFF'>
-        <view class="width90 dpfb">
+    <view class="width100 bgFFFF dpfC">
+        <!-- <view class="fontSize-40 fontWeight5">小保养</view>
+        <view class="fontSize-24 color3">每半年或5000公里保养一次</view> -->
+    </view>
+    <!-- <view class="width90 dpfb">
             <view class="maegin20 dpfb width100">
-                <view class="fontSize-34 color1 fontWeight5 dpf">
-                    <image style="width:40rpx;height:40rpx;margin-right:20rpx;" src='../../images/checked.png'></image>{{serviceData.service[0].name}}
+                <view class="fontSize-34 color1 fontWeight5 dpf" data-index="{{sindex}}" bindtap="goSeniority">
+                    <text>耗材</text>
                 </view>
-                <!-- <view class="color10">
-                {{serverPrice}}元
-                </view> -->
-                <!-- <view bindtap="gocouponList">优惠卷</view> -->
+                <view bindtap="goSeniority" data-index='{{sindex}}'>{{serviceData[0].service[0].name}}</view>
             </view>
-        </view>
-        <view class="width100 dpfC marginBtm" wx:for='{{serviceData.service[0].items}}' wx:for-index='index' data-index="{{index}}" bindtap="selService" wx:key='index'>
-            <!-- <view class="width90 dpf padding30">
-                <view>{{index+1}}，{{item.name}}</view>
+        </view> -->
+    <view class='goods_content width100 padding30 bgFFFF' wx:for='{{serviceData}}' wx:for-item='s' wx:for-index='sindex'>
+        <view class="width100 dpfC marginBtm" wx:for='{{s.service[0].items}}' wx:for-index='index' data-index="{{index}}" bindtap="selService" wx:key='index'>
+            <!-- <view class="width90 dpfb">
+                <view class="maegin20 dpfb width100">
+                    <view class="fontSize-34 color1 fontWeight5 dpf" data-index="{{sindex}}" bindtap="goSeniority">
+                        <text wx:if='{{sindex == 0}}'>耗材</text>
+                    </view>
+                    <view bindtap="goSeniority" data-index='{{sindex}}'>{{serviceData[sindex].service[0].name}}</view>
+                </view>
             </view> -->
             <view scroll-x="true" enable-flex='true' class='scroll-x-box'>
-                <view class="scroll-x-item" wx:for='{{item.brands}}' wx:for-item='itemData' wx:for-index='key' wx:key='key'>
-                    <view class='radioBox' data-index='{{index}}' data-id="{{key}}" data-key="{{key}}" bindtap='SingChecked'>
-                        <image wx:if='{{itemData.goods[0].checked}}' src='../../images/checked.png'></image>
-                        <image src='../../images/no_checked.png' wx:else></image>
+                <navigator hover-class="none"  url='/pages/seniority/seniority?id={{goodsIdArr[sindex]}}' class="scroll-x-item-goods">
+                    <view  class="scroll-x-item-goods-title">
+                        品牌排名
                     </view>
-                    <view class='goods_content_item' wx:for='{{itemData.goods}}' wx:for-item='product' wx:for-index='k' wx:key='key' data-index='{{index}}' data-id="{{key}}" data-key="{{key}}" bindtap='SingChecked'>
+                    <view class="scroll-x-item-goods-name {{sindex == 0 ?'cl1':'cl2'}}">
+                        <view>
+                            {{serviceData[sindex].service[0].name}}
+                        </view>
+                    </view>
+                </navigator>
+                <view class="scroll-x-item" wx:for='{{item.brands}}' wx:for-item='itemData' wx:for-index='key' wx:key='key'>
+                    <view class='radioBox' data-index='{{index}}' data-sindex='{{sindex}}' data-id="{{key}}" data-key="{{key}}" >
+                        <image  data-index='{{index}}' data-id="{{key}}" data-key="{{key}}" catchtap='SingChecked' wx:if='{{itemData.goods[0].checked}}' src='../../images/checked.png'></image>
+                        <image  data-index='{{index}}' data-id="{{key}}" data-key="{{key}}" catchtap='SingChecked' src='../../images/no_checked.png' wx:else></image>
+                    </view>
+                    <view class='goods_content_item' wx:for='{{itemData.goods}}' wx:for-item='product' wx:for-index='k' wx:key='key'  data-index='{{sindex}}' catchtap="goSeniority">
                         <view class='itemright'>
                             <view class='dpfC'>
+                                <view class='goodsContent' >
+                                    <view>
+                                        <view style="margin-left:50rpx;" class='fontSize-30 color1 fontWeight5 white_noWrap'>
+                                            ({{itemData.data.name}}){{product.model_number}}/{{product.number}}{{product.unit_name}}</view>
+                                    </view>
+                                </view>
                                 <view class='leftImg'>
                                     <image src='{{product.thumb}}'></image>
                                 </view>
                                 <view class='goodsContent'>
                                     <view>
-                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>{{product.name}}</view>
-                                        <view class='fontSize-26 color1'>
-                                            <text class='fontWeight5 color1'>{{product.price}}</text>
-                                            <text class='fontWeight5 color2'>元</text>
+                                        <view class='fontSize-26 color1 dpf' style="justify-content: center;">
+                                            <text class='fontWeight5 color1'>{{product.price}}元</text>
                                             *{{product.nums}}
                                         </view>
                                     </view>
@@ -47,18 +67,168 @@
             </view>
         </view>
     </view>
-    <view class="width90 marginTop dpfC bgFFFF padding30" wx:if="{{transfer_price[2]/1+serverPrice}}">
-        <view class="width90" style="color:#bfbfbf">更换工时服务费</view>
-        <view style="width:70%" class="dpfb marginTop">
-            <view style="padding-bottom:20rpx;" data-index='1' bindtap="changeServce" class="{{servetab==1 ? 'serveactive':''}}">来店:
-                <text class="color1">￥{{transfer_price[1]/1+serverPrice}}</text>
+    <view class='goods_content width90 padding30 bgFFFF'>
+        <view class="width100 dpf marginBtm">
+            <view style="width:200rpx" class="scroll-x-item-left dpfC">
+                <view class="scroll-x-item-goods-title">
+                    技师等级
+                </view>
+                <view class="scroll-x-item-goods-server cl3">
+                    <view>
+                        服务
+                    </view>
+                </view>
             </view>
-            <view style="padding-bottom:20rpx;" data-index='2' bindtap="changeServce" class="{{servetab==2 ? 'serveactive':''}}">取车:
-                <text class="color1">￥{{transfer_price[2]/1+serverPrice}}</text>
+            <view class='scroll-x-box'>
+                <view class="scroll-x-item" data-level='1' bindtap="selesct_level">
+                    <view class='radioBox'>
+                        <image wx:if='{{level == 1}}' src='../../images/checked.png'></image>
+                        <image src='../../images/no_checked.png' wx:else></image>
+                    </view>
+                    <view class='goods_content_item'>
+                        <view class='itemright'>
+                            <view class='dpfC'>
+                                <view class='leftImg'>
+                                    <image src='../../images/img1.png'></image>
+                                </view>
+                                <view class='goodsContent'>
+                                    <view>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>初级技师</view>
+                                    </view>
+                                    <view>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>到店：{{serviceData[0].service[0].price[1][0]}}￥</view>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>上门：{{serviceData[0].service[0].price[1][1]}}￥</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+                <view class="scroll-x-item" data-level='2' bindtap="selesct_level">
+                    <view class='radioBox'>
+                        <image wx:if='{{level == 2}}' src='../../images/checked.png'></image>
+                        <image src='../../images/no_checked.png' wx:else></image>
+                    </view>
+                    <view class='goods_content_item'>
+                        <view class='itemright'>
+                            <view class='dpfC'>
+                                <view class='leftImg'>
+                                    <image src='../../images/img2.png'></image>
+                                </view>
+                                <view class='goodsContent'>
+                                    <view>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>中级技师</view>
+                                    </view>
+                                    <view>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>{{serviceData[0].service[0].price[2][0]}}￥</view>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>{{serviceData[0].service[0].price[2][1]}}￥</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+                <view class="scroll-x-item" data-level='3' bindtap="selesct_level">
+                    <view class='radioBox'>
+                        <image wx:if='{{level == 3}}' src='../../images/checked.png'></image>
+                        <image src='../../images/no_checked.png' wx:else></image>
+                    </view>
+                    <view class='goods_content_item'>
+                        <view class='itemright'>
+                            <view class='dpfC'>
+                                <view class='leftImg'>
+                                    <image src='../../images/img3.png'></image>
+                                </view>
+                                <view class='goodsContent'>
+                                    <view>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>高级技师</view>
+                                    </view>
+                                    <view>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>{{serviceData[0].service[0].price[3][0]}}￥</view>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>{{serviceData[0].service[0].price[3][1]}}￥</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+                <view class="scroll-x-item" data-level='4' bindtap="selesct_level">
+                    <view class='radioBox'>
+                        <image wx:if='{{level == 4}}' src='../../images/checked.png'></image>
+                        <image src='../../images/no_checked.png' wx:else></image>
+                    </view>
+                    <view class='goods_content_item'>
+                        <view class='itemright'>
+                            <view class='dpfC'>
+                                <view class='leftImg'>
+                                    <image src='../../images/img4.png'></image>
+                                </view>
+                                <view class='goodsContent'>
+                                    <view>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>技师维师</view>
+                                    </view>
+                                    <view>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>{{serviceData[0].service[0].price[4][0]}}￥</view>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>{{serviceData[0].service[0].price[4][1]}}￥</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+                <view class="scroll-x-item" data-level='5' bindtap="selesct_level">
+                    <view class='radioBox'>
+                        <image wx:if='{{level == 5}}' src='../../images/checked.png'></image>
+                        <image src='../../images/no_checked.png' wx:else></image>
+                    </view>
+                    <view class='goods_content_item'>
+                        <view class='itemright'>
+                            <view class='dpfC'>
+                                <view class='leftImg'>
+                                    <image src='../../images/img4.png'></image>
+                                </view>
+                                <view class='goodsContent'>
+                                    <view>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>高级维师</view>
+                                    </view>
+                                    <view>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>{{serviceData[0].service[0].price[5][0]}}￥</view>
+                                        <view class='fontSize-26 color1 fontWeight5 white_noWrap'>{{serviceData[0].service[0].price[5][1]}}￥</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+
             </view>
         </view>
     </view>
-    <view class="partsNum width90 marginTop dpfC bgFFFF" wx:for='{{serviceData.sub_service}}' wx:key='key'>
+    <!-- 技师等级 -->
+    <view class="width90 marginTop dpfC bgFFFF padding30">
+        <view class="width90" style="color:#bfbfbf">更换工时服务费</view>
+        <view style="width:70%" class="dpfb marginTop">
+            <view style="padding-bottom:20rpx;" data-index='1' data-price="{{serviceData[0].service[0].arrival_price}}" bindtap="changeServce" class="{{servetab==1 ? 'serveactive':''}}">来店
+                <!-- <text class="color1">￥{{service_price[0]}}</text> -->
+            </view>
+            <view style="padding-bottom:20rpx;" data-index='2' data-price="{{serviceData[0].service[0].door_price}}" bindtap="changeServce" class="{{servetab==2 ? 'serveactive':''}}">取车
+                <!-- <text class="color1">￥{{service_price[1]}}</text> -->
+            </view>
+        </view>
+    </view>
+    <view class="width90 dpfb">
+        <view class="maegin20 dpfb width100">
+            <view class="fontSize-34 color1 fontWeight5 dpf" data-index="{{sindex}}" bindtap="goSeniority">
+                <text>服务</text>
+            </view>
+        </view>
+    </view>
+    <view class="partsNum width90 marginTop dpfC bgFFFF" wx:for='{{service_sub}}' wx:key='key'>
         <view class="partsNum_item" style="padding:15rpx;" wx:if='{{item.checked}}' data-index="{{index}}" data-type='checked' bindtap="SonChecked">
             <view class="partsNum_item_left">
                 <image style="width:40rpx;height:40rpx;" src='../../images/checked.png'></image>
@@ -66,21 +236,19 @@
             <view class="partsNum_item_right flex_1">
                 <view class="marginLeft10 dpfb">
                     <text>{{item.name}}</text>
-                    <text class="color1 fontWeight5">￥{{item.price}}</text>
+                    <!-- <text class="color1 fontWeight5">￥{{item.price}}</text> -->
                 </view>
                 <!-- <view class="marginLeft10">50000km或6个月/次</view> -->
             </view>
         </view>
-        <view class="partsNum_item" style="padding:15rpx;" wx:else  data-index="{{index}}" data-type='nochecked' bindtap="SonChecked">
+        <view class="partsNum_item" style="padding:15rpx;" wx:else data-index="{{index}}" data-type='nochecked' bindtap="SonChecked">
             <view class="partsNum_item_left">
                 <image style="width:40rpx;height:40rpx;" src='../../images/nochecked.png'></image>
             </view>
             <view class="partsNum_item_right flex_1">
                 <view class="marginLeft10 dpfb">
                     <text>{{item.name}}</text>
-                    <text class="color1 fontWeight5">￥{{item.price}}</text>
                 </view>
-                <!-- <view class="marginLeft10">50000km或6个月/次</view> -->
             </view>
         </view>
     </view>

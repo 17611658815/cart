@@ -1,0 +1,26 @@
+<view class="container">
+    <view class="width100 dpfC marginTop">
+        <view class="width90 dpfC boxShadow padding30">
+            <view class="width90 fontSize-32 fontWeight5">
+                评分
+            </view>
+            <!-- 评星 -->
+            <view class='starBox' style='margin-top:30rpx;'>
+                <view class='star_item'>
+                    <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:key="star1" bindtap='getStar3' data-star='{{item}}' style='background:url({{diagnosisStar3 >= item ? iconArr3[1] : iconArr3[0]}}) no-repeat center center/6.7vw 6.7vw;'></view>
+                </view>
+            </view>
+        </view>
+        <view class="inputBox" style='margin-top:30rpx;'>
+      <textarea class="input db" value="{{message}}" placeholder="详细描述您的问题或建议,我们将及时跟进解决" placeholder-class="phcolor" bindinput="savemessage"></textarea>
+    </view>
+    </view>
+    
+    <view class="width100 dpfC marginTop">
+        <view class="width90 boxShadow dpfC" style="padding-bottom:20rpx;">
+            <view class="width90 submitBtn"  bindtap="submit1">
+                完成
+            </view>
+        </view>
+    </view>
+</view>

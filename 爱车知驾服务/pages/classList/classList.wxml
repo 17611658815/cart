@@ -3,15 +3,29 @@
 </view>
 <view class="layoutBox">
     <view class="layoutBox-left">
-        <view class="layoutBox-left-content" wx:for='{{list}}' >
-            <view class="layoutBox-left-content-title">基础服务</view>
-            <view class="layoutBox-left-content-item {{key == sonTab && index == pareTab ? 'active':''}}"  bindtap="swatchTab" data-index='{{index}}' data-sonindex="{{key}}" wx:for='{{item}}' wx:for-item='k' wx:for-index='key'>{{k.name}}</view>
+        <view class="layoutBox-left-content" wx:for='{{list}}'>
+ <view class="layoutBox-left-content-title">{{item.name}}</view>
+            <view class="layoutBox-left-content-item {{key == sonTab && index == pareTab ? 'active':''}}" bindtap="swatchTab" data-index='{{index}}' data-sonindex="{{key}}" wx:for='{{item.son}}' wx:for-item='k' wx:for-index='key'>{{k.name}}</view>
         </view>
     </view>
     <view class="layoutBox-right">
         <view class="layoutBox-right-content" wx:for='{{sonList}}'>
-            <view class="layoutBox-right-title" bindtap="goDetailes" data-path='{{item.path}}'>{{item.name}}</view>
-            <view class="layoutBox-right-item" wx:if='{{item.son}}' bindtap="goDetailes" data-path='{{son.path}}' wx:for='{{item.son}}' wx:for-item='son'>{{son.name}}</view>
+            <view class="layoutBox-right-title" bindtap="goDetailes" data-path='{{item.path}}'>
+                <view class="fontSize-34 fontWeight5">{{item.name}}</view>
+                <view class="fontSize-24 color3" wx:if='{{item.desc!=""}}'>{{item.desc}}</view>
+                <view class="fontSize-24 color3 marginTop" wx:if='{{item.son.length>0}}'>仅需更换</view>
+            </view>
+
+            <view class="layoutBox-right-content" style="padding-left:100rpx">
+                <view class="layoutBox-right-item dpfC" wx:if='{{item.son}}' wx:for-item='son' bindtap="goDetailes" data-path='{{son.path}}' wx:for='{{item.son}}'>
+                    <image src='{{son.thumb}}'></image>
+                    <text class="white_noWrap fontSize-24 color3">{{son.name}}</text>
+                </view>
+                <view class="layoutBox-right-item dpfC">
+                    <image src='../../images/cce7bf72c2d22acb6659704324a50d5.png'></image>
+                    <text class="white_noWrap fontSize-24 color3" wx:if='{{item.son.length>0}}'>服务</text>
+                </view>
+            </view>
         </view>
     </view>
 </view>

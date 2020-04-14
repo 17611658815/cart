@@ -28,7 +28,7 @@ Page({
     },
     onLoad: function (options) {
         let userinfo = wx.getStorageSync('userinfo') || '';
-        let CarList = wx.getStorageSync('CarList') || {};
+        let CarList = app.globalData.CarList;
         this.setData({
             CarList: CarList,
             isIphoneX: app.globalData.isIphoneX,
@@ -122,6 +122,7 @@ Page({
             goods: goodsData,
             service: serviceData,
             msg: that.data.orderMsg,
+            area_id: app.globalData.area_id
         }
         app.loading('加载中')
         app.net.$Api.creatSubOrder(params).then((res) => {

@@ -1,6 +1,6 @@
 export default class Url {
-    static USER = "https://api.dodo.wiki/appInterface/user"
-    static PATH = "https://api.dodo.wiki/appInterface/consumer"
+    static USER = "https://api.icarbb.cn/appInterface/user"
+    static PATH = "https://api.icarbb.cn/appInterface/consumer"
     // 获取openid
     static getOpenIdUrl() {
         return Url.USER + '/getOpenid';
@@ -152,6 +152,45 @@ export default class Url {
     //  我邀请的人数
     static getMyInviteUrl() {
         return Url.PATH + '/getMyInvite';
+    }
+    //  排行接口
+    static objTypeRankUrl() {
+        return Url.PATH + '/objTypeRank';
+    }
+    //  品牌详情
+    static  brandUrl() {
+        return Url.PATH + '/brand';
+    }
+    //  列表
+    static brandObjTypeDetailAjaxUrl() {
+        return Url.PATH + '/brandObjTypeDetailAjax';
+    }
+    static brandObjTypeUrl() {
+        return Url.PATH + '/brandObjType';
+    }
+    static brandObjTypeDetailUrl() {
+        return Url.PATH + '/brandObjTypeDetail';
+    }
+    static goodsDetailUrl() {
+        return Url.PATH + '/goodsDetail';
+    }
+    static addBrandCommnetUrl() {
+        return Url.PATH + '/addBrandCommnet';
+    }
+    static getBrandCommnetAjaxUrl() {
+        return Url.PATH + '/getBrandCommnetAjax';
+    }
+    static showCateDetailUrl() {
+        return Url.PATH + '/showCateDetail';
+    }
+    static getRotationDataUrl() {
+        return Url.PATH + '/getRotationData';
+    }
+    static getUnreadMsgNumUrl() {
+        return Url.PATH + '/getUnreadMsgNum';
+    }
+    static visitLogUrl() {
+        return Url.USER + '/visitLog';
     }
 
 }

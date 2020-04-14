@@ -35,7 +35,7 @@
                         <view class="left_Box">
                             <text class="dian_2"></text>
                         </view>
-                        <view catchtap="onbindfocus" class="right_text fontSize-28" style="color:#bfbfbf"> 您的车有什么问题
+                        <view catchtap="toService" class="right_text fontSize-28" style="color:#bfbfbf"> 您的车有什么问题
                         </view>
                     </view>
                 </view>
@@ -44,8 +44,8 @@
                     <view bindtap="goodsItemList" data-brandid='{{item.data.brandid}}' data-typeid="{{item.data.typeid}}" wx:for='{{list2}}'>{{item.data.title}}</view>
                 </view>
                 <swiper class="swiper boxShadow" indicator-dots='true' indicator-color='rgba(255,255, 255, .3)' indicator-active-color="#ffffff" autoplay="true" circular='true' duration="1000" interval="5000">
-                    <swiper-item wx:for='{{banner}}' bindtap="goDetaile" data-appid="" data-path="{{item.data.path}}">
-                        <image style="width:100%;height:100%;" mode="scaleToFill" src='{{item.data.pic}}'></image>
+                    <swiper-item wx:for='{{banner}}' bindtap="goDetaile" data-appid="" data-id='{{item.id}}' data-path="{{item.url}}">
+                        <image style="width:100%;height:100%;" mode="scaleToFill" src='{{item.thumb}}'></image>
                     </swiper-item>
                 </swiper>
                 <view class="nav1List">
