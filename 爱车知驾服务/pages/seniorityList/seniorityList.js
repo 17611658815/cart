@@ -24,7 +24,7 @@ Page({
         console.log(options)
         this.setData({
             iconArr: beas64,
-            id: options.id
+            id: options.goods_id
         })
         this.brand()
         this.brandObjType()
@@ -117,13 +117,24 @@ Page({
             complete: function(res) {},
         })
     },
+    goPinpaiDetaile(e) {
+        let id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: './seniorityList?goods_id=' + id,
+        })
+    },
     goseniority2(e){
         let id = e.currentTarget.dataset.id;
         wx.navigateTo({
             url: '/pages/seniority2/seniority2?obj_type_id=' + id +"&brand_id="+this.data.id,
         })
     },
-    
+    gotextPage(e){
+        let id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '/pages/textPage/textPage?id=' + id 
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

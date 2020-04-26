@@ -230,8 +230,11 @@
                         </picker>
                     </view>
                 </view>
-                <view class="makeBtn" bindtap="onbindfocus">
+                <view class="makeBtn" bindtap="onbindfocus" wx:if="{{isHaveCar>0}}">
                     预约维师
+                </view>
+                <view class="makeBtn2"  bindtap="onbindfocus" wx:else>
+                    上传资料
                 </view>
             </view>
         </view>
@@ -309,18 +312,18 @@
                         <image src="../../images/police_icon.png"></image>
                         <view class="fontSize-22 color2">122报警</view>
                     </view>
-                    <!-- <view class="dpfC" bindtap="redPacket">
+                    <view class="dpfC" bindtap="redPacket">
                         <image src="../../images/redpacket_icon.png"></image>
                         <view class="fontSize-22 color2">感谢红包</view>
-                    </view> -->
+                    </view>
                     <view class="dpfC" bindtap="makePhoneCall" data-phone='{{member_info.phone}}'>
                         <image src="../../images/phone_icon.png"></image>
                         <view class="fontSize-22 color2">打电话</view>
                     </view>
-                    <!-- <view class="dpfC">
+                    <view class="dpfC">
                         <image src="../../images/invoice_icon.png"></image>
                         <view class="fontSize-22 color2">开发票</view>
-                    </view> -->
+                    </view>
                     <!-- <view class="dpfC">
                         <image src="../../images/down3_icon.png"></image>
                     </view> -->
@@ -328,7 +331,8 @@
             </view>
                 <view class="width90 bgFFFF dpfC boxShadow padding30" wx:if='{{OrderTypeData.type==1}}'>
                     <view class="width90 fontSize-32 fontWeight5">
-                        您的评价会让维师做的更好
+                     <view class="width100 fontSize-36 fontWeight5" style="text-align: center">您的评价会让维师做的更好</view>  
+                      <view>技师</view>   
                         <!-- <text class="leaber_1">匿名</text> -->
                     </view>
                     <!-- 评星 -->
@@ -340,7 +344,7 @@
                 </view>
                 <view class="width90 bgFFFF dpfC boxShadow padding30" wx:if='{{OrderTypeData.type==1}}'>
                     <view class="width90 fontSize-32 fontWeight5">
-                        场地环境满意
+                        场地
                         <!-- <text class="leaber_1">匿名</text> -->
                     </view>
                     <!-- 评星 -->
@@ -352,7 +356,7 @@
                 </view>
                 <view class="width90 bgFFFF dpfC boxShadow padding30">
                     <view class="width90 fontSize-32 fontWeight5">
-                        商品满意
+                        商品
                         <!-- <text class="leaber_1">匿名</text> -->
                     </view>
                     <!-- 评星 -->

@@ -129,6 +129,7 @@
     <view catchtap='gotechnicianService' class='btn_2' wx:if="{{otherObj[0].parent_id == 0 && otherObj[0].status == 3}}">生成新订单</view>
     <view catchtap='goUpImg' class='btn_1 marginLeft' wx:if='{{otherObj[0].status == 3 && otherObj[0].parent_id == 0}}'>上传素材</view>
     <view catchtap='finishService' class='btn_3 marginLeft' wx:if='{{otherObj[0].status == 3 && otherObj[0].parent_id == 0}}'>完成服务</view>
+    <view catchtap='cancelService' class='btn_4 marginLeft' wx:if='{{otherObj[0].status == 3}}'>取消服务</view>
 </view>
 <video id='video' wx:if="{{videoPlay}}" bindended="bindended" bindplay='bindplay' autoplay="{{isplay}}" src="{{videoPath}}" style="width:100%;height:{{autoHeight}}px;">
 </video>

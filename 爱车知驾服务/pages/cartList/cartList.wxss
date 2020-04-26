@@ -23,8 +23,8 @@ page {
 }
 
 .radioBox {
-    width: 50rpx;
-    height: 50rpx;
+    width: 40rpx;
+    height: 40rpx;
     /* border: 2rpx solid #999; */
     border-radius: 50%;
     position: absolute;
@@ -61,6 +61,10 @@ page {
 }
 
 .goodsContent>view {
+    width: 100%;
+       overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -160,11 +164,18 @@ button::after{
 }
 
 .goods_content_item {
-    width: 165rpx;
+    width: 200rpx;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 65rpx;
+    /* margin-left: 65rpx; */
+}
+.goods_content_item2 {
+    width: 130rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 30rpx;
 }
 .scroll-x-item{
     display: inline-block;
@@ -253,6 +264,8 @@ button::after{
     font-weight: 600;
     justify-content: center;
     border-bottom: 1rpx solid #e2e2e2;
+    word-wrap: break-all;
+    overflow: auto;
 }
 .scroll-x-item-goods-server{
     width: 80%;

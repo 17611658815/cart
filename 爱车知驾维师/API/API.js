@@ -194,5 +194,9 @@ export const api = {
     getRotationData: function (paramObj) {
         return Promise.post(Url.default.getRotationDataUrl(), paramObj);
     },
+    // 取消订单
+    jishiCancelOrder: function (paramObj) {
+        return Promise.post(Url.default.jishiCancelOrderUrl(), paramObj);
+    },
     
 }

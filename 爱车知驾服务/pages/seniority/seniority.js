@@ -18,7 +18,10 @@ Page({
         kailong:false,
         goosData:{}
     },
-    copyShow(){
+    copyShow(e){
+        let that = this;
+        let taokouling = e.currentTarget.dataset.taokouling;
+        console.log(e)
         wx.showModal({
             title: '淘宝',
             content: '旗舰店淘口令',
@@ -27,6 +30,16 @@ Page({
             confirmColor:"#FF0000",
             success(res) {
                 if (res.confirm) {
+                    wx.setClipboardData({
+                        data: taokouling,
+                        success(res) {
+                            wx.getClipboardData({
+                                success(res) {
+                                    console.log(res.data) // data
+                                }
+                            })
+                        }
+                    })
                     console.log('用户点击确定')
                 } else if (res.cancel) {
                     console.log('用户点击取消')
@@ -43,6 +56,7 @@ Page({
             obj_type_id: options.id,
             iconArr: beas64, //评星
         })
+        console.log(options)
         this.objTypeRank()
     },
     objTypeRank() {
@@ -67,7 +81,13 @@ Page({
     goPinpaiDetaile(e){
         let id = e.currentTarget.dataset.id; 
         wx.navigateTo({
-            url: '/pages/seniorityList/seniorityList?id='+id,
+            url: '/pages/seniorityList/seniorityList?goods_id='+id,
+        })
+    },
+    gotextPage(e){
+        let id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '/pages/textPage/textPage?id=' + id,
         })
     },
             /**

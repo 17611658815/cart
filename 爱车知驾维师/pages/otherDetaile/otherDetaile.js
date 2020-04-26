@@ -165,6 +165,8 @@ Page({
                                     }, 2000)
                                 }
                             })
+                        }else{
+                            app.alert(res.data.msg)
                         }
                     })
                 } else if (res.cancel) {
@@ -173,6 +175,45 @@ Page({
             }
         })
        
+    },
+    cancelService(){
+        let that = this;
+        let num = 0
+        let params = {
+            appid: app.globalData.appid,
+            order_id: that.data.id,
+            member_id: that.data.member_id
+        }
+        wx.showModal({
+            title: '温馨提示',
+            content: '每周有两次取消',
+            success(res) {
+                if (res.confirm) {
+                    app.net.$Api.jishiCancelOrder(params).then((res) => {
+                        console.log(res)
+                        if (res.data.code == 200) {
+                            wx.showToast({
+                                title: '完成',
+                                icon: 'success',
+                                duration: 2000,
+                                success: function () {
+                                    setTimeout(function () {
+                                        wx.navigateBack({
+                                            delta: 1
+                                        })
+                                    }, 2000)
+                                }
+                            })
+                        }else{
+                            app.alert(res.data.msg)
+                        }
+                    })
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+            }
+        })
+
     },
     showMap: function (e) {
         var location = e.currentTarget.dataset.location.split(",");

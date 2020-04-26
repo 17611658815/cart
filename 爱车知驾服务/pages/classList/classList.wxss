@@ -12,7 +12,7 @@ page{
     position: relative;
 }
 .layoutBox-left{
-    width: 260rpx;
+    width: 215rpx;
      height: 100%;
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@ page{
 .layoutBox-left-content-item{
     width: 60%;
     padding: 12rpx 20%;
-    text-align: right; 
+    text-align: center; 
     background: #ffffff;
     font-size: 33rpx;
 }

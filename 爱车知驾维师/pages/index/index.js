@@ -21,7 +21,11 @@ Page({
             district: "",
             province: "",
         },
-        area_id:0
+        area_id:0,
+        banner:0,
+        autoplay: true,
+        interval: 5000,
+        durations: 500,
 
     },
     onLoad: function (options) {
@@ -55,7 +59,24 @@ Page({
             that.setData({
                 area_id: res.data.id
             })
+            that.getRotationData()
             console.log(res, 199)
+        })
+    },
+    // 请求轮播
+    getRotationData() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            area_id: app.globalData.area_id,
+            num: 2,
+            id: 4,
+        }
+        app.net.$Api.getRotationData(params).then((res) => {
+            that.setData({
+                banner: res.data.list
+            })
+            console.log(res.data.list, 1213)
         })
     },
     //获取当前位置
@@ -220,6 +241,6 @@ Page({
             url: '../logs/logs'
         })
     },
-
+    
 
 })

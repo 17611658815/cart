@@ -37,18 +37,18 @@
         <text>{{brandData.brand.qy}}</text>
     </view>
     <view class="goodstext" wx:if='{{!kailong}}'>
-      {{brandData.brand.desc}}
+      <rich-text nodes='{{brandData.brand.desc}}'></rich-text>
     </view>
     <view class="goodstext2" wx:else>
-      {{brandData.brand.desc}}
+     <rich-text nodes='{{brandData.brand.desc}}'></rich-text>
     </view>
     <view bindtap="setkailong" class="viewMore">{{kailong ? '收起':'查看更多'}}</view>
     <view class="goodsTitle dpfb borderBtm">
         <view class="goodsTitle-left">
             <view>全部产品</view>
-            <view style="color:#0064C8" wx:for='{{brandData.obj_typies}}'>{{item.name}}</view>
+            <view style="color:#0064C8" bindtap="goseniority2" data-id="{{item.id}}" wx:for='{{brandData.obj_typies}}'>{{item.name}}</view>
         </view>
-        <view class="goodsTitle-right">更多</view>
+        <!-- <view class="goodsTitle-right">更多</view> -->
     </view>
     <view class="width100 dpfC list_itemBox">
         <view class='dpfC width90 padStl bgF'>
@@ -138,9 +138,16 @@
     </view>
 </view>
 <view class="xiangguanList">
-    <view class="xiangguanList-item dpfC" wx:for='{{brandData.otherBrandList}}'>
+    <view class="xiangguanList-item dpfC" bindtap="goPinpaiDetaile" data-id='{{item.id}}' wx:for='{{brandData.otherBrandList}}'>
         <image src='{{item.thumb}}'></image>
         <view>{{item.name}}</view>
     </view>
 
 </view>
+ <!-- 免责声明 -->
+    <view class="footer_content" data-id='94' bindtap="gotextPage">
+        <view>
+            <view>{{brandData.article_title}}</view>
+            <!-- <view>dsadsadsa</view> -->
+        </view>
+    </view>

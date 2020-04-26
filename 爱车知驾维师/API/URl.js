@@ -183,5 +183,9 @@ export default class Url {
     static getRotationDataUrl() {
         return Url.PATH + '/getRotationData';
     };
+    // 取消订单
+    static jishiCancelOrderUrl() {
+        return Url.ART + '/jishiCancelOrder';
+    };
    
 }

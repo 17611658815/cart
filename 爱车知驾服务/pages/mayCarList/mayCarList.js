@@ -75,9 +75,13 @@ Page({
         this.setData({
             member_id: userinfo.id
         })
-        this.getCarlist()
+        
     },
-
+    gouploadPic(){
+        wx.navigateTo({
+            url: '/pages/uploadPic/uploadPic',
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
@@ -89,7 +93,9 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        this.data.carList = [];
+        this.data.page=1;
+        this.getCarlist()
     },
 
     /**

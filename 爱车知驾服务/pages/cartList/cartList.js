@@ -14,36 +14,42 @@ Page({
         isIphoneX: false,
         serviceData: {},
         goodsItem: {},
-        goodsid:[],//产品id
+        goodsid: [], //产品id
         NewTotal: 0, //现总价
         OldTotal: 0, //原总价
-        economize:0,//节省
+        economize: 0, //节省
         Carid: 0, //车辆id
         servetab: 1,
         transfer_price: [],
-        balance1:0,
-        balance2:0,
-        sub_service:'',//服务id
-        couponid:0,//优惠卷id,
-        phone:"",
-        session_key:'',
-        openid:'',
-        userid:0,
-        serverPrice:0,
-        type_id: 0, 
-        car_id:0,
-        serverId:{},
-        goodsIdArr:[],
-        cateId:0,
-        service_sub:[],
-        service_price : []
+        balance1: 0,
+        balance2: 0,
+        sub_service: '', //服务id
+        couponid: 0, //优惠卷id,
+        phone: "",
+        session_key: '',
+        openid: '',
+        userid: 0,
+        serverPrice: 0,
+        type_id: 0,
+        car_id: 0,
+        serverId: {},
+        goodsIdArr: [],
+        cateId: 0,
+        service_sub: [],
+        service_price: {
+            1: [0, 0],
+            2: [0, 0],
+            3: [0, 0],
+            4: [0, 0],
+            5: [0, 0],
+        },
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        console.log(options,44)
+        console.log(options, 44)
         let userinfo = wx.getStorageSync('userinfo') || '';
         let setData = {
             isIphoneX: app.globalData.isIphoneX,
@@ -58,7 +64,7 @@ Page({
             // servetab: options.serveType / 1 + 1,
             phone: userinfo.phone || ""
         };
-        if (options.serveType!=undefined){
+        if (options.serveType != undefined) {
             setData.transfer_type = options.serveType / 1 + 1;
             setData.servetab = options.serveType / 1 + 1;
         }
@@ -71,22 +77,22 @@ Page({
         this.setData(setData)
         console.log(userinfo.id)
         this.getAreaId();
-        
+
     },
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
+    onShow: function() {
         let that = this;
         // console.log(app.globalData.couponType, app.globalData.couponvalue, app.globalData.couponId)
-        if (app.globalData.couponType != 0 && app.globalData.couponType == 1 || app.globalData.couponType == 3){
+        if (app.globalData.couponType != 0 && app.globalData.couponType == 1 || app.globalData.couponType == 3) {
             let NewTotal = (parseInt(app.globalData.NewTotal) - app.globalData.couponvalue / 1).toFixed(2);;
             that.setData({
                 couponid: app.globalData.couponId,
                 NewTotal: NewTotal,
-                economize:that.data.OldTotal - NewTotal
+                economize: that.data.OldTotal - NewTotal
             })
-        } else if (app.globalData.couponType != 0 && app.globalData.couponType == 2){
+        } else if (app.globalData.couponType != 0 && app.globalData.couponType == 2) {
             let NewTotal = (parseInt(app.globalData.NewTotal) * app.globalData.couponvalue / 100).toFixed(2);
             that.setData({
                 couponid: app.globalData.couponId,
@@ -95,7 +101,7 @@ Page({
             })
             console.log(NewTotal)
         }
-       
+
     },
     // 获取区域id
     getAreaId() {
@@ -132,12 +138,12 @@ Page({
             // location: "116.486509,39.90424"
             location: app.globalData.longitude + "," + app.globalData.latitude
         }
-        
+
         app.loading('加载中')
         app.net.$Api.showCateDetail(params).then((res) => {
             wx.hideLoading()
             let data = res.data;
-            for(var r = 0 ; r  <data.length;r++){
+            for (var r = 0; r < data.length; r++) {
                 for (var i in data[r].service[0].items) {
                     var ss = 0;
                     for (var j in data[r].service[0].items[i].brands) {
@@ -151,17 +157,25 @@ Page({
                         }
                     }
                     that.data.goodsIdArr.push(i)
-                    that.data.service_sub.push({
-                        name: data[r].service[0].name,
-                        price: data[r].service[0].price[that.data.level][that.data.servetab/1-1],
-                        id: data[r].service[0].id,
-                        original_price: data[r].service[0].original_price,
-                        thumb: data[r].service[0].thumb,
-                        checked: false,
-                        nums : 1,
-                    })
+                   
                 }
-                
+                that.data.service_sub.push({
+                    name: data[r].service[0].name,
+                    price: data[r].service[0].price[that.data.level][that.data.servetab / 1 - 1],
+                    priceArr: {
+                        1: [0, 0],
+                        2: [0, 0],
+                        3: [0, 0],
+                        4: [0, 0],
+                        5: [0, 0],
+                    },
+                    id: data[r].service[0].id,
+                    original_price: data[r].service[0].original_price,
+                    thumb: data[r].service[0].thumb,
+                    checked: false,
+                    nums: 1,
+                    key: r,
+                })
             }
             for (var k in goodsItem) {
                 for (var v = 0; v < goodsItem[k].length; v++) {
@@ -186,8 +200,6 @@ Page({
             }
             console.log(that.data.serverId)
             that.setData({
-                "service_price[0]": data[0].service[0].arrival_price,
-                "service_price[1]": data[0].service[0].door_price,
                 service_sub: that.data.service_sub,
                 goodsIdArr: that.data.goodsIdArr,
                 type_id: that.data.type_id,
@@ -197,8 +209,8 @@ Page({
                 transfer_price: data.transfer_price,
                 goodsItem: goodsItem,
                 goodsid: goodsid,
-                NewTotal: NewTotal,//现价
-                OldTotal: OldTotal,//原价
+                NewTotal: NewTotal, //现价
+                OldTotal: OldTotal, //原价
                 economize: parseInt(OldTotal - NewTotal) < 0 ? "0.00" : (OldTotal - NewTotal).toFixed(2),
                 // serverPrice: data.service[0].price,
             })
@@ -208,36 +220,34 @@ Page({
         })
     },
     // 选择技师
-    selesct_level(e){
+    selesct_level(e) {
         let that = this;
-        let data = that.data.serviceData;
-        let level = e.currentTarget.dataset.level;  //技师等级
-        let service_sub = that.data.service_sub;
-        let goodsItem = that.data.goodsItem;
-        // let NewTotal =  that.data.service_price[that.data.servetab / 1 - 1]/1;
-        let NewTotal =  0;
+        let NewTotal = 0;
         let OldTotal = 0;
-        console.log(service_sub)
-        // for (var r = 0; r < data.length; r++) {
-        //     service_sub[r].price = data[r].service[0].price[level][that.data.servetab/1-1]
-        // }
+        let data = that.data.serviceData;
+        let level = e.currentTarget.dataset.level; //技师等级
+        let service_sub = that.data.service_sub;
+        let servetab = that.data.servetab;
+        let service_price = that.data.service_price;
+        let goodsItem = that.data.goodsItem;
         console.log(goodsItem)
+        for (var i = 0; i < service_sub.length;i++){
+            service_sub[i].price = service_sub[i].priceArr[level][servetab]
+        }
         for (var k in goodsItem) {
             for (var v = 0; v < goodsItem[k].length; v++) {
-                console.log(goodsItem[k][v])
                 NewTotal += goodsItem[k][v].price / 1 * goodsItem[k][v].nums / 1
                 OldTotal += goodsItem[k][v].original_price / 1 * goodsItem[k][v].nums / 1
             }
         }
-       
         that.setData({
-            NewTotal: NewTotal.toFixed(2),
-            OldTotal : OldTotal.toFixed(2),
-            level: level,
+            NewTotal:NewTotal.toFixed(2),
+            OldTotal: OldTotal.toFixed(2),
+            level: level, //技师等级
             service_sub: service_sub
         })
     },
-    gocheckLogin(){
+    gocheckLogin() {
         if (!app.globalData.userinfo.id) {
             app.checkLogin()
         }
@@ -261,9 +271,10 @@ Page({
             // app.globalData.longitude = res.longitude;
             // app.globalData.latitude = res.latitude;
         }
-        if (parseInt(that.data.NewTotal) == 0){
+        console.log(that.data.goodsid)
+        if (parseInt(that.data.NewTotal) == 0) {
             app.alert('请选择您要购买的商品！')
-        }else{
+        } else {
             console.log(JSON.stringify(params))
             app.net.$Api.createServiceOrder(params).then((res) => {
                 app.globalData.order_id = res.data.id;
@@ -276,8 +287,8 @@ Page({
                     success(res) {
                         console.log(res)
                         app.globalData.couponType = '', //优惠卷类型
-                            app.globalData.couponvalue = 0,//优惠卷额度
-                            app.globalData.couponId = '',//优惠卷id
+                            app.globalData.couponvalue = 0, //优惠卷额度
+                            app.globalData.couponId = '', //优惠卷id
                             wx.requestSubscribeMessage({
                                 tmplIds: ['F8TezMCsMq0qdlv-Wm9hGkDGRNyZPKu1PaYo7h8tOvY'],
                                 success(r) {
@@ -293,7 +304,7 @@ Page({
                                 }
                             })
                     },
-                    fail(res) { }
+                    fail(res) {}
                 })
                 console.log(res)
             })
@@ -311,7 +322,7 @@ Page({
         let key1 = e.currentTarget.dataset.index; //一级索引
         let key2 = e.currentTarget.dataset.key; //二级索引
         let serverNum = 0
-        for (var r = 0; r < serviceData.length;r++){
+        for (var r = 0; r < serviceData.length; r++) {
             for (var i in serviceData[r].service[0].items) {
                 if (key1 == i) {
                     for (var j in serviceData[r].service[0].items[i].brands) {
@@ -319,7 +330,7 @@ Page({
                             serviceData[r].service[0].items[i].brands[j].goods[0].checked = !serviceData[r].service[0].items[i].brands[j].goods[0].checked
                             if (serviceData[r].service[0].items[i].brands[j].goods[0].checked == true) {
                                 goodsItem[key1] = serviceData[r].service[0].items[i].brands[j].goods;
-                            }else{
+                            } else {
                                 delete goodsItem[key1]
                             }
                         } else {
@@ -339,12 +350,12 @@ Page({
                     is_service: goodsItem[k][v].is_service == 1 ? goodsItem[k][v].is_service : 2
                 })
                 serverNum += goodsItem[k].price
-                NewTotal += goodsItem[k][v].price / 1 * goodsItem[k][v].nums / 1 
-                OldTotal += goodsItem[k][v].original_price / 1 * goodsItem[k][v].nums / 1 
+                NewTotal += goodsItem[k][v].price / 1 * goodsItem[k][v].nums / 1
+                OldTotal += goodsItem[k][v].original_price / 1 * goodsItem[k][v].nums / 1
             }
             console.log(NewTotal, goodsItem[k].price)
         }
-       
+
         // NewTotal = (serviceData.transfer_price[that.data.servetab] / 1 + NewTotal + serviceData.service[0].price);
         // OldTotal = (serviceData.transfer_price[that.data.servetab] / 1 + OldTotal + serviceData.service[0].price);
         if (app.globalData.couponType != 0 && app.globalData.couponType == 1 || app.globalData.couponType == 3) {
@@ -360,69 +371,95 @@ Page({
             goodsid: goodsid,
             serviceData: serviceData,
             goodsItem: goodsItem,
-            NewTotal: NewTotal < 0 ? 0 : NewTotal / 1 ,
-            OldTotal: OldTotal,//原价
+            NewTotal: NewTotal < 0 ? 0 : NewTotal / 1,
+            OldTotal: OldTotal, //原价
             economize: parseInt(OldTotal - NewTotal) < 0 ? "0.00" : (OldTotal - NewTotal).toFixed(2),
         })
         app.globalData.NewTotal = NewTotal
         // console.log(NewTotal, OldTotal + "OldTotal-NewTotal=", OldTotal - NewTotal)
         // console.log(goodsItem, goodsid)
-        console.log(that.data.serverId,403)
+        console.log(that.data.serverId, 403)
     },
     // 选择子服务
-    SonChecked(e){
+    SonChecked(e) {
         let that = this;
         let NewTotal = 0;
         let OldTotal = 0;
-        let goodsid = [];
-        let serverId  =that.data.serverId;
+        // let goodsid = [];
+        let serverId = that.data.serverId;
         let data = that.data.serviceData;
         let service_sub = that.data.service_sub;
+        let level = that.data.level;
+        let service_price = {
+            1: [0, 0],
+            2: [0, 0],
+            3: [0, 0],
+            4: [0, 0],
+            5: [0, 0],
+        };
         let index = e.currentTarget.dataset.index;
+        let key = e.currentTarget.dataset.key;
         let type = e.currentTarget.dataset.type;
         let goodsItem = that.data.goodsItem;
-        let level = that.data.level
-        if (type == "nochecked"){
+        if (type == "nochecked") {
             goodsItem[index] = [service_sub[index]];
             service_sub[index].checked = true;
             serverId[index] = service_sub[index].id
-        }else{
+            service_sub[index].priceArr = data[index].service[0].price;
+            service_sub[index].price = service_sub[index].priceArr[level][that.data.servetab / 1 - 1];
+        } else {
             delete goodsItem[index]
             delete serverId[index]
             service_sub[index].checked = false;
+            service_sub[index].priceArr = {
+                1: [0, 0],
+                2: [0, 0],
+                3: [0, 0],
+                4: [0, 0],
+                5: [0, 0],
+            };
         }
-        // for (var r = 0; r < data.length; r++) {
-        //     service_sub[r].price = data[r].service[0].price[level][that.data.servetab / 1 - 1]
-        // }
+        
         for (var k in goodsItem) {
             for (var v = 0; v < goodsItem[k].length; v++) {
                 console.log(goodsItem[k][v])
-                goodsid.push({
-                    id: goodsItem[k][v].id,
-                    num: goodsItem[k][v].nums,
-                    is_service: goodsItem[k][v].is_service == 1 ? goodsItem[k][v].is_service : 2
-                })
+                // goodsid.push({
+                //     id: goodsItem[k][v].id,
+                //     num: goodsItem[k][v].nums,
+                //     is_service: goodsItem[k][v].is_service == 1 ? goodsItem[k][v].is_service : 2
+                // })
                 NewTotal += goodsItem[k][v].price / 1 * goodsItem[k][v].nums / 1
                 OldTotal += goodsItem[k][v].original_price / 1 * goodsItem[k][v].nums / 1
             }
         }
-        // NewTotal = (serviceData.transfer_price[that.data.servetab] / 1 + NewTotal + serviceData.service[0].price)
-        // OldTotal = (serviceData.transfer_price[that.data.servetab] / 1 + OldTotal + serviceData.service[0].price)
-        if (app.globalData.couponType != 0 && app.globalData.couponType == 1 || app.globalData.couponType == 3) {
+        for (var i = 0; i < service_sub.length; i++) {
+            service_price[1][0] += service_sub[i].priceArr[1][0];
+            service_price[1][1] += service_sub[i].priceArr[1][1];
+            service_price[2][0] += service_sub[i].priceArr[2][0];
+            service_price[2][1] += service_sub[i].priceArr[2][1];
+            service_price[3][0] += service_sub[i].priceArr[3][0];
+            service_price[3][1] += service_sub[i].priceArr[3][1];
+            service_price[4][0] += service_sub[i].priceArr[4][0];
+            service_price[4][1] += service_sub[i].priceArr[4][1];
+            service_price[5][0] += service_sub[i].priceArr[5][0];
+            service_price[5][1] += service_sub[i].priceArr[5][1];
+        }
+        // console.log(NewTotal, service_price[level][that.data.servetab / 1 - 1])
+        // NewTotal = NewTotal + service_price[level][that.data.servetab / 1 - 1]
+       
+        /*  if (app.globalData.couponType != 0 && app.globalData.couponType == 1 || app.globalData.couponType == 3) {
             NewTotal = (NewTotal - app.globalData.couponvalue).toFixed(2)
         } else if (app.globalData.couponType != 0 && app.globalData.couponType == 2) {
             NewTotal = (NewTotal * app.globalData.couponvalue / 100).toFixed(2)
-        }
-        // NewTotal = (NewTotal - that.data.balance1).toFixed(2);
-        // OldTotal = OldTotal.toFixed(2);
+        } */
         that.setData({
             serverId: serverId,
-            [`service_sub[${index}].checked`]: service_sub[index].checked,
+            service_sub: service_sub,
+            service_price: service_price,
             goodsItem: goodsItem,
-            goodsid: goodsid,
-            // NewTotal: NewTotal < 0 ? 0 : NewTotal + that.data.service_price[that.data.servetab / 1 - 1],
-            NewTotal: NewTotal < 0 ? 0 : NewTotal ,
-            OldTotal: OldTotal,//原价
+            // goodsid: goodsid,
+            NewTotal: NewTotal < 0 ? 0 : NewTotal.toFixed(2),
+            OldTotal: OldTotal, //原价
             economize: parseInt(OldTotal - NewTotal) < 0 ? "0.00" : (OldTotal - NewTotal).toFixed(2),
         })
         app.globalData.NewTotal = NewTotal
@@ -438,7 +475,7 @@ Page({
         if (index == 2) {
             NewTotal = NewTotal - this.data.serviceData[0].service[0].arrival_price + this.data.serviceData[0].service[0].door_price / 1
         } else {
-            NewTotal = NewTotal - this.data.serviceData[0].service[0].door_price + this.data.serviceData[0].service[0].arrival_price  / 1
+            NewTotal = NewTotal - this.data.serviceData[0].service[0].door_price + this.data.serviceData[0].service[0].arrival_price / 1
         }
         this.setData({
             NewTotal: NewTotal.toFixed(2),
@@ -457,7 +494,7 @@ Page({
             url: '/pages/couponList/couponList?NewTotal=' + this.data.NewTotal,
         })
     },
-    getOpenid: function (loginCode, detail) {
+    getOpenid: function(loginCode, detail) {
         let that = this,
             params = {
                 appid: app.globalData.appid,
@@ -472,14 +509,14 @@ Page({
         })
     },
     // 解析手机号
-    analysisUserPhone(session_key,detail){
+    analysisUserPhone(session_key, detail) {
         let that = this;
         console.log(detail.encryptedData)
         console.log(encodeURIComponent(detail.encryptedData))
         let params = {
             appid: app.globalData.appid,
             sessionKey: session_key,
-            encryptedData: detail.encryptedData ,
+            encryptedData: detail.encryptedData,
             iv: detail.iv,
         }
         app.net.$Api.analysisUserPhone(params).then((res) => {
@@ -498,23 +535,23 @@ Page({
         })
     },
     // 获取用户手机号
-    getUserPhone(e){
+    getUserPhone(e) {
         var that = this;
         let detail = e.detail
-       
-        if (e.detail.errMsg == "getPhoneNumber:fail user deny"){
+
+        if (e.detail.errMsg == "getPhoneNumber:fail user deny") {
             app.alert('请授权手机号')
-        }else{
+        } else {
             wx.login({
-                success: function (loginCode) {
-                    console.log(loginCode,400)
+                success: function(loginCode) {
+                    console.log(loginCode, 400)
                     //获取用户信息
                     // wx.getUserInfo({
                     //     lang: 'zh_CN',
                     //     success: function (res) { // 当用户授权成功的时候，保存用户的登录信息 
                     //         console.log(res, 384)
                     //         app.globalData.userInfo = res.userInfo;
-                           
+
                     //     },
                     // })
                     that.getOpenid(loginCode, detail);
@@ -523,7 +560,7 @@ Page({
         }
     },
     // 保存用户手机号
-    phoneLogin(){
+    phoneLogin() {
         let that = this;
         let params = {
             appid: app.globalData.appid,
@@ -531,32 +568,33 @@ Page({
             mobile: that.data.phone,
         }
         app.net.$Api.phoneLogin(params).then((res) => {
-           
-            if(res.data.code == 200){
+
+            if (res.data.code == 200) {
 
                 // wx.showModal({
                 //     title: '温馨提示',
                 //     content: '提交成功',
                 //     showCancel: false,
                 //     success: function () {
-                        that.createServiceOrder()
-                    // }
+                that.createServiceOrder()
+                // }
 
                 // })
             }
         })
     },
-    goPaihangList(){
+    goPaihangList() {
         wx.navigateTo({
             url: '/pages/seniority/seniority?type_id=' + this.data.type_id,
         })
     },
     // 品牌排行
-    goSeniority(e){
+    goSeniority(e) {
         let index = e.currentTarget.dataset.index;
-        console.log(index)
+        let goods_id = e.currentTarget.dataset.id;
+        console.log(e.currentTarget.dataset)
         wx.navigateTo({
-            url: '/pages/seniorityList/seniorityList?id=' + this.data.goodsIdArr[index],
+            url: '/pages/seniorityList/seniorityList?id=' + this.data.goodsIdArr[index] + '&goods_id=' + goods_id,
         })
     }
 })

@@ -221,6 +221,18 @@
     position: relative;
     /* margin-left: 20rpx; */
 }
+.btn_4{
+     width: 156rpx;
+    height: 60rpx;
+    text-align: center;
+    line-height: 60rpx;
+    font-size: 28rpx;
+    color: #8f8f8f;
+    border: 2rpx solid #8f8f8f;
+    border-radius: 6rpx;
+    position: relative;
+    /* margin-left: 20rpx; */
+}
 .orderTitle{
     width: 94%;
     padding: 30rpx 3%;

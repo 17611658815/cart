@@ -50,3 +50,10 @@
     text-align: center;
     line-height: 40rpx;
 }
+.addCar{
+    width: 120rpx;
+    height: 120rpx;
+    position: fixed;
+    bottom: 120rpx;
+    right: 30rpx;
+}

@@ -36,7 +36,7 @@
         </view>
     </scroll-view>
     <view class="goodsList dpfC">
-        <view class="goodsList-item" wx:for='{{goosData.brandsList}}' data-id="{{item.id}}" bindtap="goPinpaiDetaile">
+        <view class="goodsList-item" wx:for='{{goosData.brandsList}}' data-id="{{item.id}}" catchtap="goPinpaiDetaile">
             <view class="goodsList-item-title dpfb">
                 <view class="left dpf">
                     <view class="left-img">
@@ -46,12 +46,12 @@
                     <view class="left-name">
                         <view>{{item.name}}</view>
                         <view class='star_item'>
-                            <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:for-item='itemData' bindtap='getStar2' data-star='{{itemData}}' style='background:url({{ item.pingfen >= itemData ? iconArr[1] : iconArr[0]}}) no-repeat center center/3.5vw 3.5vw;'></view>
+                            <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:for-item='itemData' catchtap='getStar2' data-star='{{itemData}}' style='background:url({{ item.pingfen >= itemData ? iconArr[1] : iconArr[0]}}) no-repeat center center/3.5vw 3.5vw;'></view>
                         </view>
                     </view>
                 </view>
-                <view class="right" bindtap="copyShow">
-                    <view>{{item.taokouling}}</view>
+                <view class="right" data-taokouling='{{item.taokouling}}' catchtap="copyShow">
+                    <view>获取淘宝口令</view>
                 </view>
             </view>
             <view class="goodsList-item-text">
@@ -78,9 +78,9 @@
                     </view>
                 </view>
             </view> -->
-            <view class="goodsList-item-bottm">
+            <!-- <view class="goodsList-item-bottm">
                 展开旗下热门机油 点击展开 >
-            </view>
+            </view> -->
         </view>
     </view>
     <view class="jiangtang">
@@ -88,7 +88,7 @@
         <!-- <image  style="width:100%;height:100rpx;" src="../../images/1582885436(1).jpg"></image> -->
     </view>
     <view class="ketangList dpfC">
-        <view class="ketangList-item dpf" wx:for='{{goosData.relContent}}'>
+        <view class="ketangList-item dpf" data-id='{{item.id}}' bindtap="gotextPage" wx:for='{{goosData.relContent}}'>
             <view class="ketangList-item-left">
                 <view class="ketangList-item-left-title">
                     <view class="title_tag1" wx:if='{{index == 0}}'>1</view>
@@ -103,11 +103,11 @@
                     <view>润滑</view>
                     <view>润滑</view>
                     <view style="border:none">润滑</view> -->
-                    <view>{{k.name}}</view>
+                    <!-- <view>{{k.name}}</view> -->
                 </view>
             </view>
             <view class="ketangList-item-right">
-                <image src='https://img.dodo.wiki/upload/20200105//15782213148501.jpg'></image>
+                <image src='{{item.thumb}}'></image>
             </view>
         </view>
     </view>
@@ -118,6 +118,13 @@
         <view class="xiangguanList-item dpfC" wx:for='{{goosData.otherBrandList}}' data-id="{{item.id}}" bindtap="goPinpaiDetaile">
             <image src='{{item.thumb}}'></image>
             <view>{{item.name}}</view>
+        </view>
+    </view>
+    <!-- 免责声明 -->
+    <view class="footer_content" data-id='94' bindtap="gotextPage">
+        <view>
+            <view>免责声明</view>
+            <!-- <view>dsadsadsa</view> -->
         </view>
     </view>
 </view>

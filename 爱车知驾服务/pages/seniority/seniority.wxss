@@ -167,7 +167,7 @@ page {
 
 .goodsList-item-text>view:nth-child(2) {
     flex: 1;
-    height: 150rpx;
+    height: 180rpx;
     font-size: 28rpx;
     color: #666;
     word-break: break-all;
@@ -275,6 +275,8 @@ page {
     width: 90%;
     padding: 30rpx 5%;
     font-size: 32rpx;
+    background: #00a4c5;
+    color: #ffffff;
 }
 .scroll-view-x{
     width: 100%;
@@ -409,4 +411,24 @@ page {
 
 .rui-star:nth-child(n+1) {
     margin-left: 5rpx;
+}
+
+.footer_content{
+    width: 100%;
+    background: #4A4A4A;
+    height: 250rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.footer_content>view{
+    width: 100%;
+    height: 180rpx;
+    border-top: 1rpx solid #bfbfbf;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #bfbfbf;
+    font-size: 28rpx;
 }

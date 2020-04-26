@@ -26,3 +26,5 @@
         <view class='txt'>您还没有添加爱车~</view>
     </view>
 </view>
+
+<image class="addCar" bindtap="gouploadPic" src="../../images/addCar.png"></image>

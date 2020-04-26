@@ -62,19 +62,33 @@ Page({
             appid: app.globalData.appid,
             user_id: that.data.userid,
         }
-        app.net.$Api.getJishiShop(params).then((res) => {
-            if(res.data.data.length == 1){
-                that.setData({
-                    shop_id: res.data.data[0].id
-                })
-                that.acceptOrder()
-            }else{
-                that.setData({
-                    carList: res.data.data,
-                    carListShow: true
-                })
+        wx.showModal({
+            title: '温馨提示',
+            content: '确认此车型本人可以长期进行专业服务，否则将支付相应赔偿',
+            success(res) {
+                if (res.confirm) {
+                    app.net.$Api.getJishiShop(params).then((res) => {
+                        console.log(res)
+                        if (res.data.code == 200) {
+                            if (res.data.data.length == 1) {
+                                that.setData({
+                                    shop_id: res.data.data[0].id
+                                })
+                                that.acceptOrder()
+                            } else {
+                                that.setData({
+                                    carList: res.data.data,
+                                    carListShow: true
+                                })
+                            }
+                        } else {
+                            app.alert(res.data.msg)
+                        }
+                    })
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
             }
-            console.log(res)
         })
     },
     // 关闭店铺

@@ -158,7 +158,8 @@ Page({
         message: "",
         OrderTypeData:{},
         messageTag:0,
-        member_info:{}
+        member_info:{},
+        jishi_member_id:0,
     },
     formatTime(date, type) {
         var year = date.getFullYear();
@@ -330,6 +331,9 @@ Page({
             console.log(res)
             clearTimeout(that.data.times)
             if (res.data.status <= 2) {
+                that.setData({
+                    jishi_member_id: res.data.jishi_member_id
+                })
                 that.data.times = setTimeout(() => {
                     that.getOrderStatus(app.globalData.order_id)
                     console.log(that.data.times)
@@ -337,9 +341,10 @@ Page({
             } else if (res.data.status == 3) {
                 that.setData({
                     typeNum: 3,
+                    jishi_member_id: res.data.jishi_member_id,
                     jishi_info: res.data.member_info
                 })
-                app.globalData.order_id = 0;
+                // app.globalData.order_id = 0;
             } else if (res.data.status == 4){
                 that.setData({
                     typeNum: 4,
@@ -374,7 +379,7 @@ Page({
                     carList: res.data.list
                 })
             }
-            console.log(res)
+            console.log(res.data.num)
         })
     },
     // 获取区域id
@@ -635,7 +640,7 @@ Page({
         app.globalData.area_id = that.data.area_id
         app.globalData.Carid = id
         wx.navigateTo({
-            url: '/pages/search/search?currentTab=' + (that.data.currentTab / 1 + 1) + "&Carid=" + id + "&area_id=" + that.data.area_id,
+            url: '/pages/classList/classList?currentTab=' + (that.data.currentTab / 1 + 1) + "&Carid=" + id + "&area_id=" + that.data.area_id,
         })
     },
     //全部服务
@@ -712,9 +717,11 @@ Page({
     recallOther(e) {
         let that = this;
         // let data = e.currentTarget.dataset.item;
+        let content = that.data.jishi_member_id == 0 ? "确定取消订单吗" : "服务准备工作已经展开,如需取消该订单,只能返还80%订单金额"
+        
         wx.showModal({
             title: '温馨提示',
-            content: '确定取消订单吗？如取消订单，系统只能返回80%订单金额',
+            content: content,
             success(res) {
                 if (res.confirm) {
                     console.log('用户点击确定')
@@ -741,9 +748,11 @@ Page({
             appid: app.globalData.appid,
             id: app.globalData.order_id
         }
+        console.log(app.globalData.order_id)
         app.net.$Api.cancelOrder(params).then((res) => {
-            clearTimeout(that.data.times)
+            console.log(res)
             app.globalData.order_id = 0;
+            clearTimeout(that.data.times)
             that.setData({
                 typeNum: 0
             })

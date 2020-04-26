@@ -80,9 +80,9 @@
                 </view>
             </view>
     </view> -->
-     <view class="comment_titel"> 
-    <text>{{brandData.brand.name}}{{brandData.obj_type.name}}好不好</text> 
-     <view bindtap="gocomment">我要点评</view>
+    <view class="comment_titel">
+        <text>{{brandData.brand.name}}{{brandData.obj_type.name}}好不好</text>
+        <view bindtap="gocomment">我要点评</view>
     </view>
     <view class="comment_tite2">
         <view style='font-size:32rpx;'>
@@ -91,19 +91,19 @@
             <text style='font-size:32rpx;color:#00A4C5'>{{brandData.commentNums}}</text>
             <text>条评论</text>
         </view>
-         <view style='margin-top:20rpx;' class="dpf">
+        <view style='margin-top:20rpx;' class="dpf">
             <text>有</text>
             <text style='font-size:32rpx;color:#e5ce53'>{{brandData.enjoyNum}}</text>
             <text>人说好</text>
             <text>，有</text>
             <text style='font-size:32rpx;color:#e5ce53'>{{brandData.disgustNum}}</text>
             <text>人说不好</text>
-            
-             <view class='star_item'>
-                            <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:for-item='itemData' bindtap='getStar2' data-star='{{itemData}}' style='background:url({{ brandData.commentAvg >= itemData ? iconArr[1] : iconArr[0]}}) no-repeat center center/3.5vw 3.5vw;'></view>
-                      <!-- <text style='font-size:32rpx;color:#e5ce53'>不太好</text>   -->
-                            
-        </view>
+
+            <view class='star_item'>
+                <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:for-item='itemData' bindtap='getStar2' data-star='{{itemData}}' style='background:url({{ brandData.commentAvg >= itemData ? iconArr[1] : iconArr[0]}}) no-repeat center center/3.5vw 3.5vw;'></view>
+                <!-- <text style='font-size:32rpx;color:#e5ce53'>不太好</text>   -->
+
+            </view>
 
 
         </view>
@@ -113,23 +113,23 @@
             <view class="comment-item-left">
                 <image src="../../images/1584781412(1).png"></image>
             </view>
-            
-                <view class="comment-item-right">
-                    <view class="fontSize-28 color1">
+
+            <view class="comment-item-right">
+                <view class="fontSize-28 color1">
                     <text style='font-size:28rpx;color:#00A4C5'>{{item.name}}</text>
                     <text>{{item.content}}</text>
-                    </view>
-                    <view class="fontSize-24 color2 dpf">
-                        <view style='font-size:28rpx;color:#999999'>{{item.created}}</view>
-                        <view class='star_item'>
-                            <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:for-item='itemData' bindtap='getStar2' data-star='{{itemData}}' style='background:url({{ item.score >= itemData ? iconArr[1] : iconArr[0]}}) no-repeat center center/3.5vw 3.5vw;'></view>
-                            
-        </view>
+                </view>
+                <view class="fontSize-24 color2 dpf">
+                    <view style='font-size:28rpx;color:#999999'>{{item.created}}</view>
+                    <view class='star_item'>
+                        <view class='rui-star' wx:for="{{[1,2,3,4,5]}}" wx:for-item='itemData' bindtap='getStar2' data-star='{{itemData}}' style='background:url({{ item.score >= itemData ? iconArr[1] : iconArr[0]}}) no-repeat center center/3.5vw 3.5vw;'></view>
+
                     </view>
                 </view>
             </view>
+        </view>
     </view>
-      <view bindtap="setkailong2" bindtap="brandObjTypeDetailAjax" class="viewMore">{{kailong ? '收起':'查看更多'}}</view>
+    <view bindtap="setkailong2" bindtap="brandObjTypeDetailAjax" class="viewMore">{{kailong ? '收起':'查看更多'}}</view>
     <view class="xiangguan">
         机油走势
     </view>
@@ -144,3 +144,10 @@
     </view>
 
 </view>
+ <!-- 免责声明 -->
+     <view class="footer_content" data-id='94' bindtap="gotextPage">
+        <view>
+            <view>免责声明</view>
+            <!-- <view>dsadsadsa</view> -->
+        </view>
+    </view>

@@ -25,8 +25,8 @@ Page({
         console.log(options)
         this.setData({
             iconArr: beas64, //评星
-            // obj_type_id: options.obj_type_id,
-            // brand_id: options.brand_id
+            obj_type_id: options.obj_type_id,
+            brand_id: options.brand_id
         })
         this.brandObjTypeDetail()
 
@@ -113,6 +113,12 @@ Page({
         let id = e.currentTarget.dataset.id;
         wx.navigateTo({
             url: '/pages/goodsDetail/goodsDetail?id=' + id,
+        })
+    },
+    gotextPage(e) {
+        let id = e.currentTarget.dataset.id;
+        wx.navigateTo({
+            url: '/pages/textPage/textPage?id=' + id,
         })
     },
     /**
