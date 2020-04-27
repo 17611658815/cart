@@ -51,6 +51,7 @@ Page({
     onLoad: function(options) {
         console.log(options, 44)
         let userinfo = wx.getStorageSync('userinfo') || '';
+        console.log(options)
         let setData = {
             isIphoneX: app.globalData.isIphoneX,
             member_id: userinfo.id,

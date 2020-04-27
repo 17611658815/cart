@@ -10,7 +10,7 @@
         </view>
     </view>
     <view class="width90 dpfC marginTop">
-        <view class="width100 dpf padding20 bgFFFF boxShadow borderBtm" bindtap="goIndex" data-id='{{item.id}}' wx:for='{{searchList}}'>
+        <view class="width100 dpf padding20 bgFFFF boxShadow borderBtm" bindtap="goIndex" data-path='{{item.url}}' wx:for='{{searchList}}'>
             <view class="left_icon dpfC">
                 <image src="../../images/automobile_icon.png"></image>
             </view>

@@ -29,7 +29,8 @@ page {
     border-radius: 50%;
     position: absolute;
     top: 5rpx;
-    left: 0
+    left: 0;
+    background: #fff;
 }
 
 .radioBox image {
@@ -68,6 +69,7 @@ page {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-left: 30rpx;
 }
 
 .purchase {

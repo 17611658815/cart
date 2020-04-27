@@ -68,11 +68,12 @@ Page({
         })
     },
     goIndex(e){
-        let id = e.currentTarget.dataset.id;
-        app.globalData.Goodsid = id,
-            app.globalData.authorizationShow2 = false;
-        wx.reLaunch({
-            url: '/pages/index/index?id='+id,
+        let path = e.currentTarget.dataset.path;
+        // app.globalData.Goodsid = id,
+            // app.globalData.authorizationShow2 = false;
+        console.log(path)
+        wx.navigateTo({
+            url: path,
         })
     },
     /**
