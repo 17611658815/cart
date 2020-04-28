@@ -1,6 +1,7 @@
 /* pages/seniorityList/seniorityList.wxss */
 page{
     background: #f8f8f8;
+    padding-bottom: 250rpx;
 }
 .herdertab{
     display: flex;
@@ -256,10 +257,14 @@ page{
     margin-left: 20rpx;
 }
 .goodsTitle-left{
+    width: 80%;
     display: flex;
+    overflow: auto;
 }
 .goodsTitle-left view{
+    /* width: 200rpx; */
     margin-right: 20rpx;
+     white-space:nowrap;
 }
 .comment_titel{
     width: 90%;
@@ -309,6 +314,9 @@ page{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+      position: fixed;
+    bottom: 0;
+    left: 0;
 }
 .footer_content>view{
     width: 100%;
@@ -320,4 +328,15 @@ page{
     justify-content: center;
     color: #bfbfbf;
     font-size: 28rpx;
+}
+.loadmore{
+  width: 90%;
+padding: 20rpx 0;
+border: 2rpx solid #e2e2e2;
+font-size: 26rpx;
+text-align: center;
+margin: 20rpx 0;
+color: 666666;
+background: #ffffff;
+
 }

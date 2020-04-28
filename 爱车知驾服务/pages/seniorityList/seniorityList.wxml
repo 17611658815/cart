@@ -4,12 +4,12 @@
 </view>
 <view class='container' wx:if='{{currentTab==1}}'>
     <view class="goodsList">
-        <view class="borderBtm" bindtap="goseniority2" data-id='{{item.id}}' wx:for='{{brandTypeList.goods}}'>
+        <view class="borderBtm" bindtap="goseniority2" data-id='{{item.name}}' wx:for='{{goodsList}}'>
             <text style="padding-right:30rpx">{{index+1}}</text>{{item.name}}</view>
     </view>
-    <view class="xiangguan">
+    <!-- <view class="xiangguan">
         相关品牌
-    </view>
+    </view> -->
 
 </view>
 <view class='container' wx:if='{{currentTab==0}}'>
@@ -46,7 +46,7 @@
     <view class="goodsTitle dpfb borderBtm">
         <view class="goodsTitle-left">
             <view>全部产品</view>
-            <view style="color:#0064C8" bindtap="goseniority2" data-id="{{item.id}}" wx:for='{{brandData.obj_typies}}'>{{item.name}}</view>
+            <view style="color:#0064C8" bindtap="goseniority2" data-id="{{item.name}}" wx:for='{{brandData.obj_typies}}'>{{item.name}}</view>
         </view>
         <!-- <view class="goodsTitle-right">更多</view> -->
     </view>
@@ -58,7 +58,7 @@
                         <view class="listBox_item_img dpfC">
                             <image mode="scaleToFill" src="{{item.thumb}}" />
                         </view>
-                        <view class="phoneName white_noWrap">{{item.name}}</view>
+                        <view class="phoneName white_noWrap">{{item.model_number}}<text wx:if='{{item.unit!=""}}'>({{item.unit}})</text></view>
                         <view class="phonenNum dpfb">
                            <text>销量{{item.salesNum}}件/月</text>
                             <text>{{item.price}}/元</text>
@@ -67,6 +67,7 @@
                 </view>
             </view>
         </view>
+        <view class="loadmore" bindtap="brandObjTypeDetailAjax" wx:if='{{!no_off}}'>更多热销产品榜</view>
     </view>
     <!-- <view class="comment" wx:if='{{!kailong2}}'>
         <view class="comment-item">
@@ -82,7 +83,7 @@
     </view> -->
    <view class="comment_titel"> 
      <text>{{brandData.brand.name}}机油怎么样</text> 
-     <view bindtap="gocomment">我要点评</view>
+     <view bindtap="gocomment" data-name='{{brandData.brand.name}}'>我要点评</view>
     </view>
     <view class="comment_tite2">
         <view style='font-size:32rpx;'>
@@ -113,10 +114,9 @@
             <view class="comment-item-left">
                 <image src="../../images/1584781412(1).png"></image>
             </view>
-            
                 <view class="comment-item-right">
                     <view class="fontSize-28 color1">
-                    <text style='font-size:28rpx;color:#00A4C5'>{{item.name}}</text>
+                    <text style='font-size:28rpx;color:#00A4C5'>{{item.username}}</text>
                     <text>{{item.content}}</text>
                     </view>
                     <view class="fontSize-24 color2 dpf">
@@ -129,7 +129,7 @@
                 </view>
             </view>
     </view>
-      <view bindtap="setkailong2" bindtap="brandObjTypeDetailAjax" class="viewMore">{{kailong ? '收起':'查看更多'}}</view>
+      <view bindtap="setkailong2" bindtap="brandObjTypeDetailAjax2" class="viewMore">{{kailong ? '收起':'查看更多'}}</view>
     <view class="xiangguan">
         机油走势
     </view>

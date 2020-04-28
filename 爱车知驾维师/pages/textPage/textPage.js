@@ -9,6 +9,8 @@ Page({
         id: 0,
         content:'',
         title:"",
+        shipin:""
+
     },
 
     /**
@@ -32,6 +34,7 @@ Page({
             that.setData({
                 content: res.data.data.content, 
                 title: res.data.data.title, 
+                shipin: res.data.data.shipin, 
             })
 
         })

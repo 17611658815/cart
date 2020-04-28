@@ -304,6 +304,9 @@ page{
     border-radius: 10rpx;
     border: 1rpx solid #00A4C5;
 }
+page{
+    padding-bottom: 250rpx;
+}
 .footer_content{
     width: 100%;
     background: #4A4A4A;
@@ -311,6 +314,9 @@ page{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 .footer_content>view{
     width: 100%;
@@ -322,4 +328,15 @@ page{
     justify-content: center;
     color: #bfbfbf;
     font-size: 28rpx;
+}
+.loadmore{
+  width: 90%;
+padding: 20rpx 0;
+border: 2rpx solid #e2e2e2;
+font-size: 26rpx;
+text-align: center;
+margin: 20rpx 0;
+color: 666666;
+background: #ffffff;
+
 }

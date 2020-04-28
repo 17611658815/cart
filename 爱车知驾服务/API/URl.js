@@ -192,5 +192,11 @@ export default class Url {
     static visitLogUrl() {
         return Url.USER + '/visitLog';
     }
+    static brandModelsUrl() {
+        return Url.PATH + '/brandModels';
+    }
+    static getBrandCommnetAjaxUrl() {
+        return Url.PATH + '/getBrandCommnetAjax';
+    }
 
 }

@@ -201,5 +201,11 @@ export const api = {
     visitLog: function (paramObj) {
         return Promise.post(Url.default.visitLogUrl(), paramObj);
     },
+    brandModels: function (paramObj) {
+        return Promise.post(Url.default.brandModelsUrl(), paramObj);
+    },
+    getBrandCommnetAjax: function (paramObj) {
+        return Promise.post(Url.default.getBrandCommnetAjaxUrl(), paramObj);
+    },
 
 }

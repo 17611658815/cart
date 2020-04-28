@@ -14,7 +14,7 @@ Page({
         diagnosisStar3: 1,//服务评星
         evaluateCurrent3: 0,//评价当前选中
         message: "",
-        obj_type_id:0
+        name:0
     },
 
     /**
@@ -26,7 +26,7 @@ Page({
             iconArr3:beas64,
             id: options.brand_id,
             member_id: userinfo.id,
-            obj_type_id: options.obj_type_id || ""
+            name: options.name || ""
             
         })
         console.log(options)
@@ -68,7 +68,7 @@ Page({
         let params = {
             appid: app.globalData.appid,
             brand_id: that.data.id,
-            obj_type_id: that.data.obj_type_id,
+            name: that.data.name,
             member_id:that.data.member_id,
             content: that.data.message,
             score: that.data.diagnosisStar3,

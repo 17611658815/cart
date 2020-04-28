@@ -7,14 +7,18 @@ Page({
      * 页面的初始数据
      */
     data: {
-        id: 354,
+        id: 0,
         page:1,
+        page2:1,
+        no_off:false,
+        no_off2:false,
         currentTab: 0,
         kailong:false,
         kailong2:false,
         brandData:{},
         brandList:[],
-        brandTypeList:[]
+        brandTypeList:[],
+        goodsList:[],
     },
 
     /**
@@ -24,10 +28,12 @@ Page({
         console.log(options)
         this.setData({
             iconArr: beas64,
-            id: options.goods_id
+            id: options.goods_id,
+            currentTab: options.currentTab || 0,
         })
         this.brand()
         this.brandObjType()
+        this.brandModels()
         
     },
     onShow(){
@@ -67,6 +73,20 @@ Page({
             console.log(that.data.goosData)
         })
     },
+    brandModels() {
+        let that = this;
+        let params = {
+            appid: app.globalData.appid,
+            brand_id:that.data.id
+        }
+        app.net.$Api.brandModels(params).then((res) => {
+            console.log(res)
+            that.setData({
+                goodsList: res.data.list
+            })
+            console.log(res.data)
+        })
+    },
     brandObjType() {
         let that = this;
         let params = {
@@ -83,6 +103,9 @@ Page({
     },
     brandObjTypeDetailAjax(){
         let that = this;
+        if (that.data.no_off){
+            return
+        }
         that.data.page++
         let params = {
             appid: app.globalData.appid,
@@ -92,12 +115,40 @@ Page({
         }
         app.net.$Api.brandObjTypeDetailAjax(params).then((res) => {
             console.log(res)
-            if(res.data.length>0){
+            if(res.data.length>=4){
+                that.setData({
+                    "brandData.objs": that.data.brandData.objs.concat(res.data)
+                })
+            }else{
+                that.setData({
+                    no_off:true
+                })
+            }
+            console.log(that.data.brandList)
+        })
+    },
+    brandObjTypeDetailAjax2(){
+        let that = this;
+        if (that.data.no_off2){
+            return
+        }
+        that.data.page2++
+        let params = {
+            appid: app.globalData.appid,
+            brand_id:that.data.id,
+            // brand_id: 354,
+            page:that.data.page2
+        }
+        app.net.$Api.getBrandCommnetAjax(params).then((res) => {
+            console.log(res)
+            if(res.data.length>=4){
                 that.setData({
                     "brandData.comment": that.data.brandData.comment.concat(res.data)
                 })
             }else{
-                return
+                that.setData({
+                    no_off2:true
+                })
             }
             console.log(that.data.brandList)
         })
@@ -109,9 +160,10 @@ Page({
             url: '/pages/goodsDetail/goodsDetail?id='+id,
         })
     },
-    gocomment(){
+    gocomment(e){
+        let name = e.currentTarget.dataset.name;
         wx.navigateTo({
-            url: '/pages/comment2/comment2?brand_id=' + this.data.id,
+            url: '/pages/comment2/comment2?brand_id=' + this.data.id + "&name=" + name,
             success: function(res) {},
             fail: function(res) {},
             complete: function(res) {},
@@ -133,6 +185,11 @@ Page({
         let id = e.currentTarget.dataset.id;
         wx.navigateTo({
             url: '/pages/textPage/textPage?id=' + id 
+        })
+    },
+    loadMore(){
+        wx.navigateTo({
+            url: '/pages/textPage/textPage?id=' + id
         })
     },
     /**

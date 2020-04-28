@@ -39,7 +39,7 @@
     </swiper>
 
     <view style=" border-radius:20rpx;padding-bottom: 20rpx;" class="width90 bgFFFF dpfC marginTop20">
-        <view class="thumb width90" bindtap="gosign">
+        <view class="thumb width90" data-id="32" bindtap="gotextPage">
             <image mode="scaleToFill" src='https://img.dodo.wiki/app/sign.png'></image>
         </view>
     </view>

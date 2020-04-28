@@ -38,7 +38,7 @@
     text-align: center;
     line-height: 20rpx;
     border-radius: 50%;
-    font-size: 18rpx;
+    font-size: 15rpx;
 }
 .mssage_icon_box image {
     width: 35rpx;
