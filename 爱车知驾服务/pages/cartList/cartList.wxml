@@ -40,16 +40,16 @@
                         <image  data-index='{{index}}' data-id="{{key}}" data-key="{{key}}" catchtap='SingChecked' wx:if='{{itemData.goods[0].checked}}' src='../../images/checked.png'></image>
                         <image  data-index='{{index}}' data-id="{{key}}" data-key="{{key}}" catchtap='SingChecked' src='../../images/no_checked.png' wx:else></image>
                     </view>
-                    <view class='goods_content_item' wx:for='{{itemData.goods}}' wx:for-item='product' wx:for-index='k' wx:key='key'  data-index='{{sindex-1}}' data-id='{{itemData.data.id}}' catchtap="goSeniority">
+                    <view class='goods_content_item' wx:for='{{itemData.goods}}' wx:for-item='product' wx:for-index='k' wx:key='key'>
                         <view class='itemright'>
                             <view class='dpfC'>
                                 <view class='goodsContent' >
                                     <view>
-                                        <view style="margin-left:50rpx;width:200rpx;" class='fontSize-26 color1 fontWeight5 white_noWrap'>
+                                        <view style="margin-left:50rpx;width:200rpx;" data-index='{{sindex-1}}' data-id='{{itemData.data.id}}' catchtap="goSeniority" class='fontSize-26 color1 fontWeight5 white_noWrap'>
                                             ({{itemData.data.name}}){{product.model_number}}/{{product.number}}{{product.unit_name}}</view>
                                     </view>
                                 </view>
-                                <view class='leftImg'>
+                                <view class='leftImg' catchtap="setGoods">
                                     <image src='{{product.thumb}}'></image>
                                 </view>
                                 <view class='goodsContent'>
@@ -285,4 +285,17 @@
         <!-- <view class='purchase_btn' catchtap='createServiceOrder'>去结算</view> -->
     </view>
     <view class='isIphoneXBox' wx:if='{{isIphoneX}}'></view>
+</view>
+
+
+<view class="setGoodsList" wx:if='{{showList}}'>
+     <view class="otherMsg" bindtap="checkdItem" wx:for='{{10}}'>
+        <view class="otherPic">
+            <image mode="scaleToFill" src="https://img.dodo.wiki/app/banner1.jpg" />
+        </view>
+        <view class="otherinfo">
+            <view class="fontSize-30 color1">机油</view>
+            <view class="fontSize-26 color3">200</view>
+        </view>
+    </view>
 </view>

@@ -118,7 +118,7 @@ Page({
         let params = {
             appid: app.globalData.appid,
             brand_id: that.data.brand_id,
-            // brand_id: 354,
+            name: that.data.brandData.brand.name,
             page: that.data.page2
         }
         app.net.$Api.getBrandCommnetAjax(params).then((res) => {
@@ -135,9 +135,10 @@ Page({
             console.log(that.data.brandList)
         })
     },
-    gocomment() {
+    gocomment(e) {
+        let name = e.currentTarget.dataset.name;
         wx.navigateTo({
-            url: '/pages/comment2/comment2?brand_id=354&obj_type_id=237',
+            url: '/pages/comment2/comment2?brand_id=' + this.data.brand_id + "&name=" + name,
             success: function (res) { },
             fail: function (res) { },
             complete: function (res) { },

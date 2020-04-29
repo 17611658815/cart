@@ -43,6 +43,7 @@ Page({
             4: [0, 0],
             5: [0, 0],
         },
+        showList:false
     },
 
     /**
@@ -582,6 +583,13 @@ Page({
 
                 // })
             }
+        })
+    },
+    // 替换产品
+    setGoods(){
+        let that = this;
+        that.setData({
+            showList: !that.data.showList
         })
     },
     goPaihangList() {

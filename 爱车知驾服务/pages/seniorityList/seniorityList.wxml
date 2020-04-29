@@ -129,7 +129,7 @@
                 </view>
             </view>
     </view>
-      <view bindtap="setkailong2" bindtap="brandObjTypeDetailAjax2" class="viewMore">{{kailong ? '收起':'查看更多'}}</view>
+      <view bindtap="setkailong2" bindtap="brandObjTypeDetailAjax2" wx:if='{{!no_off2}}' class="viewMore">{{kailong ? '收起':'查看更多'}}</view>
     <view class="xiangguan">
         机油走势
     </view>
