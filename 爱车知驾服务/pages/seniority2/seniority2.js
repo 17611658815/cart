@@ -118,7 +118,7 @@ Page({
         let params = {
             appid: app.globalData.appid,
             brand_id: that.data.brand_id,
-            name: that.data.brandData.brand.name,
+            name: that.data.brandData.module_name,
             page: that.data.page2
         }
         app.net.$Api.getBrandCommnetAjax(params).then((res) => {

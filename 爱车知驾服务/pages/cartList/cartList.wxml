@@ -50,6 +50,7 @@
                                     </view>
                                 </view>
                                 <view class='leftImg' catchtap="setGoods">
+                                <!-- <view class='leftImg'> -->
                                     <image src='{{product.thumb}}'></image>
                                 </view>
                                 <view class='goodsContent'>
@@ -289,7 +290,7 @@
 
 
 <view class="setGoodsList" wx:if='{{showList}}'>
-     <view class="otherMsg" bindtap="checkdItem" wx:for='{{10}}'>
+     <view class="otherMsg" catchtap="setGoods" wx:for='{{10}}'>
         <view class="otherPic">
             <image mode="scaleToFill" src="https://img.dodo.wiki/app/banner1.jpg" />
         </view>
