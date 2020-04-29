@@ -158,7 +158,7 @@ Page({
     },
     goseniority2(e) {
         let id = e.currentTarget.dataset.id;
-        wx.navigateTo({
+        wx.reLaunch({
             url: '/pages/seniority2/seniority2?obj_type_id=' + id + "&brand_id=" + this.data.brand_id,
         })
     },
